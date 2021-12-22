@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_margin="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/product"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="@dimen/_75sdp"/>
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Purdy, Ankunding"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+      <TextView
+                android:id="@+id/productCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Concentrates"
+                android:textColor="@color/green"
+                android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".8"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/remove"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:background="@color/light_green"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_path_minus" />
+
+                    <TextView
+                        android:id="@+id/quantityTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+
+                    <ImageView
+                        android:id="@+id/add"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:background="@color/light_green"
+                        android:src="@drawable/ic_baseline_add" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="$30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/deleteCard"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:foregroundGravity="right"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:outlineAmbientShadowColor="@color/green"
+            android:shape="ring"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="@dimen/_10sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_delete_forever_small_grey" />
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

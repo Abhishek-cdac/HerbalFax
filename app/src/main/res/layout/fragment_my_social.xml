@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@color/bg_gray"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+
+        <ImageView
+
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/mySocial"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/facebookTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_medium"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/facebook"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp">
+
+
+    </TextView>
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/white"
+        android:elevation="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_icon_facebook"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/facebookLinkTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/raleway_medium"
+                android:text="https://herbalfax.com/facebook"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_14sdp"/>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/googleplusTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_medium"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/googleplus"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp">
+
+
+    </TextView>
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/white"
+        android:elevation="@dimen/_8sdp"
+
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_group_googleplus"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/googleplusLinkTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/raleway_medium"
+                android:text="https://herbalfax.com/googleplus"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_14sdp"/>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/instaTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_medium"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/insta"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp">
+
+
+    </TextView>
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/white"
+        android:elevation="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_group_instagram"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/instaLinkTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/raleway_medium"
+                android:text="https://herbalfax.com/instagram"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_14sdp"/>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/twitterTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_medium"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/twitter"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp">
+
+    </TextView>
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/white"
+        android:elevation="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_group_twitter"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/twitterLinkTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/raleway_medium"
+                android:text="https://herbalfax.com/twitter"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_14sdp"/>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

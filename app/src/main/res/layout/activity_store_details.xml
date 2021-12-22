@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".customer.store.StoreDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+
+        <ImageView
+
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Conroy's Mart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_newsrecylcer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
+
+            <FrameLayout
+                android:id="@+id/imgcard"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp">
+
+                <ImageView
+                    android:id="@+id/imgprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/herbalfax_choice"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+
+                    android:src="@drawable/conroy" />
+
+                <TextView
+                    android:id="@+id/herbalfax_choice"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_10sdp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text=" HerbalFax Choice"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8sdp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center">
+
+                    <ImageView
+                        android:id="@+id/likeheartIMg"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:background="@drawable/circle_background_white"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_icon_ionic_ios_heart_grey" />
+
+                    <ImageView
+                        android:id="@+id/shareIMg"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:background="@drawable/circle_background_white"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_icon_ionic_md_share_grey" />
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/imgcard">
+
+
+                <TextView
+                    android:id="@+id/HeadingTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:maxLines="2"
+                    android:padding="@dimen/_2sdp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+                <LinearLayout
+                    android:id="@+id/ratingLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/HeadingTxt"
+                    android:padding="@dimen/_2sdp">
+
+                    <ImageView
+                        android:id="@+id/ratingOne"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                         />
+
+                    <ImageView
+                        android:id="@+id/ratingTwo"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                         />
+
+                    <ImageView
+                        android:id="@+id/ratingThree"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                         />
+
+                    <ImageView
+                        android:id="@+id/ratingFour"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                         />
+
+                    <ImageView
+                        android:id="@+id/ratingFive"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                         />
+
+                    <TextView
+                        android:id="@+id/ratingTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/addressTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ratingLL"
+                    android:drawableLeft="@drawable/ic_icon_map_marker_black"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:maxLines="2"
+                    android:padding="@dimen/_2sdp"
+                    android:textColor="@color/black"
+                    android:textSize="11dp" />
+
+                <TextView
+                    android:id="@+id/subHeadingTxt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/addressTxt"
+                    android:drawableLeft="@drawable/ic_icon_open_clock_black"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:maxLines="2"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Timing: Mon to Sat, 9am - 8:30pm"
+                    android:textColor="@color/black"
+                    android:textSize="11dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/subHeadingTxt1"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:padding="@dimen/_5sdp">
+
+
+                    <LinearLayout
+                        android:id="@+id/likeLl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="end|center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/likeheart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:src="@drawable/ic_icon_heart_border" />
+
+                        <TextView
+                            android:id="@+id/likeTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/raleway_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/reportLl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight=".3"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:src="@drawable/ic_icon_feather_eye" />
+
+                        <TextView
+                            android:id="@+id/viewTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/raleway_semibold"
+                           
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/locateOnMapTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/background_green_border"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/_5sdp"
+                android:text="  Locate on map "
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp" />
+
+
+            <TextView
+                android:id="@+id/contact_owner_Txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/background_green_border"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/_5sdp"
+                android:text="  Contact Owner  "
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/storePhotoTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_3sdp"
+                android:background="@drawable/background_green_border"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/_5sdp"
+                android:text="  Store Photos  "
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/light_green"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/photosRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#EFEFEF"
+        android:padding="@dimen/_20sdp"
+        android:visibility="gone" />
+
+
+    <RelativeLayout
+        android:id="@+id/contact_owner_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/storeOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="@dimen/_10sdp"
+            android:text="Store Owner"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+
+        <LinearLayout
+            android:id="@+id/detail_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/profileimg" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_20sdp">
+
+                <TextView
+                    android:id="@+id/storeOwnerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+
+                    android:text="Nick Jhonson"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_16sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+
+                    android:text="Shopkeeper"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nameLL"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:drawableLeft="@drawable/ic_icon_menu_map_pin"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="752 Jacinto Dale"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/contactTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nameLL"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:drawableLeft="@drawable/ic_icon__phone"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="XXXXXXX3210"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/emailTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nameLL"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:drawableLeft="@drawable/ic_icon_email"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="nickjohnson@gmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tab_constraint"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/white">
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="@color/green"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/text_grey"
+            tools:ignore="MissingConstraints" />
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="455dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            tools:layout_editor_absoluteX="-61dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

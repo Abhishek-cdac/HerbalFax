@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="SelectionTypeViewModel"
+            type="com.herbal.herbalfax.common_screen.selectiontype.SelectionTypeViewModel" />
+
+    </data>
+
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:padding="@dimen/_30sdp"
+                        android:src="@drawable/herbalfax_black_logo" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/textbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/white"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_30sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="@string/registration"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_22sdp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/customerCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:elevation="@dimen/_5sdp"
+                        android:onClick="@{(v) -> SelectionTypeViewModel.OnCustomer(v)}"
+                        app:cardBackgroundColor="@color/white"
+
+                        app:cardCornerRadius="@dimen/_5sdp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ic_customer_black" />
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/customerTxt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:gravity="left"
+                                    android:paddingTop="@dimen/_5sdp"
+                                    android:paddingBottom="@dimen/_5sdp"
+                                    android:text="@string/customer"
+                                    android:textColor="@color/green"
+                                    android:textSize="@dimen/_22sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:gravity="left"
+                                    android:paddingBottom="@dimen/_5sdp"
+                                    android:text="@string/account"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/checkboxCustomer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="@dimen/_20sdp"
+                                android:src="@drawable/ic_check_circle" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sellerCard"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:elevation="@dimen/_5sdp"
+                        android:onClick="@{(v) -> SelectionTypeViewModel.onSeller(v)}"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="@dimen/_5sdp">
+
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="match_parent"
+
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ic_vendor_black"
+
+                                />
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/VendorTxt"
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:gravity="left"
+                                    android:paddingTop="@dimen/_5sdp"
+                                    android:paddingBottom="@dimen/_5sdp"
+                                    android:text="@string/Vendor"
+                                    android:textColor="@color/green"
+                                    android:textSize="@dimen/_22sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_regular"
+
+                                    android:gravity="left"
+
+                                    android:paddingBottom="@dimen/_5sdp"
+                                    android:text="@string/account"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/checkboxSeller"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="@dimen/_20sdp"
+                                android:src="@drawable/ic_check_circle" />
+
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <Button
+                        android:id="@+id/continue_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/rect_button_green"
+                        android:elevation="@dimen/_15sdp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:onClick="@{(v) -> SelectionTypeViewModel.OnContinue(v)}"
+                        android:text="@string/continue1"
+
+
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/loginHere"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins_regular"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:text="@string/alreadyReg"
+                            android:textColor="@color/text_grey"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/resend"
+
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins_bold"
+                            android:onClick="@{(v) -> SelectionTypeViewModel.onLoginHere(v)}"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:text="@string/loginHere"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_14sdp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".customer.store.StoreRatingAndReviewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+
+        <ImageView
+
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/store_rating_and_review"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="@dimen/_20sdp"
+        android:padding="@dimen/_15sdp"
+        android:src="@drawable/conroy" />
+
+    <TextView
+        android:id="@+id/storeNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/raleway_semibold"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:text="Conroy's Mart"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sdp" />
+
+    <TextView
+        android:id="@+id/storeRatingTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_semibold"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:text="How would you rate your experience with
+Us? We strive for a 5 star experience."
+        android:textColor="@color/text_grey"
+        android:textSize="@dimen/_14sdp">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ratingOne"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/square_order"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_star_24" />
+
+        <ImageView
+            android:id="@+id/ratingTwo"
+
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/square_order"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_star_24" />
+
+        <ImageView
+            android:id="@+id/ratingThree"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/square_order"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_star_24" />
+
+        <ImageView
+            android:id="@+id/ratingFour"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/square_order"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_star_24" />
+
+        <ImageView
+            android:id="@+id/ratingFive"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/square_order"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_star_24" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/raleway_semibold"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:text="How was your experience?"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_230sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:elevation="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_5sdp">
+
+        <EditText
+            android:id="@+id/StoreRatingAndReviewTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:fontFamily="@font/raleway_medium"
+            android:gravity="start"
+            android:hint=" Optional, but helpful for us!"
+            android:padding="@dimen/_10sdp"
+            android:textAlignment="viewStart"
+            android:textColorHint="@color/black"
+            android:textSize="@dimen/_14sdp" />
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_weight=".5"
+            android:background="@drawable/rect_button_green"
+            android:elevation="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/submit"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_weight=".5"
+            android:background="@drawable/rect_button_gray"
+            android:elevation="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/cancel"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

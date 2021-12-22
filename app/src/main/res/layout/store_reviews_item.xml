@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+
+    android:padding="@dimen/_10sdp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgprofile"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/profileimg" />
+
+
+    <RelativeLayout
+        android:id="@+id/rlcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_toRightOf="@+id/imgcard">
+
+
+        <TextView
+            android:id="@+id/HeadingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="2"
+            android:padding="@dimen/_2sdp"
+            android:text="Conroy's Mart"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+        <LinearLayout
+            android:id="@+id/ratingLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HeadingTxt"
+            android:padding="@dimen/_2sdp">
+
+            <ImageView
+                android:id="@+id/one"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:src="@drawable/ic_icon_metro_star_full" />
+
+            <ImageView
+                android:id="@+id/two"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:src="@drawable/ic_icon_metro_star_full" />
+
+            <ImageView
+                android:id="@+id/three"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:src="@drawable/ic_icon_metro_star_full" />
+
+            <ImageView
+                android:id="@+id/four"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:src="@drawable/ic_icon_metro_star_full" />
+
+            <ImageView
+                android:id="@+id/five"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:src="@drawable/ic_baseline_star_24" />
+
+            <TextView
+                android:id="@+id/ratingDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="4 out of 5"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:text=", "
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="OCt 20, 2021"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_10sdp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/subHeadingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingLL"
+            android:fontFamily="@font/roboto_regular"
+            android:maxLines="2"
+            android:padding="@dimen/_2sdp"
+            android:text="Sapiente aliquid voluptas et Enim a eius consectetur dolores ut ducimus exercitationem dolorem."
+            android:textColor="@color/text_grey"
+            android:textSize="11dp" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

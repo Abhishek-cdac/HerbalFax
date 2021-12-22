@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_300sdp"
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/a"
+        android:gravity="center"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/green"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight=".7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/share_on"
+            android:gravity="left"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_22sdp" />
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_weight=".1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="2dp"
+            android:src="@drawable/ic_baseline_close_24" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/facebook"
+        android:gravity="left"
+        android:padding="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_icon_facebook_green"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+ <TextView
+     android:id="@+id/messenger"
+
+     android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/messenger"
+        android:gravity="left"
+        android:padding="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_icon_simple_messenger"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+    <TextView
+        android:id="@+id/twitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/twitter"
+        android:gravity="left"
+        android:padding="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_icon_simple_twitter"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+    <TextView
+        android:id="@+id/via_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/viaemail"
+        android:gravity="left"
+        android:padding="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_icon_email"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+ <TextView
+     android:id="@+id/copy_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/copyLink"
+        android:gravity="left"
+        android:padding="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_icon__link"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="VerifyCodeAfterSignUpViewModel"
+            type="com.herbal.herbalfax.common_screen.verify_email_after_signup.VerifyCodeAfterSignUpViewModel" />
+
+    </data>
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".1"
+                    android:padding="@dimen/_30sdp"
+                    android:src="@drawable/ic_email_verification" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/textbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/white"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_30sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@string/EmailVerification"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_22sdp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:text="@string/VerifyEmailDummy"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
+                    android:id="@+id/emailStr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@string/VerifyDummyy"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    card_view:cardElevation="8dp"
+
+                    card_view:cardPreventCornerOverlap="false">
+
+                    <EditText
+                        android:id="@+id/login_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="@string/entercode"
+                        android:inputType="textEmailAddress"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={VerifyCodeAfterSignUpViewModel.OTP}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppins_regular"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="@string/resendDummy"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <TextView
+                        android:onClick="@{(v) -> VerifyCodeAfterSignUpViewModel.onClickResend(v)}"
+
+                        android:id="@+id/resend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppins_bold"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="@string/resend"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                </LinearLayout>
+
+                <Button
+                    android:onClick="@{(v) -> VerifyCodeAfterSignUpViewModel.onClickConfirm(v)}"
+                    android:id="@+id/confirm_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/rect_button_green"
+                    android:elevation="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/confirm"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_18sdp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
+</layout>

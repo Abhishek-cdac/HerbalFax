@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="InterestViewModel"
+            type="com.herbal.herbalfax.customer.selectInterest.InterestViewModel" />
+    </data>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_interest_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+      android:padding="@dimen/_10sdp"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/raleway_semibold"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/SelectInterest"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_22sdp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_interest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/iv_next"
+            android:layout_below="@id/ll_head"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp" />
+
+
+        <Button
+            android:id="@+id/iv_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:onClick="@{(v) -> InterestViewModel.onNext(v)}"
+
+
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:background="@drawable/rect_button_green"
+            android:elevation="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:padding="@dimen/_12sdp"
+            android:text="@string/save"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+    </RelativeLayout>
+
+</layout>

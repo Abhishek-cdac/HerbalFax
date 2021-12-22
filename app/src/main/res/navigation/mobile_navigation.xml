@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.herbal.herbalfax.customer.homescreen.feed.FeedFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.herbal.herbalfax.customer.homescreen.nearbystores.NearByStoreFragment"
+        android:label="@string/nearbystore"
+        tools:layout="@layout/fragment_near_by_store" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.herbal.herbalfax.customer.homescreen.mysocial.MySocialFragment"
+        android:label="@string/mySocial"
+        tools:layout="@layout/fragment_my_social" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="com.herbal.herbalfax.customer.homescreen.SavedDispensaries.SavedDispensariesFragment"
+        android:label="@string/saved_dispensaries"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.herbal.herbalfax.customer.homescreen.explorestrain.ExploreStrainFragment"
+        android:label="@string/explore_strains"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.herbal.herbalfax.customer.homescreen.orders.OrdersFragment"
+        android:label="@string/orders"
+        tools:layout="@layout/fragment_send" />
+
+    <fragment
+        android:id="@+id/nav_events"
+        android:name="com.herbal.herbalfax.customer.homescreen.events.EventsFragment"
+        android:label="@string/event"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/nav_cardlist"
+        android:name="com.herbal.herbalfax.customer.homescreen.cardList.CardListFragment"
+        android:label="@string/card_list"
+        tools:layout="@layout/fragment_cardlist" />
+    <fragment
+        android:id="@+id/nav_parcel"
+        android:name="com.herbal.herbalfax.customer.homescreen.parcel.ParcelFragment"
+        android:label="@string/parcels"
+        tools:layout="@layout/fragment_parcelservice" />
+
+    <fragment
+        android:id="@+id/bottom_home"
+        android:name="com.herbal.herbalfax.customer.homescreen.feed.FeedFragment"
+        android:label="@string/menu_feed"
+        tools:layout="@layout/fragment_home" />
+
+   <fragment
+        android:id="@+id/bottom_dashboard"
+        android:name="com.herbal.herbalfax.customer.homescreen.products.ProductsFragment"
+        android:label="@string/menu_products"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+    <fragment
+        android:id="@+id/bottom_notifications"
+        android:name="com.herbal.herbalfax.customer.homescreen.nearbystores.NearByStoreFragment"
+        android:label="@string/title_group"
+        tools:layout="@layout/fragment_near_by_store" />
+
+
+
+ <!--   <fragment
+        android:id="@+id/bottom_notifications"
+        android:name="com.herbal.herbalfax.customer.homescreen.group.GroupsFragment"
+        android:label="@string/title_group"
+        tools:layout="@layout/fragment_notifications" />
+-->
+    <fragment
+        android:id="@+id/bottom_deal"
+        android:name="com.herbal.herbalfax.customer.homescreen.deals.DealsFragment"
+        android:label="@string/deal"
+        tools:layout="@layout/fragment_deals" />
+    <fragment
+        android:id="@+id/bottom_askfax"
+        android:name="com.herbal.herbalfax.customer.homescreen.askfax.AskFaxFragment"
+        android:label="@string/ask_fax"
+        tools:layout="@layout/fragment_askfax" />
+
+
+</navigation>

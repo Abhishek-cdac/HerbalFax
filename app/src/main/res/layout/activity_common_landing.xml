@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="LoginViewModel"
+            type="com.herbal.herbalfax.common_screen.landingpage.LandingpageViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EFEFEF"
+        android:orientation="vertical">
+        <!--#C9C9C9-->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize">
+
+            <LinearLayout
+                android:id="@+id/login_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:padding="@dimen/_5sdp">
+
+
+                <ImageView
+                    android:id="@+id/loginToolBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_login">
+
+                </ImageView>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/ic_map_home"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+        <ScrollView
+            android:background="#EFEFEF"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:padding="@dimen/_20sdp"
+                    android:clipChildren="false"
+                    app:cardElevation="8dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardBackgroundColor="@color/white">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="@dimen/_40sdp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/_5sdp"
+                            android:src="@drawable/ic_search_icon" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rect_button"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:drawableLeft="@drawable/ic_search_icon"
+                            android:drawableEnd="@drawable/ic_icon_filter"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/search_hint"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/raleway_semibold"
+                            android:paddingLeft="@dimen/_20sdp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/trending"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_22sdp" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <!--Recycler View widget-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/caterecyclerview"
+                    android:scrollbars="horizontal"
+                    android:padding="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="@string/fruity"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_22sdp" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fruityrecyclerview"
+                    android:padding="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="@string/trending"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_22sdp" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/trendingrecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="#EFEFEF"
+                    android:padding="@dimen/_20sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="@string/article"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_22sdp" />
+
+                <LinearLayout
+                    android:padding="@dimen/_20sdp"
+                    android:weightSum="2"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_weight=".1"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_icon_left_arrow_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_weight="1.8"
+                        android:id="@+id/articleRecyclerview"
+                        android:background="#EFEFEF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true" />
+
+                    <ImageView
+                        android:layout_weight=".1"
+
+                        android:layout_gravity="end|center"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_icon_arrow_back_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:weightSum="2"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="@string/events"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_22sdp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:gravity="end|center"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="@string/viewmore"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/timelyRecyclerview"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:background="#EFEFEF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/eventsRecyclerview"
+                    android:paddingBottom="@dimen/_20sdp"
+                    android:background="#EFEFEF"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+
+                <LinearLayout
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:weightSum="2"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="@string/photo"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_22sdp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:gravity="end|center"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="@string/viewmore"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/photosRecyclerview"
+                    android:padding="@dimen/_20sdp"
+                    android:background="#EFEFEF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</layout>

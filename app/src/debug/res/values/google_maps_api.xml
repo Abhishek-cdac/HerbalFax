@@ -1,0 +1,23 @@
+<resources>
+    <!--
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=73:C0:08:1E:5E:E2:23:F5:77:B2:2D:22:98:5E:39:76:3C:A1:28:40%3Bcom.herbal.herbalfax.customer.store
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.herbal.herbalfax.customer.store
+
+    SHA-1 certificate fingerprint:
+    73:C0:08:1E:5E:E2:23:F5:77:B2:2D:22:98:5E:39:76:3C:A1:28:40
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDx7u5TSw58fJwK_g39_hLu9wogz32Vpow</string>
+</resources>

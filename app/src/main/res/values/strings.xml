@@ -1,0 +1,243 @@
+<resources>
+    <string name="app_name">HerbalFax</string>
+    <string name="Password_hint">Enter your password</string>
+    <string name="Email_hint">Enter your email</string>
+    <string name="Email_hint1">Enter your email address</string>
+    <string name="login">SIGN IN</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="email">Email</string>
+    <string name="Password">Password</string>
+    <string name="login1">Login</string>
+    <string name="send">Send</string>
+
+    <string name="forget_password">Forget Password?</string>
+    <string name="resetPass">Reset Password</string>
+    <string name="resetDummy">We just need your registered </string>
+    <string name="resetDummy1">Email Address</string>
+    <string name="resetDummy2">to send verification code</string>
+
+    <string name="verifyEmail"> Verify your email address</string>
+    <string name="VerifyDummy"> Please enter your 4 digit code sent to  </string>
+    <string name="VerifyDummy1">Herbalfax@gmail.com</string>
+    <string name="resendDummy">Didn\'t received the code? </string>
+    <string name="resend"> RESEND</string>
+    <string name="confirm">CONFIRM</string>
+
+    <string name="CreateNewPassword">Create New Password</string>
+    <string name="NewPassDummy">Your new password must be different from your previous used password</string>
+    <string name="NewPassword">New Password</string>
+    <string name="ConfirmPassword">Confirm Password</string>
+    <string name="ResetPassword">Reset Password</string>
+    <string name="newPassword_hint">Enter your new password</string>
+    <string name="confirmPassword_hint">Confirm your password</string>
+
+    <string name="registration">Registration</string>
+    <string name="alreadyReg">Already registered? </string>
+    <string name="loginHere">Login here</string>
+    <string name="continue1">Continue</string>
+    <string name="Vendor">Vendor</string>
+    <string name="customer">Customer</string>
+    <string name="account">Account</string>
+
+    <string name="verificationCode">Resend Verification code</string>
+    <string name="verificationCodeDummy">We are sending verification code to this email id. Please recheck it before continue</string>
+
+    <string name="editprofile">Edit Profile</string>
+    <string name="signupAsCustomer">Sign Up As Customer</string>
+    <string name="name">Name</string>
+    <string name="birthday">Birthday</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="Other">Other</string>
+    <string name="selectProfession">Select Your Profession</string>
+    <string name="city">City</string>
+    <string name="zip">Zip Code</string>
+    <string name="emailAdd">Email Address</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="uploadPic">Upload Profile Picture</string>
+    <string name="uploadProfile">Update Profile</string>
+    <string name="termAndCon">I agree to term And Conditions</string>
+    <string name="signup">Sign Up</string>
+    <string name="alreadyUser">Already User?</string>
+
+    <string name="name_hint">Enter your name</string>
+    <string name="birthday_hint">Enter your birthday</string>
+    <string name="profession_hint">Enter your profession</string>
+    <string name="city_hint">Enter your city</string>
+    <string name="mob_hint">Enter your mobile number</string>
+    <string name="zip_hint">Enter your zip code</string>
+
+    <string name="EmailVerification">Email Verification</string>
+    <string name="VerifyEmailDummy"> Please enter your code we sent to </string>
+    <string name="VerifyDummyy">Her******@gmail.com</string>
+    <string name="entercode">Enter code</string>
+    <string name="enterEmail">Enter Email ID</string>
+    <string name="verificationCodeSignUp">You’ll receive an email verification code to verify next.</string>
+    <string name="GetCode">GET CODE</string>
+    <string name="SelectInterest">Select your Interest</string>
+    <string name="save">SAVE</string>
+
+    <string name="term">Terms and Condition</string>
+    <string name="termdummy">Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="add">ADD</string>
+    <string name="selected">%1$s</string>
+    <string name="termdummy1">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. \n\nEssentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. \n\nEssentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </string>
+
+    <string-array name="example_items">
+        <item>Profession A</item>
+        <item>Profession B</item>
+        <item>Profession C</item>
+        <item>Profession D</item>
+        <item>Profession E</item>
+        <item>Profession F</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="loginbtn">Login</string>
+    <string name="logout">Logout</string>
+    <string name="search_hint">Find Stores, Product &amp; Post</string>
+    <string name="fruity">Find Fruity Cannabis</string>
+    <string name="trending">Trending</string>
+    <string name="article">Article</string>
+    <string name="events">Events</string>
+    <string name="viewmore">View more</string>
+    <string name="photo">Photos</string>
+
+    <string name="menu_feed">Feeds</string>
+    <string name="menu_products">Products</string>
+    <string name="menu_home">Home</string>
+    <string name="title_group">Group</string>
+    <string name="nearbystore">Near by stores</string>
+    <string name="mySocial">My social</string>
+    <string name="saved_dispensaries">Saved dispensaries</string>
+    <string name="explore_strains">Explore strains</string>
+    <string name="orders">Orders</string>
+    <string name="event">Events</string>
+    <string name="card_list">Card list</string>
+    <string name="parcels">Parcel service</string>
+    <string name="deal">Deals</string>
+    <string name="ask_fax">Ask Fax</string>
+    <string name="action_settings">Setting</string>
+
+    <string name="action_notification">Notification</string>
+    <string name="action_mapHome">Map</string>
+    <string name="action_cart">Cart</string>
+
+    <string name="search">Search</string>
+    <string name="daily_blog">The Daily Blogs</string>
+    <string name="popular">Popular</string>
+    <string name="recent">Recent</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="addquestion">Add Question</string>
+    <string name="addpost">Add Post</string>
+    <string name="upload_image_video">Upload Image/Video</string>
+    <string name="add_image_video">Add Image/Video</string>
+    <string name="description_hint">Add Description</string>
+    <string name="cancel">cancel</string>
+    <string name="blog">Blogs</string>
+    <string name="readmore">Read more</string>
+
+    <string name="report">Report</string>
+    <string name="turnOnNotification">Turn On Post Notifications</string>
+    <string name="copyLink">Copy Link</string>
+    <string name="share_to">Share to..</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="mute">Mute</string>
+    <string name="blogdetails">Blogs title</string>
+    <string name="profession">Profession : </string>
+
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="insta">Instagram</string>
+    <string name="googleplus">Google +</string>
+    <string name="holdername">Cardholder Name</string>
+    <string name="cardnumber">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="CVV">CVV</string>
+    <string name="share_on">Share On</string>
+    <string name="messenger">Messenger</string>
+    <string name="viaemail">Via email</string>
+    <string name="store_rating_and_review"><![CDATA[Store Rating & Review]]></string>
+    <string name="submit">Submit</string>
+    <string name="description">Description</string>
+    <string name="license">View License</string>
+    <string name="dummy_desc">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  Our motto here at Cents of Style is “when you look good, you feel good,” and I would add, you can then use that goodness to bless others. \n\nOur entire purpose here at Cents of Style is to empower women to lead bold and full lives. We strive to provide this empowerment to our employees by creating flexible schedules and remote work environments. We empower our customers by helping them feel a little bit better about how they present themselves to the world</string>
+    <string name="write_a_review">Write a review</string>
+    <string name="title_activity_store_locate">StoreLocateActivity</string>
+    <string name="search_store_hint">Search Store</string>
+    <string name="list_view">List View</string>
+    <string name="map_view">Map view</string>
+    <string name="VerifyEmailtxt">We are sending verification code to this email</string>
+    <string name="add_comment">Add comments</string>
+    <string name="post">Post</string>
+    <string name="str_no_comments">No comments</string>
+    <string name="comments">Comments</string>
+    <string name="Like">like</string>
+    <string name="reply">reply</string>
+
+
+    <string name="addnewstore">Add new store</string>
+    <string name="myDriver">My Driver</string>
+    <string name="become_HB_choice">Become HerbalFax Choice</string>
+    <string name="menu_mystore">My Store</string>
+    <string name="title_order">Orders</string>
+    <string name="addstore">Add Store</string>
+    <string name="addyourstore">Add Your Store</string>
+    <string name="addyourproduct">Add Your Product</string>
+    <string name="storename">Store Name</string>
+    <string name="storetype">Store Type Name</string>
+    <string name="location">Location</string>
+    <string name="storetype_hint">Enter Store Type</string>
+    <string name="storename_hint">Enter Store Name</string>
+    <string name="location_hint">Enter Location</string>
+    <string name="Storelicense">Store License No.</string>
+    <string name="license_hint">Enter Store License No.</string>
+    <string name="uploadcertificate">Upload Certificate</string>
+    <string name="uploadlicensecertificate">Upload License Certificate</string>
+    <string name="deliverydistancerangeviarider">Delivery Distance Range Via Rider</string>
+    <string name="distance_hint">Enter Distance In KM</string>
+    <string name="Addstorelogo">Add Store Logo</string>
+    <string name="uploadstorelogo">Upload Store Logo</string>
+    <string name="Addstorephoto">Add Store Photo</string>
+    <string name="uploadstorephoto">Upload Store Photo</string>
+    <string name="workingDays">Working Days</string>
+    <string name="findstore_hint">Find Store</string>
+    <string name="addnewproduct">Add new product</string>
+    <string name="selectcategory">Select Category</string>
+    <string name="selectstore">Select Store</string>
+    <string name="uploadproductpic">Upload Product Picture</string>
+    <string name="productname">Product Name</string>
+    <string name="productname_hint">Enter Product Name</string>
+    <string name="price">Price</string>
+    <string name="price_hint">Enter Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="quantity_hint">Enter Quantity</string>
+    <string name="addproduct">Add product</string>
+    <string name="shoppingdelivery">Shipping/Delivery Cost</string>
+    <string name="cost_hint">Enter Cost</string>
+    <string name="perkm">Per Distance(Per KM)</string>
+    <string name="shippingdelivery">Shipping / Delivery</string>
+    <string name="findprodunct_hint">Find Products</string>
+    <string name="want_to_delete">Want To Delete</string>
+    <string name="are_you_sure_you_want_to_delete_this_item">Are you sure you want to delete this item?</string>
+    <string name="delete">Delete</string>
+    <string name="productdetail">Product Details</string>
+
+    <string name="abhijeet">Hi Mayuri</string>
+    <string name="toprated">Top Rated Vendors</string>
+    <string name="share">Share</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="my_cart">My Cart</string>
+    <string name="add_items">Add Items</string>
+    <string name="total_price">Total Price</string>
+    <string name="ok">Ok</string>
+    <string name="pick_up">PICK UP</string>
+    <string name="deliver">DELIVER</string>
+    <string name="tax">"Tax : "</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="information">You are selecting a different city as before which was United State. Delivery charges may vary for this city.</string>
+
+
+</resources>

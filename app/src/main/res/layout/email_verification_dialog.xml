@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/green"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="left"
+            android:text="@string/EmailVerification"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_22sdp" />
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:gravity="center"
+            android:padding="2dp"
+            android:src="@drawable/ic_baseline_close_24" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/text_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/a"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="4dp"
+
+        android:gravity="center"
+        android:maxLines="3"
+        android:text="@string/VerifyEmailtxt"
+        android:textColor="@color/text_grey"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/text_dialog2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/_4sdp"
+
+        android:layout_marginRight="4dp"
+
+        android:gravity="center"
+        android:maxLines="3"
+        android:text="@string/VerifyDummyy"
+        android:textColor="@color/green"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/text_dialog3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_dialog2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/_4sdp"
+
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:maxLines="3"
+        android:text="@string/VerifyEmailDummy"
+        android:textColor="@color/text_grey"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/send_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_dialog3"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/rect_button_green"
+        android:elevation="@dimen/_15sdp"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp" />
+
+</RelativeLayout>

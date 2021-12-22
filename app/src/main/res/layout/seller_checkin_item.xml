@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:padding="@dimen/_10sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:weightSum="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgprofile"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/profileimg" />
+
+
+
+        <RelativeLayout
+            android:layout_weight=".9"
+            android:id="@+id/rlcard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/imgcard">
+
+
+            <TextView
+
+                android:id="@+id/HeadingTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_semibold"
+                android:maxLines="2"
+                android:padding="@dimen/_2sdp"
+                android:text="Conroy's Mart"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+
+            <TextView
+                android:id="@+id/subHeadingTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/HeadingTxt"
+                android:fontFamily="@font/roboto_regular"
+                android:maxLines="2"
+                android:text="20 Oct 2020, 11:40 AM"
+                android:padding="@dimen/_2sdp"
+                android:textColor="@color/text_grey"
+                android:textSize="8dp" />
+
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:text="3 visits"
+            android:textColor="@color/green"
+            android:layout_weight=".1"
+            android:fontFamily="@font/raleway_semibold"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/text_grey"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+</LinearLayout>

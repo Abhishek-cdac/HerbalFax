@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center|left">
+
+<!--    style="@style/BottomSheet"
+-->
+<LinearLayout
+    android:background="@color/white"
+    android:paddingHorizontal="@dimen/_20sdp"
+    android:paddingVertical="@dimen/_15sdp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:padding="@dimen/_8sdp"
+        android:id="@+id/todayDeal_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Today’s Deal"
+        android:fontFamily="@font/raleway_semibold"
+        android:textColor="@color/text_grey"
+        android:textSize="@dimen/_15sdp" />
+
+
+    <TextView
+        android:padding="@dimen/_8sdp"
+
+        android:id="@+id/deal_heading_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Purdy, Ankunding"
+        android:fontFamily="@font/raleway_semibold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24sdp" />
+    <ImageView
+        android:id="@+id/deal_Img"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_200sdp"
+        android:scaleType="centerCrop"
+        android:layout_height="@dimen/_130sdp"
+        android:src="@drawable/profileimg"/>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="@dimen/_8sdp"
+            android:id="@+id/address_txt"
+            android:layout_width="wrap_content"
+            android:drawablePadding="@dimen/_8sdp"
+            android:drawableLeft="@drawable/ic_icon_menu_map_pin"
+            android:layout_height="wrap_content"
+            android:text="466 Salvatore Green"
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
+        <TextView
+            android:padding="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_8sdp"
+            android:id="@+id/bought_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="90+ Bought"
+            android:drawableLeft="@drawable/rating"
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:drawablePadding="@dimen/_8sdp"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:id="@+id/validity_txt"
+            android:layout_width="wrap_content"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:layout_height="wrap_content"
+            android:text="Validity Till: 07/13/21"
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
+        <Button
+            android:id="@+id/dealPrice_btn"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rect_button_green"
+            android:layout_gravity="left"
+            android:text="Deal Price $20"
+            android:fontFamily="@font/raleway_semibold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+</LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/bottom_home">
+
+
+
+    <fragment
+        android:id="@+id/nav_mySocial"
+        android:name="com.herbal.herbalfax.customer.homescreen.mysocial.MySocialFragment"
+        android:label="@string/mySocial"
+        tools:layout="@layout/fragment_my_social" />
+
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="com.herbal.herbalfax.customer.homescreen.SavedDispensaries.SavedDispensariesFragment"
+        android:label="@string/action_notification"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/nav_myDriver"
+        android:name="com.herbal.herbalfax.customer.homescreen.explorestrain.ExploreStrainFragment"
+        android:label="@string/myDriver"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_becomeHBChoice"
+        android:name="com.herbal.herbalfax.customer.homescreen.orders.OrdersFragment"
+        android:label="@string/orders"
+        tools:layout="@layout/fragment_send" />
+
+
+    <fragment
+        android:id="@+id/bottom_home"
+        android:name="com.herbal.herbalfax.vendor.storelist.SellerStoreListFragment"
+        android:label="@string/menu_mystore"
+        tools:layout="@layout/fragment_sellermystore" />
+
+    <fragment
+        android:id="@+id/bottom_dashboard"
+        android:name="com.herbal.herbalfax.vendor.sellerproduct.SellerProductFragment"
+        android:label="@string/menu_products"
+        tools:layout="@layout/fragment_sellerproduct" />
+
+    <fragment
+        android:id="@+id/bottom_notifications"
+        android:name="com.herbal.herbalfax.vendor.sellerorders.SellerOrderFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_sellerorder" />
+
+    <fragment
+        android:id="@+id/bottom_deal"
+        android:name="com.herbal.herbalfax.vendor.sellerdeals.SellerDealsFragment"
+        android:label="@string/deal"
+        tools:layout="@layout/fragment_sellerdeals" />
+    <fragment
+        android:id="@+id/bottom_askfax"
+        android:name="com.herbal.herbalfax.vendor.sellerdrivers.SellerDriverFragment"
+        android:label="@string/myDriver"
+        tools:layout="@layout/fragment_sellerdriver" />
+
+
+</navigation>

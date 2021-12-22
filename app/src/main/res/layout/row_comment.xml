@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_comment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@color/gray"
+
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/_5sdp">
+
+
+    <LinearLayout
+        android:id="@+id/primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:weightSum="1">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userImg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_alignParentStart="true"
+            android:src="@drawable/profileimg" />
+
+        <TextView
+            android:id="@+id/comment_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/raleway_semibold"
+            android:paddingLeft="@dimen/_10sdp"
+            android:text="mayuri"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comment_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/primary"
+        android:layout_marginLeft="@dimen/_50sdp"
+        android:fontFamily="@font/raleway_medium"
+
+        android:text="@string/comments"
+        android:textColor="@color/text_grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/comment_desc"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/comment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:layout_weight=".2"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="View 4 replies"
+            android:textColor="@color/green"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/comment_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight=".6"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/reply"
+            android:textColor="@color/green"
+
+            android:textSize="@dimen/_12sdp"
+            android:visibility="invisible"
+            tools:ignore="SpUsage" />
+
+        <ImageView
+            android:id="@+id/commentLikeImg"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_weight=".1"
+            android:src="@drawable/ic_heart_green_border" />
+
+        <TextView
+            android:id="@+id/comment_like"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:paddingLeft="10dp"
+            android:text="@string/Like"
+            android:textColor="@color/green"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="visible" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/dustbin"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:visibility="gone"-->
+        <!--            android:src="@drawable/bin" />-->
+
+    </LinearLayout>
+
+</RelativeLayout>
+

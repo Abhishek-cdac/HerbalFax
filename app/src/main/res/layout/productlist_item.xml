@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/cardview"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/_5sdp"
+        card_view:cardBackgroundColor="@color/green"
+        card_view:cardCornerRadius="@dimen/_20sdp"
+        card_view:cardElevation="4dp"
+        card_view:contentPadding="3dp">
+
+        <!--Text View over Card View-->
+        <TextView
+            android:id="@+id/headingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="@dimen/_2sdp"
+            android:text="Herbalfax Choice"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/editCard"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="end"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:outlineAmbientShadowColor="@color/green"
+                        android:shape="ring"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="50dp"
+
+                        app:cardElevation="@dimen/_10sdp">
+
+                        <ImageView
+
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_icon_feather_edit" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/imgcard"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#EFEFEF"
+                        card_view:cardCornerRadius="@dimen/_6sdp">
+
+                        <ImageView
+                            android:id="@+id/imgprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/profileimg" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </FrameLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/imgcard">
+
+
+                    <TextView
+                        android:id="@+id/subHeadingTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:maxLines="2"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Blick- Glover"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/categoryRl"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/subHeadingTxt">
+
+                        <TextView
+                            android:id="@+id/categoryTxt"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/raleway_semibold"
+                            android:text="Grocery"
+                            android:textColor="@color/green"
+                            android:textSize="12dp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/deleteCard"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:outlineAmbientShadowColor="@color/green"
+                            android:shape="ring"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="50dp"
+                            app:cardElevation="@dimen/_10sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_delete_forever_small_grey" />
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/descTxt"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/categoryRl"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:maxLines="2"
+                        android:text="@string/dummy_desc"
+                        android:textColor="@color/text_grey"
+                        android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/descTxt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/raleway_medium"
+                            android:maxLines="2"
+                            android:text="@string/price"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/PriceTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:maxLines="2"
+                            android:text="  :  35$"
+                            android:textColor="@color/green"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="AddStoreViewModel"
+            type="com.herbal.herbalfax.vendor.store.AddStoreViewModel" />
+
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:ignore="ScrollViewSize">
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:minHeight="?attr/actionBarSize"
+            android:orientation="horizontal">
+
+
+            <ImageView
+
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/ic_icon_arrow_left_white" />
+
+            <TextView
+                android:id="@+id/headerTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/addyourstore"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp"/>
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/storename"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/storename_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddStoreViewModel.storefullName}"
+
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/storetype"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <Spinner
+
+                        android:id="@+id/spinner"
+                        style="@style/Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rect_button"
+                        android:drawSelectorOnTop="true"
+                        android:dropDownVerticalOffset="-53dp"
+                        android:spinnerMode="dropdown"
+                        />
+
+                    <!--    <EditText
+                        android:id="@+id/professionedt"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/ic_arrow_down"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="@font/raleway_regular"
+
+                        android:hint="@string/storetype_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddStoreViewModel.storetype}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+-->
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/location"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:id="@+id/locations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/location_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddStoreViewModel.location}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/Storelicense"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/license_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddStoreViewModel.storelicense}"
+
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/uploadlicensecertificate"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{(v) -> AddStoreViewModel.OnGallery(v)}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:onClick="@{(v) -> AddStoreViewModel.OnGallery(v)}"
+
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/certificate_image"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:background="@drawable/dashed_border"
+
+
+                            android:fontFamily="@font/raleway_regular"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_icon_l_file_upload" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/uploadcertificate"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/description"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/rectangle_border"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+                        android:id="@+id/desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="top"
+                        android:hint="@string/description_hint"
+                        android:maxLines="10"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddStoreViewModel.description}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/deliverydistancerangeviarider"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/distance_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddStoreViewModel.storedistance}"
+
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/workingDays"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp">
+
+                    <CheckBox
+                        android:id="@+id/mondayCB"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Monday"
+                        android:textColor="@color/black">
+
+                    </CheckBox>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/mondayStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/mondayEndtTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp">
+
+                    <CheckBox
+                        android:id="@+id/tuesdayCB"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Tuesday"
+
+                        android:textColor="@color/black">
+
+                    </CheckBox>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+
+                            android:id="@+id/tuesdayStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/tuesdayEndtTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp">
+
+                    <CheckBox
+                        android:id="@+id/wednesdayCB"
+                        android:layout_width="0dp"
+
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Wednesday"
+
+                        android:textColor="@color/black">
+
+                    </CheckBox>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/wednesdayStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/wednesdayEndtTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp">
+
+                    <CheckBox
+                        android:id="@+id/thursdayCB"
+                        android:layout_width="0dp"
+
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Thursday  "
+
+                        android:textColor="@color/black">
+
+                    </CheckBox>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/thursdayStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/thursdayEndtTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp">
+
+                    <CheckBox
+                        android:id="@+id/fridayCB"
+                        android:layout_width="0dp"
+
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Friday"
+
+                        android:textColor="@color/black">
+
+                    </CheckBox>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/fridayStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/fridayEndtTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp">
+
+                    <CheckBox
+                        android:id="@+id/saturdayCB"
+                        android:layout_width="0dp"
+
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Saturday"
+
+                        android:textColor="@color/black">
+
+                    </CheckBox>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/saturdayStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/saturdayEndtTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp">
+
+                    <CheckBox
+                        android:id="@+id/sundayCB"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Sunday    "
+
+                        android:textColor="@color/black">
+
+                    </CheckBox>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/sundayStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/green_square_border"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0.0px"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="8dp"
+                        app:cardPreventCornerOverlap="false">
+
+                        <EditText
+                            android:id="@+id/sunayEndtTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/green_square_border"
+                            android:drawableRight="@drawable/ic_group_up_down_green"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="9:00 AM"
+
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/text_grey"
+                            android:textColorHint="@color/text_grey"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/Addstorelogo"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{(v) -> AddStoreViewModel.OnLogoGallery(v)}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/logo_image"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:background="@drawable/dashed_border"
+                            android:fontFamily="@font/raleway_regular"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_icon_l_file_upload" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/uploadstorelogo"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/Addstorephoto"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{(v) -> AddStoreViewModel.OnStoreGallery(v)}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="8dp"
+                    app:cardPreventCornerOverlap="false">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/storephoto_image"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:background="@drawable/dashed_border"
+                            android:fontFamily="@font/raleway_regular"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_icon_l_file_upload" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/uploadstorephoto"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/rect_button_green"
+                    android:elevation="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:onClick="@{(v) -> AddStoreViewModel.onClickAddStore(v)}"
+                    android:text="@string/addstore"
+
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>
