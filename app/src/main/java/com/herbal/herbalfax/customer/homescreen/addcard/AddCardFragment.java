@@ -31,12 +31,10 @@ public class AddCardFragment extends Fragment implements OnInnerFragmentClicks {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        cardListViewModel =
-                ViewModelProviders.of(this).get(CardListViewModel.class);
+        cardListViewModel = ViewModelProviders.of(this).get(CardListViewModel.class);
         View root = inflater.inflate(R.layout.fragment_addcardlist, container, false);
-
-
         return root;
+
     }
 
 
