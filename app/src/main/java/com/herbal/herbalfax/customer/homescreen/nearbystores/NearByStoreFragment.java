@@ -65,7 +65,6 @@ public class NearByStoreFragment extends Fragment {
         mapView = root.findViewById(R.id.mapView);
         mapLinear = root.findViewById(R.id.mapLinear);
 
-
         itemClick = new Onclick() {
             @Override
             public void onItemClicks(View view, int position, int i, String storeId, String s) {

@@ -29,6 +29,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".customer.homescreen.deals.DealsDetailsActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
             android:name=".customer.homescreen.cart.addaddress.AddNewAddressActivity"
             android:exported="true" />
         <activity

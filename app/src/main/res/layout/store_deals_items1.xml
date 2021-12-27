@@ -147,7 +147,7 @@
             android:background="@drawable/rect_button_black">
 
             <Button
-                android:id="@+id/buyBtn"
+                android:id="@+id/fbLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
