@@ -233,6 +233,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_22sdp" />
                     <TextView
+                        android:id="@+id/eventsviewmore"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
@@ -282,6 +283,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_22sdp" />
                     <TextView
+                        android:id="@+id/photosviewmore"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/_5sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:padding="@dimen/_8sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/dealItemImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/eventsprofile"
+                    android:visibility="visible" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:padding="@dimen/_5sdp"
+            >
+                <TextView
+                    android:id="@+id/todaybtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner_view_text"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:text="Today"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/roboto_regular" />
+                <TextView
+                    android:id="@+id/eventTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Sleek Concrete Pants"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"/>
+
+            <TextView
+                android:id="@+id/eventdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Date on: 07/29/2021 at 8:00PM"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textColor="@color/green"
+                android:textSize="@dimen/_11sdp"/>
+
+            <TextView
+                android:id="@+id/eventdetails"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_58sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="Voluptatem in qui rerum quae. Sed laborum excepturi iusto reprehenderit quia et et. Vitae quis deleniti consectetur. Aut quod est doloremque enim ratione dolorem mollitia accusantium quia. Est fuga velit minima omnis commodi quae. Natus voluptatem repudiandae eum eos consequatur aut enim.
+
+Explicabo qui velit maiores temporibus sit facere quam ut veniam. Nemo amet iure officiis accusamus explicabo illo quis consequatur eius. Rem corporis laborum voluptate recusandae.
+
+Et est error dolorem ab enim qui consequatur. Exercitationem sint recusandae est. Repudiandae repellendus rerum delectus exercitationem. Eveniet modi ut quo ut libero atque."
+                android:textColor="#8E8E8E"
+                android:textSize="@dimen/_11sdp"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/_8sdp"
+                android:id="@+id/readmorebtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner_view_text_black"
+                android:elevation="10dp"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="READ MORE"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                 />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

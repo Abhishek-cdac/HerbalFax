@@ -1,4 +1,4 @@
-package com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.adapter;
+package com.herbal.herbalfax.customer.homescreen.group.Adaptor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,37 +14,39 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class CheckoutListAdapter extends RecyclerView.Adapter<CheckoutListAdapter.ViewHolder> {
+public class AddPeopleListAdaptor extends RecyclerView.Adapter<AddPeopleListAdaptor.ViewHolder> {
+
 
     ArrayList<Interest> lst_int;
     ArrayList<Interest> lst_intFilter;
     Context mContext;
-    private final Picasso picasso;
-    private final Onclick itemClick;
 
-    public CheckoutListAdapter(ArrayList<Interest> lst_cart_item, Context applicationContext, Onclick itemClick) {
-
-        picasso = Picasso.get();
+    public AddPeopleListAdaptor(ArrayList<Interest> lst_cart_item, Context applicationContext) {
         this.lst_int = lst_cart_item;
         this.mContext = applicationContext;
-        this.itemClick = itemClick;
+
+    }
+
+    public static void setAdapter(AddPeopleListAdaptor addPeopleListAdaptor) {
+    }
+
+    public static void setLayoutManager(RecyclerView.LayoutManager recyclerViewLayoutManager) {
     }
 
 
     @NonNull
     @Override
-    public CheckoutListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.checkout_item, parent, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_people_list, parent, false);
         mContext = parent.getContext();
-        return new CheckoutListAdapter.ViewHolder(view);
+        return new AddPeopleListAdaptor.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CheckoutListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
 
     }
@@ -65,9 +67,10 @@ public class CheckoutListAdapter extends RecyclerView.Adapter<CheckoutListAdapte
             productImage = itemView.findViewById(R.id.productImage);
             productName = itemView.findViewById(R.id.productName);
             productCategory = itemView.findViewById(R.id.productCategory);
-            priceTxt = itemView.findViewById(R.id.priceTxt);
+
         }
     }
 
 
 }
+

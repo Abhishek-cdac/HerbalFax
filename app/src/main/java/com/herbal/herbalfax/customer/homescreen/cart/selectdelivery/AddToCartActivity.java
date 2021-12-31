@@ -31,7 +31,6 @@ ImageView back;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_to_cart);
-
         back = findViewById(R.id.back);
         continue_button = findViewById(R.id.continue_button);
         CartItemRecycler = findViewById(R.id.CartItemRecycler);

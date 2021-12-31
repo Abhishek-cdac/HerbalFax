@@ -80,8 +80,6 @@ public class BlogsActivity extends AppCompatActivity {
                 }
             }
         };
-
-
     }
 
     @Override

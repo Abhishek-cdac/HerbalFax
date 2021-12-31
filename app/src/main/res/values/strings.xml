@@ -224,7 +224,8 @@
     <string name="are_you_sure_you_want_to_delete_this_item">Are you sure you want to delete this item?</string>
     <string name="delete">Delete</string>
     <string name="productdetail">Product Details</string>
-
+    <string name="addpeople">Add People</string>
+    <string name="sharestory">Share Story</string>
     <string name="abhijeet">Hi Mayuri</string>
     <string name="toprated">Top Rated Vendors</string>
     <string name="share">Share</string>

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.landingpage.adapter.ArticlesAdapter;
@@ -50,6 +51,8 @@ public class CommonLandingActivity extends AppCompatActivity {
     PhotosAdapter photosAdapter;
     FindFruityCannabisAdapter findFruityCannabisAdapter;
     LinearLayout login_ll;
+    TextView photosViewMore;
+    TextView eventsviewmore;
 
 
     View ChildView;
@@ -162,11 +165,27 @@ public class CommonLandingActivity extends AppCompatActivity {
         eventsRecyclerview = findViewById(R.id.eventsRecyclerview);
         photosRecyclerview = findViewById(R.id.photosRecyclerview);
         timelyRecyclerview = findViewById(R.id.timelyRecyclerview);
+        photosViewMore = findViewById(R.id.photosviewmore);
 
         login_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        photosViewMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PhotosDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+        eventsviewmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), EventsDetailsActivity.class);
                 startActivity(intent);
             }
         });
