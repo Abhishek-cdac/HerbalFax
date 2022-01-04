@@ -1,39 +1,16 @@
 
-package com.herbal.herbalfax.commonmodel;
+package com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 
-public class CommonResponse {
+public class AddedCartModel {
 
     @Expose
     private Data data;
-
-//    public Errors getErrors() {
-//        return errors;
-//    }
-//
-//    public void setErrors(Errors errors) {
-//        this.errors = errors;
-//    }
-
-//    @Expose
-//    private Errors  errors;
-
-
-    public List<Object> getErrors() {
-        return errors;
-    }
-
-    public void setErrors(List<Object> errors) {
-        this.errors = errors;
-    }
-
-    @SerializedName("errors")
     @Expose
-    private List<Object> errors = null;
+    private List<Object> errors;
     @Expose
     private String message;
     @Expose
@@ -45,6 +22,14 @@ public class CommonResponse {
 
     public void setData(Data data) {
         this.data = data;
+    }
+
+    public List<Object> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<Object> errors) {
+        this.errors = errors;
     }
 
     public String getMessage() {

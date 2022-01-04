@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="AddNewAddressViewModel"
+            type="com.herbal.herbalfax.customer.homescreen.cart.addaddress.AddNewAddressViewModel" />
+
+    </data>
+<RelativeLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,10 +41,10 @@
             android:fontFamily="@font/raleway_semibold"
             android:gravity="center_vertical"
             android:padding="@dimen/_5sdp"
-            android:text="Checkout"
+            android:text="@string/checkout"
             android:textColor="@color/white"
             android:textSize="@dimen/_18sdp"
-            tools:ignore="SpUsage"></TextView>
+            tools:ignore="SpUsage" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,11 +128,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="@string/name"
-            android:textColor="@color/black" />
+            android:fontFamily="@font/raleway_medium"
+            android:text="Full Name"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
 
         <EditText
-            android:id="@+id/addNewAddressTxt"
+            android:id="@+id/NameTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -130,12 +142,183 @@
             android:background="@color/cardview_light_background"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center_vertical"
+            android:hint="Mark Jakarburg"
             android:padding="@dimen/_10sdp"
-            android:text="Mayuri Dayla"
             android:textColor="@color/text_grey"
             android:textSize="@dimen/_11sdp"
 
             />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/workRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WORK" />
+
+            <RadioButton
+                android:id="@+id/homeRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:text="HOME" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/address"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/addNewAddressTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".9"
+                android:background="@color/cardview_light_background"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:hint="Rajwada"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_11sdp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_icon_location_search" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/city"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@color/cardview_light_background"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Indore"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_11sdp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/pincode"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@color/cardview_light_background"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:hint="452011"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_11sdp"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Country"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+        <EditText
+            android:id="@+id/countryTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/cardview_light_background"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center_vertical"
+            android:hint="India"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_11sdp"
+
+            />
+
+        <Switch
+            android:id="@+id/switchPickupPoint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/add_an_address_or_pick_up_point"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
 
 
     </LinearLayout>
@@ -146,6 +329,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
+        <CheckBox
+            android:id="@+id/setAsDefaultCB"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_12sdp"
+            android:text="Set as default"
+            android:layout_width="match_parent"
+            android:textColor="@color/text_grey"
+            android:layout_height="wrap_content"/>
+      <CheckBox
+            android:id="@+id/saveForLaterCB"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_12sdp"
+            android:text="@string/save_for_faster_checkout_next_time"
+            android:layout_width="match_parent"
+            android:textColor="@color/text_grey"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/continue_button"
@@ -156,8 +355,11 @@
             android:drawablePadding="@dimen/_10sdp"
             android:gravity="center"
             android:padding="@dimen/_15sdp"
+            android:onClick="@{(v) -> AddNewAddressViewModel.onClickAddAddress(v)}"
+
             android:text="@string/continue1"
             android:textColor="@color/white" />
 
     </LinearLayout>
 </RelativeLayout>
+</layout>

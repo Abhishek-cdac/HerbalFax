@@ -17,12 +17,9 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallcommentmodel.GetAllComments;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallcommentmodel.PostComment;
-import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.Comment;
-import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.Post;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -12,21 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
+import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.CartList;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.herbal.herbalfax.customer.selectInterest.Interest;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class CheckoutListAdapter extends RecyclerView.Adapter<CheckoutListAdapter.ViewHolder> {
 
-    ArrayList<Interest> lst_int;
-    ArrayList<Interest> lst_intFilter;
+    ArrayList<CartList> lst_int;
+    ArrayList<CartList> lst_intFilter;
     Context mContext;
     private final Picasso picasso;
     private final Onclick itemClick;
 
-    public CheckoutListAdapter(ArrayList<Interest> lst_cart_item, Context applicationContext, Onclick itemClick) {
+    public CheckoutListAdapter(ArrayList<CartList> lst_cart_item, Context applicationContext, Onclick itemClick) {
 
         picasso = Picasso.get();
         this.lst_int = lst_cart_item;
@@ -46,18 +46,22 @@ public class CheckoutListAdapter extends RecyclerView.Adapter<CheckoutListAdapte
     @Override
     public void onBindViewHolder(@NonNull CheckoutListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-
+        holder.productName.setText(lst_int.get(position).getSPName());
+        holder.productCategory.setText(lst_int.get(position).getSPCTitle());
+        holder.priceTxt.setText("$" + lst_int.get(position).getCartRate());
+        picasso.load(lst_int.get(position).getSPPPath())
+                .into(holder.productImage);
     }
 
     @Override
     public int getItemCount() {
-        return 8;
+        return lst_int.size();
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView productImage;
-        TextView productName, productCategory,priceTxt;
+        TextView productName, productCategory, priceTxt;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

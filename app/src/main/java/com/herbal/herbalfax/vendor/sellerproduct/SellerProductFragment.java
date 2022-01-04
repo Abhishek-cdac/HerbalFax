@@ -105,10 +105,11 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("StoreId", "0");
-        hashMap.put("limit", "10");
+        hashMap.put("limit", "20");
         hashMap.put("offset", "0");
         hashMap.put("category", "0");
         hashMap.put("active", "1");
+        hashMap.put("product_type", "1");
         hashMap.put("search_key", "0");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
