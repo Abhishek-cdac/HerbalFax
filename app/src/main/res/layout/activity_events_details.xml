@@ -34,7 +34,7 @@
             android:padding="@dimen/_5sdp"
             android:text="Events"
             android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp"/>
+            android:textSize="@dimen/_18sdp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -55,15 +55,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
 
     <Button
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/rounded_corner_view_text"
         android:text="ADD EVENTS"
-        android:textColor="@color/white"
-        android:layout_margin="@dimen/_15sdp"
-        android:background="@drawable/rounded_corner_view_text"/>
-
+        android:textColor="@color/white" />
 </RelativeLayout>

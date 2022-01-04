@@ -29,9 +29,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".common_screen.landingpage.EventsDetailsActivity"
-            android:exported="true" >
-
+            android:name=".common_screen.profile.MyDealsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".common_screen.profile.ProfileActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,13 +41,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".common_screen.landingpage.EventsDetailsActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".common_screen.landingpage.PhotosDetailsActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".customer.homescreen.group.AddPeopleToGroupActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".customer.homescreen.deals.DealsDetailsActivity"
             android:exported="true" />
@@ -189,9 +192,7 @@
         <activity
             android:name=".common_screen.SplashActivity"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
