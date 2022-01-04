@@ -1,5 +1,5 @@
 
-package com.herbal.herbalfax.commonmodel;
+package com.herbal.herbalfax.customer.commonmodel;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

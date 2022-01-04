@@ -21,7 +21,7 @@ import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.databinding.ActivityAddNewAddressBinding;
 
 import org.jetbrains.annotations.NotNull;
@@ -94,6 +94,7 @@ public class AddNewAddressActivity extends AppCompatActivity {
             }
         });
         addNewAddressViewModel.getAddAddressUser().observe(this, addAddressUser -> {
+
 
             int selectedId = radioGroup.getCheckedRadioButtonId();
             //  genderradioButton = findViewById(selectedId);

@@ -2,8 +2,6 @@ package com.herbal.herbalfax.customer.homescreen.feed;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +18,9 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallcommentmodel.PostComment;
-import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.Comment;
 import com.squareup.picasso.Picasso;
-
-import org.ocpsoft.prettytime.PrettyTime;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,7 +31,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Response;

@@ -7,22 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.herbal.herbalfax.vendor.sellerproduct.adapter.ProductListAdapter;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
 import com.squareup.picasso.Picasso;
 

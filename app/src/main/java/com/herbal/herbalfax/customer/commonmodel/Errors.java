@@ -1,4 +1,4 @@
-package com.herbal.herbalfax.commonmodel;
+package com.herbal.herbalfax.customer.commonmodel;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -16,7 +16,7 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.blogs.blogmodel.Blog;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogCategory;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;

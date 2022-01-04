@@ -5,7 +5,7 @@ import com.herbal.herbalfax.common_screen.login.LoginResponse;
 import com.herbal.herbalfax.common_screen.terms.termmodel.TermResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.otpverified.SignUpOtpVerifyResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.resendmodel.ResendOTPModel;
-import com.herbal.herbalfax.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.blogs.blogdetailmodel.BlogsDetailResponse;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
