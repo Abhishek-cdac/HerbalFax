@@ -55,6 +55,7 @@ public class SelectDeliveryAddressAdapter extends RecyclerView.Adapter<SelectDel
         if (lst_int.get(position).getUAddType().equals("1")) {
             holder.placeImage.setImageResource(R.drawable.ic_icon_work_briefcase);
 
+
         } else {
             holder.placeImage.setImageResource(R.drawable.ic_icon_menu_home);
         }

@@ -42,6 +42,7 @@ import retrofit2.http.PartMap;
 
 public interface GetDataService {
 
+
     /* Sign up & login API */
     @Multipart
     @POST("signup")
