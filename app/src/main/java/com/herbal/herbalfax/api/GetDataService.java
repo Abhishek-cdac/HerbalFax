@@ -8,10 +8,13 @@ import com.herbal.herbalfax.common_screen.verify_email_after_signup.resendmodel.
 import com.herbal.herbalfax.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.blogs.blogdetailmodel.BlogsDetailResponse;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
+import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
+import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.model.SelectDeliveryAddressModel;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallcommentmodel.GetAllComments;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.GetAllPostResponse;
 import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.UserStoreListResponse;
+import com.herbal.herbalfax.customer.homescreen.products.model.AddToCartModel;
 import com.herbal.herbalfax.customer.selectInterest.getintrestmodel.GetInterestResponse;
 import com.herbal.herbalfax.customer.selectInterest.saveintrestmodel.SaveInterestResponse;
 import com.herbal.herbalfax.customer.signup.presignupmodel.PreSignUpData;
@@ -159,6 +162,22 @@ public interface GetDataService {
     @POST("user-store-product-category-list")
     Call<ProductCategoryResponse> userStoreProductCategoryList(@Header("Authorization") String token);
 
+    @FormUrlEncoded
+    @POST("add-to-cart")
+    Call<AddToCartModel> addToCart(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-cart-add-delivery-address")
+    Call<CommonResponse> userCartAddDeliveryAddress(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+
+
+    @POST("user-cart-delivery-address")
+    Call<SelectDeliveryAddressModel> userCartDeliveryAddress(@Header("Authorization") String token);
+
+
+    @POST("user-cart-list")
+    Call<AddedCartModel> userCartList(@Header("Authorization") String token);
 
     /*Seller API*/
 

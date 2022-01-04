@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -141,7 +142,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
         ImageView imgProfile, likeImg;
         TextView headingTxt, productName, categoryTxt, descTxt, PriceTxt;
         Button viewBtn;
-        FrameLayout cardview;
+        LinearLayout cardview;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

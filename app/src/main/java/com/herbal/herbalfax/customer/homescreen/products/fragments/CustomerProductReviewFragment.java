@@ -1,6 +1,7 @@
 package com.herbal.herbalfax.customer.homescreen.products.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.homescreen.products.adapter.CustProductReviewAdapter;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
-import com.herbal.herbalfax.customer.store.adapter.StoreReviewAdapter;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,8 @@ public class CustomerProductReviewFragment extends Fragment {
     RecyclerView productReviewsRecycler;
     LinearLayoutManager HorizontalLayout;
     CustProductReviewAdapter custProductReviewAdapter;
-ArrayList<Interest> lst_productRating = new ArrayList<>();
+    ArrayList<Interest> lst_productRating = new ArrayList<>();
+String productId;
     public CustomerProductReviewFragment() {
         // Required empty public constructor
     }
@@ -31,7 +32,11 @@ ArrayList<Interest> lst_productRating = new ArrayList<>();
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_customer_product_review, container, false);
-
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            productId = arguments.get("productId").toString();
+            Log.e("StoreProductFragment", "" + productId);
+        }
         productReviewsRecycler = root.findViewById(R.id.productReviewsRecycler);
 
         RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());

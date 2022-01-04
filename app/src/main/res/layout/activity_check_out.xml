@@ -136,11 +136,11 @@
                 android:textSize="@dimen/_15sdp" />
 
             <TextView
+                android:id="@+id/subTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="right"
-                android:text="$300"
                 android:textColor="@color/green"
                 android:textSize="@dimen/_18sdp" />
         </LinearLayout>
@@ -165,8 +165,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="right"
-                android:text="$300"
-
+android:id="@+id/tax"
                 android:textColor="@color/green"
                 android:textSize="@dimen/_18sdp" />
         </LinearLayout>
@@ -192,7 +191,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="right"
                 android:padding="@dimen/_15sdp"
-                android:text="$300"
+                android:id="@+id/Total"
                 android:textColor="@color/green"
                 android:textSize="@dimen/_22sdp" />
         </LinearLayout>

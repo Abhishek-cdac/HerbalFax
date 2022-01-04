@@ -238,6 +238,11 @@
     <string name="tax">"Tax : "</string>
     <string name="order_summary">Order Summary</string>
     <string name="information">You are selecting a different city as before which was United State. Delivery charges may vary for this city.</string>
+    <string name="address">Address</string>
+    <string name="pincode">PinCode</string>
+    <string name="add_an_address_or_pick_up_point">Add an address or Pick-up point</string>
+    <string name="save_for_faster_checkout_next_time">Save for faster checkout next time</string>
+    <string name="checkout">Checkout</string>
 
 
 </resources>
