@@ -6,13 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
-    public String getJwtToken() {
-        return jwtToken;
-    }
-
-    public void setJwtToken(String jwtToken) {
-        this.jwtToken = jwtToken;
-    }
 
     @SerializedName("jwt_token")
     private String jwtToken;
@@ -42,6 +35,17 @@ public class User {
     private String uProPic;
     @SerializedName("UserType")
     private String userType;
+
+    public String getProfTitle() {
+        return ProfTitle;
+    }
+
+    public void setProfTitle(String profTitle) {
+        ProfTitle = profTitle;
+    }
+
+    @SerializedName("ProfTitle")
+    private String ProfTitle;
 
     public String getIdusers() {
         return idusers;
@@ -145,6 +149,14 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getJwtToken() {
+        return jwtToken;
+    }
+
+    public void setJwtToken(String jwtToken) {
+        this.jwtToken = jwtToken;
     }
 
 }

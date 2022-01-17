@@ -164,11 +164,11 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                     if (commentList.get(position).getIsLike() != null) {
                         if (commentList.get(position).getIsLike().equals("1")) {
                             commentList.get(position).setIsLike("0");
-                            holder.commentLikeImg.setImageResource(R.drawable.ic_heart_green_border);
+                            holder.commentLikeImg.setImageResource(R.drawable.ic_icon_heart);
                             notifyItemChanged(position);
                             callLikeCommentsAPI(commentId);
                         } else if (commentList.get(position).getIsLike().equals("0")) {
-                            holder.commentLikeImg.setImageResource(R.drawable.ic_icon_heart);
+                            holder.commentLikeImg.setImageResource(R.drawable.ic_heart_green_border); //ic_heart_green_border
                             commentList.get(position).setIsLike("1");
                             notifyItemChanged(position);
                             callLikeCommentsAPI(commentId);
@@ -194,9 +194,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         call.enqueue(new retrofit2.Callback<CommonResponse>() {
             @Override
             public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
-                Toast.makeText(mContext.getApplicationContext(), "Liked", Toast.LENGTH_SHORT).show();
-
-
+                if (mContext instanceof AddCommentActivity) {
+                    ((AddCommentActivity)mContext).callGetCommentApi();
+                }
             }
 
             @Override
@@ -206,8 +206,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         });
 
     }
-
-
 
     @Override
     public int getItemCount() {

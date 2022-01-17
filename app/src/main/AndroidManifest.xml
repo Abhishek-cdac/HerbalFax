@@ -29,20 +29,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".customer.homescreen.group.CreateGroupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.payment.PaymentCheckoutActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.addcard.AddCardActivity"
+            android:exported="true" />
+        <activity
             android:name=".common_screen.profile.MyDealsActivity"
             android:exported="false" />
         <activity
             android:name=".common_screen.profile.ProfileActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".common_screen.landingpage.EventsDetailsActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".common_screen.landingpage.PhotosDetailsActivity"
             android:exported="true" />
@@ -192,7 +195,13 @@
         <activity
             android:name=".common_screen.SplashActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

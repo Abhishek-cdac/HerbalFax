@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,18 +23,18 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.adapter.CartItemAdapter;
+import com.herbal.herbalfax.customer.bottomsheet.ShoppingDetailsBottomSheet;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.adapter.CheckoutListAdapter;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.CartList;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.SelectDeliveryAddressActivity;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.herbal.herbalfax.customer.selectInterest.Interest;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,13 +46,15 @@ public class CheckOutActivity extends AppCompatActivity {
     LinearLayoutManager HorizontalLayout;
     CheckoutListAdapter checkoutListAdapter;
     Onclick itemClick;
-    TextView  subTotal, tax, Total;
+    TextView subTotal, tax, Total;
     ArrayList<CartList> lst_cart_item = new ArrayList<>();
     RadioButton rbDelivery, rbPickup;
     RadioGroup radioGroup;
     ImageView back;
     Button continueButton;
     private CommonClass clsCommon;
+    String subTotalStr, shipping, taxStr, total;
+    private String Orders_Type ="0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,18 +81,18 @@ public class CheckOutActivity extends AppCompatActivity {
                 if (null != rb && checkedId > -1) {
 
                     if (rb.getText().equals("PICK UP")) {
-                        //  PostIsMedia = "1";
+                        Orders_Type = "1";
                         continueButton.setText("PICK UP");
                         //addquestionll.setVisibility(View.GONE);
                     } else if (rb.getText().equals("DELIVER")) {
-                        //  PostIsMedia = "0";
+                        Orders_Type = "2";
                         continueButton.setText("CHECK OUT");
                         // addquestionll.setVisibility(View.VISIBLE);
                     }
-//                    else {
-//                        Toast.makeText(getApplicationContext(), "Please select post type", Toast.LENGTH_SHORT).show();
-//
-//                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Please select address type", Toast.LENGTH_SHORT).show();
+
+                    }
                 }
 
 
@@ -100,8 +103,22 @@ public class CheckOutActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SelectDeliveryAddressActivity.class);
-                startActivity(intent);
+                if (Orders_Type.equals("2")) {
+                    Intent intent = new Intent(getApplicationContext(), SelectDeliveryAddressActivity.class);
+                    intent.putExtra("Orders_Type", Orders_Type);
+                    intent.putExtra("SubTotal", subTotalStr);
+                    intent.putExtra("Tax", taxStr);
+                    intent.putExtra("Shipping", "0");
+                    intent.putExtra("Total", total);
+                    startActivity(intent);
+                    finish();
+                } else if(Orders_Type.equals("1")) {
+                    showBottomSheet(subTotalStr, shipping, taxStr, total , Orders_Type);
+                }
+                else{
+                    clsCommon.showDialogMsgFrag(CheckOutActivity.this, "HerbalFax","Please select address type", "Ok");
+                }
+
             }
         });
         itemClick = new Onclick() {
@@ -115,12 +132,18 @@ public class CheckOutActivity extends AppCompatActivity {
 
             }
         };
-       back.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
+    }
+
+    private void showBottomSheet(String subTotalStr, String shipping, String taxStr, String total, String orders_Type) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        ShoppingDetailsBottomSheet sheet = new ShoppingDetailsBottomSheet(CheckOutActivity.this, subTotalStr, shipping, taxStr, total, orders_Type);
+        sheet.show(fragmentManager, "comment bottom sheet");
     }
 
     @Override
@@ -135,6 +158,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
         Call<AddedCartModel> call = service.userCartList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken));
         call.enqueue(new Callback<AddedCartModel>() {
+            @SuppressLint("SetTextI18n")
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<AddedCartModel> call, Response<AddedCartModel> response) {
@@ -147,11 +171,14 @@ public class CheckOutActivity extends AppCompatActivity {
                             lst_cart_item = new ArrayList<>();
                         }
 
+                        subTotalStr = String.valueOf(response.body().getData().getCart().getCartSubTotal());
+                        total = String.valueOf(response.body().getData().getCart().getCartTotal());
+                        taxStr = String.valueOf(Objects.requireNonNull(response).body().getData().getCart().getCartTax());
                         try {
-                            subTotal.setText("$"+Math.toIntExact(response.body().getData().getCart().getCartSubTotal()));
+                            subTotal.setText("$" + response.body().getData().getCart().getCartSubTotal());
 
-                            Total.setText("$"+Math.toIntExact(response.body().getData().getCart().getCartTotal()));
-                            tax.setText("$"+Math.toIntExact(response.body().getData().getCart().getCartTax()));
+                            Total.setText("$" + response.body().getData().getCart().getCartTotal());
+                            tax.setText("$" + response.body().getData().getCart().getCartTax());
                             RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
                             checkoutRecycler.setLayoutManager(RecyclerViewLayoutManager);
                             checkoutListAdapter = new CheckoutListAdapter(lst_cart_item, getApplicationContext(), itemClick);

@@ -22,13 +22,14 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.bottomsheet.MoreBottomSheet;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.dialog.ShareDialogClass;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_CustomViewHolder;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_VideoImage;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_VideosAdapter;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.Post;
+import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.ViewUser;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -46,7 +47,8 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
     private final Picasso picasso;
     Context mContext;
-Onclick itemClick;
+    Onclick itemClick;
+
     public FeedAdapter(ArrayList<Post> lst_feed, Context applicationContext, Onclick itemClick) {
 
         picasso = Picasso.get();
@@ -79,10 +81,16 @@ Onclick itemClick;
     }
 
 
-
     @Override
     public void onBindViewHolder(final AAH_CustomViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String postId = lst_feed.get(position).getIdposts();
+
+        ArrayList<ViewUser> lst_views = (ArrayList<ViewUser>) lst_feed.get(position).getViewUser();
+        if (lst_views == null) {
+            lst_views = new ArrayList<>();
+        }
+
+
         if (holder.getItemViewType() == 0) {
             ViewHolder userViewHolder;
             userViewHolder = (ViewHolder) holder;
@@ -92,20 +100,150 @@ Onclick itemClick;
             userViewHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
             userViewHolder.profDetail.setText(lst_feed.get(position).getmProfTitle());
             userViewHolder.commentcount.setText(lst_feed.get(position).getPostComments());
+            userViewHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
 
             if (lst_feed.get(position).getUProPic() != null) {
                 if (lst_feed.get(position).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     // userViewHolder.userNameTxt.setVisibility(View.VISIBLE);
-//                picasso.load(R.color.green)
-//                        .into(userViewHolder.profileImg);
+
                 } else {
                     picasso.load(lst_feed.get(position).getUProPic())
                             .into(userViewHolder.profileImg);
                 }
             }
 
+            if (lst_views.size() == 0) {
+                userViewHolder.img1.setVisibility(View.GONE);
+                userViewHolder.img2.setVisibility(View.GONE);
+                userViewHolder.img3.setVisibility(View.GONE);
+                userViewHolder.img4.setVisibility(View.GONE);
+                userViewHolder.img5.setVisibility(View.GONE);
 
-            try{
+            }
+            else if (lst_views.size() == 1) {
+                userViewHolder.img1.setVisibility(View.VISIBLE);
+                userViewHolder.img2.setVisibility(View.GONE);
+                userViewHolder.img3.setVisibility(View.GONE);
+                userViewHolder.img4.setVisibility(View.GONE);
+                userViewHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }
+                else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(userViewHolder.img1);
+                }
+
+            }
+            else if (lst_views.size() == 2) {
+                userViewHolder.img1.setVisibility(View.VISIBLE);
+                userViewHolder.img2.setVisibility(View.VISIBLE);
+                userViewHolder.img3.setVisibility(View.GONE);
+                userViewHolder.img4.setVisibility(View.GONE);
+                userViewHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(userViewHolder.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(userViewHolder.img2);
+            }
+            else if (lst_views.size() == 3) {
+                userViewHolder.img1.setVisibility(View.VISIBLE);
+                userViewHolder.img2.setVisibility(View.VISIBLE);
+                userViewHolder.img3.setVisibility(View.VISIBLE);
+                userViewHolder.img4.setVisibility(View.GONE);
+                userViewHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }else
+
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(userViewHolder.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(userViewHolder.img2);
+                picasso.load(lst_views.get(2).getUProPic())
+                        .into(userViewHolder.img3);
+            }
+            else if (lst_views.size() == 4) {
+                userViewHolder.img1.setVisibility(View.VISIBLE);
+                userViewHolder.img2.setVisibility(View.VISIBLE);
+                userViewHolder.img3.setVisibility(View.VISIBLE);
+                userViewHolder.img4.setVisibility(View.VISIBLE);
+                userViewHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                } else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(userViewHolder.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(userViewHolder.img2);
+                picasso.load(lst_views.get(2).getUProPic())
+                        .into(userViewHolder.img3);
+                picasso.load(lst_views.get(3).getUProPic())
+                        .into(userViewHolder.img4);
+            }
+            else if (lst_views.size() == 5) {
+                userViewHolder.img1.setVisibility(View.VISIBLE);
+                userViewHolder.img2.setVisibility(View.VISIBLE);
+                userViewHolder.img3.setVisibility(View.VISIBLE);
+                userViewHolder.img4.setVisibility(View.VISIBLE);
+                userViewHolder.img5.setVisibility(View.VISIBLE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }else
+                   {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(userViewHolder.img1);
+                }
+                if (lst_views.get(1).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }else{
+                    picasso.load(lst_views.get(1).getUProPic())
+                            .into(userViewHolder.img2);
+                }
+
+                if (lst_views.get(2).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }else{
+                    picasso.load(lst_views.get(2).getUProPic())
+                            .into(userViewHolder.img3);
+                }
+
+                if (lst_views.get(3).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }else {
+                    picasso.load(lst_views.get(3).getUProPic())
+                            .into(userViewHolder.img4);
+                }
+
+                if (lst_views.get(4).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(userViewHolder.img1);
+                }else {
+                    picasso.load(lst_views.get(4).getUProPic())
+                            .into(userViewHolder.img5);
+                }
+            }
+
+
+            try {
 
                 picasso.load(lst_feed.get(position).getPostMediaLink())
                         .into(userViewHolder.feedPostImg);
@@ -152,8 +290,6 @@ Onclick itemClick;
                 public void onClick(View view) {
                     itemClick.onItemClicks(view, position, 4, postId, "1");
 
-
-
                 }
             });
             userViewHolder.downTxt.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +312,8 @@ Onclick itemClick;
                 userViewHolder.likesCountTxt.setText("0" + " Likes");
             }
 
-        } else if (holder.getItemViewType() == 1) {
+        }
+        else if (holder.getItemViewType() == 1) {
             ViewHolderUserVideo videoHolder;
             //  Uri uriVideo = Uri.parse(lst_feed.get(position).getPostMediaLink());
 
@@ -191,6 +328,139 @@ Onclick itemClick;
             videoHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
             videoHolder.profDetail.setText(lst_feed.get(position).getmProfTitle());
             videoHolder.commentcount.setText(lst_feed.get(position).getPostComments());
+            videoHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+
+            if (lst_views.size() == 0) {
+                videoHolder.img1.setVisibility(View.GONE);
+                videoHolder.img2.setVisibility(View.GONE);
+                videoHolder.img3.setVisibility(View.GONE);
+                videoHolder.img4.setVisibility(View.GONE);
+                videoHolder.img5.setVisibility(View.GONE);
+
+            }
+            else if (lst_views.size() == 1) {
+                videoHolder.img1.setVisibility(View.VISIBLE);
+                videoHolder.img2.setVisibility(View.GONE);
+                videoHolder.img3.setVisibility(View.GONE);
+                videoHolder.img4.setVisibility(View.GONE);
+                videoHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }
+                else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(videoHolder.img1);
+                }
+
+            }
+            else if (lst_views.size() == 2) {
+                videoHolder.img1.setVisibility(View.VISIBLE);
+                videoHolder.img2.setVisibility(View.VISIBLE);
+                videoHolder.img3.setVisibility(View.GONE);
+                videoHolder.img4.setVisibility(View.GONE);
+                videoHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(videoHolder.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(videoHolder.img2);
+            }
+            else if (lst_views.size() == 3) {
+                videoHolder.img1.setVisibility(View.VISIBLE);
+                videoHolder.img2.setVisibility(View.VISIBLE);
+                videoHolder.img3.setVisibility(View.VISIBLE);
+                videoHolder.img4.setVisibility(View.GONE);
+                videoHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }else
+
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(videoHolder.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(videoHolder.img2);
+                picasso.load(lst_views.get(2).getUProPic())
+                        .into(videoHolder.img3);
+            }
+            else if (lst_views.size() == 4) {
+                videoHolder.img1.setVisibility(View.VISIBLE);
+                videoHolder.img2.setVisibility(View.VISIBLE);
+                videoHolder.img3.setVisibility(View.VISIBLE);
+                videoHolder.img4.setVisibility(View.VISIBLE);
+                videoHolder.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                } else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(videoHolder.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(videoHolder.img2);
+                picasso.load(lst_views.get(2).getUProPic())
+                        .into(videoHolder.img3);
+                picasso.load(lst_views.get(3).getUProPic())
+                        .into(videoHolder.img4);
+            }
+            else if (lst_views.size() == 5) {
+                videoHolder.img1.setVisibility(View.VISIBLE);
+                videoHolder.img2.setVisibility(View.VISIBLE);
+                videoHolder.img3.setVisibility(View.VISIBLE);
+                videoHolder.img4.setVisibility(View.VISIBLE);
+                videoHolder.img5.setVisibility(View.VISIBLE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(videoHolder.img1);
+                }
+                if (lst_views.get(1).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }else{
+                    picasso.load(lst_views.get(1).getUProPic())
+                            .into(videoHolder.img2);
+                }
+
+                if (lst_views.get(2).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }else{
+                    picasso.load(lst_views.get(2).getUProPic())
+                            .into(videoHolder.img3);
+                }
+
+                if (lst_views.get(3).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }else {
+                    picasso.load(lst_views.get(3).getUProPic())
+                            .into(videoHolder.img4);
+                }
+
+                if (lst_views.get(4).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(videoHolder.img1);
+                }else {
+                    picasso.load(lst_views.get(4).getUProPic())
+                            .into(videoHolder.img5);
+                }
+            }
+
+
 
             if (lst_feed.get(position).getUProPic() != null) {
                 if (lst_feed.get(position).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
@@ -277,7 +547,9 @@ Onclick itemClick;
 //
 //                }
             //  }
-        } else if (holder.getItemViewType() == 2) {
+        }
+
+        else if (holder.getItemViewType() == 2) {
             ViewHolderQuestion viewHolderQuestion;
             viewHolderQuestion = (ViewHolderQuestion) holder;
             viewHolderQuestion.userName.setText(lst_feed.get(position).getUFullName());
@@ -286,6 +558,137 @@ Onclick itemClick;
 
             viewHolderQuestion.profDetail.setText(lst_feed.get(position).getmProfTitle());
             viewHolderQuestion.commentcount.setText(lst_feed.get(position).getPostComments());
+            viewHolderQuestion.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+            if (lst_views.size() == 0) {
+                viewHolderQuestion.img1.setVisibility(View.GONE);
+                viewHolderQuestion.img2.setVisibility(View.GONE);
+                viewHolderQuestion.img3.setVisibility(View.GONE);
+                viewHolderQuestion.img4.setVisibility(View.GONE);
+                viewHolderQuestion.img5.setVisibility(View.GONE);
+
+            }
+            else if (lst_views.size() == 1) {
+                viewHolderQuestion.img1.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img2.setVisibility(View.GONE);
+                viewHolderQuestion.img3.setVisibility(View.GONE);
+                viewHolderQuestion.img4.setVisibility(View.GONE);
+                viewHolderQuestion.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }
+                else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(viewHolderQuestion.img1);
+                }
+
+            }
+            else if (lst_views.size() == 2) {
+                viewHolderQuestion.img1.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img2.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img3.setVisibility(View.GONE);
+                viewHolderQuestion.img4.setVisibility(View.GONE);
+                viewHolderQuestion.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(viewHolderQuestion.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(viewHolderQuestion.img2);
+            }
+            else if (lst_views.size() == 3) {
+                viewHolderQuestion.img1.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img2.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img3.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img4.setVisibility(View.GONE);
+                viewHolderQuestion.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }else
+
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(viewHolderQuestion.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(viewHolderQuestion.img2);
+                picasso.load(lst_views.get(2).getUProPic())
+                        .into(viewHolderQuestion.img3);
+            }
+            else if (lst_views.size() == 4) {
+                viewHolderQuestion.img1.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img2.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img3.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img4.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img5.setVisibility(View.GONE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                } else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(viewHolderQuestion.img1);
+                }
+                picasso.load(lst_views.get(1).getUProPic())
+                        .into(viewHolderQuestion.img2);
+                picasso.load(lst_views.get(2).getUProPic())
+                        .into(viewHolderQuestion.img3);
+                picasso.load(lst_views.get(3).getUProPic())
+                        .into(viewHolderQuestion.img4);
+            }
+            else if (lst_views.size() == 5) {
+                viewHolderQuestion.img1.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img2.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img3.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img4.setVisibility(View.VISIBLE);
+                viewHolderQuestion.img5.setVisibility(View.VISIBLE);
+                if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }else
+                {
+                    picasso.load(lst_views.get(0).getUProPic())
+                            .into(viewHolderQuestion.img1);
+                }
+                if (lst_views.get(1).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }else{
+                    picasso.load(lst_views.get(1).getUProPic())
+                            .into(viewHolderQuestion.img2);
+                }
+
+                if (lst_views.get(2).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }else{
+                    picasso.load(lst_views.get(2).getUProPic())
+                            .into(viewHolderQuestion.img3);
+                }
+
+                if (lst_views.get(3).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }else {
+                    picasso.load(lst_views.get(3).getUProPic())
+                            .into(viewHolderQuestion.img4);
+                }
+
+                if (lst_views.get(4).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    picasso.load(R.drawable.profileimg)
+                            .into(viewHolderQuestion.img1);
+                }else {
+                    picasso.load(lst_views.get(4).getUProPic())
+                            .into(viewHolderQuestion.img5);
+                }
+            }
+
 
             if (lst_feed.get(position).getUProPic() != null) {
                 if (lst_feed.get(position).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
@@ -322,6 +725,13 @@ Onclick itemClick;
                     //  callAddToFavAPI(postId);
                 }
             });
+
+//            viewHolderQuestion.moreImg.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                }
+//            });
             viewHolderQuestion.upTxt.setText(lst_feed.get(position).getPostLikes());
 
             viewHolderQuestion.downTxt.setText(lst_feed.get(position).getPostDislikes());
@@ -402,16 +812,24 @@ Onclick itemClick;
     }
 
 
-    public static class ViewHolderQuestion extends AAH_CustomViewHolder {
+    public  class ViewHolderQuestion extends AAH_CustomViewHolder {
         TextView userName, questionTxt, userNameTxt, profDetail, commentcount;
         ImageView profileImg, moreImg;
         ImageView likeImg;
-        TextView shareImg, descHead;
+        TextView shareImg, descHead, viewsCounttxt;
         LinearLayout commentll;
         TextView upTxt, downTxt, viewAnswerTxt, viewFollowTxt, viewPassTxt;
+        ImageView img1, img2, img3, img4, img5;
 
         public ViewHolderQuestion(@NonNull View itemView) {
             super(itemView);
+
+            img1 = itemView.findViewById(R.id.img1);
+            img2 = itemView.findViewById(R.id.img2);
+            img3 = itemView.findViewById(R.id.img3);
+            img4 = itemView.findViewById(R.id.img4);
+            img5 = itemView.findViewById(R.id.img5);
+            viewsCounttxt = itemView.findViewById(R.id.viewsCounttxt);
             commentcount = itemView.findViewById(R.id.commentcount);
             profDetail = itemView.findViewById(R.id.detail);
             commentll = itemView.findViewById(R.id.commentll);
@@ -428,7 +846,18 @@ Onclick itemClick;
             viewAnswerTxt = itemView.findViewById(R.id.viewAnswerTxt);
             viewFollowTxt = itemView.findViewById(R.id.viewFollowTxt);
             viewPassTxt = itemView.findViewById(R.id.viewPassTxt);
+
+            moreImg.setOnClickListener(v -> showBottomSheet(getAdapterPosition()));
+
+            commentll.setOnClickListener(v -> {
+                Intent mIntent = new Intent(v.getContext(), AddCommentActivity.class);
+                mIntent.putExtra("post_id", lst_feed.get(getAdapterPosition()).getIdposts());
+                mContext.startActivity(mIntent);
+            });
+
         }
+
+
     }
 
     public class ViewHolderUserVideo extends AAH_CustomViewHolder {
@@ -439,7 +868,7 @@ Onclick itemClick;
         LottieAnimationView animationView;
         ImageView iv_post_image, iv_more_options;
         CardView card_image;
-        TextView userName, PersonNameTxt, descTxt, AddComment;
+        TextView userName, PersonNameTxt, descTxt, AddComment, viewsCounttxt;
         TextView upTxt, descHead, downTxt, likesCountTxt, viewCommentTxt, userNameTxt;
         ImageView iv_mute_unmute;
         ImageView img_playback;
@@ -448,12 +877,17 @@ Onclick itemClick;
         boolean isPlaying = true;
         LinearLayout commentll;
 
-
+        ImageView img1, img2, img3, img4, img5;
         public ViewHolderUserVideo(@NonNull View itemView) {
             super(itemView);
             profDetail = itemView.findViewById(R.id.detail);
             commentcount = itemView.findViewById(R.id.commentcount);
-
+            viewsCounttxt = itemView.findViewById(R.id.viewsCounttxt);
+            img1 = itemView.findViewById(R.id.img1);
+            img2 = itemView.findViewById(R.id.img2);
+            img3 = itemView.findViewById(R.id.img3);
+            img4 = itemView.findViewById(R.id.img4);
+            img5 = itemView.findViewById(R.id.img5);
             commentll = itemView.findViewById(R.id.commentll);
             descHead = itemView.findViewById(R.id.descHead);
             userNameTxt = itemView.findViewById(R.id.userNameTxt);
@@ -537,14 +971,23 @@ Onclick itemClick;
 
 
     public class ViewHolder extends AAH_CustomViewHolder {
-        TextView commentcount, profDetail, userName, upTxt, downTxt, likesCountTxt, PersonNameTxt, descTxt, viewCommentTxt, AddComment, userNameTxt;
+        TextView commentcount, viewsCounttxt, profDetail, userName, upTxt, downTxt, likesCountTxt, PersonNameTxt, descTxt, viewCommentTxt, AddComment, userNameTxt;
         ImageView profileImg, moreImg, feedPostImg, likeImg, AddCommentProfileImg;
         TextView shareImg, descHead;
         LinearLayout commentll;
 
+        ImageView img1, img2, img3, img4, img5;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            img1 = itemView.findViewById(R.id.img1);
+            img2 = itemView.findViewById(R.id.img2);
+            img3 = itemView.findViewById(R.id.img3);
+            img4 = itemView.findViewById(R.id.img4);
+            img5 = itemView.findViewById(R.id.img5);
+            viewsCounttxt = itemView.findViewById(R.id.viewsCounttxt);
             commentcount = itemView.findViewById(R.id.commentcount);
             profDetail = itemView.findViewById(R.id.detail);
             commentll = itemView.findViewById(R.id.commentll);
@@ -601,7 +1044,6 @@ Onclick itemClick;
         MoreBottomSheet sheet = new MoreBottomSheet(this, adapterPosition);
         sheet.show(fragmentManager, "comment bottom sheet");
     }
-
 
 
     class ImageLoadedCallback implements Callback {

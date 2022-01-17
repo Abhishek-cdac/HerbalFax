@@ -18,11 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.customer.homescreen.addcard.AddCardFragment;
-import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
-import com.herbal.herbalfax.customer.homescreen.feed.FeedAdapter;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
-import com.herbal.herbalfax.customer.homescreen.orders.OrdersFragment;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
 

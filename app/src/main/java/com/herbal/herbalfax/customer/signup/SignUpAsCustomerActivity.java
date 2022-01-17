@@ -558,7 +558,8 @@ public class SignUpAsCustomerActivity extends AppCompatActivity implements Adapt
                                     user.getUProPic(),
                                     user.getUActive(),
                                     user.getUDevToken(),
-                                    user.getJwtToken()
+                                    user.getJwtToken(),
+                                    user.getProfTitle()
                             );
                             try {
                                 emailVerifyDialog1 cdd = new emailVerifyDialog1(SignUpAsCustomerActivity.this, registerUser);

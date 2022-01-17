@@ -1,16 +1,21 @@
 package com.herbal.herbalfax.customer.homescreen.cart.addaddress;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -22,6 +27,7 @@ import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.homescreen.placepicker.GooglePlacePickerActivity;
 import com.herbal.herbalfax.databinding.ActivityAddNewAddressBinding;
 
 import org.jetbrains.annotations.NotNull;
@@ -36,14 +42,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddNewAddressActivity extends AppCompatActivity {
+    AddNewAddressViewModel addNewAddressViewModel;
 
     private ActivityAddNewAddressBinding binding;
     RadioGroup radioGroup;
     String idAddressTypes , isPickUpPoint;
     CommonClass clsCommon;
-    AddNewAddressViewModel addNewAddressViewModel;
     CheckBox saveForLaterCheckBox, setAsDefaultCheckBox;
     String setAsDefault;
+EditText addNewAddressTxt;
+    String latitude = "", longitude = "";
 
     Switch switchPickupPoint;
     @Override
@@ -57,6 +65,7 @@ public class AddNewAddressActivity extends AppCompatActivity {
         binding.setAddNewAddressViewModel(addNewAddressViewModel);
         switchPickupPoint = findViewById(R.id.switchPickupPoint);
         setAsDefaultCheckBox = findViewById(R.id.setAsDefaultCB);
+        addNewAddressTxt = findViewById(R.id.addNewAddressTxt);
 
         radioGroup = findViewById(R.id.radioGroup);
         saveForLaterCheckBox = findViewById(R.id.saveForLaterCB);
@@ -79,6 +88,14 @@ public class AddNewAddressActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Please select address type", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        addNewAddressTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), GooglePlacePickerActivity.class);
+                startActivityForResult(intent, GooglePlacePickerActivity.REQUEST_LOCATION);
             }
         });
         switchPickupPoint.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -113,12 +130,32 @@ public class AddNewAddressActivity extends AppCompatActivity {
             } /*else if (!saveForLaterCheckBox.isChecked()) {
                 clsCommon.showDialogMsg(AddNewAddressActivity.this, "HerbalFax", "Please agree Term & conditions", "Ok");
             } */ else {
-                callAddAddressAPI(addAddressUser, idAddressTypes);
+                callAddAddressAPI(addAddressUser, idAddressTypes, latitude, longitude);
             }
         });
     }
 
-    private void callAddAddressAPI(AddAddressUser addAddressUser, String idAddressTypes) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GooglePlacePickerActivity.REQUEST_LOCATION && resultCode ==
+                Activity.RESULT_OK) {
+            String placeName = data.getStringExtra("place");
+            android.util.Log.e("AddStoreActivity.....", "" + placeName);
+            String latLng = data.getStringExtra("latLng");
+            android.util.Log.e("latLng_add_store", "" + latLng);
+            String[] namesList = latLng.split(",");
+            latitude = namesList[0];
+            longitude = namesList[1];
+
+            android.util.Log.e("latLng_add_store", "" + latitude);
+            android.util.Log.e("latLng_add_store", "" + longitude);
+            addNewAddressTxt.setText(placeName);
+        }
+    }
+
+    private void callAddAddressAPI(AddAddressUser addAddressUser, String idAddressTypes, String latitude, String longitude) {
         SessionPref pref = SessionPref.getInstance(getApplicationContext());
 
         if (setAsDefaultCheckBox.isChecked()) {
@@ -133,8 +170,8 @@ public class AddNewAddressActivity extends AppCompatActivity {
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("UAdd_FullName", addAddressUser.getFullName());
         hashMap.put("UAdd_Address", addAddressUser.getAddress());
-//        hashMap.put("UAdd_Lat", latitute);
-//        hashMap.put("UAdd_Long", longitude);
+        hashMap.put("UAdd_Lat", latitude);
+        hashMap.put("UAdd_Long", longitude);
         hashMap.put("UAdd_City", addAddressUser.getCity());
         hashMap.put("UAdd_Type", idAddressTypes);//1- work , 2 - home
         hashMap.put("UAdd_Default", setAsDefault);

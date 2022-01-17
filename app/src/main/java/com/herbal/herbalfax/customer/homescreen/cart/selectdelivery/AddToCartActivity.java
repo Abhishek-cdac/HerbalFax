@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.customer.homescreen.cart.selectdelivery;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -99,6 +100,7 @@ public class AddToCartActivity extends AppCompatActivity {
 
         Call<AddedCartModel> call = service.userCartList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken));
         call.enqueue(new Callback<AddedCartModel>() {
+            @SuppressLint("SetTextI18n")
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<AddedCartModel> call, Response<AddedCartModel> response) {
@@ -110,7 +112,7 @@ public class AddToCartActivity extends AppCompatActivity {
                         if (lst_cart_item == null) {
                             lst_cart_item = new ArrayList<>();
                         }
-                        subTotal.setText("$"+Math.toIntExact(response.body().getData().getCart().getCartSubTotal()));
+                        subTotal.setText("$"+response.body().getData().getCart().getCartSubTotal());
                         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
                         CartItemRecycler.setLayoutManager(RecyclerViewLayoutManager);
                         cartItemAdapter = new CartItemAdapter(lst_cart_item, getApplicationContext(), itemClick);

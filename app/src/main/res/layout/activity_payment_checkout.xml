@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".customer.homescreen.payment.PaymentCheckoutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:minHeight="?attr/actionBarSize"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/ic_icon_arrow_left_white" />
+
+            <TextView
+                android:id="@+id/headerTxt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_weight=".6"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="Checkout"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_below="@+id/header"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_icon_menu_map_pin_black" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_repeat_lines_black"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_icon_menu_credit_card_darkblack"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_repeat_lines_black"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_icon_ionic_ios_checkmark_circle_outline_black"
+
+                />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/checked" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Payment Complete"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+
+                    />
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Order Id is "
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <TextView
+android:id="@+id/orderID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text=" #123546"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/nameTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Please check the delivery status at "
+                    android:textAlignment="center"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_14sdp" />
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="Order Tracker "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text=" Page"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/rect_button_black"
+        android:padding="@dimen/_10sdp"
+        android:text="Continue Shopping"
+        android:textColor="@color/white" />
+</RelativeLayout>

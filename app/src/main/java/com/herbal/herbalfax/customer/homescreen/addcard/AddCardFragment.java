@@ -47,8 +47,6 @@ public class AddCardFragment extends Fragment implements OnInnerFragmentClicks {
 
             ft.commitAllowingStateLoss();
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

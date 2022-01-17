@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.customer.homescreen.products.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
 import com.herbal.herbalfax.customer.homescreen.products.model.AddToCartModel;
 import com.herbal.herbalfax.vendor.sellerproduct.productdetail.productdetailsmodel.ProductDetailsResponse;
 import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.StorePhoto;
@@ -133,8 +135,14 @@ private void callAddToCartApi(String quantity, String productId) {
                     if (response.body().getStatus() == 1) {
 
                         Log.e("Added to cart", "  productId  " + productId +  "  quantity  "+ quantity);
-                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-
+                        clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
+                        Intent intent2 = new Intent(getActivity(), AddToCartActivity.class);
+                        startActivity(intent2);
+                        getActivity().finish();
+                    }
+                    else
+                    {
+                        clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }
                 } else {
                     try {
@@ -160,6 +168,8 @@ private void callAddToCartApi(String quantity, String productId) {
 
 
 }
+
+
     private void display(int number) {
         if (number >= 0) {
             remove.setClickable(true);
