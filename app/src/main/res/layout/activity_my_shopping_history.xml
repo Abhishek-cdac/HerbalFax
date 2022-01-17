@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".common_screen.landingpage.PhotosDetailsActivity"
-    >
+    tools:context=".common_screen.profile.MyShoppingHistoryActivity">
 
     <LinearLayout
-        android:id="@+id/headeradd"
+        android:id="@+id/mydealheader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green"
@@ -32,40 +31,19 @@
             android:fontFamily="@font/raleway_semibold"
             android:gravity="center"
             android:padding="@dimen/_5sdp"
-            android:text="Events"
+            android:text="Shopping History"
             android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp" />
+            android:textSize="@dimen/_18sdp">
+
+        </TextView>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventsmenubar"
+        android:id="@+id/shoppinghistoryitem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/headeradd"
+        android:layout_below="@id/mydealheader"
         android:layout_centerInParent="true"
-        android:padding="@dimen/_5sdp" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventsitemsbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/eventsmenubar"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_10sdp"
         android:padding="@dimen/_20sdp" />
-
-    <TextView
-        android:gravity="center"
-        android:padding="@dimen/_10sdp"
-        android:id="@+id/addeventdetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:background="@drawable/rounded_corner_view_text"
-        android:text="ADD EVENTS"
-        android:textColor="@color/white" />
 </RelativeLayout>

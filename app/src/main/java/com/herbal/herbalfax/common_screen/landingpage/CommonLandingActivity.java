@@ -166,6 +166,8 @@ public class CommonLandingActivity extends AppCompatActivity {
         photosRecyclerview = findViewById(R.id.photosRecyclerview);
         timelyRecyclerview = findViewById(R.id.timelyRecyclerview);
         photosViewMore = findViewById(R.id.photosviewmore);
+        eventsviewmore = findViewById(R.id.eventsviewmore);
+
 
         login_ll.setOnClickListener(new View.OnClickListener() {
             @Override
