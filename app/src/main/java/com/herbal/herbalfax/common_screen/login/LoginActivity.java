@@ -240,7 +240,8 @@ public class LoginActivity extends AppCompatActivity {
                 user.getUProPic(),
                 user.getUActive(),
                 user.getUDevToken(),
-                user.getJwtToken()
+                user.getJwtToken(),
+                user.getProfTitle()
         );
 
         Intent mIntent;

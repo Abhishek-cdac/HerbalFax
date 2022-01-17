@@ -43,8 +43,7 @@
                 android:id="@+id/nameLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/dealItemImg"
-                >
+                android:layout_below="@+id/dealItemImg">
 
                 <TextView
                     android:id="@+id/productNameText"
@@ -61,8 +60,8 @@
                 <ImageView
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:layout_gravity="top|end"
                     android:layout_alignParentRight="true"
+                    android:layout_gravity="top|end"
                     android:layout_margin="@dimen/_10sdp"
                     android:background="@drawable/circle_background_white"
                     android:padding="3dp"
@@ -174,9 +173,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_alignParentLeft="true"
                     android:fontFamily="@font/roboto_bold"
                     android:text="$249"
                     android:textColor="@color/black"

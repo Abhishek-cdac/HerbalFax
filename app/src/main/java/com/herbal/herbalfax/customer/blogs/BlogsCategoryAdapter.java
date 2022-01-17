@@ -46,15 +46,12 @@ public class BlogsCategoryAdapter extends RecyclerView.Adapter<BlogsCategoryAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.nameArticle.setText(lst_blogCategory.get(position).getBCatTitle());
-        picasso.load(lst_blogCategory.get(position).getBCatImage())
-                .into(holder.articleImg);
+        picasso.load(lst_blogCategory.get(position).getBCatImage()).into(holder.articleImg);
         String categoryId = lst_blogCategory.get(position).getIdblogCategories();
-
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 itemClick.onItemClicks(view, position, 3, categoryId);
-
             }
         });
     }
@@ -69,15 +66,11 @@ public class BlogsCategoryAdapter extends RecyclerView.Adapter<BlogsCategoryAdap
         TextView nameArticle;
         ImageView articleImg;
         CardView cardview;
-
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             cardview = itemView.findViewById(R.id.cardview);
             nameArticle = itemView.findViewById(R.id.articleText);
             articleImg = itemView.findViewById(R.id.articleImg);
-
         }
     }
 

@@ -125,6 +125,7 @@ public class SessionPref {
     public static String LoginUserInterestsIDS = "InterestsID";
     public static String LoginUserinterested = "Interests";
     public static String LoginJwtoken = "jwt_token";
+  public static String LoginProfession = "ProfTitle";
 
     private static final String IS_LOGIN = "IsLoggedIn";
 
@@ -141,7 +142,8 @@ public class SessionPref {
                               String profilePic,
                               String active,
                               String token,
-                              String jwt_token
+                              String jwt_token,
+                              String ProfTitle
     ) {
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(LoginUserID, id);
@@ -158,6 +160,7 @@ public class SessionPref {
         editor.putString(LoginUserprofilePic, profilePic);
         editor.putString(LoginUserActive, active);
         editor.putString(LoginJwtoken, jwt_token);
+        editor.putString(LoginProfession, ProfTitle);
         editor.commit();
     }
 

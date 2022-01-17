@@ -8,34 +8,33 @@ import com.google.gson.annotations.SerializedName;
 public class Cart {
 
     @SerializedName("Cart_SubTotal")
-    private Long cartSubTotal;
+    private Double cartSubTotal;
     @SerializedName("Cart_Tax")
-    private Long cartTax;
+    private Double cartTax;
     @SerializedName("Cart_Total")
-    private Long cartTotal;
+    private Double cartTotal;
 
-    public Long getCartSubTotal() {
+    public Double getCartSubTotal() {
         return cartSubTotal;
     }
 
-    public void setCartSubTotal(Long cartSubTotal) {
+    public void setCartSubTotal(Double cartSubTotal) {
         this.cartSubTotal = cartSubTotal;
     }
 
-    public Long getCartTax() {
+    public Double getCartTax() {
         return cartTax;
     }
 
-    public void setCartTax(Long cartTax) {
+    public void setCartTax(Double cartTax) {
         this.cartTax = cartTax;
     }
 
-    public Long getCartTotal() {
+    public Double getCartTotal() {
         return cartTotal;
     }
 
-    public void setCartTotal(Long cartTotal) {
+    public void setCartTotal(Double cartTotal) {
         this.cartTotal = cartTotal;
     }
-
 }

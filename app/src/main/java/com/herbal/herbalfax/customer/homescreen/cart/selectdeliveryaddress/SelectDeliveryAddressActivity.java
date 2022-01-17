@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,17 +19,12 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.bottomsheet.ShoppingDetailsBottomSheet;
 import com.herbal.herbalfax.customer.homescreen.cart.addaddress.AddNewAddressActivity;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.adapter.CartItemAdapter;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.adapter.CheckoutListAdapter;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.CartList;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.adapter.SelectDeliveryAddressAdapter;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.model.SelectDeliveryAddressModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.model.UserAddress;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.herbal.herbalfax.customer.selectInterest.Interest;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -47,8 +43,11 @@ public class SelectDeliveryAddressActivity extends AppCompatActivity {
     Onclick itemClick;
     ImageView back;
     ArrayList<UserAddress> lst_address_item;
-    TextView addNewAddressTxt;
+    TextView addNewAddressTxt, continue_button;
     private CommonClass clsCommon;
+
+    String Orders_Type, SubTotal, Tax, Shipping, Total , IdAddress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,25 +55,60 @@ public class SelectDeliveryAddressActivity extends AppCompatActivity {
         addressRecyclerView = findViewById(R.id.addressRecyclerView);
         back = findViewById(R.id.back);
         clsCommon = CommonClass.getInstance();
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            Orders_Type = extras.getString("Orders_Type");
+            SubTotal = extras.getString("SubTotal");
+            Tax = extras.getString("Tax");
+            Shipping = extras.getString("Shipping");
+            Total = extras.getString("Total");
+        }
         addNewAddressTxt = findViewById(R.id.addNewAddressTxt);
+        continue_button = findViewById(R.id.continue_button);
 
 
         callSelectDeliveryAddress();
         addNewAddressTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(), AddNewAddressActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AddNewAddressActivity.class);
                 startActivity(intent);
             }
-        });  back.setOnClickListener(new View.OnClickListener() {
+        });
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
-        
+        continue_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheet();
+            }
+        });
 
+        itemClick = new Onclick() {
+            @Override
+            public void onItemClicks(View view, int position, int i, String addressId, String s) {
+
+            }
+
+            @Override
+            public void onItemClicks(View view, int position, int i, String addressId) {
+                if (i == 7) {
+                    IdAddress = addressId;
+                }
+            }
+        };
+
+
+    }
+
+    private void showBottomSheet() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        ShoppingDetailsBottomSheet sheet = new ShoppingDetailsBottomSheet(SelectDeliveryAddressActivity.this, SubTotal, Shipping, Tax, Total, IdAddress, Orders_Type);
+        sheet.show(fragmentManager, "comment bottom sheet");
     }
 
     private void callSelectDeliveryAddress() {
@@ -96,6 +130,7 @@ public class SelectDeliveryAddressActivity extends AppCompatActivity {
                             lst_address_item = new ArrayList<>();
                         }
 
+
                         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
                         addressRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
                         selectDeliveryAddressAdapter = new SelectDeliveryAddressAdapter(lst_address_item, getApplicationContext(), itemClick);
@@ -109,8 +144,7 @@ public class SelectDeliveryAddressActivity extends AppCompatActivity {
                     try {
                         assert response.errorBody() != null;
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
-                        clsCommon.showDialogMsgFrag(SelectDeliveryAddressActivity.this, "HerbalFax", jObjError.getString("message"), "Ok")
-                        ;
+                        clsCommon.showDialogMsgFrag(SelectDeliveryAddressActivity.this, "HerbalFax", jObjError.getString("message"), "Ok");
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                     }

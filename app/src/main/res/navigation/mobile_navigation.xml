@@ -69,7 +69,6 @@
         android:label="@string/menu_products"
         tools:layout="@layout/fragment_dashboard" />
 
-
     <fragment
         android:id="@+id/bottom_notifications"
         android:name="com.herbal.herbalfax.customer.homescreen.nearbystores.NearByStoreFragment"
@@ -78,12 +77,13 @@
 
 
 
- <!--   <fragment
+   <!-- <fragment
         android:id="@+id/bottom_notifications"
         android:name="com.herbal.herbalfax.customer.homescreen.group.GroupsFragment"
         android:label="@string/title_group"
-        tools:layout="@layout/fragment_notifications" />
--->
+        tools:layout="@layout/fragment_notifications" />-->
+
+
     <fragment
         android:id="@+id/bottom_deal"
         android:name="com.herbal.herbalfax.customer.homescreen.deals.DealsFragment"

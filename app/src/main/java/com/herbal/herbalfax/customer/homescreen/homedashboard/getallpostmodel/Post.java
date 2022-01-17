@@ -50,6 +50,38 @@ public class Post {
     @SerializedName("UProPic")
     private String mUProPic;
 
+    @SerializedName("PostViews")
+    private String postViews;
+
+    public String getPostViews() {
+        return postViews;
+    }
+
+    public void setPostViews(String postViews) {
+        this.postViews = postViews;
+    }
+
+    public String getPostGroupId() {
+        return postGroupId;
+    }
+
+    public void setPostGroupId(String postGroupId) {
+        this.postGroupId = postGroupId;
+    }
+
+    @SerializedName("PostGroupId")
+    private String postGroupId;
+    @SerializedName("view_user")
+    private List<ViewUser> viewUser = null;
+
+    public List<ViewUser> getViewUser() {
+        return viewUser;
+    }
+
+    public void setViewUser(List<ViewUser> viewUser) {
+        this.viewUser = viewUser;
+    }
+
     public String getmProfTitle() {
         return mProfTitle;
     }

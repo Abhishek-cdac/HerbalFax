@@ -8,6 +8,8 @@ import com.herbal.herbalfax.common_screen.verify_email_after_signup.resendmodel.
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.blogs.blogdetailmodel.BlogsDetailResponse;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
+import com.herbal.herbalfax.customer.homescreen.addcard.model.AddCardModel;
+import com.herbal.herbalfax.customer.homescreen.addcard.ordersubmitmodel.OrderSubmitModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.model.SelectDeliveryAddressModel;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
@@ -170,6 +172,13 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("user-cart-add-delivery-address")
     Call<CommonResponse> userCartAddDeliveryAddress(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+  @FormUrlEncoded
+    @POST("user-cart-add-card")
+    Call<AddCardModel> userCartAddCard(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+  @FormUrlEncoded
+    @POST("user-cart-order-submit")
+    Call<OrderSubmitModel> userCartOrderSubmit(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
 
 
