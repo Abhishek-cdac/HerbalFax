@@ -12,7 +12,6 @@
     android:background="#EFEFEF">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#EFEFEF"
@@ -21,9 +20,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview"
-            app:cardCornerRadius="@dimen/_5sdp"
             android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp">
+            android:layout_height="@dimen/_100sdp"
+            app:cardCornerRadius="@dimen/_5sdp">
 
             <ImageView
                 android:id="@+id/eventImg"
@@ -42,15 +41,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardview"
-            android:drawablePadding="@dimen/_10sdp"
-            android:drawableLeft="@drawable/ic_icon_map_marker"
             android:layout_gravity="left"
             android:layout_marginTop="@dimen/_8sdp"
+            android:drawableLeft="@drawable/ic_icon_map_marker"
+            android:drawablePadding="@dimen/_10sdp"
             android:fontFamily="@font/raleway_regular"
             android:gravity="left"
             android:text="London"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
+
         <TextView
             android:id="@+id/eventGameName"
             android:layout_width="wrap_content"

@@ -8,39 +8,37 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.common_screen.landingpage.adapter.EventsItemsMenuAdapter;
-import com.herbal.herbalfax.common_screen.landingpage.adapter.EventsMenuAdapter;
 import com.herbal.herbalfax.common_screen.profile.Adapter.MydealsAdapter;
+import com.herbal.herbalfax.common_screen.profile.Adapter.MyshoppingAdapter;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyDealsActivity extends AppCompatActivity {
+public class MyShoppingHistoryActivity extends AppCompatActivity {
 
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
     private List<Interest> DealsCategory = new ArrayList<>();
     LinearLayoutManager HorizontalLayout;
-    RecyclerView   mydealitemsbarRecycler;
-    MydealsAdapter mydealsAdapter;
-
+    RecyclerView  shoppinghistoryitemRecycler;
+    MyshoppingAdapter myshoppingAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_deals);
-        mydealitemsbarRecycler = findViewById(R.id.mydealitemsbar);
-        setMyDealsDetailsBar();
+        setContentView(R.layout.activity_my_shopping_history);
+        shoppinghistoryitemRecycler = findViewById(R.id.shoppinghistoryitem);
+        setMyShoppingHistory();
     }
 
-    private void setMyDealsDetailsBar() {
+    private void setMyShoppingHistory() {
         DealsCategory = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mydealitemsbarRecycler.setLayoutManager(RecyclerViewLayoutManager);
-        mydealsAdapter = new MydealsAdapter((ArrayList<Interest>) DealsCategory,getApplicationContext());
+        shoppinghistoryitemRecycler.setLayoutManager(RecyclerViewLayoutManager);
+        myshoppingAdapter = new MyshoppingAdapter((ArrayList<Interest>) DealsCategory,getApplicationContext());
         HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-        mydealitemsbarRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
+        shoppinghistoryitemRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
 //      recyclerView.setHasFixedSize(true);
 //      recyclerView.addItemDecoration(new SpacesItemDecoration(2));
-        mydealitemsbarRecycler.setAdapter(mydealsAdapter);
+        shoppinghistoryitemRecycler.setAdapter(myshoppingAdapter);
     }
 }
