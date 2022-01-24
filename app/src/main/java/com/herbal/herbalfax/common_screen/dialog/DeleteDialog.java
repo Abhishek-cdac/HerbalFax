@@ -3,6 +3,7 @@ package com.herbal.herbalfax.common_screen.dialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,10 @@ public class DeleteDialog extends Dialog implements android.view.View.OnClickLis
 
         this.c = a;
         this.productId = productId;
+    }
+
+    public DeleteDialog(Context mContext) {
+        super(mContext);
     }
 
     @Override

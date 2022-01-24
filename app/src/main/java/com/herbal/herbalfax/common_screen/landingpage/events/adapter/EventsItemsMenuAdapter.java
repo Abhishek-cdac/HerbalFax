@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.landingpage.events.eventdetailsmodel.Event;
+import com.herbal.herbalfax.common_screen.landingpage.EventReadMoreActivity;
 import com.herbal.herbalfax.customer.homescreen.deals.DealsDetailsActivity;
 import com.squareup.picasso.Picasso;
 
@@ -51,7 +52,7 @@ public class EventsItemsMenuAdapter extends RecyclerView.Adapter<EventsItemsMenu
         holder.readmorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mContext, DealsDetailsActivity.class);
+                Intent i = new Intent(mContext, EventReadMoreActivity.class);
                 mContext.startActivity(i);
             }
         });

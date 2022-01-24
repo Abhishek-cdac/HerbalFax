@@ -29,6 +29,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".vendor.sellerdrivers.addrider.AddRiderActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
             android:name=".vendor.sellerdeals.booster.SellerBoosterDealActivity"
             android:exported="true" />
         <activity
