@@ -1,6 +1,5 @@
 package com.herbal.herbalfax.common_screen.landingpage.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,21 +12,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.homescreen.group.Adaptor.AddPeopleListAdaptor;
-import com.herbal.herbalfax.customer.selectInterest.Interest;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AddCommentsAdapter extends RecyclerView.Adapter<AddCommentsAdapter.ViewHolder> {
 
 
-    ArrayList<Interest> lst_int;
-    ArrayList<Interest> lst_intFilter;
+    List<com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.commentlstmodel.EventComment> lst_int;
+    Picasso picasso;
+
     Context mContext;
 
-    public AddCommentsAdapter(ArrayList<Interest> lst_cart_item, Context applicationContext) {
+    public AddCommentsAdapter(List<com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.commentlstmodel.EventComment> lst_cart_item, Context applicationContext) {
         this.lst_int = lst_cart_item;
         this.mContext = applicationContext;
-
+        picasso = Picasso.get();
     }
 
     public static void setAdapter(AddPeopleListAdaptor addPeopleListAdaptor) {
@@ -47,26 +47,35 @@ public class AddCommentsAdapter extends RecyclerView.Adapter<AddCommentsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.userComments.setText(lst_int.get(position).getECComments());
+        holder.userName.setText(lst_int.get(position).getUFullName());
+        if (lst_int.get(position).getUProPic().equals("http://localhost/NIS/Herbalfax/upload/user_pro/"))
+        {
+            picasso.load(R.drawable.addpeople)
+                    .into(holder.userImg);
+        } else {
+            picasso.load(lst_int.get(position).getUProPic())
+                    .into(holder.userImg);
+        }
     }
 
 
     @Override
     public int getItemCount() {
-        return 8;
+        return lst_int.size();
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView productImage;
-        TextView productName, productCategory,priceTxt;
+        ImageView userImg;
+        TextView userName, userComments;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            productImage = itemView.findViewById(R.id.productImage);
-            productName = itemView.findViewById(R.id.productName);
-            productCategory = itemView.findViewById(R.id.productCategory);
+            userImg = itemView.findViewById(R.id.userImg);
+            userName = itemView.findViewById(R.id.userName);
+            userComments = itemView.findViewById(R.id.userComments);
 
         }
     }

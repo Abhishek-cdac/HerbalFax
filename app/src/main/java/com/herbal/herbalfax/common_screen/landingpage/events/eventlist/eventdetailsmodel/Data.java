@@ -1,5 +1,5 @@
 
-package com.herbal.herbalfax.common_screen.landingpage.events.eventdetailsmodel;
+package com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel;
 
 import java.util.List;
 

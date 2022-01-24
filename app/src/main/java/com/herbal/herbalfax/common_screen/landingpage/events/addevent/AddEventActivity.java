@@ -27,7 +27,7 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
-import com.herbal.herbalfax.common_screen.landingpage.events.EventsDetailsActivity;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.landingpage.events.addevent.model.AddEventResponse;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
@@ -64,7 +64,7 @@ public class AddEventActivity extends AppCompatActivity {
     public final static int ALL_PERMISSIONS_RESULT = 107;
     public final static int PICK_PHOTO_FOR_AVATAR = 150;
     EditText eventDate;
-    ImageView eventImage;
+    ImageView back, eventImage;
     LinearLayout ll_pic;
     EditText eventTimeEdt, eventAddress;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -81,6 +81,7 @@ public class AddEventActivity extends AppCompatActivity {
         binding.setAddEventViewModel(addEventViewModel);
         eventDate = findViewById(R.id.eventDate);
         ll_pic = findViewById(R.id.ll_pic);
+        back = findViewById(R.id.back);
         eventImage = findViewById(R.id.eventImage);
         eventTimeEdt = findViewById(R.id.eventTimeEdt);
         eventAddress = findViewById(R.id.eventaddress);
@@ -102,6 +103,12 @@ public class AddEventActivity extends AppCompatActivity {
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             updateLabel();
         };
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         eventDate.setOnClickListener(v -> {
 
             DatePickerDialog dialog = new DatePickerDialog(AddEventActivity.this,
@@ -223,8 +230,8 @@ public class AddEventActivity extends AppCompatActivity {
                         assert response.body() != null;
                         if (response.body().getStatus() == 1) {
 
-Intent intent = new Intent(getApplicationContext(), EventsDetailsActivity.class);
-startActivity(intent);
+                            Intent intent = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+                            startActivity(intent);
                         } else {
                             Log.e("Error", "" + response.body().getErrors().toString());
                             Log.e("Error", "" + response.body().getErrors());

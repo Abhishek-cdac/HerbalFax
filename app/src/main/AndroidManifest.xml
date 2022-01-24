@@ -41,7 +41,7 @@
             android:name=".vendor.sellerdeals.adddeal.AddDealsActivity"
             android:exported="true" />
         <activity
-            android:name=".common_screen.landingpage.events.EventReadMoreActivity"
+            android:name=".common_screen.landingpage.events.eventdetail.EventReadMoreActivity"
             android:exported="false" />
         <activity
             android:name=".common_screen.landingpage.events.addevent.AddEventActivity"
@@ -71,7 +71,7 @@
             android:name=".common_screen.profile.MyShoppingHistoryActivity"
             android:exported="true" />
         <activity
-            android:name=".common_screen.landingpage.events.EventsDetailsActivity"
+            android:name=".common_screen.landingpage.events.eventlist.EventsDetailsActivity"
             android:exported="true" />
         <activity
             android:name=".common_screen.landingpage.PhotosDetailsActivity"

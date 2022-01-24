@@ -19,7 +19,7 @@ import com.herbal.herbalfax.common_screen.landingpage.adapter.FindFruityCannabis
 import com.herbal.herbalfax.common_screen.landingpage.adapter.PhotosAdapter;
 import com.herbal.herbalfax.common_screen.landingpage.adapter.TimeAdapter;
 import com.herbal.herbalfax.common_screen.landingpage.adapter.TrendingAdapter;
-import com.herbal.herbalfax.common_screen.landingpage.events.EventsDetailsActivity;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.utils.SpacesItemDecoration;
 import com.herbal.herbalfax.customer.selectInterest.Interest;

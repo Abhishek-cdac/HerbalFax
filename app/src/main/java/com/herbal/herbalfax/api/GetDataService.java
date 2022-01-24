@@ -2,7 +2,10 @@ package com.herbal.herbalfax.api;
 
 import com.herbal.herbalfax.common_screen.create_new_password.UpdatePasswordResponse;
 import com.herbal.herbalfax.common_screen.landingpage.events.addevent.model.AddEventResponse;
-import com.herbal.herbalfax.common_screen.landingpage.events.eventdetailsmodel.EventListResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.commentlstmodel.EventCommentsResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.detaileventsmodel.DetailedEventResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.detaileventsmodel.EventComment;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel.EventListResponse;
 import com.herbal.herbalfax.common_screen.login.LoginResponse;
 import com.herbal.herbalfax.common_screen.terms.termmodel.TermResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.otpverified.SignUpOtpVerifyResponse;
@@ -274,5 +277,16 @@ public interface GetDataService {
 
     @POST("user-event-list")
     Call<EventListResponse> userEventList(@Header("Authorization") String token);
+
+    @FormUrlEncoded
+    @POST("user-event-details")
+    Call<DetailedEventResponse> userEventDetails(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+  @FormUrlEncoded
+    @POST("user-event-add-comment")
+    Call<CommonResponse> userEventAddComment(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+ @FormUrlEncoded
+    @POST("user-get-event-comments")
+    Call<EventCommentsResponse> userGetEventComments(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
 
 }

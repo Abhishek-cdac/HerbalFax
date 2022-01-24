@@ -34,7 +34,7 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
-import com.herbal.herbalfax.common_screen.landingpage.events.EventsDetailsActivity;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;

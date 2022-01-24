@@ -1,24 +1,25 @@
-package com.herbal.herbalfax.common_screen.landingpage.events;
+package com.herbal.herbalfax.common_screen.landingpage.events.eventlist;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
-import com.herbal.herbalfax.common_screen.landingpage.events.adapter.EventsItemsMenuAdapter;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.adapter.EventsItemsMenuAdapter;
 import com.herbal.herbalfax.common_screen.landingpage.events.adapter.EventsMenuAdapter;
 import com.herbal.herbalfax.common_screen.landingpage.events.addevent.AddEventActivity;
-import com.herbal.herbalfax.common_screen.landingpage.events.eventdetailsmodel.Event;
-import com.herbal.herbalfax.common_screen.landingpage.events.eventdetailsmodel.EventListResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel.Event;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel.EventListResponse;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
@@ -27,9 +28,7 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,6 +44,7 @@ public class EventsDetailsActivity extends AppCompatActivity {
     RecyclerView eventsitemsbarRecycler;
     TextView addEvents;
     CommonClass clsCommon;
+    ImageView back;
     EventsItemsMenuAdapter eventsItemsMenuAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +53,19 @@ public class EventsDetailsActivity extends AppCompatActivity {
         clsCommon = CommonClass.getInstance();
         eventsviewRecycler = findViewById(R.id.eventsmenubar);
         eventsitemsbarRecycler = findViewById(R.id.eventsitemsbar);
+        back = findViewById(R.id.back);
         addEvents = findViewById(R.id.addeventdetails);
-
-        addEvents.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddEventActivity.class);
-                startActivity(intent);
+                onBackPressed();
+
             }
+        });
+
+        addEvents.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), AddEventActivity.class);
+            startActivity(intent);
         });
         setEventsMenuBar();
 
@@ -128,8 +133,6 @@ public class EventsDetailsActivity extends AppCompatActivity {
         eventsMenuAdapter = new EventsMenuAdapter((ArrayList<Interest>) DealsCategory, getApplicationContext());
         HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         eventsviewRecycler.setLayoutManager(HorizontalLayout);
-//      recyclerView.setHasFixedSize(true);
-//      recyclerView.addItemDecoration(new SpacesItemDecoration(2));
         eventsviewRecycler.setAdapter(eventsMenuAdapter);
     }
 

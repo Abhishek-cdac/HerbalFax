@@ -1,4 +1,4 @@
-package com.herbal.herbalfax.common_screen.landingpage.events.adapter;
+package com.herbal.herbalfax.common_screen.landingpage.events.eventlist.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,9 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.common_screen.landingpage.events.eventdetailsmodel.Event;
-import com.herbal.herbalfax.common_screen.landingpage.EventReadMoreActivity;
-import com.herbal.herbalfax.customer.homescreen.deals.DealsDetailsActivity;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.EventReadMoreActivity;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel.Event;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,7 +41,7 @@ public class EventsItemsMenuAdapter extends RecyclerView.Adapter<EventsItemsMenu
         return new EventsItemsMenuAdapter.ViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "RecyclerView"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
@@ -53,6 +51,7 @@ public class EventsItemsMenuAdapter extends RecyclerView.Adapter<EventsItemsMenu
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(mContext, EventReadMoreActivity.class);
+                i.putExtra("IdEvents", lst_int.get(position).getIdevents());
                 mContext.startActivity(i);
             }
         });
@@ -89,6 +88,5 @@ public class EventsItemsMenuAdapter extends RecyclerView.Adapter<EventsItemsMenu
 
         }
     }
-
 
 }
