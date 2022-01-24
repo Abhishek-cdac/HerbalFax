@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/_5sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:padding="@dimen/_10sdp">
+
+        <FrameLayout
+            android:id="@+id/dealItemImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/productImg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/product"
+                android:visibility="visible" />
+
+
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:id="@+id/nameLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dealItemImg"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/productNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_weight=".9"
+                android:padding="@dimen/_5sdp"
+               android:fontFamily="@font/raleway_semibold"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <ImageView
+                android:id="@+id/dealFav"
+                android:visibility="gone"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_below="@+id/herbalfax_choice"
+                android:layout_gravity="top|end"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/circle_background_white"
+                android:src="@drawable/ic_icon_ionic_ios_heart_grey" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameLL"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:drawableLeft="@drawable/ic_icon_menu_map_pin"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="752 Jacinto Dale"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_10sdp" />
+
+        <LinearLayout
+            android:id="@+id/bought_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location"
+            android:layout_margin="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".8"
+                android:drawableLeft="@drawable/rating"
+                android:drawablePadding="@dimen/_3sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="0 Bought"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_10sdp" />
+
+
+            <TextView
+                android:id="@+id/priceTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:fontFamily="@font/roboto_medium"
+
+                android:text="$273"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/validity_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bought_ll"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Validity Till: 08/26/21"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_10sdp" />
+
+
+        <FrameLayout
+            android:id="@+id/buyTxt"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/validity_txt"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rect_button_green">
+
+            <Button
+                android:id="@+id/buyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:text="Boost"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12sdp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/expiredTxt"
+            android:layout_width="match_parent"
+            android:text="Expired"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/validity_txt"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/rect_button_gray"
+            android:textColor="@color/white"
+            android:fontFamily="@font/raleway_semibold"
+            android:textSize="@dimen/_12sdp"
+            android:layout_height="30dp"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

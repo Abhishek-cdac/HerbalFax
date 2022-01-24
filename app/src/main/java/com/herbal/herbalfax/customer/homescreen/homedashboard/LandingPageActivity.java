@@ -34,16 +34,14 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
+import com.herbal.herbalfax.common_screen.landingpage.events.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
-import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
-import com.herbal.herbalfax.customer.homescreen.group.GroupsFragment;
-import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByStoreFragment;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.notification.NotificationActivity;
 import com.herbal.herbalfax.customer.post.AddPostActivity;
@@ -315,8 +313,9 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             case R.id.action_map:
              //   ReplaceFrag(new NearByStoreFragment());
 
-//                Intent intent1 = new Intent(getApplicationContext(), EditProfileActivity.class);
-//                startActivity(intent1);
+                Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+                        //EditProfileActivity.class);
+                startActivity(intent1);
                 return true;
 
             case R.id.action_cart:

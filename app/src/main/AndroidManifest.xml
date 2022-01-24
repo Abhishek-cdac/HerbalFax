@@ -29,19 +29,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".common_screen.landingpage.EventReadMoreActivity"
+            android:name=".vendor.sellerdeals.booster.SellerBoosterDealActivity"
+            android:exported="true" />
+        <activity
+            android:name=".vendor.sellerdeals.adddeal.AddDealsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".common_screen.landingpage.events.EventReadMoreActivity"
             android:exported="false" />
         <activity
-            android:name=".common_screen.landingpage.AddEventActivity"
-            android:exported="true"></activity>
+            android:name=".common_screen.landingpage.events.addevent.AddEventActivity"
+            android:exported="true" />
         <activity
             android:name=".customer.myorders.TrackOrderActivity"
             android:exported="true" />
         <activity
             android:name=".customer.myorders.MyOrdersActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
-            android:name=".customer.homescreen.group.CreateGroupActivity"
+            android:name=".customer.homescreen.group.creategroup.CreateGroupActivity"
             android:exported="true" />
         <activity
             android:name=".customer.homescreen.payment.PaymentCheckoutActivity"
@@ -58,15 +64,14 @@
         <activity
             android:name=".common_screen.profile.MyShoppingHistoryActivity"
             android:exported="true" />
-            android:exported="true" />
         <activity
-            android:name=".common_screen.landingpage.EventsDetailsActivity"
+            android:name=".common_screen.landingpage.events.EventsDetailsActivity"
             android:exported="true" />
         <activity
             android:name=".common_screen.landingpage.PhotosDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".customer.homescreen.group.AddPeopleToGroupActivity"
+            android:name=".customer.homescreen.group.addmember.AddPeopleToGroupActivity"
             android:exported="true" />
         <activity
             android:name=".customer.homescreen.deals.DealsDetailsActivity"

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="AddEventViewModel"
+            type="com.herbal.herbalfax.common_screen.landingpage.events.addevent.AddEventViewModel" />
+
+    </data>
+
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".common_screen.landingpage.AddEventActivity">
+    tools:context=".common_screen.landingpage.events.addevent.AddEventActivity">
 
     <LinearLayout
         android:id="@+id/headeradd"
@@ -57,6 +67,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/uploadimage"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/uploadimagetxt"
@@ -69,27 +81,43 @@
                     android:orientation="vertical"
                     android:layout_margin="@dimen/_20sdp">
 
-                    <LinearLayout
-                        android:gravity="center"
+                    <FrameLayout
+                        android:onClick="@{(v) -> AddEventViewModel.OnGallery(v)}"
+
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_rectangle_428"
-                        android:orientation="vertical">
-
+                        android:background="@color/light_green"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp">
                         <ImageView
-                            android:id="@+id/upload"
+                            android:background="@color/light_green"
+                            android:id="@+id/eventImage"
+                            android:scaleType="fitXY"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_100sdp"/>
+                        <LinearLayout
+                            android:id="@+id/ll_pic"
+                            android:gravity="center"
+                            android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_icon_open_cloud_upload" />
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Add Image" />
-                    </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/upload"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_icon_open_cloud_upload" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Add Image" />
+                        </LinearLayout>
+
+                    </FrameLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -101,6 +129,7 @@
                         android:textSize="@dimen/_14sdp"
                         />
                     <EditText
+                        android:text="@={AddEventViewModel.eventName}"
                         android:layout_width="match_parent"
                         android:padding="@dimen/_10sdp"
                         android:background="@drawable/edit_text_border"
@@ -119,7 +148,7 @@
                         >
                         <LinearLayout
                             android:weightSum="1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             >
@@ -133,8 +162,9 @@
                                 android:textSize="@dimen/_14sdp"
                                 />
                             <EditText
-                                android:layout_weight="0.5"
-                                android:layout_width="@dimen/_140sdp"
+                                android:id="@+id/eventDate"
+                                android:text="@={AddEventViewModel.eventDate}"
+                                android:layout_width="match_parent"
                                 android:padding="@dimen/_10sdp"
                                 android:background="@drawable/edit_text_border"
                                 android:layout_height="wrap_content"
@@ -148,31 +178,31 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_marginLeft="@dimen/_180sdp"
-                            >
+                            android:orientation="vertical">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Day"
                                 android:layout_marginTop="@dimen/_15sdp"
-                                android:textColor="@color/black"
                                 android:fontFamily="@font/raleway_medium"
-                                android:textSize="@dimen/_14sdp"
-                                />
+                                android:text="Day"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp" />
+
                             <EditText
                                 android:layout_width="@dimen/_140sdp"
-                                android:padding="@dimen/_10sdp"
-                                android:background="@drawable/edit_text_border"
                                 android:layout_height="wrap_content"
-                                android:hint="Today"
+                                android:background="@drawable/edit_text_border"
                                 android:elevation="@dimen/_5sdp"
-                                android:textColorHint="@color/text_grey"
                                 android:fontFamily="@font/raleway_medium"
-                                android:textSize="@dimen/_15sdp"
-                                />
+                                android:hint="Today"
+                                android:padding="@dimen/_10sdp"
+                                android:textColorHint="@color/text_grey"
+                                android:textSize="@dimen/_15sdp" />
 
                         </LinearLayout>
 
@@ -194,7 +224,9 @@
                             android:textSize="@dimen/_14sdp"
                             />
                         <EditText
-                            android:id="@+id/eventtime"
+                            android:text="@={AddEventViewModel.eventTime}"
+
+                            android:id="@+id/eventTimeEdt"
                             android:layout_width="match_parent"
                             android:padding="@dimen/_10sdp"
                             android:background="@drawable/edit_text_border"
@@ -216,6 +248,8 @@
                             android:textSize="@dimen/_14sdp"
                             />
                         <EditText
+                            android:text="@={AddEventViewModel.eventAddress}"
+
                             android:id="@+id/eventaddress"
                             android:layout_width="match_parent"
                             android:padding="@dimen/_10sdp"
@@ -230,6 +264,8 @@
                             />
 
                         <EditText
+                            android:text="@={AddEventViewModel.eventDesc}"
+
                             android:id="@+id/discription"
                             android:layout_width="match_parent"
                             android:padding="@dimen/_20sdp"
@@ -257,7 +293,9 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/_20sdp"
                 >
-                <TextView
+                <Button
+                    android:onClick="@{(v) -> AddEventViewModel.onClickAddEvent(v)}"
+
                     android:layout_weight="0.5"
                     android:id="@+id/yourgroup"
                     android:layout_width="wrap_content"
@@ -277,6 +315,8 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:onClick="@{(v) -> AddEventViewModel.onClickCancelEvent(v)}"
+
                     android:elevation="10dp"
                     android:layout_weight="0.5"
                     android:id="@+id/discovery"
@@ -299,3 +339,4 @@
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
+</layout>

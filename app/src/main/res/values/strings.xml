@@ -208,6 +208,7 @@
     <string name="selectcategory">Select Category</string>
     <string name="selectstore">Select Store</string>
     <string name="uploadproductpic">Upload Product Picture</string>
+    <string name="uploaddealpic">Upload Deals Picture</string>
     <string name="productname">Product Name</string>
     <string name="productname_hint">Enter Product Name</string>
     <string name="price">Price</string>
@@ -233,7 +234,7 @@
     <string name="my_cart">My Cart</string>
     <string name="add_items">Add Items</string>
     <string name="total_price">Total Price</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="pick_up">PICK UP</string>
     <string name="deliver">DELIVER</string>
     <string name="tax">"Tax : "</string>
@@ -247,6 +248,21 @@
     <string name="Profile">Profile</string>
     <string name="total">Total</string>
     <string name="name_your_group">Name your group</string>
+    <string name="addnewdeal">Add new deal</string>
+    <string name="adddeals">Add Deal</string>
+    <string name="dealname">Deal Name</string>
+    <string name="dealname_hint">Enter deal name</string>
+    <string name="noofdeal">No. of Deals</string>
+    <string name="nodeal_hint">Enter no. of deals. etc : 10</string>
+    <string name="expiry_datehint">Enter expiry date</string>
+    <string name="_2_days">2 days</string>
+    <string name="_4_days">4 days</string>
+    <string name="_6_days">6 days</string>
+    <string name="boostdeal">Boost deal</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="participant">Participant :</string>
+    <string name="searchgroup">Search Group</string>
+    <string name="add_events">ADD EVENTS</string>
 
 
 </resources>

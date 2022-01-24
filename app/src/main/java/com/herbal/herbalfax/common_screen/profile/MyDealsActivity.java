@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.common_screen.landingpage.adapter.EventsItemsMenuAdapter;
-import com.herbal.herbalfax.common_screen.landingpage.adapter.EventsMenuAdapter;
 import com.herbal.herbalfax.common_screen.profile.Adapter.MydealsAdapter;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
 

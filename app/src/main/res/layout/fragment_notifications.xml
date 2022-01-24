@@ -67,16 +67,19 @@
             android:layout_marginRight="5dp"
             android:layout_weight="0.5"
             android:width="160dp"
-            android:background="@drawable/rounded_corner_view_text"
-            android:drawableLeft="@drawable/ic_icon_your_groups"
+            android:background="@drawable/rect_button_green"
             android:drawablePadding="10dp"
             android:gravity="center"
+            android:drawableLeft="@drawable/ic_icon_your_group_white"
             android:padding="14dp"
             android:text="Your Groups"
             android:textColor="@color/white"
+
+            android:elevation="10dp"
             android:textSize="14dp"
             android:textStyle="bold" />
-
+<!--android:background="@drawable/rounded_corner_view_text"
+            android:drawableLeft="@drawable/ic_icon_your_groups"-->
         <TextView
             android:id="@+id/discovery"
             android:layout_width="0dp"
@@ -86,7 +89,7 @@
             android:layout_marginBottom="10dp"
             android:layout_weight="0.5"
             android:width="160dp"
-            android:background="@drawable/rounded_corner_view_text"
+            android:background="@drawable/rect_button_whiteeeee"
             android:drawableLeft="@drawable/ic_icon_discover"
             android:drawablePadding="5dp"
             android:elevation="10dp"
@@ -96,13 +99,14 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold" />
+        <!--  android:background="@drawable/rounded_corner_view_text"
+            android:drawableLeft="@drawable/ic_icon_discover"-->
 
     </LinearLayout>
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:orientation="horizontal"
         app:cardElevation="8dp">
@@ -110,12 +114,17 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/rect_button"
+            android:layout_marginRight="@dimen/_10sdp"
             android:drawableLeft="@drawable/ic_search_icon"
-            android:drawablePadding="10dp"
+
+            android:drawablePadding="@dimen/_5sdp"
             android:fontFamily="@font/raleway_regular"
-            android:hint="Search your group"
-            android:textColorHint="@color/black"
-            android:textSize="16dp" />
+            android:hint="@string/searchgroup"
+            android:paddingLeft="@dimen/_5sdp"
+            android:textColor="@color/text_grey"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -129,6 +138,7 @@
         android:id="@+id/recycler_view_discover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:scrollbars="vertical" />
 
 </LinearLayout>

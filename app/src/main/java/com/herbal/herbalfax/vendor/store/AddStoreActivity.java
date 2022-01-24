@@ -1037,7 +1037,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         try {
             IdstoreCategories = lst_store_category.get(i).getIdstoreCategories();
-            Log.e("onItemSelected", "" + IdstoreCategories);
+
 
 
         } catch (Exception e) {

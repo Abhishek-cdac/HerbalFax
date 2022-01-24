@@ -103,9 +103,7 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
                                         .load(String.valueOf(response.body().getData().getStoreProduct().getSPPPath()))
                                         .into(productImg);
                             } else {
-//    Picasso.get()
-//            .load(R.drawable.profileimg)
-//            .into(productImg);
+
                             }
 
 

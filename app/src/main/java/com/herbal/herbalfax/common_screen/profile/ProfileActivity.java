@@ -7,14 +7,11 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.squareup.picasso.Picasso;
-import com.herbal.herbalfax.common_screen.landingpage.EventsDetailsActivity;
 
 public class ProfileActivity extends AppCompatActivity {
     TextView userName, profileCategory, DOB, gendertype, cityname, mobilenumber, mailaddress;
@@ -47,7 +44,14 @@ public class ProfileActivity extends AppCompatActivity {
         cityname = findViewById(R.id.cityname);
         mobilenumber = findViewById(R.id.mobilenumber);
         mailaddress = findViewById(R.id.mailaddress);
-        picasso.load(pref.getStringVal(SessionPref.LoginUserprofilePic)).into(profileImage);
+        try {
+            if(null != SessionPref.LoginUserprofilePic){
+                picasso.load(pref.getStringVal(SessionPref.LoginUserprofilePic)).into(profileImage);
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
         userName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
         DOB.setText(pref.getStringVal(SessionPref.LoginUserbirthDate));
         gendertype.setText(pref.getStringVal(SessionPref.LoginUsergender));

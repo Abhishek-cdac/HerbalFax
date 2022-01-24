@@ -100,7 +100,7 @@ public class StoreProductFragment extends Fragment {
                         if (lst_products == null) {
                             lst_products = new ArrayList<>();
                         }
-                        totalCount.setText("Showing all " + Math.toIntExact(response.body().getData().getStoreProductCount()) + " products");
+                         totalCount.setText("Showing all " + Math.toIntExact(response.body().getData().getStoreProductCount()) + " products");
                         RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
                         storeProductsRecylcer.setLayoutManager(RecyclerViewLayoutManager);
                         storeProductsAdapter = new StoreProductsAdapter(lst_products, getActivity());
