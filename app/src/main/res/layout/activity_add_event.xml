@@ -263,13 +263,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner_view_text"
-
                     android:drawablePadding="10dp"
                     android:gravity="center"
                     android:padding="14dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
-
                     android:text="ADD"
                     android:textColor="@color/white"
                     android:textSize="14dp"

@@ -29,17 +29,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".vendor.sellerdrivers.addrider.AddRiderActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
             android:name=".common_screen.landingpage.EventReadMoreActivity"
-            android:exported="false" />
+            android:exported="true"></activity>
         <activity
             android:name=".common_screen.landingpage.AddEventActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".customer.myorders.TrackOrderActivity"
             android:exported="true" />
         <activity
             android:name=".customer.myorders.MyOrdersActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".common_screen.profile.MyDealsActivity"
             android:exported="true" />
@@ -158,11 +164,7 @@
             android:name=".common_screen.landingpage.CommonLandingActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".common_screen.terms.TermAndConditionActivity"
@@ -207,7 +209,13 @@
         <activity
             android:name=".common_screen.SplashActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

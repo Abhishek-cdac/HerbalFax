@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".vendor.sellerdrivers.addrider.AddRiderActivity">
+
+
+    <LinearLayout
+        android:id="@+id/headeradd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Add Event"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"/>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uploadimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/uploadimagetxt"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/_20sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/green"
+                        android:fontFamily="@font/raleway_medium"
+                        android:textSize="@dimen/_14sdp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:padding="@dimen/_10sdp"
+                        android:background="@drawable/edit_text_border"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:elevation="@dimen/_5sdp"
+                        android:drawableRight="@drawable/path_black"
+                        android:textColorHint="@color/text_grey"
+                        android:fontFamily="@font/raleway_medium"
+                        android:textSize="@dimen/_15sdp"
+                        />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Birthday"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <EditText
+                            android:id="@+id/eventtime"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_10sdp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_height="wrap_content"
+                            android:hint="January/01/1999"
+                            android:drawableRight="@drawable/calender_black"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:elevation="@dimen/_5sdp"
+                            android:textColorHint="@color/text_grey"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_15sdp"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:padding="@dimen/_10sdp"
+                                android:layout_height="wrap_content"
+                                android:hint="Gender"
+
+                                android:elevation="@dimen/_5sdp"
+                                android:textColorHint="@color/green"
+                                android:fontFamily="@font/raleway_medium"
+                                android:textSize="@dimen/_14sdp"
+                                />
+                            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                >
+                                <RadioButton android:id="@+id/radio_pirates"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Male"
+                                    android:padding="@dimen/_10sdp"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/_12sdp"
+                                    />
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="FeMale"
+                                    android:padding="@dimen/_10sdp"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/_12sdp"/>
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Other"
+                                    android:padding="@dimen/_10sdp"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/_12sdp"/>
+                            </RadioGroup>
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="City"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <EditText
+                            android:id="@+id/eventaddress"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_10sdp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_height="wrap_content"
+                            android:hint="Los Angeles, California"
+                            android:drawableRight="@drawable/awesome_building_black"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:elevation="@dimen/_5sdp"
+                            android:textColorHint="@color/text_grey"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_15sdp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Zip Code"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <EditText
+                            android:id="@+id/zipcode"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_10sdp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_height="wrap_content"
+                            android:hint="90001"
+                            android:drawableRight="@drawable/ic_group_2721"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:elevation="@dimen/_5sdp"
+                            android:textColorHint="@color/text_grey"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_15sdp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email Address"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <EditText
+                            android:id="@+id/emailaddress"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_10sdp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_height="wrap_content"
+                            android:hint="jackmathew@gmail.com"
+                            android:drawableRight="@drawable/email_black"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:elevation="@dimen/_5sdp"
+                            android:textColorHint="@color/text_grey"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_15sdp"
+                            />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile Number"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_14sdp"
+                            />
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+
+                                android:layout_width="wrap_content"
+                                android:padding="@dimen/_10sdp"
+                                android:background="@drawable/edit_text_border"
+                                android:layout_height="wrap_content"
+                                android:hint="+1 213"
+
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:elevation="@dimen/_5sdp"
+                                android:textColorHint="@color/text_grey"
+                                android:fontFamily="@font/raleway_medium"
+                                android:textSize="@dimen/_15sdp"
+                                />
+                            <EditText
+
+                                android:layout_width="match_parent"
+                                android:padding="@dimen/_10sdp"
+                                android:background="@drawable/edit_text_border"
+                                android:layout_height="wrap_content"
+                                android:hint="951-343-9290"
+                                android:drawableRight="@drawable/mobile_black"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:elevation="@dimen/_5sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:textColorHint="@color/text_grey"
+                                android:fontFamily="@font/raleway_medium"
+                                android:textSize="@dimen/_15sdp"
+                                />
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vehicle Number"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <EditText
+                            android:id="@+id/vehicalnumber"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_10sdp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_height="wrap_content"
+                            android:hint="jackmathew@gmail.com"
+                            android:drawableRight="@drawable/ic_icon_awesome_car_alt"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:elevation="@dimen/_5sdp"
+                            android:textColorHint="@color/text_grey"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_15sdp"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:background="@drawable/edit_text_border"
+                            android:padding="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_30sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_rectangle_313"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/upload"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_icon_material_file_upload" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:padding="@dimen/_10sdp"
+                                android:layout_height="wrap_content"
+                                android:hint="Upload Profile Picture"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:elevation="@dimen/_5sdp"
+                                android:textColorHint="@color/green"
+                                android:fontFamily="@font/raleway_medium"
+                                android:textSize="@dimen/_15sdp"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Upload Documents"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/green"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_14sdp"
+                            />
+                        <EditText
+                            android:id="@+id/drivinglicence"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_10sdp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_height="wrap_content"
+                            android:hint="Driving Licence"
+                            android:drawableRight="@drawable/ic_icon_material_file_upload"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:elevation="@dimen/_5sdp"
+                            android:textColorHint="@color/text_grey"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_15sdp"
+                            />
+
+                        <EditText
+                            android:id="@+id/vehicalregistration"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_10sdp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_height="wrap_content"
+                            android:hint="Vehicle Registion"
+                            android:drawableRight="@drawable/ic_icon_material_file_upload"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:elevation="@dimen/_5sdp"
+                            android:textColorHint="@color/text_grey"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textSize="@dimen/_15sdp"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_10sdp">
+
+
+
+                                <ImageView
+                                    android:id="@+id/checkbox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_rectangle_312" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:padding="@dimen/_10sdp"
+                                android:layout_height="wrap_content"
+                                android:hint="I agree to terms and conditions"
+
+                                android:elevation="@dimen/_5sdp"
+                                android:textColorHint="@color/black"
+                                android:fontFamily="@font/raleway_medium"
+                                android:textSize="@dimen/_15sdp"
+                                />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/addeventdetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            android:background="@drawable/rounded_corner_view_text"
+                            android:gravity="center"
+                            android:padding="@dimen/_10sdp"
+                            android:text="ADD"
+                            android:textColor="@color/white" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
