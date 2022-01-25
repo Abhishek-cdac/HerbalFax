@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,11 +34,12 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
+import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
-import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
@@ -63,7 +66,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     private Fragment CurrentFrag;
     Context mContext;
     String JwtToken;
-
+    SessionPref pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +74,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         mContext = getApplicationContext();
         Bundle extras = getIntent().getExtras();
         clsCommon = CommonClass.getInstance();
-
+        pref   = SessionPref.getInstance(this);
 
         callGetUserAPI();
 
@@ -173,6 +176,21 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(bottomNavView, navController);
+
+        View headerview = navigationView.getHeaderView(0);
+        TextView profilename =  headerview.findViewById(R.id.userName);
+        TextView professionTv =  headerview.findViewById(R.id.professionTv);
+        LinearLayout nav_headerMAin =  headerview.findViewById(R.id.nav_headerMAin);
+        profilename.setText(pref.getStringVal(SessionPref.LoginUserfullName));
+       // professionTv.setText();
+        nav_headerMAin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("ProfileActivity....", "ProfileActivity");
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -185,6 +203,9 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     startActivity(intent);
                     finish();
 
+                }  else  if (id == R.id.nav_gallery) {
+
+                   // ReplaceFrag(new NearByStoreFragment());
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
@@ -290,7 +311,10 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                 return true;
 
             case R.id.action_map:
-                Intent intent1 = new Intent(getApplicationContext(), EditProfileActivity.class);
+             //   ReplaceFrag(new NearByStoreFragment());
+
+                Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+                        //EditProfileActivity.class);
                 startActivity(intent1);
                 return true;
 

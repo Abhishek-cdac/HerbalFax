@@ -47,6 +47,48 @@ public class StoreProduct {
     @SerializedName("StoreName")
     private String storeName;
 
+    @SerializedName("SP_Expiry")
+    private String sP_Expiry;
+    @SerializedName("SP_Location")
+    private String sP_Location;
+
+    public String getsP_Expiry() {
+        return sP_Expiry;
+    }
+
+    public void setsP_Expiry(String sP_Expiry) {
+        this.sP_Expiry = sP_Expiry;
+    }
+
+    public String getsP_Location() {
+        return sP_Location;
+    }
+
+    public void setsP_Location(String sP_Location) {
+        this.sP_Location = sP_Location;
+    }
+
+    public String getsP_Long() {
+        return sP_Long;
+    }
+
+    public void setsP_Long(String sP_Long) {
+        this.sP_Long = sP_Long;
+    }
+
+    public String getsP_Lat() {
+        return sP_Lat;
+    }
+
+    public void setsP_Lat(String sP_Lat) {
+        this.sP_Lat = sP_Lat;
+    }
+
+    @SerializedName("SP_Long")
+    private String sP_Long;
+
+    @SerializedName("SP_Lat")
+    private String sP_Lat;
     public String getIdstoreProducts() {
         return idstoreProducts;
     }

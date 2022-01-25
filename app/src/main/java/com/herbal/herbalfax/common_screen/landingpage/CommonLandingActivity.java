@@ -1,17 +1,13 @@
 package com.herbal.herbalfax.common_screen.landingpage;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,12 +19,10 @@ import com.herbal.herbalfax.common_screen.landingpage.adapter.FindFruityCannabis
 import com.herbal.herbalfax.common_screen.landingpage.adapter.PhotosAdapter;
 import com.herbal.herbalfax.common_screen.landingpage.adapter.TimeAdapter;
 import com.herbal.herbalfax.common_screen.landingpage.adapter.TrendingAdapter;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.utils.SpacesItemDecoration;
-import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
-import com.herbal.herbalfax.customer.notification.NotificationActivity;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
-import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
 
 import java.util.ArrayList;
 

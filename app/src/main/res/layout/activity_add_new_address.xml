@@ -144,6 +144,7 @@
             android:gravity="center_vertical"
             android:hint="Mark Jakarburg"
             android:padding="@dimen/_10sdp"
+            android:text="@={AddNewAddressViewModel.fullName}"
             android:textColor="@color/text_grey"
             android:textSize="@dimen/_11sdp"
 
@@ -199,7 +200,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:gravity="center_vertical"
                 android:hint="Rajwada"
+
                 android:padding="@dimen/_10sdp"
+                android:text="@={AddNewAddressViewModel.address}"
                 android:textColor="@color/text_grey"
                 android:textSize="@dimen/_11sdp" />
 
@@ -231,6 +234,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/city"
+
                     android:textColor="@color/black"
                     android:textSize="12dp" />
 
@@ -244,6 +248,8 @@
                     android:gravity="center_vertical"
                     android:hint="Indore"
                     android:padding="@dimen/_10sdp"
+
+                    android:text="@={AddNewAddressViewModel.city}"
                     android:textColor="@color/text_grey"
                     android:textSize="@dimen/_11sdp"
 
@@ -275,7 +281,9 @@
                     android:fontFamily="@font/roboto_regular"
                     android:gravity="center_vertical"
                     android:hint="452011"
+
                     android:padding="@dimen/_10sdp"
+                    android:text="@={AddNewAddressViewModel.pinCode}"
                     android:textColor="@color/text_grey"
                     android:textSize="@dimen/_11sdp"
 
@@ -304,6 +312,8 @@
             android:fontFamily="@font/roboto_regular"
             android:gravity="center_vertical"
             android:hint="India"
+
+            android:text="@={AddNewAddressViewModel.country}"
             android:padding="@dimen/_10sdp"
             android:textColor="@color/text_grey"
             android:textSize="@dimen/_11sdp"

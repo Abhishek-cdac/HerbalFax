@@ -27,6 +27,8 @@ public class CartList {
     private String cartTax;
     @SerializedName("Cart_TaxPercent")
     private String cartTaxPercent;
+
+
     @SerializedName("Cart_Total")
     private String cartTotal;
     @Expose
@@ -102,13 +104,6 @@ public class CartList {
         this.cartSubTotal = cartSubTotal;
     }
 
-    public String getCartTax() {
-        return cartTax;
-    }
-
-    public void setCartTax(String cartTax) {
-        this.cartTax = cartTax;
-    }
 
     public String getCartTaxPercent() {
         return cartTaxPercent;
@@ -118,13 +113,6 @@ public class CartList {
         this.cartTaxPercent = cartTaxPercent;
     }
 
-    public String getCartTotal() {
-        return cartTotal;
-    }
-
-    public void setCartTotal(String cartTotal) {
-        this.cartTotal = cartTotal;
-    }
 
     public String getIdcart() {
         return idcart;
@@ -158,4 +146,19 @@ public class CartList {
         this.sPPPath = sPPPath;
     }
 
+    public String getCartTax() {
+        return cartTax;
+    }
+
+    public void setCartTax(String cartTax) {
+        this.cartTax = cartTax;
+    }
+
+    public String getCartTotal() {
+        return cartTotal;
+    }
+
+    public void setCartTotal(String cartTotal) {
+        this.cartTotal = cartTotal;
+    }
 }

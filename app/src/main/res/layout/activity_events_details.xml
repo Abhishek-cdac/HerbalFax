@@ -50,22 +50,22 @@
         android:id="@+id/eventsitemsbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_25sdp"
         android:layout_below="@id/eventsmenubar"
         android:layout_centerInParent="true"
-        android:padding="@dimen/_20sdp" />
+        android:padding="@dimen/_10sdp" />
 
     <TextView
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
         android:id="@+id/addeventdetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_15sdp"
         android:background="@drawable/rounded_corner_view_text"
-        android:gravity="center"
-        android:padding="@dimen/_10sdp"
-        android:text="ADD EVENTS"
+        android:text="@string/add_events"
         android:textColor="@color/white" />
 </RelativeLayout>

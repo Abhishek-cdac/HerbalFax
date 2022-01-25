@@ -33,6 +33,8 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -134,7 +136,12 @@ public class NearByStoreFragment extends Fragment {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
         pd.show();
-        Call<UserStoreListResponse> call = service.userStoreList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken));
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("fordate", "");
+        hashMap.put("limit", "30");
+        hashMap.put("offset", "0");
+
+        Call<UserStoreListResponse> call = service.userStoreList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken),hashMap);
         call.enqueue(new Callback<UserStoreListResponse>() {
             @Override
             public void onResponse(Call<UserStoreListResponse> call, Response<UserStoreListResponse> response) {

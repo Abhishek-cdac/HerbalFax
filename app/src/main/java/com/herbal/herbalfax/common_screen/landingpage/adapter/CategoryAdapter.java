@@ -47,8 +47,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
 
     @Override
-    public void onBindViewHolder(final MyView holder,
-                                 final int position) {
+    public void onBindViewHolder(final MyView holder,final int position) {
         holder.categoryTxt.setText(list.get(position));
         holder.cardviewCategory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +62,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     @Override
     public int getItemCount() {
-        return 8;
+        return list.size();
     }
 }

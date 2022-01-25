@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="CreateGroupsViewModel"
+            type="com.herbal.herbalfax.customer.homescreen.group.creategroup.CreateGroupsViewModel" />
+    </data>
+<LinearLayout  xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#96C93D"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="0.01"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="9dp"
+            android:text="Create Group"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="@dimen/_90sdp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="@dimen/_90sdp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_90sdp"
+                android:id="@+id/groupImg"
+                android:onClick="@{(v) -> CreateGroupsViewModel.OnGallery(v)}"
+
+                android:background="@drawable/circle_background_grey"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/black"
+                android:layout_height="@dimen/_90sdp"/>
+            <ImageView
+                android:id="@+id/camera"
+                android:layout_width="@dimen/_20sdp"
+                android:src="@drawable/ic_baseline_photo_camera_24"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_20sdp"/>
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/groupyourname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_regular"
+
+            android:text="Group Name"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/groupcard"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/groupyourname"
+            android:layout_margin="10dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="@color/white">
+
+
+            <EditText
+                android:id="@+id/groupName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rect_button"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="@string/name_your_group"
+                android:padding="@dimen/_10sdp"
+                android:text="@={CreateGroupsViewModel.groupName}"
+
+                android:textColor="@color/text_grey"
+                android:textColorHint="@color/text_grey"
+                android:textSize="@dimen/_12sdp" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/groupcard"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/raleway_regular"
+
+            android:text="Privacy"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/privacycard"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/privacy"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="@color/white">
+
+            <Spinner
+                android:id="@+id/groupPrivacySpinner"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:elevation="0dp"
+                android:padding="0dp" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_icon_ios_arrow_down" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/grouptype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/privacycard"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/raleway_regular"
+            android:text="Group Type"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/typecard"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/grouptype"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="@color/white">
+
+            <Spinner
+                android:id="@+id/groupTypeSpinner"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="0dp"
+                android:padding="0dp" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_icon_ios_arrow_down" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/privacycard"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/raleway_regular"
+
+            android:text="@string/description"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+
+
+
+
+            <EditText
+                android:background="@drawable/edittext_border"
+                android:text="@={CreateGroupsViewModel.groupDec}"
+
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="@string/description_hint"
+                android:padding="@dimen/_10sdp"
+                android:maxLines="3"
+                android:layout_margin="@dimen/_5sdp"
+                android:textColor="@color/text_grey"
+                android:textColorHint="@color/text_grey"
+                android:textSize="@dimen/_12sdp" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/privacycard"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/raleway_regular"
+
+            android:text="@string/participant"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:id="@+id/addmember"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/_60sdp"
+                        android:background="@drawable/circle_background_grey"
+                        android:layout_height="@dimen/_60sdp"/>
+                    <ImageView
+                        android:src="@drawable/ic_baseline_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"/>
+
+                </FrameLayout>
+                <TextView
+                    android:text="Add more"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/memberrecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_20sdp"
+               />
+        </LinearLayout>
+
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/lastbuttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/typecard"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/createGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="0.5"
+                android:width="160dp"
+                android:background="@drawable/rounded_corner_view_text"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="14dp"
+                android:text="CREATE"
+                android:onClick="@{(v) -> CreateGroupsViewModel.onClickAddGroup(v)}"
+
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/cancelBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0.5"
+                android:width="160dp"
+                android:background="@drawable/rect_button_black"
+                android:drawablePadding="5dp"
+                android:elevation="10dp"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="14dp"
+                android:text="CANCEL"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
+
+</layout>

@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,34 +8,34 @@
     tools:context=".common_screen.profile.ProfileActivity">
 
     <LinearLayout
-        android:id="@+id/headeradd1"
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:background="@color/green"
         android:minHeight="?attr/actionBarSize"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="@dimen/_15sdp"
-            android:src="@drawable/ic_icon_arrow_left_white"
-            android:visibility="gone" />
+            android:src="@drawable/ic_icon_arrow_left_white" />
 
         <TextView
             android:id="@+id/headerTxt"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/ic_icon_arrow_left_white"
-            android:drawablePadding="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_weight=".9"
             android:fontFamily="@font/raleway_semibold"
-            android:gravity="center"
-            android:text="Profile"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/Profile"
             android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp" />
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="SpUsage" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -52,50 +50,53 @@
             <FrameLayout
                 android:id="@+id/headeradd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_120sdp"
                 android:layout_gravity="center">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_90sdp"
                     android:scaleType="fitXY"
                     android:src="@drawable/inclined_background" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/productImage"
+                    android:id="@+id/profileImage"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/addpeople"/>
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/profileimg"/>
 
             </FrameLayout>
 
             <TextView
-                android:id="@+id/productName"
+                android:id="@+id/userName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
+                android:text="Mayuri"
+
                 android:padding="@dimen/_2sdp"
-                android:text="Abhijeet"
+
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_17sdp" />
 
             <TextView
-                android:id="@+id/productCategory"
+                android:id="@+id/profileCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/productName"
+                android:layout_below="@id/userName"
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:padding="@dimen/_2sdp"
-                android:text="Abhijeet,Singh"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Profession"
                 android:textColor="#8E8E8E"
                 android:textSize="@dimen/_13sdp" />
 
@@ -540,6 +541,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_height="wrap_content">
 
                     <TextView
@@ -557,6 +561,10 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+
                     android:layout_marginTop="@dimen/_10sdp">
 
                     <TextView
@@ -573,6 +581,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_height="wrap_content">
 
                     <TextView

@@ -1,16 +1,28 @@
 package com.herbal.herbalfax.api;
 
 import com.herbal.herbalfax.common_screen.create_new_password.UpdatePasswordResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.addevent.model.AddEventResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.commentlstmodel.EventCommentsResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.detaileventsmodel.DetailedEventResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.detaileventsmodel.EventComment;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel.EventListResponse;
 import com.herbal.herbalfax.common_screen.login.LoginResponse;
 import com.herbal.herbalfax.common_screen.terms.termmodel.TermResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.otpverified.SignUpOtpVerifyResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.resendmodel.ResendOTPModel;
-import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.blogs.blogdetailmodel.BlogsDetailResponse;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.homescreen.addcard.model.AddCardModel;
+import com.herbal.herbalfax.customer.homescreen.addcard.ordersubmitmodel.OrderSubmitModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.model.SelectDeliveryAddressModel;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
+import com.herbal.herbalfax.customer.homescreen.group.addmember.model.UserListModel;
+import com.herbal.herbalfax.customer.homescreen.group.creategroup.creategrpmodel.CreateGroupModel;
+import com.herbal.herbalfax.customer.homescreen.group.creategroup.model.GroupPreData;
+import com.herbal.herbalfax.customer.homescreen.group.discovermodel.DiscoverResponse;
+import com.herbal.herbalfax.customer.homescreen.group.yourgroupmodel.YourGroupResponse;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallcommentmodel.GetAllComments;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.GetAllPostResponse;
 import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.UserStoreListResponse;
@@ -157,8 +169,9 @@ public interface GetDataService {
     @POST("user-store-rating-list")
     Call<UserStoreRatingList> userStoreRatingList(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
+    @FormUrlEncoded
     @POST("user-store-list")
-    Call<UserStoreListResponse> userStoreList(@Header("Authorization") String token);
+    Call<UserStoreListResponse> userStoreList(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
     @POST("user-store-product-category-list")
     Call<ProductCategoryResponse> userStoreProductCategoryList(@Header("Authorization") String token);
@@ -171,6 +184,17 @@ public interface GetDataService {
     @POST("user-cart-add-delivery-address")
     Call<CommonResponse> userCartAddDeliveryAddress(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
+    @FormUrlEncoded
+    @POST("user-cart-add-card")
+    Call<AddCardModel> userCartAddCard(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-cart-order-submit")
+    Call<OrderSubmitModel> userCartOrderSubmit(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-get-user-list")
+    Call<UserListModel> userGetUserList(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
 
     @POST("user-cart-delivery-address")
@@ -197,6 +221,9 @@ public interface GetDataService {
     @POST("vendor/store-details")
     Call<StoreDetailResponse> storeDetails(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
+    @POST("user-group-create-data")
+    Call<GroupPreData> userGroupCreateData(@Header("Authorization") String token);
+
     @Multipart
     @POST("vendor/store-update")
     Call<CommonResponse> storeUpdate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart, @Part MultipartBody.Part StorePhotos, @Part MultipartBody.Part StoreLogo);
@@ -205,10 +232,14 @@ public interface GetDataService {
     /*not completed */
 
 
-
     @Multipart
     @POST("vendor/product-add")
     Call<CommonResponse> vendorProductAdd(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart);
+
+
+    @Multipart
+    @POST("user-group-create")
+    Call<CreateGroupModel> userGroupCreate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart);
 
     @FormUrlEncoded
     @POST("user-store-product-list")
@@ -229,5 +260,33 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("user-store-product-add-fav")
     Call<CommonResponse> userStoreProductAddFav(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @POST("user-group-list")
+    Call<YourGroupResponse> userGroupList(@Header("Authorization") String token);
+
+    @POST("user-all-group-list")
+    Call<DiscoverResponse> userAllGroupList(@Header("Authorization") String token);
+
+    @FormUrlEncoded
+    @POST("user-group-join")
+    Call<CommonResponse> userGroupJoin(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @Multipart
+    @POST("user-event-create")
+    Call<AddEventResponse> userEventCreate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> param, @Part MultipartBody.Part filePart);
+
+    @POST("user-event-list")
+    Call<EventListResponse> userEventList(@Header("Authorization") String token);
+
+    @FormUrlEncoded
+    @POST("user-event-details")
+    Call<DetailedEventResponse> userEventDetails(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+  @FormUrlEncoded
+    @POST("user-event-add-comment")
+    Call<CommonResponse> userEventAddComment(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+ @FormUrlEncoded
+    @POST("user-get-event-comments")
+    Call<EventCommentsResponse> userGetEventComments(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
 
 }

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="AddDealsViewModel"
+            type="com.herbal.herbalfax.vendor.sellerdeals.adddeal.AddDealsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".vendor.sellerdeals.adddeal.AddDealsActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:minHeight="?attr/actionBarSize"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/ic_icon_arrow_left_white" />
+
+            <TextView
+                android:id="@+id/headerTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/adddeals"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{(v) -> AddDealsViewModel.OnGallery(v)}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp"
+
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/product_image"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:background="@drawable/dashed_border"
+
+
+                            android:fontFamily="@font/raleway_regular"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_icon_l_file_upload" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/uploaddealpic"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/selectcategory"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <Spinner
+
+                        android:id="@+id/categorySpinner"
+                        style="@style/Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rect_button"
+                        android:drawSelectorOnTop="true"
+                        android:dropDownVerticalOffset="-53dp"
+                        android:spinnerMode="dropdown"
+
+                        />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/selectstore"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <Spinner
+
+                        android:id="@+id/spinner"
+                        style="@style/Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rect_button"
+                        android:drawSelectorOnTop="true"
+                        android:dropDownVerticalOffset="-53dp"
+                        android:spinnerMode="dropdown"
+
+                        />
+
+                    <!--    <EditText
+                        android:id="@+id/professionedt"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/ic_arrow_down"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="@font/raleway_regular"
+
+                        android:hint="@string/storetype_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddProductViewModel.storetype}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+-->
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/dealname"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:id="@+id/dealname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/dealname_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddDealsViewModel.productDealName}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/location"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:id="@+id/locations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:drawableRight="@drawable/ic_icon_menu_map_pin"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/location_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddDealsViewModel.productDealLocation}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/expiry_date"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:id="@+id/expirydate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:drawableRight="@drawable/ic_calendar"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/expiry_datehint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddDealsViewModel.productDealDate}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/noofdeal"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/nodeal_hint"
+                        android:inputType="number"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddDealsViewModel.productDealQuantityNo}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/price"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/price_hint"
+                        android:inputType="number"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddDealsViewModel.productDealPrice}"
+
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/rect_button_green"
+                    android:elevation="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:onClick="@{(v) -> AddDealsViewModel.onClickAddProductDeals(v)}"
+                    android:text="@string/adddeals"
+
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>

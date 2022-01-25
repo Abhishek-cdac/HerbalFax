@@ -177,29 +177,40 @@
                 android:layout_height="wrap_content">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img1"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="30dp"
                     android:src="@drawable/profileimg" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img2"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginStart="@dimen/_20sdp"
                     android:src="@drawable/profileimg" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img3"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginStart="@dimen/_40sdp"
                     android:src="@drawable/profileimg" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img4"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginLeft="@dimen/_60sdp"
                     android:src="@drawable/profileimg" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img5"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginLeft="@dimen/_80sdp"
+                    android:src="@drawable/profileimg" />
             </FrameLayout>
             <TextView
+                android:id="@+id/viewsCounttxt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto_regular"

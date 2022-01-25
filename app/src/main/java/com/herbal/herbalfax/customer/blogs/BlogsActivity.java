@@ -16,10 +16,10 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.blogs.blogmodel.Blog;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogCategory;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
+import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 
 import org.jetbrains.annotations.NotNull;
@@ -62,7 +62,7 @@ public class BlogsActivity extends AppCompatActivity {
         clsCommon = CommonClass.getInstance();
         callGetAllBlogsCategoryAPI();
         callGetAllBlogsAPI("");
-        itemClick= new Onclick() {
+        itemClick = new Onclick() {
             @Override
             public void onItemClicks(View view, int position, int i, String blogId, String s) {
                 if (i == 1) {
@@ -74,7 +74,7 @@ public class BlogsActivity extends AppCompatActivity {
             public void onItemClicks(View view, int position, int i, String blogId) {
                 if (i == 2) {
                     callBlogAddToFavApi(blogId);
-                }else if (i == 3) {
+                } else if (i == 3) {
                     categoryId = blogId;
                     callGetAllBlogsAPI(categoryId);
                 }
@@ -94,7 +94,7 @@ public class BlogsActivity extends AppCompatActivity {
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("BlogId", blogId);
 
-        Log.e("add to fav blogId",""+blogId);
+        Log.e("add to fav blogId", "" + blogId);
 
 
         Call<CommonResponse> call = service.userBlogAddFav("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
@@ -133,8 +133,8 @@ public class BlogsActivity extends AppCompatActivity {
         hashMap.put("Blog_Id", blogId);
         hashMap.put("Status", s);
 
-        Log.e("report blogId",""+blogId);
-        Log.e("report Status",""+s);
+        Log.e("report blogId", "" + blogId);
+        Log.e("report Status", "" + s);
 
         Call<CommonResponse> call = service.userBlogAddReport("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<CommonResponse>() {
@@ -146,7 +146,12 @@ public class BlogsActivity extends AppCompatActivity {
                     if (response.body().getStatus() == 1) {
 
                         assert response.body() != null;
-                        Toast.makeText(getApplicationContext(), "Reported Successfully", Toast.LENGTH_SHORT).show();
+                        if (s.equals("0")) {
+                            Toast.makeText(getApplicationContext(), "UnReported Successfully", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Reported Successfully", Toast.LENGTH_SHORT).show();
+                        }
 
                     } else {
                         //   clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
@@ -188,7 +193,7 @@ public class BlogsActivity extends AppCompatActivity {
                             lst_blog = new ArrayList<>();
                         }
                         for (int l = 0; l < lst_blog.size(); l++) {
-                             categoryId = lst_blog.get(l).getIdblogCategories();
+                            categoryId = lst_blog.get(l).getIdblogCategories();
                             Log.e("categoryId", "" + categoryId);
                             callGetAllBlogsAPI("");
                         }
@@ -252,7 +257,7 @@ public class BlogsActivity extends AppCompatActivity {
 
                         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
                         SubHeadingRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
-                        blogListAdapter = new BlogListAdapter(lst_blogsdesc, getApplicationContext(),itemClick);
+                        blogListAdapter = new BlogListAdapter(lst_blogsdesc, getApplicationContext(), itemClick);
                         HorizontalLayout = new LinearLayoutManager(BlogsActivity.this, LinearLayoutManager.VERTICAL, false);
                         SubHeadingRecyclerview.setLayoutManager(HorizontalLayout);
                         SubHeadingRecyclerview.setAdapter(blogListAdapter);

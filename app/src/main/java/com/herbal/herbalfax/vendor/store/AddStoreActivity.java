@@ -165,9 +165,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
         locations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(getApplicationContext(), GooglePlacePickerActivity.class);
-                //noinspection deprecation
                 startActivityForResult(intent, GooglePlacePickerActivity.REQUEST_LOCATION);
             }
         });
@@ -181,7 +179,6 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
                     PERMISSIONS,
                     ALL_PERMISSIONS_RESULT);
             pickImage();
-
         });
         addStoreViewModel.onLogoGalleryClick().observe(this, click -> {
             String[] PERMISSIONS = {
@@ -1040,7 +1037,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         try {
             IdstoreCategories = lst_store_category.get(i).getIdstoreCategories();
-            Log.e("onItemSelected", "" + IdstoreCategories);
+
 
 
         } catch (Exception e) {

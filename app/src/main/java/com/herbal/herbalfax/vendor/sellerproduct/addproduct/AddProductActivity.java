@@ -126,76 +126,76 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
 
     }
 
-  /*  private void callAddProductAPI(NewProduct newProduct) {
+    /*  private void callAddProductAPI(NewProduct newProduct) {
 
-        TransparentProgressDialog pd = TransparentProgressDialog.getInstance(this);
-        pd.show();
-
-
-        File f = new File(getCacheDir(), "storeProduct");
-        try {
-            f.createNewFile();
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bos);
-            byte[] bitmapdata = bos.toByteArray();
-
-            FileOutputStream fos;
-            fos = new FileOutputStream(f);
-            fos.write(bitmapdata);
-            fos.flush();
-            fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+          TransparentProgressDialog pd = TransparentProgressDialog.getInstance(this);
+          pd.show();
 
 
-        SessionPref pref = SessionPref.getInstance(this);
-        RequestBody productName = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductName());
-        RequestBody productDesc = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductDescription());
-        RequestBody productCategories = RequestBody.create(MediaType.parse("text/plain"), IdstoreCategories);
-        RequestBody productPrice = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductPrice());
-        RequestBody productQuantity = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductQuantity());
-        RequestBody productCost = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductcost());
-        RequestBody productDistance = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductDistance());
-        RequestBody storeId = RequestBody.create(MediaType.parse("text/plain"), IdStore);
+          File f = new File(getCacheDir(), "storeProduct");
+          try {
+              f.createNewFile();
+              ByteArrayOutputStream bos = new ByteArrayOutputStream();
+              bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bos);
+              byte[] bitmapdata = bos.toByteArray();
 
-        Map<String, RequestBody> hashMap = new HashMap<>();
-        hashMap.put("ProductStoreId", storeId);
-        hashMap.put("ProductCategory", productCategories);
-        hashMap.put("ProductName", productName);
-        hashMap.put("ProductDesc", productDesc);
-        hashMap.put("ProductRate",productPrice);
-        hashMap.put("ProductQty", productQuantity);
-        hashMap.put("ProductShippingCost",productCost );
-        hashMap.put("ProductPerKM", productDistance);
+              FileOutputStream fos;
+              fos = new FileOutputStream(f);
+              fos.write(bitmapdata);
+              fos.flush();
+              fos.close();
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
 
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
 
-        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-        Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), filePart, hashMap);
-        call.enqueue(new Callback<CommonResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
-                pd.dismiss();
-                if (response.code() == 200) {
-                    Intent intent = new Intent(getApplicationContext(), SellerLandingPageActivity.class);
-                    startActivity(intent);
-                } else {
-                    new CommonClass().showDialogMsg(AddProductActivity.this, "PlayDate", "An error occurred!", "Ok");
-                }
-            }
+          SessionPref pref = SessionPref.getInstance(this);
+          RequestBody productName = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductName());
+          RequestBody productDesc = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductDescription());
+          RequestBody productCategories = RequestBody.create(MediaType.parse("text/plain"), IdstoreCategories);
+          RequestBody productPrice = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductPrice());
+          RequestBody productQuantity = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductQuantity());
+          RequestBody productCost = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductcost());
+          RequestBody productDistance = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductDistance());
+          RequestBody storeId = RequestBody.create(MediaType.parse("text/plain"), IdStore);
 
-            @Override
-            public void onFailure(@NonNull Call<CommonResponse> call, @NonNull Throwable t) {
-                t.printStackTrace();
-                pd.dismiss();
-            }
-        });
+          Map<String, RequestBody> hashMap = new HashMap<>();
+          hashMap.put("ProductStoreId", storeId);
+          hashMap.put("ProductCategory", productCategories);
+          hashMap.put("ProductName", productName);
+          hashMap.put("ProductDesc", productDesc);
+          hashMap.put("ProductRate",productPrice);
+          hashMap.put("ProductQty", productQuantity);
+          hashMap.put("ProductShippingCost",productCost );
+          hashMap.put("ProductPerKM", productDistance);
 
-    }
+          MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
 
-   */
-  private void callAddProductAPI(NewProduct newProduct) {
+          GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+          Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), filePart, hashMap);
+          call.enqueue(new Callback<CommonResponse>() {
+              @Override
+              public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
+                  pd.dismiss();
+                  if (response.code() == 200) {
+                      Intent intent = new Intent(getApplicationContext(), SellerLandingPageActivity.class);
+                      startActivity(intent);
+                  } else {
+                      new CommonClass().showDialogMsg(AddProductActivity.this, "PlayDate", "An error occurred!", "Ok");
+                  }
+              }
+
+              @Override
+              public void onFailure(@NonNull Call<CommonResponse> call, @NonNull Throwable t) {
+                  t.printStackTrace();
+                  pd.dismiss();
+              }
+          });
+
+      }
+
+     */
+    private void callAddProductAPI(NewProduct newProduct) {
         SessionPref pref = SessionPref.getInstance(this);
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(this);
         pd.show();
@@ -216,24 +216,27 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
             e.printStackTrace();
         }
 
-        RequestBody productName = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductName());
+        RequestBody productName = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductName());
         RequestBody productDesc = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductDescription());
         RequestBody productCategories = RequestBody.create(MediaType.parse("text/plain"), IdstoreCategories);
-        RequestBody productPrice = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductPrice());
+        RequestBody productPrice = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductPrice());
         RequestBody productQuantity = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductQuantity());
-        RequestBody productCost = RequestBody.create(MediaType.parse("text/plain"),newProduct.getProductcost());
+        RequestBody productCost = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductcost());
         RequestBody productDistance = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductDistance());
         RequestBody storeId = RequestBody.create(MediaType.parse("text/plain"), IdStore);
+        RequestBody productType = RequestBody.create(MediaType.parse("text/plain"), "1");
 
         Map<String, RequestBody> hashMap = new HashMap<>();
         hashMap.put("ProductStoreId", storeId);
         hashMap.put("ProductCategory", productCategories);
         hashMap.put("ProductName", productName);
         hashMap.put("ProductDesc", productDesc);
-        hashMap.put("ProductRate",productPrice);
+        hashMap.put("ProductRate", productPrice);
         hashMap.put("ProductQty", productQuantity);
-        hashMap.put("ProductShippingCost",productCost );
+        hashMap.put("ProductShippingCost", productCost);
         hashMap.put("ProductPerKM", productDistance);
+
+        hashMap.put("ProductType", productType);
         Log.e("hashMap", "" + hashMap);
 //      ArrayList<File> imageItems = new ArrayList();
 //      imageItems.add(f);
@@ -242,7 +245,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-        Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken),hashMap, filePart);
+        Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
             public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
@@ -470,7 +473,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
             IdStore = lst_store.get(i).getIdstores();
             Log.e("onItemSelected", "" + IdStore);
             IdstoreCategories = lst_store_category.get(i).getIdstoreProductCategories();
-            Log.e("onItemSelected", "" + IdstoreCategories);
+
 
         } catch (Exception e) {
             e.printStackTrace();

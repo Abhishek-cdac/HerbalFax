@@ -222,6 +222,8 @@ public class FeedFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        callGetAllPostAPI();
+
         try {
             feedrecyclerview.playAvailableVideos(0);
         } catch (Exception e) {

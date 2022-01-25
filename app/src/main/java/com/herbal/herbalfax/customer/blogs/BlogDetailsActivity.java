@@ -40,8 +40,8 @@ public class BlogDetailsActivity extends AppCompatActivity {
     LinearLayoutManager HorizontalLayout;
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
     BlogDetailsAdapter blogDetailsAdapter;
-    ImageView BlogImg, backBtn;
-    TextView title, desc;
+    ImageView reportImg, BlogImg, backBtn, imgprofile;
+    TextView title, desc, userNameTxt, professionNameTxt;
     TextView upTxt, downTxt;
 
 
@@ -56,6 +56,11 @@ public class BlogDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blog_details);
         clsCommon = CommonClass.getInstance();
         BlogDetailRecyclerview = findViewById(R.id.BlogDetailRecyclerview);
+
+        reportImg = findViewById(R.id.reportImg);
+        imgprofile = findViewById(R.id.imgprofile);
+        userNameTxt = findViewById(R.id.userNameTxt);
+        professionNameTxt = findViewById(R.id.professionNameTxt);
 
         upTxt = findViewById(R.id.upTxt);
         backBtn = findViewById(R.id.backBtn);
@@ -152,9 +157,26 @@ public class BlogDetailsActivity extends AppCompatActivity {
                             title.setVisibility(View.VISIBLE);
                             title.setText(blog.getBlogTitle());
                             desc.setText(blog.getBlogDesc());
+                            userNameTxt.setText(blog.getuFullName());
+                            professionNameTxt.setText(blog.getProfTitle());
                             Picasso.get()
                                     .load(blog.getBlogImage())
                                     .into(BlogImg);
+                            if (blog.getuProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                                Picasso.get().load(R.drawable.profileimg)
+                                        .into(imgprofile);
+                            }
+                            else {
+                                Picasso.get() .load(blog.getuProPic())
+                                        .into(imgprofile);
+                            }
+
+                            if (blog.getIsReport().equals("1")) {
+                                reportImg.setImageResource(R.drawable.ic_flag_green);
+                            } else {
+                               reportImg.setImageResource(R.drawable.ic_icon_report_flag);
+                            }
+
 
                             upTxt.setText(blog.getBlogCountYes());
                             downTxt.setText(blog.getBlogCountNo());

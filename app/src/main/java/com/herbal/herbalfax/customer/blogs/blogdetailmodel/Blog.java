@@ -33,12 +33,55 @@ public class Blog {
     private String blogLikes;
     @SerializedName("BlogTitle")
     private String blogTitle;
+
+    public String getuFullName() {
+        return uFullName;
+    }
+
+    public void setuFullName(String uFullName) {
+        this.uFullName = uFullName;
+    }
+
+    public String getuProPic() {
+        return uProPic;
+    }
+
+    public void setuProPic(String uProPic) {
+        this.uProPic = uProPic;
+    }
+
+    public String getProfTitle() {
+        return profTitle;
+    }
+
+    public void setProfTitle(String profTitle) {
+        this.profTitle = profTitle;
+    }
+
     @SerializedName("BlogTotAffLinks")
     private String blogTotAffLinks;
     @SerializedName("BlogURL")
     private String blogURL;
+
+    public String getIsReport() {
+        return isReport;
+    }
+
+    public void setIsReport(String isReport) {
+        this.isReport = isReport;
+    }
+
+    @SerializedName("IsReport")
+    private String isReport;
     @SerializedName("BlogUser")
     private String blogUser;
+
+    @SerializedName("UFullName")
+    private String uFullName;
+    @SerializedName("UProPic")
+    private String uProPic;
+    @SerializedName("ProfTitle")
+    private String profTitle;
     @Expose
     private String idblogs;
     @Expose

@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".common_screen.landingpage.EventReadMoreActivity">
+    tools:context=".common_screen.landingpage.events.eventdetail.EventReadMoreActivity">
 
 
     <LinearLayout
         android:id="@+id/headeradd"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green"
@@ -34,7 +33,6 @@
             android:fontFamily="@font/raleway_semibold"
             android:gravity="center"
             android:padding="@dimen/_5sdp"
-            android:text="Sleek Concrete Pants"
             android:textColor="@color/white"
             android:textSize="@dimen/_18sdp" />
     </LinearLayout>
@@ -42,8 +40,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/headeradd">
+        android:layout_below="@id/headeradd"
+        android:orientation="vertical">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview"
             android:layout_width="match_parent"
@@ -65,207 +64,132 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/eventImg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:scaleType="fitXY"
-                        android:src="@drawable/readmoredetail"
                         android:visibility="visible" />
 
                     <TextView
-                        android:id="@+id/todaydetail"
+                        android:id="@+id/dayTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_corner_view_text"
-                        android:gravity="center"
-                        android:padding="@dimen/_5sdp"
                         android:layout_marginLeft="7dp"
                         android:layout_marginTop="7dp"
-                        android:text="Today"
+                        android:width="60dp"
+                        android:background="@drawable/rounded_corner_view_text"
                         android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Today"
                         android:textColor="@color/black"
                         android:textSize="10dp"
-                        android:width="60dp"
                         android:textStyle="bold" />
                 </FrameLayout>
 
-
-                <RelativeLayout
-                    android:id="@+id/nameLL"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/dealItemImg">
+                    android:layout_below="@+id/dealItemImg"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/productNameText"
+                        android:id="@+id/eventNameTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:fontFamily="@font/raleway_semibold"
-                        android:text="Sleek Concrete Pants"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp" />
 
-
-                </RelativeLayout>
-
-
-                <TextView
-                    android:id="@+id/location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/nameLL"
-                    android:layout_marginStart="@dimen/_2sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_2sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Date on: 07/29/2021 at 8:00PM"
-                    android:textColor="@color/green"
-                    android:textSize="@dimen/_11sdp"
-                    />
-
-                <LinearLayout
-                    android:id="@+id/horizotallayout"
-                    android:layout_below="@+id/location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/_5sdp">
                     <TextView
+                        android:id="@+id/eventDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/locationTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_weight="0.2"
                         android:drawableLeft="@drawable/ic_icon_feather_map_pin"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
-                        android:text="777 Ezequiel Hollow"
                         android:textColor="@color/text_grey"
                         android:textSize="@dimen/_10sdp" />
 
-                </LinearLayout>
-
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/para_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/horizotallayout"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/raleway_medium"
-                    android:text="Voluptatem in qui rerum quae. Sed laborum excepturi iusto reprehenderit quia et et. Vitae quis deleniti consectetur. Aut quod est doloremque enim ratione dolorem mollitia accusantium quia. Est fuga velit minima omnis commodi quae. Natus voluptatem repudiandae eum eos consequatur aut enim.
-Explicabo qui velit maiores temporibus sit facere quam ut veniam. Nemo amet iure officiis accusamus explicabo illo quis consequatur eius. Rem corporis laborum voluptate recusandae"
-                    android:textColor="@color/text_grey"
-                    android:textSize="@dimen/_11sdp" />
-
-
-                <RelativeLayout
-                    android:id="@+id/horizotaldown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/para_txt"
-                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/descTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_11sdp" />
 
                     <TextView
+                        android:id="@+id/eventsViews"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/raleway_semibold"
-                        android:text="+20 View"
+
                         android:textColor="@color/black"
                         android:textSize="@dimen/_16sdp" />
-                </RelativeLayout>
 
-
-
+                </LinearLayout>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <LinearLayout
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardviewComment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/_5sdp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Comments"
-                android:padding="@dimen/_3sdp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/raleway_semibold"
-                android:textSize="@dimen/_14sdp"/>
+            android:layout_margin="@dimen/_5sdp"
+            android:visibility="gone">
 
-            <!--   <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:background="@color/white"
-                   android:clickable="true"
-                   android:layout_marginTop="@dimen/_10sdp"
-                   android:focusable="true"
-                   android:orientation="vertical"
-                   android:paddingLeft="@dimen/activity_horizontal_margin"
-                   android:paddingRight="@dimen/activity_horizontal_margin"
-                   >
-
-                   <de.hdodenhof.circleimageview.CircleImageView
-                       android:id="@+id/productImage"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:padding="@dimen/_5sdp"
-                       android:src="@drawable/addpeople" />
-
-                   <LinearLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:orientation="vertical">
-
-                       <TextView
-                           android:id="@+id/productName"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_alignParentRight="true"
-                           android:layout_marginLeft="80dp"
-
-
-                           android:layout_marginTop="@dimen/_15sdp"
-                           android:layout_marginRight="80dp"
-                           android:gravity="center_vertical"
-                           android:padding="0dp"
-                           android:text="Abhijeet Singh"
-                           android:textColor="@color/black"
-                           android:textSize="14dp"
-                           android:textStyle="bold" />
-
-                       <TextView
-                           android:id="@+id/productCategory"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_alignParentRight="true"
-                           android:layout_marginLeft="80dp"
-                           android:layout_marginTop="@dimen/_2sdp"
-                           android:layout_marginRight="80dp"
-                           android:fontFamily="@font/raleway_semibold"
-                           android:gravity="center_vertical"
-                           android:padding="0dp"
-                           android:text="Abhijeet,Singh"
-                           android:textColor="@color/green"
-                           android:textSize="12dp" />
-                   </LinearLayout>
-
-               </RelativeLayout>-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/addcommentsprofile"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp" />
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:padding="@dimen/_3sdp"
+                    android:text="Comments"
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/addcommentsprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
 

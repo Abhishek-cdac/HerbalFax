@@ -63,13 +63,21 @@ public class SelectDeliveryAddressAdapter extends RecyclerView.Adapter<SelectDel
 
         if (lst_int.get(position).getUAddDefault().equals("1")) {
             holder.DefaultTxt.setVisibility(View.VISIBLE);
-           // holder.checkImg.setVisibility(View.VISIBLE);
-
         } else {
-            holder.checkImg.setVisibility(View.GONE);
-
             holder.DefaultTxt.setVisibility(View.GONE);
         }
+
+        String address = lst_int.get(position).getIduserAddresses();
+        holder.parentLl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemClick.onItemClicks(view, position, 7, address);
+                holder.checkImg.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
     }
 
     @Override

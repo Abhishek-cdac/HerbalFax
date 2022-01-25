@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -110,7 +111,7 @@ public class AddCommentActivity extends AppCompatActivity {
 
     }
 
-    private void callGetCommentApi() {
+    public void callGetCommentApi() {
 
         SessionPref pref = SessionPref.getInstance(getApplicationContext());
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
@@ -120,6 +121,7 @@ public class AddCommentActivity extends AppCompatActivity {
         Log.e("postId", "" + this.postId);
         Call<GetAllComments> call = service.getPostComments("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new retrofit2.Callback<GetAllComments>() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(@NonNull Call<GetAllComments> call, @NonNull Response<GetAllComments> response) {
 //                pd.cancel();
@@ -143,7 +145,7 @@ public class AddCommentActivity extends AppCompatActivity {
                         recyclerView.setLayoutManager(manager);
                         CommentAdapter adapter = new CommentAdapter(getApplicationContext(), lst_getComment);
                         recyclerView.setAdapter(adapter);
-
+                        adapter.notifyDataSetChanged();
 
                         // int number = adapter.getItemCount();
 

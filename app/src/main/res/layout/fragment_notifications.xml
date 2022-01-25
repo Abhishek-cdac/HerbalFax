@@ -1,21 +1,144 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <TextView
-        android:id="@+id/text_notifications"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+  >
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/black"
+        android:background="#96C93D"
+        android:orientation="horizontal">
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="20dp"
+            android:text="Groups"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/creategroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rect_button_light_green"
+            android:drawableLeft="@drawable/ic_icon_plus_circle"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Create Group"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/yourgroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.5"
+            android:width="160dp"
+            android:background="@drawable/rect_button_green"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:drawableLeft="@drawable/ic_icon_your_group_white"
+            android:padding="14dp"
+            android:text="Your Groups"
+            android:textColor="@color/white"
+
+            android:elevation="10dp"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+<!--android:background="@drawable/rounded_corner_view_text"
+            android:drawableLeft="@drawable/ic_icon_your_groups"-->
+        <TextView
+            android:id="@+id/discovery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="0.5"
+            android:width="160dp"
+            android:background="@drawable/rect_button_whiteeeee"
+            android:drawableLeft="@drawable/ic_icon_discover"
+            android:drawablePadding="5dp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:padding="14dp"
+            android:text="Discovery"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <!--  android:background="@drawable/rounded_corner_view_text"
+            android:drawableLeft="@drawable/ic_icon_discover"-->
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:cardElevation="8dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_button"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:drawableLeft="@drawable/ic_search_icon"
+
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:hint="@string/searchgroup"
+            android:paddingLeft="@dimen/_5sdp"
+            android:textColor="@color/text_grey"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_discover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

@@ -1,65 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp"
-    android:layout_margin="5dp"
-    android:background="@color/white">
 
-    <RelativeLayout
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-
         android:paddingRight="@dimen/activity_horizontal_margin"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/productImage"
+            android:id="@+id/userImg"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="@dimen/_5sdp"
             android:src="@drawable/addpeople" />
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="60dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/productName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="60dp"
-                android:gravity="center_vertical"
+        <TextView
+            android:id="@+id/userComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center_vertical"
 
-                android:text="Abhijeet Singh"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/productCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/raleway_semibold"
-                android:gravity="center_vertical"
-
-                android:text="Abhijeet,Singh"
-                android:textColor="@color/green"
-                android:textSize="12dp" />
-        </LinearLayout>
+            android:textColor="@color/text_grey"
+            android:textSize="14dp" />
+    </LinearLayout>
 
     </RelativeLayout>
 
-
-</androidx.cardview.widget.CardView>

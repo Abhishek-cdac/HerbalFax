@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.common_screen.landingpage.adapter.EventsItemsMenuAdapter;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
 
 import java.util.ArrayList;

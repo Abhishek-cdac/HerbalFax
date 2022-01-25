@@ -16,18 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.dialog.DeleteDialog;
-import com.herbal.herbalfax.common_screen.landingpage.AddCommentbottomsheet;
-import com.herbal.herbalfax.common_screen.landingpage.EventReadMoreActivity;
-import com.herbal.herbalfax.common_screen.landingpage.adapter.EventsItemsMenuAdapter;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
-import com.herbal.herbalfax.customer.homescreen.group.Adaptor.AddPeopleListAdaptor;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
 
 import java.util.ArrayList;
 
 public class SellerMyDriverAdapter extends RecyclerView.Adapter<SellerMyDriverAdapter.ViewHolder> {
     ArrayList<Interest> lst_int;
-    ArrayList<Interest> lst_intFilter;
     Context mContext;
 
     public SellerMyDriverAdapter(ArrayList<Interest> lst_cart_item, FragmentActivity activity) {
@@ -40,7 +34,7 @@ public class SellerMyDriverAdapter extends RecyclerView.Adapter<SellerMyDriverAd
     public SellerMyDriverAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_seller_driver_list, parent, false);
         mContext = parent.getContext();
-        return new SellerMyDriverAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -54,10 +48,6 @@ public class SellerMyDriverAdapter extends RecyclerView.Adapter<SellerMyDriverAd
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-/*
-                showBottomSheets(0);
-*/
             }
         });
 
@@ -70,16 +60,15 @@ public class SellerMyDriverAdapter extends RecyclerView.Adapter<SellerMyDriverAd
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView profileDelete;
-        TextView productName, productCategory;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             profileDelete = itemView.findViewById(R.id.profiledatadelete);
-            productName = itemView.findViewById(R.id.productName);
-            productCategory = itemView.findViewById(R.id.productCategory);
+
         }
     }
 }
