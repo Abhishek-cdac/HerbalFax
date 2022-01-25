@@ -29,11 +29,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".vendor.sellerdrivers.addrider.AddRiderActivity"
-            android:exported="true">
-
+            android:name=".vendor.sellerdrivers.SellerDriverDetails"
+            android:exported="true" >
         </activity>
-
+        <activity
+            android:name=".vendor.sellerdrivers.addrider.AddRiderActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".common_screen.landingpage.EventReadMoreActivity"
             android:exported="true"></activity>
@@ -209,7 +210,7 @@
         <activity
             android:name=".common_screen.SplashActivity"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
