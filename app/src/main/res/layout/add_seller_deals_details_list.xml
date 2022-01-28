@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@color/white">
+
+<LinearLayout
+    android:weightSum="1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_weight="0.1"
+        android:id="@+id/serialno."
+        android:padding="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Sr."
+        android:textColor="@color/black"
+        android:textSize="@dimen/_9sdp"
+        android:fontFamily="@font/raleway_regular"/>
+
+
+    <LinearLayout
+        android:layout_weight="0.6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:orientation="horizontal">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/profiledriver" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/customername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="Abhijeet Singh"
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_weight="0.2"
+        android:id="@+id/customerprofileid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:text="#1"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        />
+</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".vendor.Profile.SellerProfileActivity">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_weight=".9"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/Profile"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="SpUsage" />
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/headeradd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                        android:layout_height="@dimen/_90sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/inclined_background" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/profileImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/sellerprofile139"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profiledata"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_230sdp"
+                    app:civ_border_color="@color/green"
+                    android:background="@drawable/circle_background_black"
+                    android:src="@drawable/ic_group_3185"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:text="Nick Johnson"
+                android:padding="@dimen/_2sdp"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:textSize="@dimen/_19sdp" />
+
+            <TextView
+                android:id="@+id/profileCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userName"
+                android:fontFamily="@font/raleway_medium"
+                android:gravity="center"
+                android:padding="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:text="General Manager"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Personal Details"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:fontFamily="@font/raleway_semibold"/>
+
+                    <LinearLayout
+                        android:id="@+id/phoneNumberdetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/ic_path_3038"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Genral Manager"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Profession"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/_9sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/transgender_green"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Male"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Gender"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/_9sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/birthday_cake_green"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="31/10/1995"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Birthday"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/_9sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/phone_green"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+1 (213) 987 6543"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mobile Number"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/_9sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/mail_green"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="jackmathew@gmail.com"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="E-mail Address"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/_9sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/share_location_green"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Los Angeles, California"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="City"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/_9sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:fontFamily="@font/raleway_semibold"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
