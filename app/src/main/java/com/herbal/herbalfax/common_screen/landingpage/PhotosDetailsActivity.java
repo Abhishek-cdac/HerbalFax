@@ -16,7 +16,6 @@ import com.herbal.herbalfax.customer.selectInterest.Interest;
 import java.util.ArrayList;
 import java.util.List;
 
-import PhotosAdaptor.PhotosAdaptor;
 
 public class PhotosDetailsActivity extends AppCompatActivity {
 

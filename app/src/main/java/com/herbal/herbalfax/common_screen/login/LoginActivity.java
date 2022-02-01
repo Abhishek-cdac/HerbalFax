@@ -81,30 +81,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 binding.loginEmail.requestFocus();
             } else if (TextUtils.isEmpty(Objects.requireNonNull(loginUser).getStrPassword())) {
-                //   binding.loginPassword.setError("Enter a Password");
                 new CommonClass().showDialogMsg(LoginActivity.this, "HerbalFax", "Enter a Password", "Ok");
 
                 binding.loginPassword.requestFocus();
             } else if (!loginUser.isPasswordLengthGreaterThan5()) {
                 new CommonClass().showDialogMsg(LoginActivity.this, "HerbalFax", "Enter at least 3 Digit password", "Ok");
 
-                //   binding.loginPassword.setError("Enter at least 3 Digit password");
                 binding.loginPassword.requestFocus();
             } else {
-//                username = binding.loginEmail.getText().toString();
-//                password = binding.loginPassword.getText().toString();
-//
-//                if (saveLoginCheckBox.isChecked()) {
-//                    loginPrefsEditor.putBoolean("saveLogin", true);
-//                    loginPrefsEditor.putString("username", loginUser.getStrEmailAddress());
-//                    loginPrefsEditor.putString("password", loginUser.getStrPassword());
-//                    loginPrefsEditor.commit();
-//                } else {
-//                    loginPrefsEditor.clear();
-//                    loginPrefsEditor.commit();
-//                }
-//                startActivity(new Intent(LoginActivity.this, LandingPageActivity.class));
-
                 callLoginAPI(loginUser);
             }
 

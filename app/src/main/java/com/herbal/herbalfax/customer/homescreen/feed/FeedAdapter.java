@@ -28,6 +28,7 @@ import com.herbal.herbalfax.customer.dialog.ShareDialogClass;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_CustomViewHolder;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_VideoImage;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_VideosAdapter;
+import com.herbal.herbalfax.customer.homescreen.group.groupdetail.GroupDetailActivity;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.Post;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.ViewUser;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
@@ -806,9 +807,12 @@ public class FeedAdapter extends AAH_VideosAdapter {
     }
 
     FeedFragment feedFragment;
-
+    GroupDetailActivity groupDetailActivity;
     public void setRef(FeedFragment feedFragment) {
         this.feedFragment = feedFragment;
+    }
+ public void setRef(GroupDetailActivity groupDetailActivity) {
+        this.groupDetailActivity = groupDetailActivity;
     }
 
 

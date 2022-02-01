@@ -8,8 +8,7 @@
 
     <LinearLayout
         android:id="@+id/ll_head"
-        android:paddingBottom="@dimen/_10sdp"
-        android:layout_width="match_parent"
+         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_5sdp"
         android:weightSum="1">
@@ -25,6 +24,7 @@
             android:divider="@android:color/transparent"
             android:dividerHeight="0.0px"
             android:elevation="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             app:cardBackgroundColor="@color/white"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false">
@@ -64,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_weight=".2"
             android:clipChildren="false"
@@ -107,7 +108,6 @@
         android:id="@+id/productListrecyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_50sdp"
         android:paddingLeft="@dimen/_20sdp"
         android:paddingTop="@dimen/_10sdp"

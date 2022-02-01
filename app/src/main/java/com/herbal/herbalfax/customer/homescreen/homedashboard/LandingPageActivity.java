@@ -67,14 +67,15 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     Context mContext;
     String JwtToken;
     SessionPref pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
         mContext = getApplicationContext();
-        Bundle extras = getIntent().getExtras();
+
         clsCommon = CommonClass.getInstance();
-        pref   = SessionPref.getInstance(this);
+        pref = SessionPref.getInstance(this);
 
         callGetUserAPI();
 
@@ -140,6 +141,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             public void onClick(View view) {
 
                 Intent intent = new Intent(getApplicationContext(), AddPostActivity.class);
+                intent.putExtra("PostGroupId", "0");
                 startActivity(intent);
 
 //                Fragment newCase=new AddPostFragment();
@@ -178,11 +180,11 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         NavigationUI.setupWithNavController(bottomNavView, navController);
 
         View headerview = navigationView.getHeaderView(0);
-        TextView profilename =  headerview.findViewById(R.id.userName);
-        TextView professionTv =  headerview.findViewById(R.id.professionTv);
-        LinearLayout nav_headerMAin =  headerview.findViewById(R.id.nav_headerMAin);
+        TextView profilename = headerview.findViewById(R.id.userName);
+        TextView professionTv = headerview.findViewById(R.id.professionTv);
+        LinearLayout nav_headerMAin = headerview.findViewById(R.id.nav_headerMAin);
         profilename.setText(pref.getStringVal(SessionPref.LoginUserfullName));
-       // professionTv.setText();
+        // professionTv.setText();
         nav_headerMAin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -203,9 +205,9 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     startActivity(intent);
                     finish();
 
-                }  else  if (id == R.id.nav_gallery) {
+                } else if (id == R.id.nav_gallery) {
 
-                   // ReplaceFrag(new NearByStoreFragment());
+                    // ReplaceFrag(new NearByStoreFragment());
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
@@ -311,10 +313,10 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                 return true;
 
             case R.id.action_map:
-             //   ReplaceFrag(new NearByStoreFragment());
+                //   ReplaceFrag(new NearByStoreFragment());
 
                 Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
-                        //EditProfileActivity.class);
+                //EditProfileActivity.class);
                 startActivity(intent1);
                 return true;
 

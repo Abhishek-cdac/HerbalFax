@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:weightSum="1"
         android:id="@+id/headeradd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,46 +23,63 @@
             android:src="@drawable/ic_icon_arrow_left_white" />
 
         <TextView
+            android:layout_weight=".8"
             android:id="@+id/headerTxt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_gravity="center|left"
             android:fontFamily="@font/raleway_semibold"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:padding="@dimen/_5sdp"
             android:text="@string/sharestory"
             android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp"></TextView>
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="SpUsage" />
+        <TextView
+            android:background="@drawable/rect_button_light_green"
+            android:id="@+id/addQuestionTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:drawablePadding="@dimen/_10sdp"
+          android:drawableLeft="@drawable/ic_icon_plus_circle"
+            android:text="@string/CreateAskFax"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            tools:ignore="SpUsage" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
 
-        android:layout_below="@id/headeradd"
         android:id="@+id/searchcv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:elevation="@dimen/_5sdp"
+        android:layout_below="@id/headeradd"
         android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:clipChildren="false"
         android:divider="@android:color/transparent"
         android:dividerHeight="0.0px"
+        android:elevation="@dimen/_5sdp"
         android:padding="@dimen/_20sdp"
-        android:clipChildren="false"
+        app:cardBackgroundColor="@color/white"
         app:cardElevation="8dp"
-        app:cardPreventCornerOverlap="false"
-        app:cardBackgroundColor="@color/white">
+        app:cardPreventCornerOverlap="false">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_height="@dimen/_40sdp"
+            android:orientation="horizontal">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/rect_button"
                 android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/rect_button"
                 android:drawableLeft="@drawable/ic_search_icon"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_regular"
@@ -77,318 +96,377 @@
 
     <LinearLayout
         android:id="@+id/ll_head"
-       android:weightSum="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/searchcv"
         android:layout_marginTop="@dimen/_10sdp"
-        >
+        android:weightSum="1">
 
         <TextView
-            android:layout_weight=".3"
-            android:id="@+id/askfex"
+            android:id="@+id/askFaxTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:drawableLeft="@drawable/ic_icon_ionic_md_chatbubbles"
-            android:background="@drawable/rounded_corner_view_white_text"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_weight=".3"
+            android:background="@drawable/rect_button_green"
+            android:drawableLeft="@drawable/ic_icon_post_white"
             android:drawablePadding="0dp"
             android:elevation="5dp"
             android:gravity="center"
-            android:padding="14dp"
+            android:padding="10dp"
             android:text="Ask Fax"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/raleway_semibold"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginBottom="@dimen/_10sdp"
+
+            android:id="@+id/shareStoryTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_weight=".3"
+            android:background="@drawable/rect_button_whiteeeee"
+            android:drawableStart="@drawable/ic_icon_discover"
+            android:drawablePadding="5dp"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="10dp"
+            android:text="Share Story"
             android:textColor="@color/black"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_weight=".3"
-            android:id="@+id/sharestory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_corner_view_text"
-            android:drawableLeft="@drawable/ic_icon_awesome_globe_americas_white"
-            android:drawablePadding="5dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
 
-            android:elevation="5dp"
-            android:gravity="center"
-            android:padding="14dp"
-            android:text="Share Story"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_weight=".3"
-            android:id="@+id/share"
+            android:id="@+id/shareTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_weight=".3"
             android:background="@drawable/rounded_corner_view_white_text"
-            android:drawableLeft="@drawable/ic_icon_awesome_globe_americas"
+            android:drawableStart="@drawable/ic_icon_awesome_globe_americas"
             android:drawablePadding="5dp"
             android:elevation="5dp"
             android:gravity="center"
-            android:padding="14dp"
+            android:padding="10dp"
             android:text="@string/share"
             android:textColor="@color/black"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_below="@id/ll_head"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAskFax"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/selectfashion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:fontFamily="@font/raleway_regular"
-            android:padding="12dp"
-            android:text="Select Category"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14sdp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/fashions"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/selectfashion"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rect_button"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:fontFamily="@font/raleway_regular"
-                android:hint="Fashion"
-                android:paddingLeft="@dimen/_5sdp"
-                android:textColor="@color/text_grey"
-                android:textColorHint="@color/text_grey"
-                android:textSize="@dimen/_12sdp" />
-            <Spinner
-                android:id="@+id/simpleSpinner1"
-                style="@style/Spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/white"
-                android:elevation="0dp"
-                android:padding="0dp" />
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:layout_marginRight="20dp"
-                android:padding="3dp"
-
-                android:src="@drawable/ic_icon_ios_arrow_down" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/addfashion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fashions"
-            android:layout_marginTop="2dp"
-            android:fontFamily="@font/raleway_regular"
-            android:padding="12dp"
-            android:text="Add Title"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14sdp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/addtitle"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/addfashion"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="8dp"
-            app:cardBackgroundColor="@color/white">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_head"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:scrollbars="vertical"
+        android:visibility="gone" />
 
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rect_button"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:fontFamily="@font/raleway_regular"
-                android:hint="Title"
-                android:paddingLeft="@dimen/_5sdp"
-                android:textColor="@color/text_grey"
-                android:textColorHint="@color/text_grey"
-                android:textSize="@dimen/_12sdp" />
-        </androidx.cardview.widget.CardView>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_head"
+        android:layout_marginBottom="@dimen/_50sdp">
 
-        <RelativeLayout
-            android:id="@+id/addurl"
+        <LinearLayout
+            android:id="@+id/ll_sharestory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/addtitle">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <TextView
+                android:id="@+id/selectfashion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:fontFamily="@font/raleway_regular"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/raleway_medium"
                 android:padding="12dp"
-                android:text="Add Url"
+                android:text="Select Category"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_15sdp"
-                android:src="@drawable/ic_icon_open_link_intact"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/_43sdp"
-                android:layout_marginTop="@dimen/_5sdp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-
-                android:fontFamily="@font/raleway_regular"
-                android:padding="@dimen/_15sdp"
-                android:text="optional"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
-
-        </RelativeLayout>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/url"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/addurl"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <EditText
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rect_button"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:fontFamily="@font/raleway_regular"
-                android:hint="Url"
-                android:paddingLeft="@dimen/_5sdp"
-                android:textColor="@color/text_grey"
-                android:textColorHint="@color/text_grey"
-                android:textSize="@dimen/_12sdp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/upload"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_below="@id/url"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rect_button"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:fontFamily="@font/raleway_regular"
-                android:text="Upload Image"
-                android:padding="@dimen/_20sdp"
-                android:drawableLeft="@drawable/ic_icon_metro_image"
-                android:drawablePadding="@dimen/_20sdp"
-                android:textColor="@color/text_grey"
-                android:textSize="@dimen/_20sdp"/>
-        </androidx.cardview.widget.CardView>
-        <TextView
-            android:id="@+id/addtxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/upload"
-            android:layout_marginTop="0dp"
-            android:fontFamily="@font/raleway_regular"
-            android:padding="12dp"
-            android:text="Add Url"
-            android:textColor="@color/black"
-            android:textSize="14dp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/txt"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/addtxt"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rect_button"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:fontFamily="@font/raleway_regular"
-                android:hint="Add Text"
-                android:paddingLeft="@dimen/_5sdp"
-                android:textColor="@color/text_grey"
-                android:textColorHint="@color/text_grey"
-                android:textSize="@dimen/_12sdp" />
-        </androidx.cardview.widget.CardView>
-        <LinearLayout
-            android:id="@+id/savebtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt"
-            android:layout_marginTop="@dimen/_10sdp"
-            >
-            <TextView
-                android:id="@+id/save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/selectfashion"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_corner_view_text"
-                android:drawablePadding="5dp"
-                android:width="130dp"
-                android:elevation="10dp"
-                android:gravity="center"
+                android:elevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+                <EditText
+                    android:id="@+id/categoryEdt"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/rect_button"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="Select Category"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:textColor="@color/text_grey"
+                    android:textColorHint="@color/text_grey"
+                    android:textSize="@dimen/_12sdp" />
+
+                <Spinner
+                    android:id="@+id/categorySpinner"
+                    style="@style/Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/white"
+                    android:elevation="0dp"
+                    android:padding="0dp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"
+                    android:padding="3dp"
+
+                    android:src="@drawable/ic_icon_ios_arrow_down" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/addfashion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/raleway_medium"
                 android:padding="12dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Save"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_16sdp"
-                android:textStyle="bold" />
+                android:text="Add Title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/addtitle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/addfashion"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/rect_button"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="Title"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:textColor="@color/text_grey"
+                    android:textColorHint="@color/text_grey"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:id="@+id/addurl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addtitle">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="@font/raleway_medium"
+                    android:padding="12dp"
+                    android:text="Add Url"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_43sdp"
+                    android:padding="@dimen/_15sdp"
+                    android:src="@drawable/ic_icon_open_link_intact" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:fontFamily="@font/raleway_medium"
+                    android:padding="@dimen/_15sdp"
+                    android:text="optional"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/url"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/addurl"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/rect_button"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="Url"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:textColor="@color/text_grey"
+                    android:textColorHint="@color/text_grey"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0px"
+                android:elevation="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp"
+
+                app:cardElevation="8dp"
+
+                app:cardPreventCornerOverlap="false">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:onClick="@{(v) -> SignUpAsCustomerViewModel.OnGallery(v)}"
+
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@drawable/dashed_border"
+
+                        android:fontFamily="@font/raleway_regular"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_icon_image" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:text="Upload Image"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/addtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upload"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/raleway_medium"
+                android:padding="12dp"
+                android:text="Add Text"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/txt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/addtxt"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/rect_button"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/description_hint"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:textColor="@color/text_grey"
+                    android:textColorHint="@color/text_grey"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/savebtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/save"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:width="130dp"
+                    android:background="@drawable/rounded_corner_view_text"
+                    android:drawablePadding="5dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 </RelativeLayout>

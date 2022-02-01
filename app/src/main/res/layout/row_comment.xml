@@ -65,10 +65,10 @@
             android:layout_marginEnd="@dimen/_6sdp"
             android:layout_weight=".2"
             android:fontFamily="@font/raleway_semibold"
-            android:text="View 4 replies"
+            android:text=""
             android:textColor="@color/green"
             android:textSize="@dimen/_12sdp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
 
         <TextView

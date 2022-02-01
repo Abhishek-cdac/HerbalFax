@@ -18,7 +18,6 @@
             android:id="@+id/imgcard"
             android:layout_width="@dimen/_111sdp"
             android:layout_height="@dimen/_177sdp"
-            android:layout_marginTop="@dimen/_10sdp"
             card_view:cardCornerRadius="@dimen/_6sdp">
 
             <ImageView

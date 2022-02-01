@@ -29,11 +29,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".customer.homescreen.askfax.aflist.AddAnswerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.askfax.addaf.AddQuestionAskFaxActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.group.groupdetail.GroupDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.favourites.FavouritesActivity"
+            android:exported="true" />
+        <activity
             android:name=".vendor.sellerdrivers.addrider.AddRiderActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".vendor.sellerdeals.booster.SellerBoosterDealActivity"
             android:exported="true" />
