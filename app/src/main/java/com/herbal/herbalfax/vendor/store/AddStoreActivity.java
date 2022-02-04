@@ -29,6 +29,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
@@ -40,6 +42,8 @@ import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.homescreen.placepicker.GooglePlacePickerActivity;
 import com.herbal.herbalfax.databinding.ActivityAddStoreBinding;
 import com.herbal.herbalfax.vendor.SellerLandingPageActivity;
+import com.herbal.herbalfax.vendor.sellerdeals.adapter.AddImagesAdapter;
+import com.herbal.herbalfax.vendor.sellerproduct.addproduct.AddProductActivity;
 import com.herbal.herbalfax.vendor.store.storecategory.AllStoreCategory;
 import com.herbal.herbalfax.vendor.store.storecategory.StoreAddPreData;
 import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.Store;
@@ -104,6 +108,9 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
     Bitmap bitmap = null;
     Bitmap bitmap1 = null;
     Bitmap bitmap2 = null;
+    private ArrayList<Bitmap> storeImageList=new ArrayList<>();
+    private AddImagesAdapter addImagesAdapter;
+    private RecyclerView recycleView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +145,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
         fridayCB = findViewById(R.id.fridayCB);
         saturdayCB = findViewById(R.id.saturdayCB);
         sundayCB = findViewById(R.id.sundayCB);
-
+        recycleView=findViewById(R.id.recycleView);
         mondayStartTime = findViewById(R.id.mondayStartTime);
         mondayEndtTime = findViewById(R.id.mondayEndtTime);
         tuesdayStartTime = findViewById(R.id.tuesdayStartTime);
@@ -170,6 +177,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
             }
         });
 
+
         addStoreViewModel.onGalleryClick().observe(this, click -> {
             String[] PERMISSIONS = {
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -198,7 +206,14 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
             ActivityCompat.requestPermissions(AddStoreActivity.this,
                     PERMISSIONS,
                     ALL_PERMISSIONS_RESULT);
-            pickImageStoreImages();
+
+            if(storeImageList.size()<5)
+            {
+                pickImageStoreImages();
+            }else{
+                Toast.makeText(AddStoreActivity.this,"limit of product is 5",Toast.LENGTH_SHORT).show();
+            }
+
 
         });
 
@@ -587,6 +602,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
             }
 
         });
+        initAdapter();
     }
 
     private void callUpdateStoreAPI(String storeId, NewStore newStore, String storeTimeArray, String latitude, String longitude) {
@@ -728,6 +744,25 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
             }
         });
 
+    }
+
+    private void removeImages(int position) {
+        storeImageList.remove(position);
+        addImagesAdapter.notifyDataSetChanged();
+
+    }
+
+    public void initAdapter() {
+
+        addImagesAdapter = new AddImagesAdapter(AddStoreActivity.this, storeImageList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AddStoreActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        recycleView.setLayoutManager(linearLayoutManager);
+        recycleView.setAdapter(addImagesAdapter);
+        addImagesAdapter.onItemClickMethod((View view, int position) -> {
+            int i = view.getId();
+            removeImages(position);
+
+        });
     }
 
 
@@ -1111,12 +1146,17 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
             } else {
                 try {
                     bitmap2 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+                    storeImageList.add(bitmap2);
+                    if(addImagesAdapter!=null)
+                        addImagesAdapter.notifyDataSetChanged();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             if (null != bitmap2) {
-                storephoto_image.setImageBitmap(bitmap2);
+//                storephoto_image.setImageBitmap(bitmap2);
+
             }
         }
     }
