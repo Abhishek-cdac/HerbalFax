@@ -17,9 +17,9 @@
             android:weightSum="1">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
                 android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_45sdp"
-android:id="@+id/profile_image"
                 android:src="@drawable/profileimg" />
 
             <LinearLayout
@@ -104,16 +104,24 @@ android:id="@+id/profile_image"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
+            android:orientation="horizontal"
             android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/likeImg"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_like" />
 
             <TextView
                 android:id="@+id/likeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_weight=".2"
-                android:drawableLeft="@drawable/ic_like"
-                android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="@font/raleway_semibold"
+                android:padding="@dimen/_5sdp"
                 android:text="Like"
                 android:textColor="@color/green"
                 android:textSize="@dimen/_12sdp" />
@@ -131,17 +139,24 @@ android:id="@+id/profile_image"
                 android:textColor="@color/green"
                 android:textSize="@dimen/_12sdp" />
 
+            <ImageView
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:id="@+id/favImg"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_heart_green_border" />
+
             <TextView
                 android:id="@+id/favTxt"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_weight=".2"
-                android:drawableLeft="@drawable/ic_heart_green_border"
+                android:layout_marginLeft="@dimen/_5sdp"
                 android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="@font/raleway_semibold"
+                android:padding="@dimen/_5sdp"
                 android:text="Favourite"
-
                 android:textColor="@color/green"
                 android:textSize="@dimen/_12sdp" />
 

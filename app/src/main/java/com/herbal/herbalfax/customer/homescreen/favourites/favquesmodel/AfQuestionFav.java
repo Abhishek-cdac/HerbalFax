@@ -1,32 +1,12 @@
 
-package com.herbal.herbalfax.customer.homescreen.askfax.aflist.askfaxlistmodel;
+package com.herbal.herbalfax.customer.homescreen.favourites.favquesmodel;
 
 
 import com.google.gson.annotations.SerializedName;
 
 
-public class AfQuestion {
+public class AfQuestionFav {
 
-    public Object getIsLike() {
-        return isLike;
-    }
-
-    public void setIsLike(Object isLike) {
-        this.isLike = isLike;
-    }
-
-    public Object getIsFav() {
-        return isFav;
-    }
-
-    public void setIsFav(Object isFav) {
-        this.isFav = isFav;
-    }
-
-    @SerializedName("IsFav")
-    private Object isFav;
-    @SerializedName("IsLike")
-    private Object isLike;
     @SerializedName("AFQ_Answers")
     private String aFQAnswers;
     @SerializedName("AFQ_CAt")
@@ -37,6 +17,14 @@ public class AfQuestion {
     private String aFQFavs;
     @SerializedName("AFQ_IdUser")
     private String aFQIdUser;
+    @SerializedName("AFQL_CAt")
+    private String aFQLCAt;
+    @SerializedName("AFQL_COn")
+    private String aFQLCOn;
+    @SerializedName("AFQL_IdAFQuestion")
+    private String aFQLIdAFQuestion;
+    @SerializedName("AFQL_IdUser")
+    private String aFQLIdUser;
     @SerializedName("AFQ_Likes")
     private String aFQLikes;
     @SerializedName("AFQ_PrivacyType")
@@ -45,10 +33,12 @@ public class AfQuestion {
     private String aFQShares;
     @SerializedName("AFQ_Title")
     private String aFQTitle;
+    @SerializedName("idaf_question_favs")
+    private String idafQuestionFavs;
     @SerializedName("idaf_questions")
     private String idafQuestions;
     @SerializedName("ProfTitle")
-    private String profTitle;
+    private Object profTitle;
     @SerializedName("QuestionCreatedTime")
     private String questionCreatedTime;
     @SerializedName("UFullName")
@@ -96,6 +86,38 @@ public class AfQuestion {
         this.aFQIdUser = aFQIdUser;
     }
 
+    public String getAFQLCAt() {
+        return aFQLCAt;
+    }
+
+    public void setAFQLCAt(String aFQLCAt) {
+        this.aFQLCAt = aFQLCAt;
+    }
+
+    public String getAFQLCOn() {
+        return aFQLCOn;
+    }
+
+    public void setAFQLCOn(String aFQLCOn) {
+        this.aFQLCOn = aFQLCOn;
+    }
+
+    public String getAFQLIdAFQuestion() {
+        return aFQLIdAFQuestion;
+    }
+
+    public void setAFQLIdAFQuestion(String aFQLIdAFQuestion) {
+        this.aFQLIdAFQuestion = aFQLIdAFQuestion;
+    }
+
+    public String getAFQLIdUser() {
+        return aFQLIdUser;
+    }
+
+    public void setAFQLIdUser(String aFQLIdUser) {
+        this.aFQLIdUser = aFQLIdUser;
+    }
+
     public String getAFQLikes() {
         return aFQLikes;
     }
@@ -128,6 +150,14 @@ public class AfQuestion {
         this.aFQTitle = aFQTitle;
     }
 
+    public String getIdafQuestionFavs() {
+        return idafQuestionFavs;
+    }
+
+    public void setIdafQuestionFavs(String idafQuestionFavs) {
+        this.idafQuestionFavs = idafQuestionFavs;
+    }
+
     public String getIdafQuestions() {
         return idafQuestions;
     }
@@ -136,11 +166,11 @@ public class AfQuestion {
         this.idafQuestions = idafQuestions;
     }
 
-    public String getProfTitle() {
+    public Object getProfTitle() {
         return profTitle;
     }
 
-    public void setProfTitle(String profTitle) {
+    public void setProfTitle(Object profTitle) {
         this.profTitle = profTitle;
     }
 

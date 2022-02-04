@@ -22,11 +22,15 @@ import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.blogs.BlogListAdapter;
 import com.herbal.herbalfax.customer.blogs.blogmodel.Blog;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
+import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxAdapter;
+import com.herbal.herbalfax.customer.homescreen.askfax.aflist.askfaxlistmodel.AfQuestion;
+import com.herbal.herbalfax.customer.homescreen.askfax.aflist.askfaxlistmodel.AskFaxListResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.FavDealAdapter;
 import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.model.FavDealResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.model.StoreProduct;
 import com.herbal.herbalfax.customer.homescreen.favourites.favproduct.FavProductAdapter;
 import com.herbal.herbalfax.customer.homescreen.favourites.favproduct.model.FavProductResponse;
+import com.herbal.herbalfax.customer.homescreen.favourites.favquesmodel.FavAskFaxQueSResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favstore.FavStoreAdapter;
 import com.herbal.herbalfax.customer.homescreen.favourites.favstore.model.FavStoreResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favstore.model.StoreAddToFav;
@@ -48,17 +52,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FavouritesActivity extends AppCompatActivity {
-    RecyclerView postRecyclerview, blogRecyclerview, dealRecyclerview, productRecyclerview, storeRecyclerview;
 
+    RecyclerView postRecyclerview,askFaxRecyclerview, blogRecyclerview, dealRecyclerview, productRecyclerview, storeRecyclerview;
     LinearLayoutManager HorizontalLayout;
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
     FeedAdapter feedAdapter;
     Onclick itemClick;
     CommonClass clsCommon;
     BlogListAdapter blogListAdapter;
-    TextView postTxt, blogTxt, dealsTxt, storeTxt, productTxt;
+    TextView postTxt, blogTxt, dealsTxt, storeTxt, productTxt, askFaxTxt;
     FavDealAdapter favDealAdapter;
     ImageView back;
+    AskFaxAdapter askFaxAdapter;
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -77,6 +82,7 @@ public class FavouritesActivity extends AppCompatActivity {
             }
         });
 
+        askFaxTxt = findViewById(R.id.askFaxTxt);
         postTxt = findViewById(R.id.postTxt);
         blogTxt = findViewById(R.id.blogTxt);
         dealsTxt = findViewById(R.id.dealsTxt);
@@ -88,31 +94,86 @@ public class FavouritesActivity extends AppCompatActivity {
         dealRecyclerview = findViewById(R.id.dealRecyclerview);
         productRecyclerview = findViewById(R.id.storeRecyclerview);
         storeRecyclerview = findViewById(R.id.productRecyclerview);
+        askFaxRecyclerview = findViewById(R.id.askFaxRecyclerview);
 
         callFavPostAPI();
         callGetFavDealsAPI();
         callGetFavBlogsAPI();
         callFavStoreAPI();
         callFavProductAPI();
+        callFavAskFaxQuesAPI();
 
+        askFaxTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                askFaxTxt.setTextColor(getResources().getColor(R.color.white));
+                postTxt.setTextColor(getResources().getColor(R.color.black));
+                blogTxt.setTextColor(getResources().getColor(R.color.black));
+                storeTxt.setTextColor(getResources().getColor(R.color.black));
+                dealsTxt.setTextColor(getResources().getColor(R.color.black));
+                productTxt.setTextColor(getResources().getColor(R.color.black));
+
+                askFaxTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
+                postTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+                blogTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+                storeTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+                dealsTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+                productTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+
+                askFaxRecyclerview.setVisibility(View.VISIBLE);
+                postRecyclerview.setVisibility(View.GONE);
+                blogRecyclerview.setVisibility(View.GONE);
+                dealRecyclerview.setVisibility(View.GONE);
+                storeRecyclerview.setVisibility(View.GONE);
+                productRecyclerview.setVisibility(View.GONE);
+
+                Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
+                img.setBounds(0, 0, 60, 60);
+                postTxt.setCompoundDrawables(img, null, null, null);
+
+                Drawable img1 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_blog_black);
+                img1.setBounds(0, 0, 60, 60);
+                blogTxt.setCompoundDrawables(img1, null, null, null);
+
+                Drawable img2 = getApplicationContext().getResources().getDrawable(R.drawable.deal_black);
+                img2.setBounds(0, 0, 60, 60);
+                dealsTxt.setCompoundDrawables(img2, null, null, null);
+
+                Drawable img3 = getApplicationContext().getResources().getDrawable(R.drawable.store_black);
+                img3.setBounds(0, 0, 60, 60);
+                storeTxt.setCompoundDrawables(img3, null, null, null);
+
+                Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_black);
+                img4.setBounds(0, 0, 60, 60);
+                productTxt.setCompoundDrawables(img4, null, null, null);
+
+                Drawable img5 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_white);
+                img5.setBounds(0, 0, 60, 60);
+                askFaxTxt.setCompoundDrawables(img5, null, null, null);
+
+            }
+        });
         postTxt.setOnClickListener(view -> {
             postTxt.setTextColor(getResources().getColor(R.color.white));
             blogTxt.setTextColor(getResources().getColor(R.color.black));
             storeTxt.setTextColor(getResources().getColor(R.color.black));
             dealsTxt.setTextColor(getResources().getColor(R.color.black));
             productTxt.setTextColor(getResources().getColor(R.color.black));
+            askFaxTxt.setTextColor(getResources().getColor(R.color.black));
 
             postTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
             blogTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             storeTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             dealsTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             productTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+            askFaxTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
 
             postRecyclerview.setVisibility(View.VISIBLE);
             blogRecyclerview.setVisibility(View.GONE);
             dealRecyclerview.setVisibility(View.GONE);
             storeRecyclerview.setVisibility(View.GONE);
             productRecyclerview.setVisibility(View.GONE);
+            askFaxRecyclerview.setVisibility(View.GONE);
 
             Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_white);
             img.setBounds(0, 0, 60, 60);
@@ -134,6 +195,10 @@ public class FavouritesActivity extends AppCompatActivity {
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
+            Drawable img5 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
+            img5.setBounds(0, 0, 60, 60);
+            askFaxTxt.setCompoundDrawables(img5, null, null, null);
+
         });
         blogTxt.setOnClickListener(view -> {
             postRecyclerview.setVisibility(View.GONE);
@@ -141,18 +206,21 @@ public class FavouritesActivity extends AppCompatActivity {
             dealRecyclerview.setVisibility(View.GONE);
             storeRecyclerview.setVisibility(View.GONE);
             productRecyclerview.setVisibility(View.GONE);
+            askFaxRecyclerview.setVisibility(View.GONE);
 
             blogTxt.setTextColor(getResources().getColor(R.color.white));
             postTxt.setTextColor(getResources().getColor(R.color.black));
             storeTxt.setTextColor(getResources().getColor(R.color.black));
             dealsTxt.setTextColor(getResources().getColor(R.color.black));
             productTxt.setTextColor(getResources().getColor(R.color.black));
+            askFaxTxt.setTextColor(getResources().getColor(R.color.black));
 
             blogTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
             postTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             storeTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             dealsTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             productTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+            askFaxTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
 
             Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
             img.setBounds(0, 0, 60, 60);
@@ -174,27 +242,33 @@ public class FavouritesActivity extends AppCompatActivity {
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
+            Drawable img5 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
+            img5.setBounds(0, 0, 60, 60);
+            askFaxTxt.setCompoundDrawables(img5, null, null, null);
+
         });
         dealsTxt.setOnClickListener(view -> {
-
 
             postRecyclerview.setVisibility(View.GONE);
             blogRecyclerview.setVisibility(View.GONE);
             dealRecyclerview.setVisibility(View.VISIBLE);
             storeRecyclerview.setVisibility(View.GONE);
             productRecyclerview.setVisibility(View.GONE);
+            askFaxRecyclerview.setVisibility(View.GONE);
 
             dealsTxt.setTextColor(getResources().getColor(R.color.white));
             postTxt.setTextColor(getResources().getColor(R.color.black));
             storeTxt.setTextColor(getResources().getColor(R.color.black));
             blogTxt.setTextColor(getResources().getColor(R.color.black));
             productTxt.setTextColor(getResources().getColor(R.color.black));
+            askFaxTxt.setTextColor(getResources().getColor(R.color.black));
 
             dealsTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
             postTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             storeTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             blogTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             productTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+            askFaxTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
 
             Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
             img.setBounds(0, 0, 60, 60);
@@ -216,6 +290,9 @@ public class FavouritesActivity extends AppCompatActivity {
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
+            Drawable img5 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
+            img5.setBounds(0, 0, 60, 60);
+            askFaxTxt.setCompoundDrawables(img5, null, null, null);
 
         });
         storeTxt.setOnClickListener(view -> {
@@ -224,18 +301,23 @@ public class FavouritesActivity extends AppCompatActivity {
             dealsTxt.setTextColor(getResources().getColor(R.color.black));
             blogTxt.setTextColor(getResources().getColor(R.color.black));
             productTxt.setTextColor(getResources().getColor(R.color.black));
+            askFaxTxt.setTextColor(getResources().getColor(R.color.black));
 
             storeTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
             postTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             dealsTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             blogTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             productTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+            askFaxTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
 
             postRecyclerview.setVisibility(View.GONE);
             blogRecyclerview.setVisibility(View.GONE);
             dealRecyclerview.setVisibility(View.GONE);
             storeRecyclerview.setVisibility(View.VISIBLE);
             productRecyclerview.setVisibility(View.GONE);
+            askFaxRecyclerview.setVisibility(View.GONE);
+
+
             Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
             img.setBounds(0, 0, 60, 60);
             postTxt.setCompoundDrawables(img, null, null, null);
@@ -256,6 +338,10 @@ public class FavouritesActivity extends AppCompatActivity {
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
+            Drawable img5 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
+            img5.setBounds(0, 0, 60, 60);
+            askFaxTxt.setCompoundDrawables(img5, null, null, null);
+
         });
         productTxt.setOnClickListener(view -> {
             productTxt.setTextColor(getResources().getColor(R.color.white));
@@ -263,18 +349,23 @@ public class FavouritesActivity extends AppCompatActivity {
             dealsTxt.setTextColor(getResources().getColor(R.color.black));
             blogTxt.setTextColor(getResources().getColor(R.color.black));
             storeTxt.setTextColor(getResources().getColor(R.color.black));
+            askFaxTxt.setTextColor(getResources().getColor(R.color.black));
 
             productTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
             postTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             dealsTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             blogTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
             storeTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+            askFaxTxt.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
 
             postRecyclerview.setVisibility(View.GONE);
             blogRecyclerview.setVisibility(View.GONE);
             dealRecyclerview.setVisibility(View.GONE);
             storeRecyclerview.setVisibility(View.GONE);
             productRecyclerview.setVisibility(View.VISIBLE);
+            askFaxRecyclerview.setVisibility(View.GONE);
+
+
             Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
             img.setBounds(0, 0, 60, 60);
             postTxt.setCompoundDrawables(img, null, null, null);
@@ -294,9 +385,64 @@ public class FavouritesActivity extends AppCompatActivity {
             Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_white);
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
+
+            Drawable img5 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_post_black);
+            img5.setBounds(0, 0, 60, 60);
+            askFaxTxt.setCompoundDrawables(img5, null, null, null);
+
         });
 
 
+    }
+
+    private void callFavAskFaxQuesAPI() {
+        SessionPref pref = SessionPref.getInstance(getApplicationContext());
+        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+        Call<FavAskFaxQueSResponse> call = service.userFavAskFaxQuestions("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken));
+        call.enqueue(new Callback<FavAskFaxQueSResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<FavAskFaxQueSResponse> call, @NonNull Response<FavAskFaxQueSResponse> response) {
+
+                if (response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getStatus() == 1) {
+
+                        assert response.body() != null;
+                        ArrayList<AfQuestion> lst_Ques = (ArrayList<AfQuestion>) response.body().getData().getAfQuestionFavs();
+                        if (lst_Ques == null) {
+                            lst_Ques = new ArrayList<>();
+                        }
+
+                        RecyclerViewLayoutManager = new LinearLayoutManager(FavouritesActivity.this);
+                        askFaxRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
+                        askFaxAdapter = new AskFaxAdapter(lst_Ques, FavouritesActivity.this);
+                        HorizontalLayout = new LinearLayoutManager(FavouritesActivity.this, LinearLayoutManager.VERTICAL, false);
+                        askFaxRecyclerview.setLayoutManager(HorizontalLayout);
+                        askFaxRecyclerview.setAdapter(askFaxAdapter);
+
+
+                    }  //   clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
+
+                } else {
+                    try {
+                        assert response.errorBody() != null;
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        clsCommon.showDialogMsg(FavouritesActivity.this, "HerbalFax", jObjError.getString("message"), "Ok");
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<FavAskFaxQueSResponse> call, @NonNull Throwable t) {
+                t.printStackTrace();
+
+                Toast.makeText(getApplicationContext(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

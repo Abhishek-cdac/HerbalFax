@@ -22,7 +22,6 @@ import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.SpacesItemDecoration;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.vendor.store.AddStoreActivity;
 import com.herbal.herbalfax.vendor.storedetail.SellerStoreDetailActivity;
@@ -43,7 +42,7 @@ import retrofit2.Response;
 
 public class SellerStoreListFragment extends Fragment {
 
-    private AskFaxViewModel askFaxViewModel;
+
     RecyclerView recyclerView, storeRecyclerView;
     private MyStoreViewModel myStoreViewModel;
     RecyclerView.LayoutManager RecyclerViewLayoutManager;

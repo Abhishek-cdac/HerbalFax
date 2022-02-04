@@ -1,12 +1,11 @@
 
-package com.herbal.herbalfax.customer.homescreen.askfax.sharestorypredatamodel;
+package com.herbal.herbalfax.customer.homescreen.favourites.favquesmodel;
 
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
 
-
-public class ShareStoryPreData {
+public class FavAskFaxQueSResponse {
 
     @Expose
     private Data data;

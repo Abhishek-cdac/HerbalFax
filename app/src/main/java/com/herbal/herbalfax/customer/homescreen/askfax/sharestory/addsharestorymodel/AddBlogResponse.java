@@ -1,10 +1,12 @@
 
-package com.herbal.herbalfax.common_screen.login;
+package com.herbal.herbalfax.customer.homescreen.askfax.sharestory.addsharestorymodel;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 
-public class LoginResponse {
+
+public class AddBlogResponse {
 
     @Expose
     private Data data;

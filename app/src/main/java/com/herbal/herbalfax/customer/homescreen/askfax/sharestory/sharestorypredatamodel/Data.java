@@ -1,5 +1,5 @@
 
-package com.herbal.herbalfax.customer.homescreen.askfax.sharestorypredatamodel;
+package com.herbal.herbalfax.customer.homescreen.askfax.sharestory.sharestorypredatamodel;
 
 import java.util.List;
 

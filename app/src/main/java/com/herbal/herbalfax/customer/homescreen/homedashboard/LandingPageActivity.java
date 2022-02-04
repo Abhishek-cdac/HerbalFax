@@ -23,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -39,6 +40,7 @@ import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
@@ -67,11 +69,11 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     Context mContext;
     String JwtToken;
     SessionPref pref;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+
         mContext = getApplicationContext();
 
         clsCommon = CommonClass.getInstance();

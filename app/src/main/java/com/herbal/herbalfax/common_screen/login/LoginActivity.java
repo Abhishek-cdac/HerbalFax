@@ -6,14 +6,11 @@ import androidx.databinding.DataBindingUtil;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
@@ -22,6 +19,8 @@ import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.forgot_password.ForgotPasswordActivity;
 import com.herbal.herbalfax.R;
+import com.herbal.herbalfax.common_screen.login.loginmodel.LoginResponse;
+import com.herbal.herbalfax.common_screen.login.loginmodel.User;
 import com.herbal.herbalfax.common_screen.selectiontype.RegistrationSelectionActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;

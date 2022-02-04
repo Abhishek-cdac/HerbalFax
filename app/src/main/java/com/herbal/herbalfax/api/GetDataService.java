@@ -5,7 +5,7 @@ import com.herbal.herbalfax.common_screen.landingpage.events.addevent.model.AddE
 import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.commentlstmodel.EventCommentsResponse;
 import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.detaileventsmodel.DetailedEventResponse;
 import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel.EventListResponse;
-import com.herbal.herbalfax.common_screen.login.LoginResponse;
+import com.herbal.herbalfax.common_screen.login.loginmodel.LoginResponse;
 import com.herbal.herbalfax.common_screen.terms.termmodel.TermResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.otpverified.SignUpOtpVerifyResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.resendmodel.ResendOTPModel;
@@ -18,11 +18,13 @@ import com.herbal.herbalfax.customer.homescreen.askfax.addaf.addaskfaxmodel.AddA
 import com.herbal.herbalfax.customer.homescreen.askfax.addaf.predatamodel.AskFaxPreDataResponse;
 import com.herbal.herbalfax.customer.homescreen.askfax.aflist.addanswermodel.AddAnswerResponse;
 import com.herbal.herbalfax.customer.homescreen.askfax.aflist.askfaxlistmodel.AskFaxListResponse;
-import com.herbal.herbalfax.customer.homescreen.askfax.sharestorypredatamodel.ShareStoryPreData;
+import com.herbal.herbalfax.customer.homescreen.askfax.sharestory.addsharestorymodel.AddBlogResponse;
+import com.herbal.herbalfax.customer.homescreen.askfax.sharestory.sharestorypredatamodel.ShareStoryPreData;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.model.SelectDeliveryAddressModel;
 import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.model.FavDealResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favproduct.model.FavProductResponse;
+import com.herbal.herbalfax.customer.homescreen.favourites.favquesmodel.FavAskFaxQueSResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favstore.model.FavStoreResponse;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.group.addmember.model.UserListModel;
@@ -326,6 +328,9 @@ public interface GetDataService {
     @POST("user-fav-stores")
     Call<FavStoreResponse> userFavStores(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
+    @POST("user-fav-ask_fax_questions")
+    Call<FavAskFaxQueSResponse> userFavAskFaxQuestions(@Header("Authorization") String token);
+
     /*ask fax*/
 
     @POST("user-ask-fax-add-question-data")
@@ -347,13 +352,26 @@ public interface GetDataService {
     @POST("user-ask-fax-question-answer")
     Call<AddAnswerResponse> userAskFaxQuestionAnswer(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
+    @FormUrlEncoded
+    @POST("user-ask-fax-question-like")
+    Call<CommonResponse> userAskFaxQuestionLike(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-ask-fax-question-add-fav")
+    Call<CommonResponse> userAskFaxQuestionAddFav(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
     /*share story*/
     @POST("user-add-blog-predata")
     Call<ShareStoryPreData> userAddBlogPredata(@Header("Authorization") String token);
 
     @Multipart
     @POST("user-add-blog")
-    Call<CommonResponse> userAddBlog(@Header("Authorization") String token, @Part("BlogCategory") RequestBody blogCategory,
-                                 @Part("BlogTitle") RequestBody blogTitle, @Part("BlogDesc") RequestBody blogDesc, @Part("BlogURL") RequestBody blogURL, @Part MultipartBody.Part filePart);
+    Call<AddBlogResponse> userAddBlog(@Header("Authorization") String token, @Part("BlogCategory") RequestBody blogCategory,
+                                      @Part("BlogTitle") RequestBody blogTitle, @Part("BlogDesc") RequestBody blogDesc, @Part("BlogURL") RequestBody blogURL, @Part MultipartBody.Part filePart);
+
+    @Multipart
+    @POST("user-add-blog-paragraph")
+    Call<CommonResponse> userAddBlogParagraph(@Header("Authorization") String token, @Part("BlogId") RequestBody blogId,  @Part("BPara_Desc") RequestBody bPara_Desc, @Part MultipartBody.Part filePart);
+
 
 }
