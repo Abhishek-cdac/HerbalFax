@@ -201,6 +201,7 @@
     <string name="Addstorelogo">Add Store Logo</string>
     <string name="uploadstorelogo">Upload Store Logo</string>
     <string name="Addstorephoto">Add Store Photo</string>
+    <string name="internet_connection_error">Please check internet connection</string>
     <string name="uploadstorephoto">Upload Store Photo</string>
     <string name="workingDays">Working Days</string>
     <string name="findstore_hint">Find Store</string>
