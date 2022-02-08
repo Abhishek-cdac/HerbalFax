@@ -272,7 +272,7 @@ public class FeedFragment extends Fragment {
         callPostAPI();
 
         try {
-//            feedrecyclerview.playAvailableVideos(0);
+            feedrecyclerview.playAvailableVideos(0);
         } catch (Exception e) {
             e.printStackTrace();
         }
