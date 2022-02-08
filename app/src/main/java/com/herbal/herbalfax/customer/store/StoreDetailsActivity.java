@@ -21,6 +21,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
+import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
@@ -33,8 +34,12 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -95,8 +100,16 @@ public class StoreDetailsActivity extends AppCompatActivity {
         ratingFour = findViewById(R.id.ratingFour);
         ratingFive = findViewById(R.id.ratingFive);
         headerTxt = findViewById(R.id.headerTxt);
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
 
-        callUserStoreDetailAPI(storeId);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        // SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(c);
+
+        Log.e("formattedDate", "" + formattedDate);
+
+        callUserStoreDetailAPI(storeId, formattedDate);
         backBtn.setOnClickListener(view -> onBackPressed());
         storePhotoTxt.setOnClickListener(view -> {
             tab_constraint.setVisibility(View.GONE);
@@ -163,20 +176,21 @@ public class StoreDetailsActivity extends AppCompatActivity {
         photosRecyclerview.setAdapter(storePhotosAdapter);
     }
 
-    private void callUserStoreDetailAPI(String storeId) {
+    private void callUserStoreDetailAPI(String storeId, String formattedDate) {
         SessionPref pref = SessionPref.getInstance(getApplicationContext());
 
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("StoreId", storeId);
+  hashMap.put("fordate", formattedDate);
 
-//        TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getApplicationContext());
-//        pd.show();
+        TransparentProgressDialog pd = TransparentProgressDialog.getInstance(StoreDetailsActivity.this);
+        pd.show();
         Call<StoreDetailResponse> call = service.userStoreDetails("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<StoreDetailResponse>() {
             @Override
             public void onResponse(@NonNull Call<StoreDetailResponse> call, @NonNull Response<StoreDetailResponse> response) {
-                // pd.cancel();
+                 pd.cancel();
                 if (response.code() == 200) {
 
                     assert response.body() != null;
@@ -266,7 +280,7 @@ public class StoreDetailsActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NotNull Call<StoreDetailResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                //pd.cancel();
+                pd.cancel();
                 Toast.makeText(StoreDetailsActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });

@@ -269,7 +269,6 @@ public interface GetDataService {
 
 
     /*Groups*/
-
     @Multipart
     @POST("user-group-create")
     Call<CreateGroupModel> userGroupCreate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart);
@@ -290,9 +289,23 @@ public interface GetDataService {
 
     /*Events*/
 
-    @Multipart
+   /* @Multipart
     @POST("user-event-create")
     Call<AddEventResponse> userEventCreate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> param, @Part MultipartBody.Part filePart);
+    */
+
+    @Multipart
+    @POST("user-event-create")
+    Call<AddEventResponse> userEventCreate(@Header("Authorization") String token,
+                                           @Part("EventName") RequestBody eventName,
+                                           @Part("EventDate") RequestBody eventDate,
+                                           @Part("EventTime") RequestBody eventTime,
+                                           @Part("EventDay") RequestBody eventDay,
+                                           @Part("EventLat") RequestBody eventLat,
+                                           @Part("EventLong") RequestBody eventLong,
+                                           @Part("EventDesc") RequestBody eventDesc,
+                                           @Part("EventAddress") RequestBody eventAddress,
+                                           @Part MultipartBody.Part filePart);
 
     @POST("user-event-list")
     Call<EventListResponse> userEventList(@Header("Authorization") String token);
@@ -328,7 +341,7 @@ public interface GetDataService {
     @POST("user-fav-stores")
     Call<FavStoreResponse> userFavStores(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
-    @POST("user-fav-ask_fax_questions")
+    @POST("user-fav-ask-fax-questions")
     Call<FavAskFaxQueSResponse> userFavAskFaxQuestions(@Header("Authorization") String token);
 
     /*ask fax*/
@@ -371,7 +384,7 @@ public interface GetDataService {
 
     @Multipart
     @POST("user-add-blog-paragraph")
-    Call<CommonResponse> userAddBlogParagraph(@Header("Authorization") String token, @Part("BlogId") RequestBody blogId,  @Part("BPara_Desc") RequestBody bPara_Desc, @Part MultipartBody.Part filePart);
+    Call<CommonResponse> userAddBlogParagraph(@Header("Authorization") String token, @Part("BlogId") RequestBody blogId, @Part("BPara_Desc") RequestBody bPara_Desc, @Part MultipartBody.Part filePart);
 
 
 }

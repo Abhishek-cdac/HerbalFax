@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,7 @@ import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
+import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.notification.NotificationActivity;
 import com.herbal.herbalfax.customer.post.AddPostActivity;
@@ -137,7 +139,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 
     private void initFab() {
 
-        Button fab = findViewById(R.id.fab);
+        ImageView fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -317,7 +319,9 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             case R.id.action_map:
                 //   ReplaceFrag(new NearByStoreFragment());
 
-                Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+            //    Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+                //EditProfileActivity.class);
+          Intent intent1 = new Intent(getApplicationContext(), NearByActivity.class);
                 //EditProfileActivity.class);
                 startActivity(intent1);
                 return true;

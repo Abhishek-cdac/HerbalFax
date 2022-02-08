@@ -56,10 +56,17 @@ public class StoreProductsAdapter extends RecyclerView.Adapter<StoreProductsAdap
             if (!lst_product.get(position).getSPPPath().equals("")) {
                 picasso.load(String.valueOf(lst_product.get(position).getSPPPath()))
                         .into(holder.productImg);
+            } else {
+                picasso.load(R.drawable.product)
+                        .into(holder.productImg);
             }
+        } else {
+            picasso.load(R.drawable.product)
+                    .into(holder.productImg);
         }
+
         holder.productNameText.setText(lst_product.get(position).getSPName());
-        holder.priceTxt.setText("$"+lst_product.get(position).getSPRate());
+        holder.priceTxt.setText("$" + lst_product.get(position).getSPRate());
 //        holder.categoryTxt.setText(lst_product.get(position).getSPCTitle());
 //        holder.descTxt.setText(lst_product.get(position).getSPDesc());
         String productId = lst_product.get(position).getIdstoreProducts();

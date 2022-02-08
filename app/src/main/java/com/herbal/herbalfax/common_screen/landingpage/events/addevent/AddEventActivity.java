@@ -27,8 +27,8 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
-import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.landingpage.events.addevent.model.AddEventResponse;
+import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.placepicker.GooglePlacePickerActivity;
@@ -43,9 +43,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Objects;
 
 import okhttp3.MediaType;
@@ -103,12 +101,7 @@ public class AddEventActivity extends AppCompatActivity {
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             updateLabel();
         };
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        back.setOnClickListener(view -> onBackPressed());
         eventDate.setOnClickListener(v -> {
 
             DatePickerDialog dialog = new DatePickerDialog(AddEventActivity.this,
@@ -121,35 +114,29 @@ public class AddEventActivity extends AppCompatActivity {
             dialog.show();
         });
 
-        eventAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GooglePlacePickerActivity.class);
-                startActivityForResult(intent, GooglePlacePickerActivity.REQUEST_LOCATION);
-            }
+        eventAddress.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), GooglePlacePickerActivity.class);
+            startActivityForResult(intent, GooglePlacePickerActivity.REQUEST_LOCATION);
         });
-        eventTimeEdt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Get Current Time
-                final Calendar c = Calendar.getInstance();
-                mHour = c.get(Calendar.HOUR_OF_DAY);
-                mMinute = c.get(Calendar.MINUTE);
+        eventTimeEdt.setOnClickListener(view -> {
+            // Get Current Time
+            final Calendar c = Calendar.getInstance();
+            mHour = c.get(Calendar.HOUR_OF_DAY);
+            mMinute = c.get(Calendar.MINUTE);
 
-                // Launch Time Picker Dialog
-                TimePickerDialog timePickerDialog = new TimePickerDialog(AddEventActivity.this,
-                        new TimePickerDialog.OnTimeSetListener() {
+            // Launch Time Picker Dialog
+            TimePickerDialog timePickerDialog = new TimePickerDialog(AddEventActivity.this,
+                    new TimePickerDialog.OnTimeSetListener() {
 
-                            @SuppressLint("SetTextI18n")
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay,
-                                                  int minute) {
+                        @SuppressLint("SetTextI18n")
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay,
+                                              int minute) {
 
-                                eventTimeEdt.setText(hourOfDay + ":" + minute);
-                            }
-                        }, mHour, mMinute, false);
-                timePickerDialog.show();
-            }
+                            eventTimeEdt.setText(hourOfDay + ":" + minute);
+                        }
+                    }, mHour, mMinute, false);
+            timePickerDialog.show();
         });
         addEventViewModel.getAddEvents().observe(this, addEvents -> {
 
@@ -175,7 +162,6 @@ public class AddEventActivity extends AppCompatActivity {
 
     private void callAddEventAPI(AddEvents addEvents) {
         SessionPref pref = SessionPref.getInstance(getApplicationContext());
-
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(AddEventActivity.this);
         pd.show();
         //create a file to write bitmap data
@@ -205,7 +191,7 @@ public class AddEventActivity extends AppCompatActivity {
         RequestBody eventLong = RequestBody.create(MediaType.parse("text/plain"), longitude);
 
 
-        Map<String, RequestBody> hashMap = new HashMap<>();
+     /*   Map<String, RequestBody> hashMap = new HashMap<>();
         hashMap.put("EventName", eventName);
         hashMap.put("EventDate", eventDate);
         hashMap.put("EventTime", eventTime);
@@ -214,12 +200,13 @@ public class AddEventActivity extends AppCompatActivity {
         hashMap.put("EventDay", eventDay);
         hashMap.put("EventLat", eventLat);
         hashMap.put("EventLong", eventLong);
-
+     */
 
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("EventImage", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-        Call<AddEventResponse> call = service.userEventCreate("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
+      //  Call<AddEventResponse> call = service.userEventCreate("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
+        Call<AddEventResponse> call = service.userEventCreate("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), eventName,eventDate,eventTime,eventDay ,eventLat,eventLong,eventDesc,eventAddress, filePart);
         call.enqueue(new Callback<AddEventResponse>() {
             @Override
             public void onResponse(@NonNull Call<AddEventResponse> call, @NonNull Response<AddEventResponse> response) {
@@ -229,9 +216,9 @@ public class AddEventActivity extends AppCompatActivity {
 
                         assert response.body() != null;
                         if (response.body().getStatus() == 1) {
-
                             Intent intent = new Intent(getApplicationContext(), EventsDetailsActivity.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             Log.e("Error", "" + response.body().getErrors().toString());
                             Log.e("Error", "" + response.body().getErrors());

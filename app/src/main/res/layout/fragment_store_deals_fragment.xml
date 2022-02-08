@@ -15,10 +15,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/black"
-            android:text="Showing all 4" />
+            android:text="" />
         <ImageView
             android:src="@drawable/ic_icon_filter_black"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

@@ -43,7 +43,6 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     boolean isBusiness = false;
-
     private ActivityLoginBinding binding;
     private CommonClass clsCommon;
     private CheckBox saveLoginCheckBox;
@@ -125,6 +124,8 @@ public class LoginActivity extends AppCompatActivity {
      *
      * @param loginUser
      */
+
+
     private void callLoginAPI(@NonNull LoginUser loginUser) {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
@@ -166,6 +167,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @NonNull
     @Contract(" -> new")

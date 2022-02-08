@@ -71,6 +71,7 @@ public class StoreReviewFragment extends Fragment {
             storeId = arguments.get("storeId").toString();
             Log.e("StoreReviewFragment", "" + storeId);
         }
+        ratingCount = root.findViewById(R.id.ratingCount);
         progressFive = root.findViewById(R.id.progressFive);
         progressFour = root.findViewById(R.id.progressFour);
         progressThree = root.findViewById(R.id.progressThree);
@@ -136,6 +137,7 @@ public class StoreReviewFragment extends Fragment {
                         threeRatingTxt.setText(lst_storeRatingChart.get(2).getRateCount() + "%");
                         fourRatingTxt.setText(lst_storeRatingChart.get(3).getRateCount() + "%");
                         fiveRatingTxt.setText(lst_storeRatingChart.get(4).getRateCount() + "%");
+
 
                       /*  try {
                             progressOne.setProgress(lst_storeRatingChart.get(0).getRateCount());

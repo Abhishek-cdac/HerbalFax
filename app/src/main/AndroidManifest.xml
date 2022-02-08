@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.herbal.herbalfax">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -28,6 +29,9 @@
         android:theme="@style/Theme.HerbalFax"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity
+            android:name=".customer.homescreen.nearbystores.NearByActivity"
+            android:exported="true" />
         <activity
             android:name=".customer.homescreen.askfax.aflist.AddAnswerActivity"
             android:exported="true" />

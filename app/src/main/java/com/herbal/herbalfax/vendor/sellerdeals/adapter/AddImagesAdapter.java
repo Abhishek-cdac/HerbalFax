@@ -16,8 +16,8 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 /**
- * Author : Codiant- A Yash Technologies Company.
- * Date   : March 2019
+ * Author : NECTAR INFOTEL.
+ * Date   : FEB 2022
  * Description : This class is used for show and add images list.
  */
 public class AddImagesAdapter extends RecyclerView.Adapter<AddImagesAdapter.ViewHolder> {
