@@ -37,7 +37,6 @@
             </LinearLayout>
 
             <LinearLayout
-
                 android:id="@+id/textbox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -55,7 +54,6 @@
                     android:text="@string/login1"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_22sdp" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,7 +197,7 @@
                     android:onClick="@{(v) -> LoginViewModel.onClickLogin(v)}"
 
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
