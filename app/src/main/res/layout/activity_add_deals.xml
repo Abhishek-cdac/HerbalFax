@@ -97,12 +97,25 @@
                             android:src="@drawable/ic_icon_l_file_upload" />
 
                         <androidx.recyclerview.widget.RecyclerView
-                               android:id="@+id/recycleView"
-                               android:layout_gravity="center"
-                               android:layout_width="match_parent"
-                               android:layout_height="@dimen/_80sdp"
+                            android:id="@+id/recycleView"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
 
-                              />
+                            />
+
+                        <TextView
+                            android:id="@+id/msgTxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/uploaddealpic"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_14sdp"
+                            android:visibility="visible" />
 
 
                     </LinearLayout>

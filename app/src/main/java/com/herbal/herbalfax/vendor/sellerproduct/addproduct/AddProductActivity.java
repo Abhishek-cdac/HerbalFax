@@ -11,10 +11,12 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -69,6 +71,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
     ArrayList<Store> lst_store;
     private ArrayList<Bitmap> productList=new ArrayList<>();
     private AddImagesAdapter addImagesAdapter;
+    private TextView msgTxt;
     private RecyclerView recycleView;
     Bitmap bitmap = null;
     private ArrayList<ProductCategory> lst_store_category;
@@ -86,6 +89,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         recycleView=findViewById(R.id.recycleView);
         categorySpinner = findViewById(R.id.categorySpinner);
         storeSpinner = findViewById(R.id.spinner);
+        msgTxt=findViewById(R.id.msgTxt);
         callStoreListAPI();
         callStorePreDataAPI();
 
@@ -143,6 +147,12 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
     private void removeImages(int position) {
             productList.remove(position);
             addImagesAdapter.notifyDataSetChanged();
+            if(productList.size()==0)
+            {
+                recycleView.setVisibility(View.GONE);
+                msgTxt.setVisibility(View.VISIBLE);
+
+            }
 
     }
 
@@ -270,14 +280,46 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         hashMap.put("ProductPerKM", productDistance);
 
         hashMap.put("ProductType", productType);
-        Log.e("hashMap", "" + hashMap);
+
 //      ArrayList<File> imageItems = new ArrayList();
 //      imageItems.add(f);
 ////      items.add(f);
 //      items.add(f);
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
-        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
+//        MultipartBody.Builder builder = new MultipartBody.Builder();
+//
+//        File f=null;
+//        for(int i=0;i<productList.size();i++)
+//        {
+//
+//             f= new File(getCacheDir(), "product");
+//            try {
+//               Bitmap btm= productList.get(i);
+//                f.createNewFile();
+//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//                btm.compress(Bitmap.CompressFormat.JPEG, 40, bos);
+//                byte[] bitmapdata = bos.toByteArray();
+//                //write the bytes in file
+//                FileOutputStream fos = null;
+//                fos = new FileOutputStream(f);
+//                fos.write(bitmapdata);
+//                fos.flush();
+//                fos.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//
+//            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), f);
+//            hashMap.put("ProductPhotos[]\"; filename=\"" + f.getName() + "\"", requestBody);
+//
+////            RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+////            requestParam.put("images[]\"; filename=\"" + file.getName() + "\"", requestBody);
+//
+//        }
+        Log.e("hashMap", "" + hashMap);
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"),f));
+        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
@@ -418,7 +460,15 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
                     productList.add(bitmap);
                     if(addImagesAdapter!=null)
-                    addImagesAdapter.notifyDataSetChanged();
+                    {
+                        if(productList.size()>0)
+                        {
+                            recycleView.setVisibility(View.VISIBLE);
+                            msgTxt.setVisibility(View.GONE);
+                        }
+                        addImagesAdapter.notifyDataSetChanged();
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

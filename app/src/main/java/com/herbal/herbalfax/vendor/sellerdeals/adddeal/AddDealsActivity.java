@@ -17,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -76,6 +77,7 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
     private ArrayList<Bitmap> productList=new ArrayList<>();
     private AddImagesAdapter addImagesAdapter;
     private RecyclerView recycleView;
+    private TextView msgTxt;
     ImageView product_image, back;
     String IdstoreCategories, IdStore;
     ArrayList<Store> lst_store;
@@ -94,6 +96,7 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
         binding.setAddDealsViewModel(addDealsViewModel);
         clsCommon = CommonClass.getInstance();
         product_image = findViewById(R.id.product_image);
+        msgTxt=findViewById(R.id.msgTxt);
         recycleView=findViewById(R.id.recycleView);
         categorySpinner = findViewById(R.id.categorySpinner);
         expirydate = findViewById(R.id.expirydate);
@@ -198,6 +201,13 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
     private void removeImages(int position) {
         productList.remove(position);
         addImagesAdapter.notifyDataSetChanged();
+
+        if(productList.size()==0)
+        {
+            recycleView.setVisibility(View.GONE);
+            msgTxt.setVisibility(View.VISIBLE);
+
+        }
 
     }
 
@@ -522,7 +532,15 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
                     productList.add(bitmap);
                     if(addImagesAdapter!=null)
+                    {
+                        if(productList.size()>0)
+                        {
+                            recycleView.setVisibility(View.VISIBLE);
+                            msgTxt.setVisibility(View.GONE);
+                        }
                         addImagesAdapter.notifyDataSetChanged();
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
