@@ -79,6 +79,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
     public final static int PICK_PHOTO_FOR_LOGO = 2;
     public final static int PICK_PHOTO_FOR_STORE_IMAGES = 3;
     private CommonClass clsCommon;
+    private TextView msgTxt;
     private ActivityAddStoreBinding binding;
     private ArrayList<AllStoreCategory> lst_store_category;
     EditText locations;
@@ -125,6 +126,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
         type = getIntent().getStringExtra("type");
         headerTxt = findViewById(R.id.headerTxt);
         button = findViewById(R.id.button);
+        msgTxt=findViewById(R.id.msgTxt);
 
         if (type != null && type.equals("edit")) {
             storeId = getIntent().getStringExtra("storeId");
@@ -750,6 +752,13 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
         storeImageList.remove(position);
         addImagesAdapter.notifyDataSetChanged();
 
+        if(storeImageList.size()==0)
+        {
+            recycleView.setVisibility(View.GONE);
+            msgTxt.setVisibility(View.VISIBLE);
+
+        }
+
     }
 
     public void initAdapter() {
@@ -1147,8 +1156,18 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
                 try {
                     bitmap2 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
                     storeImageList.add(bitmap2);
+
                     if(addImagesAdapter!=null)
+                    {
+                        if(storeImageList.size()>0)
+                        {
+                            recycleView.setVisibility(View.VISIBLE);
+                            msgTxt.setVisibility(View.GONE);
+                        }
                         addImagesAdapter.notifyDataSetChanged();
+                    }
+
+
 
                 } catch (IOException e) {
                     e.printStackTrace();

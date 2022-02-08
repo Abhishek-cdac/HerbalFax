@@ -50,8 +50,14 @@ import retrofit2.Response;
 public class SellerProductFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     RecyclerView productRecyclerView;
     private SellerProductViewModel sellerProductViewModel;
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
     Button addProduct;
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    LinearLayoutManager RecyclerViewLayoutManager;
     LinearLayoutManager HorizontalLayout;
     private Onclick itemClick;
     ProductListAdapter productListAdapter;
@@ -105,8 +111,8 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("StoreId", "0");
-        hashMap.put("limit", "20");
-        hashMap.put("offset", "0");
+        hashMap.put("limit", limit+"");
+        hashMap.put("offset", offset+"");
         hashMap.put("category", "0");
         hashMap.put("active", "1");
         hashMap.put("product_type", "1");
@@ -160,18 +166,56 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                             }
                         }*/
 
-                        lst_product = (ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
+                        ArrayList<StoreProduct> localList=(ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
+//                        lst_product = (ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
+
+
                         if (lst_product == null) {
                             lst_product = new ArrayList<>();
                         }
 
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-                        productRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
-                        productListAdapter = new ProductListAdapter(lst_product, getActivity(), itemClick);
-                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                        productRecyclerView.setHasFixedSize(true);
-                        productRecyclerView.addItemDecoration(new SpacesItemDecoration(2));
-                        productRecyclerView.setAdapter(productListAdapter);
+                        if(offset==1)
+                        {
+                            lst_product.clear();
+                        }
+                        lst_product.addAll(localList);
+                        if(productListAdapter==null)
+                        {
+                            RecyclerViewLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false);
+                            productRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
+                            productListAdapter = new ProductListAdapter(lst_product, getActivity(), itemClick);
+                            HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                            productRecyclerView.setHasFixedSize(true);
+                            productRecyclerView.addItemDecoration(new SpacesItemDecoration(2));
+                            productRecyclerView.setAdapter(productListAdapter);
+                        }else{
+                            productListAdapter.notifyDataSetChanged();
+                        }
+
+
+                        productRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = RecyclerViewLayoutManager.getChildCount();
+                                    totalItemCount = RecyclerViewLayoutManager.getItemCount();
+                                    pastVisiblesItems = RecyclerViewLayoutManager.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callProductListApi();
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+
                     } else {
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }
