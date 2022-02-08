@@ -1,16 +1,17 @@
 package com.herbal.herbalfax.common_screen.profile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.homescreen.favourites.FavouritesActivity;
 import com.squareup.picasso.Picasso;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -18,7 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
     SessionPref pref;
     ImageView profileImage;
     Picasso picasso;
-
+    CardView favCard;
 
     TextView MyDealsBtn;
     @Override
@@ -26,7 +27,15 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         MyDealsBtn = findViewById(R.id.mydealsbtn);
+        favCard = findViewById(R.id.favCard);
 
+        favCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FavouritesActivity.class);
+                startActivity(intent);
+            }
+        });
         MyDealsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,5 +1,5 @@
 
-package com.herbal.herbalfax.common_screen.login;
+package com.herbal.herbalfax.common_screen.login.loginmodel;
 
 import com.google.gson.annotations.Expose;
 

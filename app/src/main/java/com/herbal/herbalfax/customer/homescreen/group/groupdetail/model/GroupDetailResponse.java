@@ -1,10 +1,12 @@
 
-package com.herbal.herbalfax.common_screen.login;
+package com.herbal.herbalfax.customer.homescreen.group.groupdetail.model;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 
-public class LoginResponse {
+
+public class GroupDetailResponse {
 
     @Expose
     private Data data;

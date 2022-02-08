@@ -36,7 +36,7 @@ public class Group {
     private String grpType;
     @SerializedName("idgroup_users")
     private String idgroupUsers;
-    @Expose
+    @SerializedName("idgroups")
     private String idgroups;
     @SerializedName("IsOwner")
     private String isOwner;

@@ -126,6 +126,8 @@ public class NewDealsAdapter extends RecyclerView.Adapter<NewDealsAdapter.ViewHo
         });
 
     }
+
+
     @Override
     public int getItemCount() {
         return lst_deal.size();

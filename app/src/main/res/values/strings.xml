@@ -171,7 +171,7 @@
     <string name="map_view">Map view</string>
     <string name="VerifyEmailtxt">We are sending verification code to this email</string>
     <string name="add_comment">Add comments</string>
-    <string name="post">Post</string>
+
     <string name="str_no_comments">No comments</string>
     <string name="comments">Comments</string>
     <string name="Like">like</string>
@@ -207,7 +207,7 @@
     <string name="addnewproduct">Add new product</string>
     <string name="selectcategory">Select Category</string>
     <string name="selectstore">Select Store</string>
-    <string name="uploadproductpic">Upload Product Picture</string>
+    <string name="uploadproductpic">Upload Product Pictures</string>
     <string name="uploaddealpic">Upload Deals Picture</string>
     <string name="productname">Product Name</string>
     <string name="productname_hint">Enter Product Name</string>
@@ -263,6 +263,21 @@
     <string name="participant">Participant :</string>
     <string name="searchgroup">Search Group</string>
     <string name="add_events">ADD EVENTS</string>
+    <string name="favourites">Favourites</string>
+    <string name="post">Post</string>
+    <string name="blogs">Blogs</string>
+    <string name="deals">Deals</string>
+    <string name="stores">Stores</string>
+    <string name="products">Products</string>
+    <string name="CreateAskFax">Add Question</string>
+    <string name="optional_include_a_link_that_gives_context">Optional: Include a link that gives context</string>
+    <string name="tips_on_getting_good_answers_quickly">Tips on getting good answers quickly</string>
+    <string name="make_sure_your_question_hasn_t_been_asked_already">Make Sure your question hasn’t been asked already</string>
+    <string name="keep_your_question_short_and_to_the_point">Keep your question short and to the point</string>
+    <string name="double_check_grammar_and_spelling">Double-check grammar and spelling</string>
+    <string name="start_your_question_what_how_why_etc">Start your question “What”, “How”, “Why”, etc.</string>
+    <string name="add_answer">Add Answer</string>
+    <string name="answer">Answers</string>
 
 
 </resources>

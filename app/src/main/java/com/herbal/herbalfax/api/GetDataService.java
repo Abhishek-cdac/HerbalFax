@@ -4,9 +4,8 @@ import com.herbal.herbalfax.common_screen.create_new_password.UpdatePasswordResp
 import com.herbal.herbalfax.common_screen.landingpage.events.addevent.model.AddEventResponse;
 import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.commentlstmodel.EventCommentsResponse;
 import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.detaileventsmodel.DetailedEventResponse;
-import com.herbal.herbalfax.common_screen.landingpage.events.eventdetail.detaileventsmodel.EventComment;
 import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.eventdetailsmodel.EventListResponse;
-import com.herbal.herbalfax.common_screen.login.LoginResponse;
+import com.herbal.herbalfax.common_screen.login.loginmodel.LoginResponse;
 import com.herbal.herbalfax.common_screen.terms.termmodel.TermResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.otpverified.SignUpOtpVerifyResponse;
 import com.herbal.herbalfax.common_screen.verify_email_after_signup.resendmodel.ResendOTPModel;
@@ -15,13 +14,24 @@ import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.homescreen.addcard.model.AddCardModel;
 import com.herbal.herbalfax.customer.homescreen.addcard.ordersubmitmodel.OrderSubmitModel;
+import com.herbal.herbalfax.customer.homescreen.askfax.addaf.addaskfaxmodel.AddAskFaxResponse;
+import com.herbal.herbalfax.customer.homescreen.askfax.addaf.predatamodel.AskFaxPreDataResponse;
+import com.herbal.herbalfax.customer.homescreen.askfax.aflist.addanswermodel.AddAnswerResponse;
+import com.herbal.herbalfax.customer.homescreen.askfax.aflist.askfaxlistmodel.AskFaxListResponse;
+import com.herbal.herbalfax.customer.homescreen.askfax.sharestory.addsharestorymodel.AddBlogResponse;
+import com.herbal.herbalfax.customer.homescreen.askfax.sharestory.sharestorypredatamodel.ShareStoryPreData;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.model.AddedCartModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.model.SelectDeliveryAddressModel;
+import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.model.FavDealResponse;
+import com.herbal.herbalfax.customer.homescreen.favourites.favproduct.model.FavProductResponse;
+import com.herbal.herbalfax.customer.homescreen.favourites.favquesmodel.FavAskFaxQueSResponse;
+import com.herbal.herbalfax.customer.homescreen.favourites.favstore.model.FavStoreResponse;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.group.addmember.model.UserListModel;
 import com.herbal.herbalfax.customer.homescreen.group.creategroup.creategrpmodel.CreateGroupModel;
 import com.herbal.herbalfax.customer.homescreen.group.creategroup.model.GroupPreData;
 import com.herbal.herbalfax.customer.homescreen.group.discovermodel.DiscoverResponse;
+import com.herbal.herbalfax.customer.homescreen.group.groupdetail.model.GroupDetailResponse;
 import com.herbal.herbalfax.customer.homescreen.group.yourgroupmodel.YourGroupResponse;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallcommentmodel.GetAllComments;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.GetAllPostResponse;
@@ -99,7 +109,7 @@ public interface GetDataService {
     @Multipart
     @POST("add-post")
     Call<CommonResponse> addPost(@Header("Authorization") String token, @Part("PostIsMedia") RequestBody postIsMedia,
-                                 @Part("PostDesc") RequestBody postDesc, @Part("PostMediaType") RequestBody PostMediaType, @Part MultipartBody.Part filePart);
+                                 @Part("PostDesc") RequestBody postDesc, @Part("PostMediaType") RequestBody PostMediaType, @Part("PostGroupId") RequestBody PostGroupId, @Part MultipartBody.Part filePart);
 
     @POST("get-userprofile")
     Call<GetUserResponse> getUserprofile(@Header("Authorization") String token);
@@ -237,10 +247,6 @@ public interface GetDataService {
     Call<CommonResponse> vendorProductAdd(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart);
 
 
-    @Multipart
-    @POST("user-group-create")
-    Call<CreateGroupModel> userGroupCreate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart);
-
     @FormUrlEncoded
     @POST("user-store-product-list")
     Call<ProductListResponse> userStoreProductList(@Header("Authorization") String token, @FieldMap Map<String, String> param);
@@ -261,6 +267,12 @@ public interface GetDataService {
     @POST("user-store-product-add-fav")
     Call<CommonResponse> userStoreProductAddFav(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
+
+    /*Groups*/
+    @Multipart
+    @POST("user-group-create")
+    Call<CreateGroupModel> userGroupCreate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart);
+
     @POST("user-group-list")
     Call<YourGroupResponse> userGroupList(@Header("Authorization") String token);
 
@@ -271,9 +283,29 @@ public interface GetDataService {
     @POST("user-group-join")
     Call<CommonResponse> userGroupJoin(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
-    @Multipart
+    @FormUrlEncoded
+    @POST("user-group-details")
+    Call<GroupDetailResponse> userGroupDetails(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    /*Events*/
+
+   /* @Multipart
     @POST("user-event-create")
     Call<AddEventResponse> userEventCreate(@Header("Authorization") String token, @PartMap Map<String, RequestBody> param, @Part MultipartBody.Part filePart);
+    */
+
+    @Multipart
+    @POST("user-event-create")
+    Call<AddEventResponse> userEventCreate(@Header("Authorization") String token,
+                                           @Part("EventName") RequestBody eventName,
+                                           @Part("EventDate") RequestBody eventDate,
+                                           @Part("EventTime") RequestBody eventTime,
+                                           @Part("EventDay") RequestBody eventDay,
+                                           @Part("EventLat") RequestBody eventLat,
+                                           @Part("EventLong") RequestBody eventLong,
+                                           @Part("EventDesc") RequestBody eventDesc,
+                                           @Part("EventAddress") RequestBody eventAddress,
+                                           @Part MultipartBody.Part filePart);
 
     @POST("user-event-list")
     Call<EventListResponse> userEventList(@Header("Authorization") String token);
@@ -281,12 +313,78 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("user-event-details")
     Call<DetailedEventResponse> userEventDetails(@Header("Authorization") String token, @FieldMap Map<String, String> param);
-  @FormUrlEncoded
+
+    @FormUrlEncoded
     @POST("user-event-add-comment")
     Call<CommonResponse> userEventAddComment(@Header("Authorization") String token, @FieldMap Map<String, String> param);
- @FormUrlEncoded
+
+    @FormUrlEncoded
     @POST("user-get-event-comments")
     Call<EventCommentsResponse> userGetEventComments(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+
+    /*Favourites */
+
+    @POST("user-fav-posts")
+    Call<GetAllPostResponse> userFavPosts(@Header("Authorization") String token);
+
+    @POST("user-fav-blogs")
+    Call<BlogResponse> userFavBlogs(@Header("Authorization") String token);
+
+    @POST("user-fav-deals")
+    Call<FavDealResponse> userFavDeals(@Header("Authorization") String token);
+
+    @POST("user-fav-products")
+    Call<FavProductResponse> userFavProducts(@Header("Authorization") String token);
+
+    @FormUrlEncoded
+    @POST("user-fav-stores")
+    Call<FavStoreResponse> userFavStores(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @POST("user-fav-ask-fax-questions")
+    Call<FavAskFaxQueSResponse> userFavAskFaxQuestions(@Header("Authorization") String token);
+
+    /*ask fax*/
+
+    @POST("user-ask-fax-add-question-data")
+    Call<AskFaxPreDataResponse> userAskFaxAddQuestionData(@Header("Authorization") String token);
+
+    @FormUrlEncoded
+    @POST("user-ask-fax-add-questions")
+    Call<AddAskFaxResponse> userAskFaxAddQuestions(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-ask-fax-add-answer")
+    Call<AddAnswerResponse> userAskFaxAddAnswers(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-ask-fax-question-list")
+    Call<AskFaxListResponse> userAskFaxQuestionsList(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-ask-fax-question-answer")
+    Call<AddAnswerResponse> userAskFaxQuestionAnswer(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-ask-fax-question-like")
+    Call<CommonResponse> userAskFaxQuestionLike(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-ask-fax-question-add-fav")
+    Call<CommonResponse> userAskFaxQuestionAddFav(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    /*share story*/
+    @POST("user-add-blog-predata")
+    Call<ShareStoryPreData> userAddBlogPredata(@Header("Authorization") String token);
+
+    @Multipart
+    @POST("user-add-blog")
+    Call<AddBlogResponse> userAddBlog(@Header("Authorization") String token, @Part("BlogCategory") RequestBody blogCategory,
+                                      @Part("BlogTitle") RequestBody blogTitle, @Part("BlogDesc") RequestBody blogDesc, @Part("BlogURL") RequestBody blogURL, @Part MultipartBody.Part filePart);
+
+    @Multipart
+    @POST("user-add-blog-paragraph")
+    Call<CommonResponse> userAddBlogParagraph(@Header("Authorization") String token, @Part("BlogId") RequestBody blogId, @Part("BPara_Desc") RequestBody bPara_Desc, @Part MultipartBody.Part filePart);
 
 
 }

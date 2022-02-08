@@ -17,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
@@ -35,6 +38,8 @@ import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.homescreen.placepicker.GooglePlacePickerActivity;
 import com.herbal.herbalfax.databinding.ActivityAddDealsBinding;
 import com.herbal.herbalfax.vendor.SellerLandingPageActivity;
+import com.herbal.herbalfax.vendor.sellerdeals.adapter.AddImagesAdapter;
+import com.herbal.herbalfax.vendor.sellerproduct.addproduct.AddProductActivity;
 import com.herbal.herbalfax.vendor.sellerproduct.productcategorymodel.ProductCategory;
 import com.herbal.herbalfax.vendor.sellerproduct.productcategorymodel.ProductCategoryResponse;
 import com.herbal.herbalfax.vendor.storelist.storelistmodel.Store;
@@ -69,6 +74,10 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
     public final static int ALL_PERMISSIONS_RESULT = 107;
     public final static int PICK_PHOTO_FOR_AVATAR = 1;
     Bitmap bitmap = null;
+    private ArrayList<Bitmap> productList=new ArrayList<>();
+    private AddImagesAdapter addImagesAdapter;
+    private RecyclerView recycleView;
+    private TextView msgTxt;
     ImageView product_image, back;
     String IdstoreCategories, IdStore;
     ArrayList<Store> lst_store;
@@ -87,6 +96,8 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
         binding.setAddDealsViewModel(addDealsViewModel);
         clsCommon = CommonClass.getInstance();
         product_image = findViewById(R.id.product_image);
+        msgTxt=findViewById(R.id.msgTxt);
+        recycleView=findViewById(R.id.recycleView);
         categorySpinner = findViewById(R.id.categorySpinner);
         expirydate = findViewById(R.id.expirydate);
 
@@ -146,7 +157,13 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
             ActivityCompat.requestPermissions(AddDealsActivity.this,
                     PERMISSIONS,
                     ALL_PERMISSIONS_RESULT);
-            pickImage();
+            if(productList.size()<5)
+            {
+                pickImage();
+            }else{
+                Toast.makeText(AddDealsActivity.this,"limit of product is 5",Toast.LENGTH_SHORT).show();
+            }
+
 
         });
 
@@ -177,7 +194,20 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
             }
 
         });
+        initAdapter();
 
+    }
+
+    private void removeImages(int position) {
+        productList.remove(position);
+        addImagesAdapter.notifyDataSetChanged();
+
+        if(productList.size()==0)
+        {
+            recycleView.setVisibility(View.GONE);
+            msgTxt.setVisibility(View.VISIBLE);
+
+        }
 
     }
 
@@ -292,6 +322,18 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
                 pd.cancel();
                 Toast.makeText(AddDealsActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
+        });
+    }
+
+
+    public void initAdapter() {
+        addImagesAdapter = new AddImagesAdapter(AddDealsActivity.this, productList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AddDealsActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        recycleView.setLayoutManager(linearLayoutManager);
+        recycleView.setAdapter(addImagesAdapter);
+        addImagesAdapter.onItemClickMethod((View view, int position) -> {
+            int i = view.getId();
+            removeImages(position);
         });
     }
 
@@ -488,12 +530,23 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
             } else {
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+                    productList.add(bitmap);
+                    if(addImagesAdapter!=null)
+                    {
+                        if(productList.size()>0)
+                        {
+                            recycleView.setVisibility(View.VISIBLE);
+                            msgTxt.setVisibility(View.GONE);
+                        }
+                        addImagesAdapter.notifyDataSetChanged();
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             if (null != bitmap) {
-                product_image.setImageBitmap(bitmap);
+//                product_image.setImageBitmap(bitmap);
             } else {
                 clsCommon.showDialogMsg(AddDealsActivity.this, "HerbalFax", "Please select Image", "Ok");
             }

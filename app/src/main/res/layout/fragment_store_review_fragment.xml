@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/_4sdp"
-                        android:src="@drawable/ic_icon_metro_star_full" />
+                        android:src="@drawable/ic_icon_metro_star_full_yellonew" />
 
                     <com.google.android.material.progressindicator.LinearProgressIndicator
                         android:id="@+id/progressFour"

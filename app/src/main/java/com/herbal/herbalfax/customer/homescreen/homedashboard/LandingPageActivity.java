@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -39,9 +41,11 @@ import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
+import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.notification.NotificationActivity;
 import com.herbal.herbalfax.customer.post.AddPostActivity;
@@ -71,10 +75,11 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+
         mContext = getApplicationContext();
-        Bundle extras = getIntent().getExtras();
+
         clsCommon = CommonClass.getInstance();
-        pref   = SessionPref.getInstance(this);
+        pref = SessionPref.getInstance(this);
 
         callGetUserAPI();
 
@@ -134,12 +139,13 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 
     private void initFab() {
 
-        Button fab = findViewById(R.id.fab);
+        ImageView fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(getApplicationContext(), AddPostActivity.class);
+                intent.putExtra("PostGroupId", "0");
                 startActivity(intent);
 
 //                Fragment newCase=new AddPostFragment();
@@ -178,11 +184,11 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         NavigationUI.setupWithNavController(bottomNavView, navController);
 
         View headerview = navigationView.getHeaderView(0);
-        TextView profilename =  headerview.findViewById(R.id.userName);
-        TextView professionTv =  headerview.findViewById(R.id.professionTv);
-        LinearLayout nav_headerMAin =  headerview.findViewById(R.id.nav_headerMAin);
+        TextView profilename = headerview.findViewById(R.id.userName);
+        TextView professionTv = headerview.findViewById(R.id.professionTv);
+        LinearLayout nav_headerMAin = headerview.findViewById(R.id.nav_headerMAin);
         profilename.setText(pref.getStringVal(SessionPref.LoginUserfullName));
-       // professionTv.setText();
+        // professionTv.setText();
         nav_headerMAin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -203,9 +209,9 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     startActivity(intent);
                     finish();
 
-                }  else  if (id == R.id.nav_gallery) {
+                } else if (id == R.id.nav_gallery) {
 
-                   // ReplaceFrag(new NearByStoreFragment());
+                    // ReplaceFrag(new NearByStoreFragment());
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
@@ -311,10 +317,12 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                 return true;
 
             case R.id.action_map:
-             //   ReplaceFrag(new NearByStoreFragment());
+                //   ReplaceFrag(new NearByStoreFragment());
 
-                Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
-                        //EditProfileActivity.class);
+            //    Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+                //EditProfileActivity.class);
+          Intent intent1 = new Intent(getApplicationContext(), NearByActivity.class);
+                //EditProfileActivity.class);
                 startActivity(intent1);
                 return true;
 

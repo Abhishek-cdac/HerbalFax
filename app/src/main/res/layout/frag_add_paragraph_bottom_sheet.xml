@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/addcomment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Add More Paragraph"
+        android:textColor="@color/green"
+        android:textSize="@dimen/_18sdp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0.0px"
+        android:elevation="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="false">
+
+
+        <LinearLayout
+            android:id="@+id/uploadImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/dashed_border"
+
+                android:fontFamily="@font/raleway_regular"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_icon_image" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Upload Image"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <EditText
+        android:id="@+id/comments"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_below="@id/addcomment"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/edit_text_border"
+        android:elevation="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_medium"
+        android:gravity="top"
+        android:hint="Add Description"
+        android:padding="@dimen/_10sdp"
+        android:textColorHint="@color/text_grey"
+        android:textSize="@dimen/_15sdp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comments"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/addbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_weight=".5"
+            android:background="@drawable/rounded_corner_view_text"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="Add"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comments"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_weight=".5"
+            android:background="@drawable/rect_button_gray"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="cancel"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

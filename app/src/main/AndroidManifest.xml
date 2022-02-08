@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.herbal.herbalfax">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -29,46 +30,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".vendor.Profile.SellerTrackActivity"
-            android:exported="true" >
-        </activity>
-        <activity
-            android:name=".vendor.Profile.SellerTrackMyOrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".vendor.Profile.MySellerOrderActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".vendor.Profile.OrderAssignDriverActivity"
+            android:name=".customer.homescreen.nearbystores.NearByActivity"
             android:exported="true" />
         <activity
-            android:name=".vendor.Profile.OdersIdDetailsActivity"
+            android:name=".customer.homescreen.askfax.aflist.AddAnswerActivity"
             android:exported="true" />
         <activity
-            android:name=".vendor.Profile.OrdersIdActivity"
+            android:name=".customer.homescreen.askfax.addaf.AddQuestionAskFaxActivity"
             android:exported="true" />
         <activity
-            android:name=".vendor.Profile.PickupIdActivity"
+            android:name=".customer.homescreen.group.groupdetail.GroupDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".vendor.Profile.TermsAndConditionActivity"
-            android:exported="true" />
-        <activity
-            android:name=".vendor.Profile.SellerNotificationActivity"
-            android:exported="true" />
-        <activity
-            android:name=".vendor.Profile.SellerEditProfileActivity"
-            android:exported="true" />
-        <activity
-            android:name=".vendor.Profile.SellerProfileActivity"
-            android:exported="true" />
-        <activity
-            android:name=".vendor.sellerdeals.SellerDealsDetailsActivity"
-            android:exported="true" />
-        <activity
-            android:name=".vendor.sellerdrivers.SellerDriverDetails"
+            android:name=".customer.homescreen.favourites.FavouritesActivity"
             android:exported="true" />
         <activity
             android:name=".vendor.sellerdrivers.addrider.AddRiderActivity"
@@ -264,6 +238,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

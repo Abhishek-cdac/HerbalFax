@@ -6,6 +6,7 @@ public class LoginUser {
     private final String strEmailAddress;
     private final String strPassword;
 
+
     /**
      *
      * @param EmailAddress

@@ -81,8 +81,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
 
                         <ImageView
                             android:id="@+id/product_image"
@@ -91,13 +92,21 @@
                             android:layout_margin="@dimen/_10sdp"
                             android:background="@drawable/dashed_border"
 
-
                             android:fontFamily="@font/raleway_regular"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_icon_l_file_upload" />
 
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycleView"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+
+                            />
 
                         <TextView
+                            android:id="@+id/msgTxt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_regular"
@@ -105,7 +114,9 @@
                             android:paddingBottom="@dimen/_5sdp"
                             android:text="@string/uploaddealpic"
                             android:textColor="@color/green"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_14sdp"
+                            android:visibility="visible" />
+
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

@@ -5,15 +5,18 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +24,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
@@ -30,6 +35,8 @@ import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.databinding.ActivityAddProductBinding;
+import com.herbal.herbalfax.vendor.sellerdeals.adapter.AddImagesAdapter;
+import com.herbal.herbalfax.vendor.sellerdeals.adddeal.AddDealsActivity;
 import com.herbal.herbalfax.vendor.sellerproduct.productcategorymodel.ProductCategory;
 import com.herbal.herbalfax.vendor.sellerproduct.productcategorymodel.ProductCategoryResponse;
 import com.herbal.herbalfax.vendor.storelist.storelistmodel.Store;
@@ -62,7 +69,10 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
     public final static int PICK_PHOTO_FOR_AVATAR = 1;
     String IdstoreCategories, IdStore;
     ArrayList<Store> lst_store;
-
+    private ArrayList<Bitmap> productList=new ArrayList<>();
+    private AddImagesAdapter addImagesAdapter;
+    private TextView msgTxt;
+    private RecyclerView recycleView;
     Bitmap bitmap = null;
     private ArrayList<ProductCategory> lst_store_category;
     ImageView product_image;
@@ -76,8 +86,10 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         binding.setAddProductViewModel(addProductViewModel);
         clsCommon = CommonClass.getInstance();
         product_image = findViewById(R.id.product_image);
+        recycleView=findViewById(R.id.recycleView);
         categorySpinner = findViewById(R.id.categorySpinner);
         storeSpinner = findViewById(R.id.spinner);
+        msgTxt=findViewById(R.id.msgTxt);
         callStoreListAPI();
         callStorePreDataAPI();
 
@@ -89,7 +101,13 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
             ActivityCompat.requestPermissions(AddProductActivity.this,
                     PERMISSIONS,
                     ALL_PERMISSIONS_RESULT);
-            pickImage();
+            if(productList.size()<5)
+            {
+                pickImage();
+            }else{
+                Toast.makeText(AddProductActivity.this,"limit of product is 5",Toast.LENGTH_SHORT).show();
+            }
+
 
         });
         addProductViewModel.getRegisterProduct().observe(this, newProduct -> {
@@ -123,7 +141,32 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
             }
 
         });
+        initAdapter();
+    }
 
+    private void removeImages(int position) {
+            productList.remove(position);
+            addImagesAdapter.notifyDataSetChanged();
+            if(productList.size()==0)
+            {
+                recycleView.setVisibility(View.GONE);
+                msgTxt.setVisibility(View.VISIBLE);
+
+            }
+
+    }
+
+    public void initAdapter() {
+
+        addImagesAdapter = new AddImagesAdapter(AddProductActivity.this, productList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AddProductActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        recycleView.setLayoutManager(linearLayoutManager);
+        recycleView.setAdapter(addImagesAdapter);
+        addImagesAdapter.onItemClickMethod((View view, int position) -> {
+            int i = view.getId();
+            removeImages(position);
+
+        });
     }
 
     /*  private void callAddProductAPI(NewProduct newProduct) {
@@ -237,14 +280,44 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         hashMap.put("ProductPerKM", productDistance);
 
         hashMap.put("ProductType", productType);
-        Log.e("hashMap", "" + hashMap);
+
 //      ArrayList<File> imageItems = new ArrayList();
 //      imageItems.add(f);
 ////      items.add(f);
 //      items.add(f);
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
-        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
+//        MultipartBody.Builder builder = new MultipartBody.Builder();
+//
+//        File f=null;
+//        for(int i=0;i<productList.size();i++)
+//        {
+//
+//             f= new File(getCacheDir(), "product");
+//            try {
+//               Bitmap btm= productList.get(i);
+//                f.createNewFile();
+//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//                btm.compress(Bitmap.CompressFormat.JPEG, 40, bos);
+//                byte[] bitmapdata = bos.toByteArray();
+//                //write the bytes in file
+//                FileOutputStream fos = null;
+//                fos = new FileOutputStream(f);
+//                fos.write(bitmapdata);
+//                fos.flush();
+//                fos.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//
+//            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), f);
+//            hashMap.put("ProductPhotos[]\"; filename=\"" + f.getName() + "\"", requestBody);
+//
+//
+//        }
+        Log.e("hashMap", "" + hashMap);
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"),f));
+        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
@@ -383,12 +456,23 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
             } else {
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+                    productList.add(bitmap);
+                    if(addImagesAdapter!=null)
+                    {
+                        if(productList.size()>0)
+                        {
+                            recycleView.setVisibility(View.VISIBLE);
+                            msgTxt.setVisibility(View.GONE);
+                        }
+                        addImagesAdapter.notifyDataSetChanged();
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             if (null != bitmap) {
-                product_image.setImageBitmap(bitmap);
+//                product_image.setImageBitmap(bitmap);
             } else {
                 clsCommon.showDialogMsg(AddProductActivity.this, "HerbalFax", "Please select Image", "Ok");
             }

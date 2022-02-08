@@ -1,10 +1,5 @@
 package com.herbal.herbalfax.customer.post;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.databinding.DataBindingUtil;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -22,6 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.databinding.DataBindingUtil;
 
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -67,12 +67,12 @@ public class AddPostActivity extends AppCompatActivity {
     public final static int ALL_PERMISSIONS_RESULT = 107;
     public final static int PICK_PHOTO_FOR_AVATAR = 150;
     private FragmentAddPostBinding binding;
-    ImageView post_img,back;
+    ImageView post_img, back;
     String PostIsMedia;
     private PlayerView pvMain;
     private boolean isVideo = false;
     Bitmap bitmap = null;
-    String selectedVideoPath;
+    String selectedVideoPath, postGroupId;
 
     public final static int REQUEST_TAKE_GALLERY_VIDEO = 200;
 
@@ -86,7 +86,11 @@ public class AddPostActivity extends AppCompatActivity {
         binding.setLifecycleOwner(this);
         binding.setAddPostViewModel(addPostViewModel);
 
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            postGroupId = getIntent().getExtras().getString("PostGroupId");
+            Log.e("postGroupId", "" + postGroupId);
+        }
         back = findViewById(R.id.back);
         addQuestionEdt = findViewById(R.id.addQuestionEdt);
         radioGroup = findViewById(R.id.radioGroup);
@@ -114,7 +118,7 @@ public class AddPostActivity extends AppCompatActivity {
         ll_upload_photo.setOnClickListener(view -> pickImage());
         ll_upload_video.setOnClickListener(view -> pickVideo());
 
-        back.setOnClickListener(view ->onBackPressed());
+        back.setOnClickListener(view -> onBackPressed());
 
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -217,11 +221,13 @@ public class AddPostActivity extends AppCompatActivity {
 
         RequestBody PostDesc = RequestBody.create(MediaType.parse("text/plain"), addpost.getStrDescription());
         RequestBody PostMediaType = RequestBody.create(MediaType.parse("text/plain"), "");
+        RequestBody PostGroupId = RequestBody.create(MediaType.parse("text/plain"), postGroupId);
+
         // RequestBody fbody = RequestBody.create(MediaType.parse("image/*"),f);
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("PostMediaLink", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-        Call<CommonResponse> call = service.addPost("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), PostIsMediarb, PostDesc, PostMediaType, filePart);
+        Call<CommonResponse> call = service.addPost("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), PostIsMediarb, PostDesc, PostMediaType,PostGroupId, filePart);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
             public void onResponse(Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
@@ -230,8 +236,6 @@ public class AddPostActivity extends AppCompatActivity {
                     try {
                         assert response.body() != null;
                         if (response.body().getStatus() == 1) {
-
-
                             Intent intent1 = new Intent(getApplicationContext(), LandingPageActivity.class);
                             startActivity(intent1);
                             finish();
@@ -381,6 +385,7 @@ public class AddPostActivity extends AppCompatActivity {
         RequestBody PostDesc = RequestBody.create(MediaType.parse("text/plain"), addpost.getStrDescription());
         RequestBody PostMediaTypeImage = RequestBody.create(MediaType.parse("text/plain"), "1");
         RequestBody PostMediaTypeVideo = RequestBody.create(MediaType.parse("text/plain"), "2");
+        RequestBody PostGroupId = RequestBody.create(MediaType.parse("text/plain"), postGroupId);
 
         GetDataService service;
         Call<CommonResponse> call;
@@ -389,7 +394,7 @@ public class AddPostActivity extends AppCompatActivity {
             currentFile = new File(selectedVideoPath);
             filePart = MultipartBody.Part.createFormData("PostMediaLink", currentFile.getName(), RequestBody.create(MediaType.parse("video/*"), currentFile));
             service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-            call = service.addPost("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), PostIsMediarb, PostDesc, PostMediaTypeVideo, filePart);
+            call = service.addPost("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), PostIsMediarb, PostDesc, PostMediaTypeVideo, PostGroupId, filePart);
         } else {
             //create a file to write bitmap data
             File f = new File(getCacheDir(), "profile");
@@ -410,7 +415,7 @@ public class AddPostActivity extends AppCompatActivity {
 
             filePart = MultipartBody.Part.createFormData("PostMediaLink", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
             service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-            call = service.addPost("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), PostIsMediarb, PostDesc, PostMediaTypeImage, filePart);
+            call = service.addPost("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), PostIsMediarb, PostDesc, PostMediaTypeImage,PostGroupId,  filePart);
         }
 
 

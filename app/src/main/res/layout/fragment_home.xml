@@ -105,16 +105,19 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@drawable/rect_button_green"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/_10sdp"
+
+                android:gravity="center"
                 android:paddingTop="@dimen/_7sdp"
                 android:paddingRight="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_7sdp">
 
                 <ImageView
+                    android:visibility="gone"
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:padding="@dimen/_3sdp"
@@ -136,47 +139,43 @@
 
             <LinearLayout
 
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:gravity="center"
                 android:background="@drawable/rect_button_light_green"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/_10sdp"
-                android:paddingTop="@dimen/_7sdp"
-
-                android:paddingRight="@dimen/_10sdp"
-                android:paddingBottom="@dimen/_7sdp">
+                android:orientation="horizontal">
 
                 <ImageView
+                    android:visibility="gone"
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:padding="@dimen/_3sdp"
                     android:src="@drawable/recent_icon" />
+
 
                 <TextView
                     android:id="@+id/recentText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawablePadding="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                    android:padding="@dimen/_5sdp"
                     android:text="@string/recent"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
-
 
             </LinearLayout>
 
             <!--light green DCF8A7-->
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="35dp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:background="@drawable/rect_button_light_green"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/_10sdp"
+                android:gravity="center"
                 android:paddingTop="@dimen/_7sdp"
                 android:paddingRight="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_7sdp">
@@ -185,6 +184,7 @@
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:padding="@dimen/_3sdp"
+                    android:visibility="gone"
                     android:src="@drawable/popular_icon" />
 
 
