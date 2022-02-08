@@ -313,8 +313,6 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
 //            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), f);
 //            hashMap.put("ProductPhotos[]\"; filename=\"" + f.getName() + "\"", requestBody);
 //
-////            RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
-////            requestParam.put("images[]\"; filename=\"" + file.getName() + "\"", requestBody);
 //
 //        }
         Log.e("hashMap", "" + hashMap);
