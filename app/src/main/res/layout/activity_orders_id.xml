@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".vendor.Profile.PickupIdActivity">
+
+    <LinearLayout
+        android:id="@+id/headeradd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Pick Up ID: HF215456"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+                <LinearLayout
+                    android:id="@+id/orersdetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ordersidactivity"/>
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_marginLeft="@dimen/_35sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pay Roll"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sdp"
+                            android:fontFamily="@font/raleway_semibold">
+                        </TextView>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Price"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_regular">
+                            </TextView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$30"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_bold">
+                            </TextView>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Quantity"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_regular">
+                            </TextView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_bold">
+                            </TextView>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Order Data"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_regular">
+                            </TextView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12/06/2021"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_regular">
+                            </TextView>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Status"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_regular">
+                            </TextView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="On the way"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/roboto_regular">
+                            </TextView>
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shipping Cost"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:fontFamily="@font/roboto_regular">
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$5"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:fontFamily="@font/roboto_regular">
+                    </TextView>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shipping Cost"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/raleway_semibold">
+                </TextView>
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9292 The Grove, Reading RG73 Qua"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/poppins_regular"/>
+
+
+                <TextView
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shipping Cost"
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/raleway_semibold"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Assign Driver"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/raleway_semibold"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:src="@drawable/profilepic"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:id="@+id/drivername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jack Mathew"
+                            android:fontFamily="@font/raleway_semibold"
+                            android:textColor="@color/black"
+
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"/>
+                        <TextView
+                            android:id="@+id/driverno."
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+1 487 654 3210"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_15sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:src="@drawable/ic_car_green"
+                        android:padding="@dimen/_14sdp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:id="@+id/vehicalno."
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MSD 204 AH"
+                            android:fontFamily="@font/raleway_semibold"
+                            android:textColor="@color/black"
+
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="vehical number"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_15sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</LinearLayout>
