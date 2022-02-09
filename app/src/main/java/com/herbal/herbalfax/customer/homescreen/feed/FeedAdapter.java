@@ -95,7 +95,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
         if (holder.getItemViewType() == 0) {
             ViewHolder userViewHolder;
             userViewHolder = (ViewHolder) holder;
-            userViewHolder.userName.setText(lst_feed.get(position).getUFullName());
+            userViewHolder.userName.setText("@"+lst_feed.get(position).getUFullName());
             userViewHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             userViewHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
             userViewHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
@@ -323,7 +323,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
             videoHolder = (ViewHolderUserVideo) holder;
 
-            videoHolder.userName.setText(lst_feed.get(position).getUFullName());
+            videoHolder.userName.setText("@"+lst_feed.get(position).getUFullName());
             videoHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             videoHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
             videoHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
@@ -553,7 +553,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
         else if (holder.getItemViewType() == 2) {
             ViewHolderQuestion viewHolderQuestion;
             viewHolderQuestion = (ViewHolderQuestion) holder;
-            viewHolderQuestion.userName.setText(lst_feed.get(position).getUFullName());
+            viewHolderQuestion.userName.setText("@"+lst_feed.get(position).getUFullName());
             viewHolderQuestion.descHead.setText(lst_feed.get(position).getPostDesc());
             viewHolderQuestion.questionTxt.setText(lst_feed.get(position).getPostDesc());
 

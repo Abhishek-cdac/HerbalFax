@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#EFEFEF"
+
     android:orientation="vertical"
     android:layout_height="match_parent">
 
@@ -21,6 +23,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_weight=".8"
             android:clipChildren="false"
+            android:visibility="gone"
             android:divider="@android:color/transparent"
             android:dividerHeight="0.0px"
             android:elevation="@dimen/_5sdp"
@@ -57,6 +60,26 @@
 
 
         </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="@drawable/rect_button_whiteeeee"
+            android:drawableLeft="@drawable/ic_search_icon"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:layout_weight=".8"
+            android:hint="@string/search"
+            android:paddingLeft="@dimen/_10sdp"
+            android:textColor="@color/text_grey"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
+
+
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView1"

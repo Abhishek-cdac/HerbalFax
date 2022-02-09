@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.vendor.sellerdeals.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -47,9 +48,9 @@ public class AddImagesAdapter extends RecyclerView.Adapter<AddImagesAdapter.View
      */
     @NonNull
     @Override
-    public AddImagesAdapter.ViewHolder onCreateViewHolder( ViewGroup viewGroup, int i) {
+    public AddImagesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.row_add_image, null);
+        @SuppressLint("InflateParams") View v = inflater.inflate(R.layout.row_add_image, null);
 
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
