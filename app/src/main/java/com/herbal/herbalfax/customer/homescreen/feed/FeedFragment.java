@@ -51,7 +51,7 @@ public class FeedFragment extends Fragment {
     FeedAdapter feedAdapter;
     LinearLayout dailyBlogLl;
     private CommonClass clsCommon;
-    TextView placeholder;
+    TextView placeholder, trendingText, recentText, popularText;
      Onclick itemClick;
 
 
@@ -63,11 +63,42 @@ public class FeedFragment extends Fragment {
         clsCommon = CommonClass.getInstance();
 
         final TextView textView = root.findViewById(R.id.text_home);
+        recentText = root.findViewById(R.id.recentText);
+        popularText = root.findViewById(R.id.popularText);
+        trendingText = root.findViewById(R.id.trendingText);
         feedrecyclerview = root.findViewById(R.id.feedrecyclerview);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         feedrecyclerview.setLayoutManager(manager);
         placeholder = root.findViewById(R.id.placeholder);
         dailyBlogLl = root.findViewById(R.id.dailyBlogLl);
+
+        trendingText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trendingText.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
+                recentText.setBackground(getResources().getDrawable(R.drawable.rect_button_light_green));
+                popularText.setBackground(getResources().getDrawable(R.drawable.rect_button_light_green));
+
+            }
+        });
+        recentText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recentText.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
+                trendingText.setBackground(getResources().getDrawable(R.drawable.rect_button_light_green));
+                popularText.setBackground(getResources().getDrawable(R.drawable.rect_button_light_green));
+
+            }
+        });
+        popularText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recentText.setBackground(getResources().getDrawable(R.drawable.rect_button_light_green));
+                trendingText.setBackground(getResources().getDrawable(R.drawable.rect_button_light_green));
+                popularText.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
+
+            }
+        });
 
         callGetAllPostAPI();
         itemClick = new Onclick() {

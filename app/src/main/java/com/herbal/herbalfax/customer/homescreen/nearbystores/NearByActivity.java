@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -51,6 +52,7 @@ public class NearByActivity extends AppCompatActivity {
     UserStoreListAdapter userStoreListAdapter;
     Onclick itemClick;
     UserStoreHorizontalListAdapter userStoreHorizontalListAdapter;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +61,19 @@ public class NearByActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_near_by_store);
         clsCommon = CommonClass.getInstance();
 
+        back = findViewById(R.id.back);
         StoreListrecyclerview = findViewById(R.id.StoreListrecyclerview);
         StoreListHorizontalrecyclerview = findViewById(R.id.StoreListHorizontalrecyclerview);
         ListView = findViewById(R.id.ListView);
         mapView = findViewById(R.id.mapView);
         mapLinear = findViewById(R.id.mapLinear);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         itemClick = new Onclick() {
             @Override
             public void onItemClicks(View view, int position, int i, String storeId, String s) {
@@ -84,7 +93,7 @@ public class NearByActivity extends AppCompatActivity {
         System.out.println("Current time => " + c);
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-       // SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        // SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         String formattedDate = df.format(c);
 
         Log.e("formattedDate", "" + formattedDate);
