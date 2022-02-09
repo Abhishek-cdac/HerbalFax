@@ -90,6 +90,7 @@
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabLayout"
+                    app:tabTextAppearance="@style/MyCustomTextAppearance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:tabIndicatorColor="@color/green"
@@ -102,6 +103,7 @@
                     android:id="@+id/viewPager"
                     android:layout_width="match_parent"
                     android:layout_height="455dp"
+
                     android:background="@color/white"
                     app:layout_constraintTop_toBottomOf="@+id/tabLayout"
                     tools:layout_editor_absoluteX="-61dp" />

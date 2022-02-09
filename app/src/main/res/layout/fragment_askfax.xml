@@ -12,6 +12,7 @@
     <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:background="#EFEFEF"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -62,47 +63,26 @@
                 tools:ignore="SpUsage" />
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-
+        <EditText
             android:id="@+id/searchcv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/headeradd"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_below="@+id/headeradd"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
-            android:clipChildren="false"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0.0px"
-            android:elevation="@dimen/_5sdp"
-            android:padding="@dimen/_20sdp"
-            app:cardBackgroundColor="@color/white"
-            app:cardElevation="8dp"
-            app:cardPreventCornerOverlap="false">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:background="@drawable/rect_button"
-                    android:drawableLeft="@drawable/ic_search_icon"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:fontFamily="@font/raleway_regular"
-                    android:hint="Search"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:textColor="@color/text_grey"
-                    android:textColorHint="@color/text_grey"
-                    android:textSize="@dimen/_12sdp" />
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_button_whiteeeee"
+            android:drawableLeft="@drawable/ic_search_icon"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:hint="@string/search"
+            android:paddingLeft="@dimen/_5sdp"
+            android:textColor="@color/text_grey"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
 
 
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:id="@+id/ll_head"
@@ -120,6 +100,7 @@
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_weight=".3"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/rect_button_green"
                 android:drawableLeft="@drawable/ic_icon_post_white"
                 android:drawablePadding="0dp"
@@ -135,6 +116,7 @@
 
             <TextView
                 android:id="@+id/shareStoryTxt"
+                android:layout_marginTop="@dimen/_10sdp"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -157,6 +139,7 @@
             <TextView
                 android:id="@+id/shareTxt"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
 
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5sdp"

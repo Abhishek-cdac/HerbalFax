@@ -57,8 +57,10 @@
                 android:layout_height="match_parent"
                 android:padding="@dimen/_20sdp">
                 <LinearLayout
+                    android:layout_marginBottom="@dimen/_20sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="5dp"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:weightSum="1">
@@ -71,25 +73,33 @@
                         android:layout_weight=".5"
                         android:background="@drawable/rect_button_green"
                         android:elevation="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:onClick="@{(v) -> AddPostViewModel.onClickAdd(v)}"
                         android:text="@string/add"
-
+                        android:layout_marginTop="@dimen/_5sdp"
+android:layout_marginBottom="@dimen/_5sdp"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
 
                     <Button
                         android:id="@+id/cancel_button"
                         android:layout_width="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight=".5"
+
                         android:background="@drawable/rect_button_gray"
                         android:elevation="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+
                         android:fontFamily="@font/poppins_medium"
                         android:onClick="@{(v) -> AddPostViewModel.onClickCancel(v)}"
                         android:text="@string/cancel"
-
+android:layout_marginTop="@dimen/_5sdp"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
 

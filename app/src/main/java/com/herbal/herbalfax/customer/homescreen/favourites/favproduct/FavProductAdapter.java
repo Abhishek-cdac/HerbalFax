@@ -67,7 +67,7 @@ public class FavProductAdapter extends RecyclerView.Adapter<FavProductAdapter.Vi
             }
         }
         holder.productName.setText(lst_product.get(position).getSPName());
-        holder.PriceTxt.setText(lst_product.get(position).getSPRate()+ "$");
+        holder.PriceTxt.setText( "$"+lst_product.get(position).getSPRate());
         holder.categoryTxt.setText(lst_product.get(position).getSPCTitle());
         holder.descTxt.setText(lst_product.get(position).getSPDesc());
         String productId = lst_product.get(position).getIdstoreProducts();
