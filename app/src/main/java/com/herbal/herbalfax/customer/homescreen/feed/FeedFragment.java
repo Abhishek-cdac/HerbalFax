@@ -29,6 +29,7 @@ import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_CustomRecycle
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.GetAllPostResponse;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.Post;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
+import com.herbal.herbalfax.util.CommonUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -44,10 +45,17 @@ import retrofit2.Response;
 
 
 public class FeedFragment extends Fragment {
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    LinearLayoutManager RecyclerViewLayoutManager;
     private FeedViewModel feedViewModel;
-    AAH_CustomRecyclerView feedrecyclerview;
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
+    private AAH_CustomRecyclerView feedrecyclerview;
     private ArrayList<Post> lst = new ArrayList<>();
+    private ArrayList<Post> localList = new ArrayList<>();
     FeedAdapter feedAdapter;
     LinearLayout dailyBlogLl;
     private CommonClass clsCommon;
@@ -72,6 +80,7 @@ public class FeedFragment extends Fragment {
         placeholder = root.findViewById(R.id.placeholder);
         dailyBlogLl = root.findViewById(R.id.dailyBlogLl);
 
+//        callGetAllPostAPI();
         trendingText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,7 +160,8 @@ public class FeedFragment extends Fragment {
         call.enqueue(new retrofit2.Callback<CommonResponse>() {
             @Override
             public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
-                callGetAllPostAPI();
+                callPostAPI();
+
             }
 
             @Override
@@ -162,14 +172,23 @@ public class FeedFragment extends Fragment {
 
     }
 
+    private void callPostAPI()
+    {
+        if (CommonUtils.isInternetOn(getContext())) {
+            callGetAllPostAPI();
+        }else{
+            Toast.makeText(getActivity(), getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private void callGetAllPostAPI() {
         SessionPref pref = SessionPref.getInstance(getActivity());
 
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
-        hashMap.put("offset", "0");
-        hashMap.put("limit", "50");
+        hashMap.put("offset", offset+"");
+        hashMap.put("limit", limit+"");
         hashMap.put("search_key", "");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
@@ -188,10 +207,17 @@ public class FeedFragment extends Fragment {
                         if (lst_feed == null) {
                             lst_feed = new ArrayList<>();
                         }
+                        if(limit==0)
+                        {
+                            localList.clear();
+                        }
+                        localList.addAll(lst_feed);
+                        isLoading=true;
+                        lst = localList;
 
-
-                        lst = lst_feed;
-                        feedAdapter = new FeedAdapter(lst_feed, getActivity(), itemClick);
+                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false);
+                        feedrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
+                        feedAdapter = new FeedAdapter(localList, getActivity(), itemClick);
                         feedAdapter.setRef(FeedFragment.this);
 
                         feedrecyclerview.setItemAnimator(new DefaultItemAnimator());
@@ -218,6 +244,30 @@ public class FeedFragment extends Fragment {
                         feedrecyclerview.setAdapter(feedAdapter);
                         feedrecyclerview.smoothScrollBy(0, 1);
                         feedrecyclerview.smoothScrollBy(0, -1);
+
+                        feedrecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = RecyclerViewLayoutManager.getChildCount();
+                                    totalItemCount = RecyclerViewLayoutManager.getItemCount();
+                                    pastVisiblesItems = RecyclerViewLayoutManager.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callPostAPI();
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+
                     } else {
                         placeholder.setVisibility(View.VISIBLE);
                         //   clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
@@ -230,9 +280,6 @@ public class FeedFragment extends Fragment {
                     } catch (Exception e) {
                         Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                     }
-
-
-
 
 
                 }
@@ -253,7 +300,8 @@ public class FeedFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        callGetAllPostAPI();
+        offset=0;
+        callPostAPI();
 
         try {
             feedrecyclerview.playAvailableVideos(0);

@@ -49,7 +49,14 @@ public class NearByStoreFragment extends Fragment {
     CommonClass clsCommon;
     RecyclerView StoreListrecyclerview, StoreListHorizontalrecyclerview;
     LinearLayoutManager HorizontalLayout;
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    ArrayList<Store> listStore=new ArrayList<>();
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
+    LinearLayoutManager RecyclerViewLayoutManager;
     UserStoreListAdapter userStoreListAdapter;
     Onclick itemClick;
     UserStoreHorizontalListAdapter userStoreHorizontalListAdapter;
@@ -138,8 +145,8 @@ public class NearByStoreFragment extends Fragment {
         pd.show();
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("fordate", "");
-        hashMap.put("limit", "30");
-        hashMap.put("offset", "0");
+        hashMap.put("limit", limit+"");
+        hashMap.put("offset", offset+"");
 
         Call<UserStoreListResponse> call = service.userStoreList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken),hashMap);
         call.enqueue(new Callback<UserStoreListResponse>() {
@@ -151,23 +158,60 @@ public class NearByStoreFragment extends Fragment {
                     if (response.body().getStatus() == 1) {
 
                         Log.e("NearByPreData..", "" + response.body().getData().getStores());
-                        ArrayList<Store> lst_store = (ArrayList<Store>) response.body().getData().getStores();
+                        ArrayList<Store> localStore = (ArrayList<Store>) response.body().getData().getStores();
+
+                        if(limit==0)
+                        {
+                            listStore.clear();
+                        }
+                        listStore.addAll(localStore);
+                        isLoading=true;
 
                         /*vertical list for map view*/
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-                        StoreListrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
-                        userStoreListAdapter = new UserStoreListAdapter(lst_store, getActivity(), itemClick);
-                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                        StoreListrecyclerview.setLayoutManager(HorizontalLayout);
-                        StoreListrecyclerview.setAdapter(userStoreListAdapter);
+                        if(userStoreListAdapter==null)
+                        {
+                            RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+                            StoreListrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
+                            userStoreListAdapter = new UserStoreListAdapter(listStore, getActivity(), itemClick);
+                            HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                            StoreListrecyclerview.setLayoutManager(HorizontalLayout);
+                            StoreListrecyclerview.setAdapter(userStoreListAdapter);
+                        }else{
+                            userStoreListAdapter.notifyDataSetChanged();
+                        }
+
 
                         /*horizontal list for map view*/
                         RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
                         StoreListHorizontalrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
-                        userStoreHorizontalListAdapter = new UserStoreHorizontalListAdapter(lst_store, getActivity(), itemClick);
+                        userStoreHorizontalListAdapter = new UserStoreHorizontalListAdapter(listStore, getActivity(), itemClick);
                         HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
                         StoreListHorizontalrecyclerview.setLayoutManager(HorizontalLayout);
                         StoreListHorizontalrecyclerview.setAdapter(userStoreHorizontalListAdapter);
+
+
+                        StoreListrecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = HorizontalLayout.getChildCount();
+                                    totalItemCount = HorizontalLayout.getItemCount();
+                                    pastVisiblesItems = HorizontalLayout.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callStoreListAPI();
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
 
                     } else {
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");

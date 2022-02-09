@@ -191,6 +191,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                         }else{
                             productListAdapter.notifyDataSetChanged();
                         }
+                        isLoading=true;
 
 
                         productRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
