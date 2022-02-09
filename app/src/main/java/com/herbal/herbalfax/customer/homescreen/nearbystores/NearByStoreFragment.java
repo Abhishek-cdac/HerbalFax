@@ -28,6 +28,7 @@ import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.Stor
 import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.UserStoreListResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
+import com.herbal.herbalfax.util.CommonUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -89,7 +90,10 @@ public class NearByStoreFragment extends Fragment {
                 }
             }
         };
-        callStoreListAPI();
+
+        callStoreAPI();
+
+//        callStoreListAPI();
 
         ListView.setOnClickListener(new View.OnClickListener() {
             @SuppressLint({"ResourceAsColor", "UseCompatLoadingForDrawables"})
@@ -135,6 +139,15 @@ public class NearByStoreFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    private void callStoreAPI()
+    {
+        if (CommonUtils.isInternetOn(getContext())) {
+            callStoreListAPI();
+        }else{
+            Toast.makeText(getActivity(), getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -202,7 +215,8 @@ public class NearByStoreFragment extends Fragment {
                                             if (!recyclerView.canScrollVertically(1)) {
                                                 isLoading = false;
                                                 offset = offset + 10;
-                                                callStoreListAPI();
+//                                                callStoreListAPI();
+                                                callStoreAPI();
 
                                             }
 
