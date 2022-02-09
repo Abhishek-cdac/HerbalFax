@@ -23,6 +23,7 @@ import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.customer.store.adapter.StoreProductsAdapter;
+import com.herbal.herbalfax.util.CommonUtils;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.ProductListResponse;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
 
@@ -38,8 +39,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class StoreProductFragment extends Fragment {
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    LinearLayoutManager RecyclerViewLayoutManager;
     private ArrayList<StoreProduct> lst_products;
+    private ArrayList<StoreProduct> localListproducts=new ArrayList<>();
     RecyclerView recyclerView, storeProductsRecylcer;
     LinearLayoutManager HorizontalLayout;
     Onclick itemClick;
@@ -47,6 +49,13 @@ public class StoreProductFragment extends Fragment {
     StoreProductsAdapter storeProductsAdapter;
     String storeId;
     TextView totalCount;
+
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
 
     public StoreProductFragment() {
         // Required empty public constructor
@@ -65,9 +74,18 @@ public class StoreProductFragment extends Fragment {
         }
         totalCount = root.findViewById(R.id.totalCount);
         storeProductsRecylcer = root.findViewById(R.id.storeProductsRecycler);
-        callProductListApi(storeId);
+        callProductAPI(storeId);
         return root;
 
+    }
+
+    private void callProductAPI(String storeID)
+    {
+        if (CommonUtils.isInternetOn(getContext())) {
+            callProductListApi(storeID);
+        }else{
+            Toast.makeText(getActivity(), getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -78,8 +96,8 @@ public class StoreProductFragment extends Fragment {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("StoreId", storeId);
-        hashMap.put("limit", "20");
-        hashMap.put("offset", "0");
+        hashMap.put("limit", limit+"");
+        hashMap.put("offset", offset+"");
         hashMap.put("category", "0");
         hashMap.put("active", "1");
          hashMap.put("product_type", "1");
@@ -100,15 +118,53 @@ public class StoreProductFragment extends Fragment {
                         if (lst_products == null) {
                             lst_products = new ArrayList<>();
                         }
+
+                        if(offset==0)
+                        {
+                            localListproducts.clear();
+                        }
+                        localListproducts.addAll(lst_products);
                          totalCount.setText("Showing all " + Math.toIntExact(response.body().getData().getStoreProductCount()) + " products");
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-                        storeProductsRecylcer.setLayoutManager(RecyclerViewLayoutManager);
-                        storeProductsAdapter = new StoreProductsAdapter(lst_products, getActivity());
-                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-                        storeProductsRecylcer.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-//                        storeProductsRecylcer.setHasFixedSize(true);
-//                        storeProductsRecylcer.addItemDecoration(new SpacesItemDecoration(2));
-                        storeProductsRecylcer.setAdapter(storeProductsAdapter);
+
+
+
+                      if(storeProductsAdapter==null)
+                      {
+                          RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+                          storeProductsRecylcer.setLayoutManager(RecyclerViewLayoutManager);
+                          storeProductsAdapter = new StoreProductsAdapter(localListproducts, getActivity());
+//                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+                          storeProductsRecylcer.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                          storeProductsRecylcer.setAdapter(storeProductsAdapter);
+                          isLoading=true;
+                      }else{
+                          storeProductsAdapter.notifyDataSetChanged();
+                          isLoading=true;
+                      }
+
+                        storeProductsRecylcer.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = RecyclerViewLayoutManager.getChildCount();
+                                    totalItemCount = RecyclerViewLayoutManager.getItemCount();
+                                    pastVisiblesItems = RecyclerViewLayoutManager.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callProductAPI(storeId);
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+
                     } else {
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }
