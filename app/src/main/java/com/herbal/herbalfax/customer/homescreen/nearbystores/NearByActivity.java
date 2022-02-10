@@ -25,6 +25,7 @@ import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.Stor
 import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.UserStoreListResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
+import com.herbal.herbalfax.util.CommonUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -48,11 +49,19 @@ public class NearByActivity extends AppCompatActivity {
     CommonClass clsCommon;
     RecyclerView StoreListrecyclerview, StoreListHorizontalrecyclerview;
     LinearLayoutManager HorizontalLayout;
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    LinearLayoutManager RecyclerViewLayoutManager;
     UserStoreListAdapter userStoreListAdapter;
+    private ArrayList<Store> listStore=new ArrayList<>();
     Onclick itemClick;
     UserStoreHorizontalListAdapter userStoreHorizontalListAdapter;
     ImageView back;
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
+    private String dateFormatted="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +106,9 @@ public class NearByActivity extends AppCompatActivity {
         String formattedDate = df.format(c);
 
         Log.e("formattedDate", "" + formattedDate);
-
-        callStoreListAPI(formattedDate);
+        dateFormatted=formattedDate;
+        callStoreList(dateFormatted);
+//        callStoreListAPI(formattedDate);
 
         ListView.setOnClickListener(new View.OnClickListener() {
             @SuppressLint({"ResourceAsColor", "UseCompatLoadingForDrawables"})
@@ -147,6 +157,16 @@ public class NearByActivity extends AppCompatActivity {
     }
 
 
+    private void callStoreList(String formattedDate)
+    {
+        if (CommonUtils.isInternetOn(NearByActivity.this)) {
+            callStoreListAPI(formattedDate);
+        }else{
+            Toast.makeText(NearByActivity.this, getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     private void callStoreListAPI(String formattedDate) {
         SessionPref pref = SessionPref.getInstance(getApplicationContext());
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
@@ -154,8 +174,8 @@ public class NearByActivity extends AppCompatActivity {
         pd.show();
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("fordate", formattedDate);
-        hashMap.put("limit", "30");
-        hashMap.put("offset", "0");
+        hashMap.put("limit", limit+"");
+        hashMap.put("offset", offset+"");
 
         Call<UserStoreListResponse> call = service.userStoreList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<UserStoreListResponse>() {
@@ -170,16 +190,52 @@ public class NearByActivity extends AppCompatActivity {
                         ArrayList<Store> lst_store = (ArrayList<Store>) response.body().getData().getStores();
 
                         /*vertical list for map view*/
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
-                        StoreListrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
-                        userStoreListAdapter = new UserStoreListAdapter(lst_store, getApplicationContext(), itemClick);
-                        HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-                        StoreListrecyclerview.setLayoutManager(HorizontalLayout);
-                        StoreListrecyclerview.setAdapter(userStoreListAdapter);
+
+                        if(offset==0)
+                        {
+                            listStore.clear();
+                        }
+                        listStore.addAll(lst_store);
+                        if(userStoreListAdapter==null)
+                        {
+                            RecyclerViewLayoutManager = new LinearLayoutManager(NearByActivity.this,LinearLayoutManager.VERTICAL, false);
+                            StoreListrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
+                            userStoreListAdapter = new UserStoreListAdapter(listStore, getApplicationContext(), itemClick);
+                            HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+//                        StoreListrecyclerview.setLayoutManager(HorizontalLayout);
+                            StoreListrecyclerview.setAdapter(userStoreListAdapter);
+                            isLoading=true;
+                        }else{
+                            userStoreListAdapter.notifyDataSetChanged();
+                            isLoading=true;
+                        }
+                        StoreListrecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = RecyclerViewLayoutManager.getChildCount();
+                                    totalItemCount = RecyclerViewLayoutManager.getItemCount();
+                                    pastVisiblesItems = RecyclerViewLayoutManager.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callStoreList(dateFormatted);
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+
 
                         /*horizontal list for map view*/
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
-                        StoreListHorizontalrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
+//                        RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
+//                        StoreListHorizontalrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
                         userStoreHorizontalListAdapter = new UserStoreHorizontalListAdapter(lst_store, getApplicationContext(), itemClick);
                         HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
                         StoreListHorizontalrecyclerview.setLayoutManager(HorizontalLayout);

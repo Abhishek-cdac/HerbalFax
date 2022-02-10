@@ -284,6 +284,8 @@ public class FeedAdapter extends AAH_VideosAdapter {
             });
             userViewHolder.upTxt.setText(lst_feed.get(position).getPostLikes());
 
+
+
             userViewHolder.downTxt.setText(lst_feed.get(position).getPostDislikes());
 
             userViewHolder.upTxt.setOnClickListener(new View.OnClickListener() {
@@ -324,6 +326,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
             videoHolder = (ViewHolderUserVideo) holder;
 
             videoHolder.userName.setText("@"+lst_feed.get(position).getUFullName());
+
             videoHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             videoHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
             videoHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
@@ -708,6 +711,8 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
 
+//            viewHolderQuestion.imageview2.setElevation(20f);
+
 
             viewHolderQuestion.likeImg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -823,7 +828,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
         TextView shareImg, descHead, viewsCounttxt;
         LinearLayout commentll;
         TextView upTxt, downTxt, viewAnswerTxt, viewFollowTxt, viewPassTxt;
-        ImageView img1, img2, img3, img4, img5;
+        ImageView img1, img2, img3, img4, img5,imageview2;
 
         public ViewHolderQuestion(@NonNull View itemView) {
             super(itemView);
@@ -833,6 +838,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
             img3 = itemView.findViewById(R.id.img3);
             img4 = itemView.findViewById(R.id.img4);
             img5 = itemView.findViewById(R.id.img5);
+//            imageview2=itemView.findViewById(R.id.imageview2);
             viewsCounttxt = itemView.findViewById(R.id.viewsCounttxt);
             commentcount = itemView.findViewById(R.id.commentcount);
             profDetail = itemView.findViewById(R.id.detail);
