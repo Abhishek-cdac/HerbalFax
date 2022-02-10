@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -66,15 +67,34 @@
                     android:textColor="@color/black"
                     android:textSize="10dp" />
 
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/likeImg"
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
+                <com.sdsmdg.harjot.longshadows.LongShadowsWrapper
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/circle_background_grey"
-                    android:outlineProvider="background"
-                    android:src="@drawable/like_heart_grey" />
+                    android:visibility="visible"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    >
+
+                    <com.sdsmdg.harjot.longshadows.LongShadowsImageView
+                        android:id="@+id/likeImg"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/like_heart"
+                        app:shadow_angle="180"
+                        app:shadow_length="5" />
+
+                </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>
+
+
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/likeImg"-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:background="@drawable/circle_background_grey"-->
+<!--                    android:outlineProvider="background"-->
+<!--                    android:src="@drawable/like_heart_grey" />-->
 
                 <!--
                                 <androidx.cardview.widget.CardView
@@ -90,6 +110,14 @@
                                         android:layout_alignEnd="@+id/headingTxt"
                                         android:src="@drawable/like_heart" />
                                 </androidx.cardview.widget.CardView>-->
+<!--                <ImageView-->
+<!--                    android:id="@+id/likeImg"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:layout_width="@dimen/_40sdp"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_alignEnd="@+id/headingTxt"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:src="@drawable/like_heart" />-->
 
             </RelativeLayout>
 

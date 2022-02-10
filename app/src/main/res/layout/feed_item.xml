@@ -113,6 +113,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+
                         android:scaleType="centerCrop"
                         android:src="@drawable/profileimg"
                         android:visibility="visible" />
@@ -122,9 +123,70 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="end"
+                        android:visibility="gone"
+                        android:elevation="@dimen/_2sdp"
+                        android:outlineProvider="paddedBounds"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
                         android:src="@drawable/like_heart" />
+
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:layout_width="40dp"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:innerRadius="0dp"-->
+<!--                        android:shape="ring"-->
+<!--                        android:elevation="@dimen/_5sdp"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_marginRight="@dimen/_10sdp"-->
+<!--                        app:cardCornerRadius="75dp">-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:layout_height="match_parent">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/likesImg"-->
+<!--                            android:layout_width="50dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                           android:layout_gravity="center"-->
+<!--                            android:visibility="visible"-->
+<!--                            android:src="@drawable/like_heart" />-->
+<!--                        </LinearLayout>-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+                    <com.sdsmdg.harjot.longshadows.LongShadowsWrapper
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end"
+                        android:visibility="visible"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        >
+
+                        <com.sdsmdg.harjot.longshadows.LongShadowsImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+
+
+                            android:src="@drawable/like_heart"
+                            app:shadow_angle="90"
+                            app:shadow_length="50" />
+
+                    </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>
+
+
+<!--                    <com.qhutch.elevationimageview.ElevationImageView-->
+<!--                        android:id="@+id/imageview2"-->
+<!--                        android:layout_width="50dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_marginRight="@dimen/_10sdp"-->
+<!--                        android:src="@drawable/like_heart" />-->
 
 
                 </FrameLayout>
