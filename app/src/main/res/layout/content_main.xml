@@ -24,7 +24,7 @@
         app:itemBackground="@drawable/checked_uncheked"
         app:menu="@menu/bottom_nav_menu" />
 
-<!--   -->
+
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

@@ -1,6 +1,7 @@
 
 package com.herbal.herbalfax.customer.homescreen.homedashboard;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +9,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,13 +18,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -36,18 +36,16 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
-import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDetailsActivity;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
+import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
-import com.herbal.herbalfax.customer.notification.NotificationActivity;
 import com.herbal.herbalfax.customer.post.AddPostActivity;
 
 import org.jetbrains.annotations.NotNull;
@@ -62,15 +60,11 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 
     private static final float END_SCALE = 0.85f;
     private AppBarConfiguration mAppBarConfiguration;
-    private NavController navController;
     private DrawerLayout drawer;
-    private NavigationView navigationView;
-    private BottomNavigationView bottomNavView;
     private CoordinatorLayout contentView;
-    private Fragment CurrentFrag;
     Context mContext;
-    String JwtToken;
     SessionPref pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,7 +97,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
-                        Toast.makeText(LandingPageActivity.this, "success!", Toast.LENGTH_SHORT).show();
+                        //  Toast.makeText(LandingPageActivity.this, "success!", Toast.LENGTH_SHORT).show();
                     } else {
                         clsCommon.showDialogMsg(LandingPageActivity.this, "HerbalFax", response.body().getMessage(), "Ok");
                     }
@@ -121,7 +115,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             }
 
             @Override
-            public void onFailure(@NotNull Call<GetUserResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<GetUserResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(LandingPageActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
@@ -140,13 +134,11 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     private void initFab() {
 
         ImageView fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        fab.setOnClickListener(view -> {
 
-                Intent intent = new Intent(getApplicationContext(), AddPostActivity.class);
-                intent.putExtra("PostGroupId", "0");
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), AddPostActivity.class);
+            intent.putExtra("PostGroupId", "0");
+            startActivity(intent);
 
 //                Fragment newCase=new AddPostFragment();
 //                FragmentManager fragmentManager = getSupportFragmentManager();
@@ -155,9 +147,8 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 //                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
 //                transaction.commit();
 
-                //    ReplaceFrag(new OrdersFragment());
+            //    ReplaceFrag(new OrdersFragment());
 
-            }
         });
 
     }
@@ -165,8 +156,8 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     private void initNavigation() {
 
         drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        bottomNavView = findViewById(R.id.bottom_nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav_view);
         contentView = findViewById(R.id.content_view);
 
         // Passing each menu ID as a set of Ids because each
@@ -177,45 +168,46 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                 R.id.bottom_home, R.id.bottom_dashboard, R.id.bottom_notifications, R.id.bottom_deal, R.id.bottom_askfax, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
 
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(bottomNavView, navController);
 
         View headerview = navigationView.getHeaderView(0);
-        TextView profilename = headerview.findViewById(R.id.userName);
+        ImageView closeImg = headerview.findViewById(R.id.closeImg);
+        CardView editBTn = headerview.findViewById(R.id.editBTn);
+
+        TextView profileName = headerview.findViewById(R.id.userName);
         TextView professionTv = headerview.findViewById(R.id.professionTv);
         LinearLayout nav_headerMAin = headerview.findViewById(R.id.nav_headerMAin);
-        profilename.setText(pref.getStringVal(SessionPref.LoginUserfullName));
+        profileName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
         // professionTv.setText();
-        nav_headerMAin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("ProfileActivity....", "ProfileActivity");
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(intent);
-            }
+        nav_headerMAin.setOnClickListener(view -> {
+            Log.e("ProfileActivity....", "ProfileActivity");
+            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(intent);
         });
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                if (id == R.id.nav_logout) {
-                    //   SessionPref pref = SessionPref.getInstance(getApplicationContext());
-                    Log.e("logout....", "logout");
-                    SessionPref.logout(mContext);
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        closeImg.setOnClickListener(view -> drawer.closeDrawer(GravityCompat.START));
+        editBTn.setOnClickListener(view -> {
+                    Intent intent = new Intent(getApplicationContext(), EditProfileActivity.class);
                     startActivity(intent);
-                    finish();
-
-                } else if (id == R.id.nav_gallery) {
-
-                    // ReplaceFrag(new NearByStoreFragment());
                 }
-                drawer.closeDrawer(GravityCompat.START);
-                return true;
+        );
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            int id = menuItem.getItemId();
+            if (id == R.id.nav_logout) {
+                SessionPref.logout(mContext);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+
+            } else if (id == R.id.nav_gallery) {
+
+                //   ReplaceFrag(new NearByStoreFragment());
             }
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
         });
 
         animateNavigationDrawer();
@@ -275,14 +267,15 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     @Override
     public void ReplaceFrag(@Nullable Fragment fragment) {
         try {
-            CurrentFrag = fragment;
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
 
             if (fragmentManager.getFragments().size() > 0) {
+                assert fragment != null;
                 ft.replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName());
             } else {
+                assert fragment != null;
                 ft.add(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName());
             }
 
@@ -300,6 +293,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.hide(new FeedFragment());
+            assert fragment != null;
             ft.replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName());
             ft.addToBackStack("tags");
             ft.commitAllowingStateLoss();
@@ -308,20 +302,23 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+/*
             case R.id.action_notification:
                 Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
                 startActivity(intent);
                 return true;
+*/
 
             case R.id.action_map:
                 //   ReplaceFrag(new NearByStoreFragment());
 
-            //    Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+                //    Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
                 //EditProfileActivity.class);
-          Intent intent1 = new Intent(getApplicationContext(), NearByActivity.class);
+                Intent intent1 = new Intent(getApplicationContext(), NearByActivity.class);
                 //EditProfileActivity.class);
                 startActivity(intent1);
                 return true;

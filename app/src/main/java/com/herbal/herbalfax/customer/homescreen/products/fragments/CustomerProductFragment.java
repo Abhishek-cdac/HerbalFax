@@ -211,7 +211,7 @@ private void callAddToCartApi(String quantity, String productId) {
 
                             productName.setText(response.body().getData().getStoreProduct().getSPName());
                             ratingTxt.setText(response.body().getData().getStoreProduct().getSPRating());
-                            totalReview.setText("( " + response.body().getData().getStoreProduct().getSPReviews() + " Ratings )");
+                            totalReview.setText("( " + response.body().getData().getStoreProduct().getSPReviews() + " reviews )");
                             descTxt.setText(response.body().getData().getStoreProduct().getSPDesc());
                             PriceTxt.setText( "$"+response.body().getData().getStoreProduct().getSPRate());
                             if (response.body().getData().getStoreProduct().getSPRating().equals("0")) {

@@ -48,7 +48,6 @@
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_5sdp"
                     android:src="@drawable/ic_icon_metro_star_full_lightgreen" />
 
                 <ImageView
@@ -91,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:fontFamily="@font/raleway_medium"
-                    android:text="4 out of 5"
+                    android:text="4 OUT OF 5"
                     android:textColor="@color/text_grey"
                     android:textSize="@dimen/_10sdp" />
 
@@ -109,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_5sdp"
                     android:fontFamily="@font/raleway_medium"
-                    android:text="OCt 20, 2021"
+                    android:text="Oct 20, 2021"
                     android:textColor="@color/text_grey"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>

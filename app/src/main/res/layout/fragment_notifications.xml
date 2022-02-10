@@ -98,7 +98,7 @@
             android:elevation="10dp"
             android:gravity="center"
             android:padding="14dp"
-            android:text="Discovery"
+            android:text="Discover"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold" />

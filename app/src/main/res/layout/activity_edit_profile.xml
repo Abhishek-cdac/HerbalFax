@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:background="@color/white"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green"
-        android:minHeight="?attr/actionBarSize"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:minHeight="?attr/actionBarSize"
+            android:orientation="horizontal"
+            >
 
 
-        <ImageView
+            <ImageView
 
-            android:id="@+id/backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_15sdp"
-            android:src="@drawable/ic_icon_arrow_left_white" />
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/ic_icon_arrow_left_white" />
 
-        <TextView
-            android:id="@+id/headerTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:fontFamily="@font/raleway_semibold"
-            android:gravity="center"
-            android:padding="@dimen/_5sdp"
-            android:text="@string/editprofile"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp">
+            <TextView
+                android:id="@+id/headerTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/editprofile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp">
 
-        </TextView>
+            </TextView>
 
 
-
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
 
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/_20sdp"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
 
 
         <LinearLayout
@@ -65,21 +65,22 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:elevation="@dimen/_5sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
-                android:clipToPadding="false"
-                android:clipChildren="false"
-                card_view:cardElevation="8dp"
-                card_view:cardPreventCornerOverlap="false"
-
+                android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp"
 
-                app:cardCornerRadius="@dimen/_5sdp">
+                card_view:cardElevation="8dp"
+
+                card_view:cardPreventCornerOverlap="false">
 
 
                 <LinearLayout
@@ -116,9 +117,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:drawableRight="@drawable/mandatory"
                 android:fontFamily="@font/raleway_medium"
                 android:text="@string/name"
-                android:drawableRight="@drawable/mandatory"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp" />
 
@@ -126,15 +127,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:elevation="@dimen/_5sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
-                android:clipToPadding="false"
-                android:clipChildren="false"
+                android:elevation="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
                 card_view:cardElevation="8dp"
-                card_view:cardPreventCornerOverlap="false"
 
-                app:cardBackgroundColor="@color/white">
+                card_view:cardPreventCornerOverlap="false">
 
                 <EditText
 
@@ -157,9 +158,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:drawableRight="@drawable/mandatory"
                 android:fontFamily="@font/raleway_medium"
                 android:text="@string/birthday"
-                android:drawableRight="@drawable/mandatory"
 
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp" />
@@ -169,15 +170,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:elevation="@dimen/_5sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
-                android:clipToPadding="false"
-                android:clipChildren="false"
+                android:elevation="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
                 card_view:cardElevation="8dp"
-                card_view:cardPreventCornerOverlap="false"
 
-                app:cardBackgroundColor="@color/white">
+                card_view:cardPreventCornerOverlap="false">
 
                 <EditText
 
@@ -199,11 +200,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:fontFamily="@font/raleway_medium"
-                android:text="@string/gender"
-                android:drawableRight="@drawable/mandatory"
-
                 android:layout_marginTop="@dimen/_20sdp"
+                android:drawableRight="@drawable/mandatory"
+                android:fontFamily="@font/raleway_medium"
+
+                android:text="@string/gender"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp" />
 
@@ -216,40 +217,38 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    app:buttonTint="@color/black"
                     android:id="@+id/radioButton1"
                     android:layout_width="wrap_content"
-                    android:padding="@dimen/_5sdp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_regular"
+                    android:padding="@dimen/_5sdp"
                     android:text="@string/male"
-                    android:textColor="@color/text_grey" />
+                    android:textColor="@color/text_grey"
+                    app:buttonTint="@color/black" />
 
                 <RadioButton
-                    android:padding="@dimen/_5sdp"
-
                     android:id="@+id/radioButton2"
-                    android:fontFamily="@font/raleway_regular"
-                    app:buttonTint="@color/black"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_regular"
+
+                    android:padding="@dimen/_5sdp"
                     android:text="@string/female"
                     android:textColor="@color/text_grey"
-                    />
+                    app:buttonTint="@color/black" />
 
                 <RadioButton
-                    android:padding="@dimen/_5sdp"
-
                     android:id="@+id/radioButton3"
-                    android:fontFamily="@font/raleway_regular"
-                    app:buttonTint="@color/black"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_regular"
+
+                    android:padding="@dimen/_5sdp"
                     android:text="@string/Other"
                     android:textColor="@color/text_grey"
-                    />
+                    app:buttonTint="@color/black" />
             </RadioGroup>
 
             <TextView
@@ -257,9 +256,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:drawableRight="@drawable/mandatory"
                 android:fontFamily="@font/raleway_medium"
                 android:text="@string/selectProfession"
-                android:drawableRight="@drawable/mandatory"
 
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp" />
@@ -269,25 +268,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:elevation="@dimen/_5sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
-                android:clipToPadding="false"
-                android:clipChildren="false"
+                android:elevation="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
                 card_view:cardElevation="8dp"
-                card_view:cardPreventCornerOverlap="false"
 
-                app:cardBackgroundColor="@color/white">
+                card_view:cardPreventCornerOverlap="false">
 
                 <EditText
                     android:id="@+id/professionedt"
-                    android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rect_button"
+                    android:clickable="true"
                     android:drawableEnd="@drawable/ic_arrow_down"
                     android:drawablePadding="@dimen/_5sdp"
+                    android:focusableInTouchMode="true"
 
                     android:fontFamily="@font/raleway_regular"
                     android:hint="@string/profession_hint"
@@ -304,9 +303,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:drawableRight="@drawable/mandatory"
                 android:fontFamily="@font/raleway_medium"
                 android:text="@string/city"
-                android:drawableRight="@drawable/mandatory"
 
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp" />
@@ -316,15 +315,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:elevation="@dimen/_5sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
-                android:clipToPadding="false"
-                android:clipChildren="false"
+                android:elevation="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
                 card_view:cardElevation="8dp"
-                card_view:cardPreventCornerOverlap="false"
 
-                app:cardBackgroundColor="@color/white">
+                card_view:cardPreventCornerOverlap="false">
 
                 <EditText
 
@@ -347,9 +346,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:drawableRight="@drawable/mandatory"
                 android:fontFamily="@font/raleway_medium"
                 android:text="@string/zip"
-                android:drawableRight="@drawable/mandatory"
 
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp" />
@@ -359,15 +358,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:elevation="@dimen/_5sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0.0px"
-                android:clipToPadding="false"
-                android:clipChildren="false"
+                android:elevation="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
                 card_view:cardElevation="8dp"
-                card_view:cardPreventCornerOverlap="false"
 
-                app:cardBackgroundColor="@color/white">
+                card_view:cardPreventCornerOverlap="false">
 
                 <EditText
 
@@ -391,8 +390,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:drawableRight="@drawable/mandatory"
                 android:fontFamily="@font/raleway_medium"
-                android:text="@string/mobileNumber"                android:drawableRight="@drawable/mandatory"
+                android:text="@string/mobileNumber"
 
 
                 android:textColor="@android:color/black"
@@ -406,19 +406,19 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:elevation="@dimen/_5sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:clipToPadding="false"
-                    android:clipChildren="false"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
                     card_view:cardElevation="8dp"
-                    card_view:cardPreventCornerOverlap="false"
 
-                    app:cardBackgroundColor="@color/white">
+                    card_view:cardPreventCornerOverlap="false">
 
                     <EditText
 
@@ -442,15 +442,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:elevation="@dimen/_5sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:clipToPadding="false"
-                    android:clipChildren="false"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
                     card_view:cardElevation="8dp"
-                    card_view:cardPreventCornerOverlap="false"
 
-                    app:cardBackgroundColor="@color/white">
+                    card_view:cardPreventCornerOverlap="false">
 
                     <EditText
 
@@ -473,8 +473,6 @@
             </LinearLayout>
 
 
-
-
             <Button
                 android:id="@+id/signup_button"
                 android:layout_width="match_parent"
@@ -491,5 +489,5 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

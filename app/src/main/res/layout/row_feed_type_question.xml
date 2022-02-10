@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_weight=".9"
+                android:layout_weight="1"
 
                 android:orientation="vertical">
 
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|end"
                 android:layout_weight=".1"
-                android:src="@drawable/ic_baseline_more_horizontal" />
+                android:src="@drawable/ic_baseline_more_vertical" />
 
 
         </LinearLayout>

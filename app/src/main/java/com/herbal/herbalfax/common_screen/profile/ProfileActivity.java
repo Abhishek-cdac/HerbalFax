@@ -17,23 +17,31 @@ import com.squareup.picasso.Picasso;
 public class ProfileActivity extends AppCompatActivity {
     TextView userName, profileCategory, DOB, gendertype, cityname, mobilenumber, mailaddress;
     SessionPref pref;
-    ImageView profileImage;
+    ImageView profileImage, back;
     Picasso picasso;
     CardView favCard;
 
     TextView MyDealsBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         MyDealsBtn = findViewById(R.id.mydealsbtn);
         favCard = findViewById(R.id.favCard);
+        back = findViewById(R.id.back);
 
         favCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), FavouritesActivity.class);
                 startActivity(intent);
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
         MyDealsBtn.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
         mobilenumber = findViewById(R.id.mobilenumber);
         mailaddress = findViewById(R.id.mailaddress);
         try {
-            if(null != SessionPref.LoginUserprofilePic){
+            if (null != SessionPref.LoginUserprofilePic) {
                 picasso.load(pref.getStringVal(SessionPref.LoginUserprofilePic)).into(profileImage);
             }
         } catch (NullPointerException e) {

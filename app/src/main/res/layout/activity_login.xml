@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-
     <data>
-
         <variable
             name="LoginViewModel"
             type="com.herbal.herbalfax.common_screen.login.LoginViewModel" />
-
     </data>
-
 <ScrollView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +30,6 @@
             </LinearLayout>
 
             <LinearLayout
-
                 android:id="@+id/textbox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -73,11 +65,13 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_marginRight="@dimen/_1sdp"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    card_view:cardElevation="8dp"
+                    card_view:cardElevation="2dp"
                     card_view:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -86,8 +80,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_person_icon"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:fontFamily="@font/raleway_regular"
+                        android:drawablePadding="@dimen/_5sdp"                        android:fontFamily="@font/raleway_regular"
                         android:hint="@string/Email_hint"
                         android:inputType="textEmailAddress"
                         android:padding="@dimen/_10sdp"
@@ -115,13 +108,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_marginRight="@dimen/_1sdp"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-
-                    card_view:cardElevation="8dp"
+                    card_view:cardElevation="2dp"
                     card_view:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -136,18 +130,17 @@
                         android:inputType="textPassword"
                         android:padding="@dimen/_10sdp"
                         android:text="@={LoginViewModel.Password}"
-
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
                         android:textSize="@dimen/_12sdp" />
-                    -->
+
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:orientation="horizontal">

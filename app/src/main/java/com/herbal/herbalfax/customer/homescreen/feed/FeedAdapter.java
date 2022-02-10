@@ -99,7 +99,10 @@ public class FeedAdapter extends AAH_VideosAdapter {
             userViewHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             userViewHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
             userViewHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
-            userViewHolder.profDetail.setText(lst_feed.get(position).getmProfTitle());
+            if (lst_feed.get(position).getmProfTitle()!= null){
+                userViewHolder.profDetail.setText(lst_feed.get(position).getmProfTitle() +" . Public photo");
+
+            }
             userViewHolder.commentcount.setText(lst_feed.get(position).getPostComments());
             userViewHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
 
@@ -327,7 +330,10 @@ public class FeedAdapter extends AAH_VideosAdapter {
             videoHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             videoHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
             videoHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
-            videoHolder.profDetail.setText(lst_feed.get(position).getmProfTitle());
+            if (lst_feed.get(position).getmProfTitle()!= null){
+                videoHolder.profDetail.setText(lst_feed.get(position).getmProfTitle() +" . Public photo");
+
+            }
             videoHolder.commentcount.setText(lst_feed.get(position).getPostComments());
             videoHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
 
@@ -556,8 +562,10 @@ public class FeedAdapter extends AAH_VideosAdapter {
             viewHolderQuestion.userName.setText("@"+lst_feed.get(position).getUFullName());
             viewHolderQuestion.descHead.setText(lst_feed.get(position).getPostDesc());
             viewHolderQuestion.questionTxt.setText(lst_feed.get(position).getPostDesc());
+            if (lst_feed.get(position).getmProfTitle()!= null){
+                viewHolderQuestion.profDetail.setText(lst_feed.get(position).getmProfTitle() +" . Public photo");
 
-            viewHolderQuestion.profDetail.setText(lst_feed.get(position).getmProfTitle());
+            }
             viewHolderQuestion.commentcount.setText(lst_feed.get(position).getPostComments());
             viewHolderQuestion.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
             if (lst_views.size() == 0) {

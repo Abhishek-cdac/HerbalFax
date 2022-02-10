@@ -1,6 +1,7 @@
 
 package com.herbal.herbalfax.vendor;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +9,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -39,9 +43,7 @@ import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
-import com.herbal.herbalfax.customer.notification.NotificationActivity;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
-import com.herbal.herbalfax.vendor.store.AddStoreActivity;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -55,15 +57,11 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
 
     private static final float END_SCALE = 0.85f;
     private AppBarConfiguration mAppBarConfiguration;
-    private NavController navController;
     private DrawerLayout drawer;
-    private NavigationView navigationView;
-    private BottomNavigationView bottomNavView;
     private CoordinatorLayout contentView;
-    private Fragment CurrentFrag;
     Context mContext;
-    String JwtToken;
 
+    SessionPref pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +69,8 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         mContext = getApplicationContext();
         Bundle extras = getIntent().getExtras();
         clsCommon = CommonClass.getInstance();
+        pref = SessionPref.getInstance(this);
+
         callGetUserAPI();
         initToolbar();
         initNavigation();
@@ -86,7 +86,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         Call<GetUserResponse> call = service.getUserprofile("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken));
         call.enqueue(new Callback<GetUserResponse>() {
             @Override
-            public void onResponse(Call<GetUserResponse> call, Response<GetUserResponse> response) {
+            public void onResponse(@NonNull Call<GetUserResponse> call, @NonNull Response<GetUserResponse> response) {
                 pd.cancel();
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -109,7 +109,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
             }
 
             @Override
-            public void onFailure(@NotNull Call<GetUserResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<GetUserResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(SellerLandingPageActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
@@ -130,9 +130,25 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
     private void initNavigation() {
 
         drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        bottomNavView = findViewById(R.id.bottom_nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav_view);
         contentView = findViewById(R.id.content_view);
+
+        View headerview = navigationView.getHeaderView(0);
+        ImageView closeImg = headerview.findViewById(R.id.closeImg);
+        CardView editBTn = headerview.findViewById(R.id.editBTn);
+        TextView profileName = headerview.findViewById(R.id.userName);
+        TextView professionTv = headerview.findViewById(R.id.professionTv);
+        LinearLayout nav_headerMAin = headerview.findViewById(R.id.nav_headerMAin);
+        profileName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
+        // professionTv.setText();
+        nav_headerMAin.setOnClickListener(view -> {
+            Log.e("ProfileActivity....", "ProfileActivity");
+//                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+//                startActivity(intent);
+        });   closeImg.setOnClickListener(view -> drawer.closeDrawer(GravityCompat.START));   editBTn.setOnClickListener(view -> {
+
+        });
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -142,28 +158,25 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                 R.id.bottom_home, R.id.bottom_dashboard, R.id.bottom_notifications, R.id.bottom_deal, R.id.bottom_askfax, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
 
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(bottomNavView, navController);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                if (id == R.id.nav_logout) {
-                    //   SessionPref pref = SessionPref.getInstance(getApplicationContext());
-                    Log.e("logout....", "logout");
-                    SessionPref.logout(mContext);
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(intent);
-                    finish();
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            int id = menuItem.getItemId();
+            if (id == R.id.nav_logout) {
+                //   SessionPref pref = SessionPref.getInstance(getApplicationContext());
+                Log.e("logout....", "logout");
+                SessionPref.logout(mContext);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
 
-                }
-
-                drawer.closeDrawer(GravityCompat.START);
-                return true;
             }
+
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
         });
 
         animateNavigationDrawer();
@@ -223,14 +236,15 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
     @Override
     public void ReplaceFrag(@Nullable Fragment fragment) {
         try {
-            CurrentFrag = fragment;
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
 
             if (fragmentManager.getFragments().size() > 0) {
+                assert fragment != null;
                 ft.replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName());
             } else {
+                assert fragment != null;
                 ft.add(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName());
             }
 
@@ -248,6 +262,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.hide(new FeedFragment());
+            assert fragment != null;
             ft.replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName());
             ft.addToBackStack("tags");
             ft.commitAllowingStateLoss();
@@ -256,13 +271,14 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_notification:
-                Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
-                startActivity(intent);
-                return true;
+//            case R.id.action_notification:
+//                Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
+//                startActivity(intent);
+//                return true;
             case R.id.action_search:
 //                Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
 //                startActivity(intent);

@@ -113,6 +113,7 @@
                 android:fontFamily="@font/raleway_medium"
                 android:gravity="center"
                 android:text="@string/trending"
+                android:paddingBottom="@dimen/_2sdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp" />
 
@@ -122,22 +123,22 @@
                 android:layout_height="35dp"
                 android:background="@drawable/rect_button_light_green"
                 android:layout_gravity="center"
+                android:paddingBottom="@dimen/_2sdp"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_medium"
                 android:gravity="center"
                 android:text="@string/recent"
-
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp" />
             <TextView
                 android:id="@+id/popularText"
                 android:layout_width="100dp"
                 android:layout_height="35dp"
+                android:paddingBottom="@dimen/_2sdp"
                 android:background="@drawable/rect_button_light_green"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_5sdp"
-
                 android:fontFamily="@font/raleway_medium"
                 android:gravity="center"
                 android:text="@string/popular"

@@ -60,9 +60,15 @@ public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.ViewHo
         });
         holder.headingTxt.setText(lst_int.get(position).getBlogTitle());
         holder.subHeadingTxt.setText(lst_int.get(position).getBlogDesc());
-        picasso.load(lst_int.get(position).getBlogImage())
-                .into(holder.imgProfile);
-
+      try
+      {
+          if (lst_int.get(position).getBlogImage()!= null){
+              picasso.load(lst_int.get(position).getBlogImage())
+                      .into(holder.imgProfile);
+          }
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
         if (lst_int.get(position).getIsReport().equals("1")) {
             holder.reportImg.setImageResource(R.drawable.ic_flag_green);
         } else {

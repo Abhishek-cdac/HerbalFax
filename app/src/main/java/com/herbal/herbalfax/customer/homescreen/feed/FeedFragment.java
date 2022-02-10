@@ -75,6 +75,7 @@ public class FeedFragment extends Fragment {
         popularText = root.findViewById(R.id.popularText);
         trendingText = root.findViewById(R.id.trendingText);
         feedrecyclerview = root.findViewById(R.id.feedrecyclerview);
+
         LinearLayoutManager manager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         feedrecyclerview.setLayoutManager(manager);
         placeholder = root.findViewById(R.id.placeholder);
