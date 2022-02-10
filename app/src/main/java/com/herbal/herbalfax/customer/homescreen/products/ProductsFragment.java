@@ -73,8 +73,8 @@ public class ProductsFragment extends Fragment {
         topLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), TopRatedActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), TopRatedActivity.class);
+//                startActivity(intent);
             }
         });
 //        callProductListApi();

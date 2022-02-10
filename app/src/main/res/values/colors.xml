@@ -12,7 +12,7 @@
     <color name="green">#96C93D</color>
     <color name="text_grey">#8E8E8E</color>
     <color name="green_border">#F1FBD0</color>
-    <color name="light_green">#D8F8A1</color>
+    <color name="light_green">#D8F8A1</color><color name="lighttt_green">#F1FBD0</color>
     <color name="yellow">#F9E709</color>
     <color name="green_diff">#4A9B85</color>
     <color name="bg_green">#DCF8A7</color>

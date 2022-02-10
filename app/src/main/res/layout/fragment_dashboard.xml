@@ -84,7 +84,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_45sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
@@ -95,16 +95,16 @@
             android:dividerHeight="0.0px"
             android:elevation="@dimen/_5sdp"
             android:padding="@dimen/_20sdp"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="@color/lighttt_green"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false">
 
             <LinearLayout
                 android:id="@+id/topLL"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="50dp"
+                android:layout_height="@dimen/_45sdp"
                 android:layout_gravity="center"
-                android:background="@color/light_green"
+                android:background="@color/lighttt_green"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -132,9 +132,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/_50sdp"
-        android:paddingLeft="@dimen/_20sdp"
+        android:paddingLeft="@dimen/_10sdp"
         android:paddingTop="@dimen/_10sdp"
-        android:paddingRight="@dimen/_20sdp" />
+        android:paddingRight="@dimen/_10sdp" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

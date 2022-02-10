@@ -1,6 +1,7 @@
 package com.herbal.herbalfax.customer.homescreen.products;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
     ViewPager viewPager;
     String productId;
     CommonClass clsCommon;
-    ImageView productImg;
+    ImageView productImg, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         clsCommon = CommonClass.getInstance();
+        back = findViewById(R.id.back);
         productImg = findViewById(R.id.productImg);
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
@@ -75,6 +77,13 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
         callProductDetails(productId);
