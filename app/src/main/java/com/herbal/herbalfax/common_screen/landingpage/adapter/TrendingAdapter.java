@@ -56,7 +56,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
         }else if( position == 2) {
             holder.headingTxt.setText("Stores");
             holder.subHeadingTxt.setText("Hampden-Sydney College in Virginia");
-            picasso.load(R.drawable.dummyprofile)
+            picasso.load(R.drawable.profileimg)
                     .into(holder.imgProfile);
         }
     }

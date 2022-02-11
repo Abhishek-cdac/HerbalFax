@@ -42,7 +42,7 @@ public class FindFruityCannabisAdapter extends RecyclerView.Adapter<FindFruityCa
     public void onBindViewHolder(@NonNull FindFruityCannabisAdapter.ViewHolder holder, int position) {
         if (position == 0) {
 
-            holder.CannabisTxt.setText("Cannabis");
+            holder.CannabisTxt.setText("Community");
             picasso.load(R.drawable.community)
                     .into(holder.CannabisImg);
         } else if( position == 1) {
