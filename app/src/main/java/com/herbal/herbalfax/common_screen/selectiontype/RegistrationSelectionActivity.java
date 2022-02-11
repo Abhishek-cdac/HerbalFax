@@ -38,20 +38,24 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
 
         viewModel.OnCustomerClick().observe(this, click -> {
             selectedType = 1;
-            binding.customerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
+//            binding.customerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
+            binding.vendorLayout.setBackground(ContextCompat.getDrawable(RegistrationSelectionActivity.this,R.drawable.bg_roundrect_white));
+            binding.customerLayout.setBackground(ContextCompat.getDrawable(RegistrationSelectionActivity.this,R.drawable.bg_roundrect_green));
             binding.customerTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
             binding.VendorTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
-            binding.sellerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+//            binding.sellerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
             binding.checkboxCustomer.setVisibility(View.VISIBLE);
             binding.checkboxSeller.setVisibility(View.GONE);
             binding.continueButton.setEnabled(true);
         });
         viewModel.OnSellerClick().observe(this, click -> {
             selectedType = 2;
+            binding.customerLayout.setBackground(ContextCompat.getDrawable(RegistrationSelectionActivity.this,R.drawable.bg_roundrect_white));
+            binding.vendorLayout.setBackground(ContextCompat.getDrawable(RegistrationSelectionActivity.this,R.drawable.bg_roundrect_green));
             binding.customerTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
             binding.VendorTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-            binding.customerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-            binding.sellerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
+//            binding.customerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+//            binding.sellerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
             binding.checkboxCustomer.setVisibility(View.GONE);
             binding.checkboxSeller.setVisibility(View.VISIBLE);
             binding.continueButton.setEnabled(true);

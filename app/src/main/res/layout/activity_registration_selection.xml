@@ -67,16 +67,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_100sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:elevation="@dimen/_5sdp"
+                        android:elevation="@dimen/_2sdp"
                         android:onClick="@{(v) -> SelectionTypeViewModel.OnCustomer(v)}"
                         app:cardBackgroundColor="@color/white"
 
-                        app:cardCornerRadius="@dimen/_5sdp">
+                        app:cardCornerRadius="@dimen/_10sdp">
 
 
                         <LinearLayout
+                            android:id="@+id/customerLayout"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@drawable/bg_roundrect_white"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -134,16 +136,17 @@
 
                         android:layout_height="@dimen/_100sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:elevation="@dimen/_5sdp"
+                        android:elevation="@dimen/_2sdp"
                         android:onClick="@{(v) -> SelectionTypeViewModel.onSeller(v)}"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
+                        app:cardCornerRadius="@dimen/_10sdp">
 
 
                         <LinearLayout
-
+                            android:id="@+id/vendorLayout"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@drawable/bg_roundrect_white"
                             android:orientation="horizontal">
 
                             <ImageView
