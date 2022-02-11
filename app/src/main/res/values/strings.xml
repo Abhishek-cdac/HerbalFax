@@ -281,5 +281,7 @@
     <string name="add_answer">Add Answer</string>
     <string name="answer">Answers</string>
 
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 
 </resources>

@@ -11,6 +11,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/content_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#EFEFEF"
@@ -32,10 +33,17 @@
 
 
                 <ImageView
+                    android:id="@+id/menu_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_menu"/>
+                <ImageView
                     android:id="@+id/loginToolBar"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="@dimen/_5sdp"
+                    android:visibility="gone"
                     android:src="@drawable/ic_login">
 
                 </ImageView>
@@ -45,7 +53,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:padding="@dimen/_5sdp"
                 android:layout_gravity="center"
                 android:src="@drawable/logo">
@@ -56,6 +64,7 @@
                 android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 android:padding="@dimen/_15sdp"
                 android:src="@drawable/ic_map_home"/>
 
@@ -69,12 +78,12 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
                 <androidx.cardview.widget.CardView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:elevation="@dimen/_5sdp"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
@@ -83,30 +92,31 @@
                     android:padding="@dimen/_20sdp"
                     android:clipChildren="false"
                     app:cardElevation="8dp"
+                    app:cardCornerRadius="@dimen/_20sdp"
                     app:cardPreventCornerOverlap="false"
                     app:cardBackgroundColor="@color/white">
                     <LinearLayout
                         android:layout_width="match_parent"
 
                         android:orientation="horizontal"
-                        android:layout_height="@dimen/_40sdp">
+                        android:layout_height="@dimen/_45sdp">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:padding="@dimen/_5sdp"
-
+android:visibility="gone"
                             android:src="@drawable/ic_search_icon" />
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/rect_button"
-                            android:layout_marginRight="@dimen/_10sdp"
-                            android:drawableLeft="@drawable/ic_search_icon"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:drawableStart="@drawable/ic_search_icon"
                             android:drawableEnd="@drawable/ic_icon_filter"
                             android:drawablePadding="@dimen/_5sdp"
                             android:fontFamily="@font/raleway_regular"
                             android:hint="@string/search_hint"
-                            android:paddingLeft="@dimen/_5sdp"
+                            android:paddingStart="@dimen/_5sdp"
                             android:textColor="@color/text_grey"
                             android:textColorHint="@color/text_grey"
                             android:textSize="@dimen/_12sdp" />
@@ -116,7 +126,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:fontFamily="@font/raleway_semibold"
-                            android:paddingLeft="@dimen/_20sdp"
+                            android:paddingStart="@dimen/_20sdp"
                             android:paddingTop="@dimen/_5sdp"
                             android:paddingBottom="@dimen/_5sdp"
                             android:text="@string/trending"
@@ -130,16 +140,17 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/caterecyclerview"
                     android:scrollbars="horizontal"
-                    android:padding="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_height="wrap_content" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingStart="@dimen/_20sdp"
                     android:fontFamily="@font/raleway_semibold"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
@@ -148,8 +159,11 @@
                     android:textSize="@dimen/_22sdp" />
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/fruityrecyclerview"
-                    android:padding="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
                     android:layout_width="match_parent"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true" />
@@ -158,7 +172,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingStart="@dimen/_20sdp"
                     android:fontFamily="@font/raleway_semibold"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
@@ -168,18 +182,21 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/trendingrecyclerview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_220sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:background="#EFEFEF"
-                    android:padding="@dimen/_20sdp" />
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_20sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="39dp"
                     android:layout_gravity="left"
-                    android:paddingLeft="@dimen/_20sdp"
                     android:fontFamily="@font/raleway_semibold"
+                    android:paddingStart="@dimen/_20sdp"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
                     android:text="@string/article"
@@ -187,32 +204,36 @@
                     android:textSize="@dimen/_22sdp" />
 
                 <LinearLayout
-                    android:padding="@dimen/_20sdp"
-                    android:weightSum="2"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_20sdp"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:layout_weight=".1"
+
                         android:layout_gravity="center"
                         android:padding="@dimen/_5sdp"
+                        android:visibility="gone"
                         android:src="@drawable/ic_icon_left_arrow_back"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <androidx.recyclerview.widget.RecyclerView
-                        android:layout_weight="1.8"
+
                         android:id="@+id/articleRecyclerview"
                         android:background="#EFEFEF"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true" />
 
                     <ImageView
-                        android:layout_weight=".1"
+
 
                         android:layout_gravity="end|center"
                         android:padding="@dimen/_5sdp"
+                        android:visibility="gone"
                         android:src="@drawable/ic_icon_arrow_back_right"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -248,24 +269,21 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/timelyRecyclerview"
-                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_10sdp"
                     android:paddingRight="@dimen/_20sdp"
-                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_10sdp"
                     android:background="#EFEFEF"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_height="wrap_content" />
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/eventsRecyclerview"
                     android:paddingBottom="@dimen/_20sdp"
                     android:background="#EFEFEF"
                     android:paddingRight="@dimen/_20sdp"
-                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_height="wrap_content" />
 
 
                 <LinearLayout
