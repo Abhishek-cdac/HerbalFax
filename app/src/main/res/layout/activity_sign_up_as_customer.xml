@@ -35,6 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:fontFamily="@font/raleway_semibold"
                     android:paddingTop="@dimen/_10sdp"
                     android:paddingBottom="@dimen/_10sdp"
@@ -47,6 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
@@ -58,14 +60,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -91,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
@@ -103,14 +107,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -135,10 +140,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
-
                     android:text="@string/gender"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
@@ -190,11 +195,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/selectProfession"
-
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
 
@@ -202,14 +207,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -239,11 +245,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/city"
-
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
 
@@ -251,14 +257,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -283,11 +290,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/zip"
-
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
 
@@ -295,14 +302,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -328,11 +336,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/emailAdd"
-
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
 
@@ -340,15 +348,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
-
+                    app:cardElevation="2dp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -375,18 +383,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/mobileNumber"
-
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:layout_marginStart="@dimen/_5sdp"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
@@ -394,15 +401,13 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
-
-                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:layout_marginBottom="@dimen/_7.5sdp"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-
+                        android:elevation="@dimen/_2sdp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
-
+                        app:cardElevation="2dp"
                         app:cardPreventCornerOverlap="false">
 
 
@@ -412,6 +417,7 @@
                             style="@style/Spinner"
                             android:layout_width="@dimen/_40sdp"
                             android:layout_height="match_parent"
+
                             android:background="@drawable/rect_button"
                             android:drawSelectorOnTop="true"
                             android:dropDownVerticalOffset="-53dp"
@@ -428,13 +434,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        android:elevation="@dimen/_2sdp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                        app:cardElevation="2dp"
 
                         app:cardPreventCornerOverlap="false">
 
@@ -465,6 +472,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
@@ -476,14 +484,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -510,6 +519,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/ConfirmPassword"
@@ -519,14 +529,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -552,16 +563,17 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_100sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_5sdp"
 
-                    app:cardElevation="8dp"
+                    app:cardElevation="2dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -678,6 +690,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/rect_button_green"
                     android:elevation="@dimen/_15sdp"
