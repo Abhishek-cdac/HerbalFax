@@ -123,7 +123,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="end"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:elevation="@dimen/_2sdp"
                         android:outlineProvider="paddedBounds"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -162,7 +162,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="end"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
                         >

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -9,10 +11,9 @@
 
     </data>
 
-    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:background="#EFEFEF"
+        android:background="#FFFFF"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -68,10 +69,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:layout_below="@+id/headeradd"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:background="@drawable/rect_button_whiteeeee"
             android:drawableLeft="@drawable/ic_search_icon"
             android:drawablePadding="@dimen/_5sdp"
@@ -83,11 +86,12 @@
             android:textSize="@dimen/_12sdp" />
 
 
-
         <LinearLayout
             android:id="@+id/ll_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_below="@id/searchcv"
             android:layout_marginTop="@dimen/_10sdp"
             android:weightSum="1">
@@ -97,10 +101,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_weight=".3"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/rect_button_green"
                 android:drawableLeft="@drawable/ic_icon_post_white"
                 android:drawablePadding="0dp"
@@ -116,11 +120,11 @@
 
             <TextView
                 android:id="@+id/shareStoryTxt"
-                android:layout_marginTop="@dimen/_10sdp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_weight=".3"
@@ -139,10 +143,10 @@
             <TextView
                 android:id="@+id/shareTxt"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-
                 android:layout_height="wrap_content"
+
                 android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_weight=".3"
@@ -180,6 +184,7 @@
 
                 android:id="@+id/llSharestory"
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility="visible">
@@ -190,7 +195,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:padding="12dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_12sdp"
                     android:text="Select Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
@@ -199,12 +205,12 @@
                     android:id="@+id/category"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_below="@id/selectfashion"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:elevation="8dp"
+                    android:elevation="2dp"
+                    app:cardElevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white">
 
                     <EditText
@@ -212,11 +218,9 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginRight="@dimen/_10sdp"
                         android:background="@drawable/rect_button"
                         android:fontFamily="@font/raleway_regular"
                         android:hint="Select Category"
-                        android:paddingLeft="@dimen/_5sdp"
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
                         android:textSize="@dimen/_12sdp" />
@@ -249,7 +253,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:padding="12dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_12sdp"
                     android:text="Add Title"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
@@ -258,11 +263,12 @@
                     android:id="@+id/addtitle"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
-                    android:elevation="8dp"
+                    android:elevation="2dp"
+                    app:cardElevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white">
 
 
@@ -289,9 +295,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
                         android:fontFamily="@font/raleway_medium"
-                        android:padding="12dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:paddingVertical="@dimen/_12sdp"
                         android:text="Add Url"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp" />
@@ -300,7 +306,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginRight="@dimen/_43sdp"
                         android:padding="@dimen/_15sdp"
                         android:src="@drawable/ic_icon_open_link_intact" />
@@ -310,8 +315,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
 
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:fontFamily="@font/raleway_medium"
-                        android:padding="@dimen/_15sdp"
+                        android:paddingVertical="@dimen/_12sdp"
                         android:text="optional"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp" />
@@ -323,11 +329,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@id/addurl"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
-                    android:elevation="8dp"
+                    android:elevation="2dp"
+                    app:cardElevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white">
 
                     <EditText
@@ -348,17 +355,17 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_100sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_5sdp"
-                    app:cardElevation="8dp"
+                    android:elevation="2dp"
+                    app:cardElevation="@dimen/_2sdp"
                     app:cardPreventCornerOverlap="false">
 
 
@@ -402,7 +409,8 @@
                     android:layout_below="@id/upload"
                     android:layout_marginTop="0dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:padding="12dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_12sdp"
                     android:text="Description"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
@@ -412,11 +420,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@id/addtxt"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
-                    android:elevation="8dp"
+                    android:elevation="2dp"
+                    app:cardElevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white">
 
                     <EditText
@@ -466,6 +475,8 @@
                     android:id="@+id/savebtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_below="@id/txt"
                     android:layout_marginTop="@dimen/_10sdp">
 

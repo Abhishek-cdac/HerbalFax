@@ -62,6 +62,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
     private CoordinatorLayout contentView;
+    private  MenuItem action_search,action_map,action_cart;
     Context mContext;
     SessionPref pref;
 
@@ -237,9 +238,27 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
+//        action_search= menu.findItem(R.id.action_search);
+//        action_map= menu.findItem(R.id.action_map);
+//        action_cart= menu.findItem(R.id.action_cart);
+
 
         return true;
     }
+
+//    private void hideMenuItem()
+//    {
+//        action_search.setVisible(false);
+//        action_map.setVisible(false);
+//        action_cart.setVisible(false);
+//    }
+//
+//    private void showMenuItem()
+//    {
+//        action_search.setVisible(true);
+//        action_map.setVisible(true);
+//        action_cart.setVisible(true);
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {
