@@ -16,6 +16,7 @@
     <ImageView
         android:id="@+id/closeImg"
         android:layout_gravity="end"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="wrap_content"
         android:src="@drawable/ic_baseline_close_24"
         android:layout_height="wrap_content"/>
@@ -28,8 +29,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_110sdp"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_gravity="center"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:fitsSystemWindows="true"
@@ -41,6 +42,7 @@
             android:layout_height="30dp"
             android:shape="ring"
             android:id="@+id/editBTn"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_gravity="end"
             android:outlineAmbientShadowColor="@color/green"

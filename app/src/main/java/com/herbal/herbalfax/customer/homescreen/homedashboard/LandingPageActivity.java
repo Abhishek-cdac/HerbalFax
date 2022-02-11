@@ -69,14 +69,10 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
-
         mContext = getApplicationContext();
-
         clsCommon = CommonClass.getInstance();
         pref = SessionPref.getInstance(this);
-
         callGetUserAPI();
-
         initToolbar();
         initFab();
         initNavigation();
