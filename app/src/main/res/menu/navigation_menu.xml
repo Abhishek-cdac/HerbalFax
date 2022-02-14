@@ -12,23 +12,25 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_icon_menu_map_pin"
             android:title="@string/nearbystore" />
-        <item
+       <!-- <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_icon_menu_social"
             android:title="@string/mySocial" />
-        <item
+       -->
+        <!--<item
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_icon_menu_map_store"
             android:title="@string/saved_dispensaries" />
+        -->
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_icon_menu_explore_strain"
             android:title="@string/explore_strains" />
-        <item
+    <!--    <item
             android:id="@+id/nav_send"
             android:icon="@drawable/ic_icon_menu_shopping_cart"
             android:title="@string/orders" />
-        <item
+    -->    <item
             android:id="@+id/nav_events"
             android:icon="@drawable/ic_icon_menu_calculator"
             android:title="@string/event" />

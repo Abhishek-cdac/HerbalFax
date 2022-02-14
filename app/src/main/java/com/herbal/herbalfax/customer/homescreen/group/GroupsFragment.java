@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,8 +50,8 @@ public class GroupsFragment extends Fragment {
     private List<Group> lst_yourGroup = new ArrayList<>();
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewdiscovery;
-    private TextView yourgroup;
-    private TextView discovery;
+    private Button yourgroup;
+    private Button discovery;
     private YourGroupAdapter mAdapter;
     private DiscoveryAdapter mAdaptery;
     private TextView creategroup;
@@ -84,11 +85,11 @@ public class GroupsFragment extends Fragment {
                 recyclerViewdiscovery.setVisibility(View.GONE);
 
                 Drawable img = getContext().getResources().getDrawable(R.drawable.ic_icon_your_group_white);
-                img.setBounds(0, 0, 60, 60);
+                img.setBounds(0, 0, 80, 60);
                 yourgroup.setCompoundDrawables(img, null, null, null);
 
                 Drawable img1 = getContext().getResources().getDrawable(R.drawable.ic_icon_discover);
-                img1.setBounds(0, 0, 60, 60);
+                img1.setBounds(0, 0, 80, 60);
                 discovery.setCompoundDrawables(img1, null, null, null);
 
             }
@@ -105,11 +106,11 @@ public class GroupsFragment extends Fragment {
                 discovery.setTextColor(getResources().getColor(R.color.white));
                 yourgroup.setTextColor(getResources().getColor(R.color.black));
                 Drawable img3 = getContext().getResources().getDrawable(R.drawable.ic_icon_your_groups);
-                img3.setBounds(0, 0, 60, 60);
+                img3.setBounds(0, 0, 80, 60);
                 yourgroup.setCompoundDrawables(img3, null, null, null);
 
                 Drawable img4 = getContext().getResources().getDrawable(R.drawable.ic_icon_discover_white);
-                img4.setBounds(0, 0, 60, 60);
+                img4.setBounds(0, 0, 80, 60);
                 discovery.setCompoundDrawables(img4, null, null, null);
 
                 recyclerViewdiscovery.setVisibility(View.VISIBLE);

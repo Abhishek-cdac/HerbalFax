@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview"
     android:layout_width="@dimen/_220sdp"
-    android:layout_height="@dimen/_195sdp"
+    android:layout_height="@dimen/_210sdp"
     android:layout_marginLeft="@dimen/_5sdp"
     android:layout_marginTop="5dp"
 
@@ -12,8 +11,8 @@
     android:layout_marginRight="@dimen/_2sdp"
     android:layout_marginBottom="@dimen/_5sdp"
     android:background="@color/white"
-    app:cardCornerRadius="@dimen/_10sdp"
-    app:cardBackgroundColor="@color/white">
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_10sdp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -22,21 +21,40 @@
         android:background="@color/white"
         android:padding="@dimen/_10sdp">
 
-        <ImageView
-            android:id="@+id/StoreImg"
+        <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:scaleType="fitXY"
-            android:src="@drawable/conroy"
-            android:visibility="visible" />
+            android:layout_height="90dp">
+
+            <ImageView
+
+                android:id="@+id/StoreImg"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/conroy"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/likeImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/like_heart_grey"
+                android:visibility="visible" />
+
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/StoreNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/StoreImg"
+            android:layout_below="@+id/frameLayout"
             android:layout_gravity="left"
             android:layout_marginTop="@dimen/_5sdp"
             android:fontFamily="@font/raleway_semibold"
@@ -50,18 +68,56 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/StoreNameText"
             android:layout_gravity="left"
-            android:padding="@dimen/_2sdp"
             android:fontFamily="@font/raleway_semibold"
+            android:padding="@dimen/_2sdp"
             android:text="Conroy's mart"
             android:textColor="@color/green"
             android:textSize="@dimen/_12sdp" />
+        <LinearLayout
+            android:id="@+id/storeRatingText"
+            android:layout_below="@+id/StorecategoryText"
+            android:padding="@dimen/_2sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/one"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_icon_metro_star_full_yellow" />
+
+            <ImageView
+                android:id="@+id/two"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_icon_metro_star_full_yellow" />
+
+            <ImageView
+                android:id="@+id/three"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_icon_metro_star_full_yellow" />
+
+            <ImageView
+                android:id="@+id/four"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_icon_metro_star_full_yellow" />
+
+            <ImageView
+                android:id="@+id/five"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_icon_metro_star_full_yellow" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/locationHeader"
             android:layout_width="match_parent"
-            android:padding="@dimen/_4sdp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/StorecategoryText"
+            android:layout_below="@+id/storeRatingText"
+            android:padding="@dimen/_4sdp"
             android:weightSum="1">
 
             <TextView
@@ -70,8 +126,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
                 android:layout_weight=".8"
+                android:drawableLeft="@drawable/ic_icon_feather_map_pin_black"
                 android:drawablePadding="@dimen/_4sdp"
-                android:drawableLeft="@drawable/ic_icon_feather_map_pin_greennnn"
                 android:fontFamily="@font/raleway_medium"
                 android:text="Pune"
                 android:textColor="@color/black"
@@ -85,15 +141,16 @@
                 android:fontFamily="@font/roboto_regular"
                 android:gravity="right"
                 android:text="11 Ratings"
+                android:visibility="gone"
                 android:textColor="@color/text_grey"
                 android:textSize="@dimen/_10sdp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@+id/locationHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/locationHeader"
             android:orientation="horizontal">
 
             <TextView
@@ -101,7 +158,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_semibold"
                 android:padding="@dimen/_2sdp"
-                android:text="Open-Closed"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableLeft="@drawable/ic_icon_open_clock_black"
+                android:text="Timing : "
                 android:textColor="@color/green"
                 android:textSize="10dp" />
 
@@ -109,9 +168,10 @@
                 android:id="@+id/timeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:padding="@dimen/_2sdp"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableRight="@drawable/ic_icon_feather_eye_black"
                 android:text="9:00 AM to 8:00 PM"
                 android:textColor="@color/black"
                 android:textSize="10dp" />

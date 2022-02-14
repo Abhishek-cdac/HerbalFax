@@ -99,6 +99,7 @@
                 android:gravity="center">
 
                 <Button
+
                     android:id="@+id/ListView"
                     android:layout_marginTop="@dimen/_2sdp"
                     android:layout_width="wrap_content"
@@ -106,10 +107,10 @@
                     android:background="@drawable/rect_button_green"
                     android:drawableLeft="@drawable/ic_baseline_list_24"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
                     android:fontFamily="@font/raleway_semibold"
-                    android:paddingLeft="@dimen/_20sdp"
-                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_40sdp"
+                    android:paddingRight="@dimen/_40sdp"
                     android:text="@string/list_view"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp" />
@@ -119,14 +120,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
                     android:background="@drawable/rect_button_whiteeeee"
                     android:drawableLeft="@drawable/ic_icon_menu_map_pin_black"
                     android:drawablePadding="@dimen/_10sdp"
                     android:fontFamily="@font/raleway_semibold"
-                    android:paddingLeft="@dimen/_20sdp"
-                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingLeft="@dimen/_40sdp"
+                    android:paddingRight="@dimen/_40sdp"
                     android:text="@string/map_view"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12sdp" />
@@ -141,7 +142,9 @@
                 android:scrollbars="none"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:padding="@dimen/_20sdp" />
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:paddingLeft="@dimen/_20sdp" />
 
         </LinearLayout>
 

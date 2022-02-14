@@ -56,8 +56,8 @@
         android:name="com.herbal.herbalfax.customer.homescreen.parcel.ParcelFragment"
         android:label="@string/parcels"
         tools:layout="@layout/fragment_parcelservice" />
-
     <fragment
+
         android:id="@+id/bottom_home"
         android:name="com.herbal.herbalfax.customer.homescreen.feed.FeedFragment"
         android:label="@string/menu_feed"
@@ -69,13 +69,11 @@
         android:label="@string/menu_products"
         tools:layout="@layout/fragment_dashboard" />
 <!--
-
     <fragment
         android:id="@+id/bottom_notifications"
         android:name="com.herbal.herbalfax.customer.homescreen.nearbystores.NearByStoreFragment"
         android:label="@string/title_group"
         tools:layout="@layout/fragment_near_by_store" />
-
 -->
 
 

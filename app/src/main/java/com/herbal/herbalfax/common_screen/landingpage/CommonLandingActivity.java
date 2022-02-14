@@ -172,24 +172,7 @@ public class CommonLandingActivity extends AppCompatActivity {
         ImageView closeImg = headerview.findViewById(R.id.closeImg);
         closeImg.setOnClickListener(view -> drawerLayout.closeDrawer(GravityCompat.START));
 
-        /*
-         CardView editBTn = headerview.findViewById(R.id.editBTn);
 
-        TextView profileName = headerview.findViewById(R.id.userName);
-        TextView professionTv = headerview.findViewById(R.id.professionTv);
-        LinearLayout nav_headerMAin = headerview.findViewById(R.id.nav_headerMAin);
-        profileName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
-        // professionTv.setText();
-        nav_headerMAin.setOnClickListener(view -> {
-            Log.e("ProfileActivity....", "ProfileActivity");
-            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-            startActivity(intent);
-        });
-        editBTn.setOnClickListener(view -> {
-                    Intent intent = new Intent(getApplicationContext(), EditProfileActivity.class);
-                    startActivity(intent);
-                }
-        );*/
 
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
