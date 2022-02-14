@@ -124,8 +124,6 @@
                         android:layout_height="50dp"
                         android:layout_gravity="end"
                         android:visibility="visible"
-                        android:elevation="@dimen/_2sdp"
-                        android:outlineProvider="paddedBounds"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
                         android:src="@drawable/like_heart" />
@@ -158,25 +156,25 @@
 <!--                        </LinearLayout>-->
 <!--                    </androidx.cardview.widget.CardView>-->
 
-                    <com.sdsmdg.harjot.longshadows.LongShadowsWrapper
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="end"
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_10sdp"
-                        >
+<!--                    <com.sdsmdg.harjot.longshadows.LongShadowsWrapper-->
+<!--                        android:layout_width="50dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:visibility="gone"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_marginRight="@dimen/_10sdp"-->
+<!--                        >-->
 
-                        <com.sdsmdg.harjot.longshadows.LongShadowsImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+<!--                        <com.sdsmdg.harjot.longshadows.LongShadowsImageView-->
+<!--                            android:layout_width="50dp"-->
+<!--                            android:layout_height="50dp"-->
 
 
-                            android:src="@drawable/like_heart"
-                            app:shadow_angle="90"
-                            app:shadow_length="50" />
+<!--                            android:src="@drawable/like_heart"-->
+<!--                            app:shadow_angle="90"-->
+<!--                            app:shadow_length="50" />-->
 
-                    </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>
+<!--                    </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>-->
 
 
 <!--                    <com.qhutch.elevationimageview.ElevationImageView-->
