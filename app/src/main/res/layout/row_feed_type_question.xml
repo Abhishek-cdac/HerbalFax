@@ -121,7 +121,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:src="@drawable/like_heart" />
+                android:src="@drawable/heart_active" />
 
         </FrameLayout>
 

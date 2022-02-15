@@ -78,7 +78,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
         });
 
         if (lst_product.get(position).getIsFav().equals("1")) {
-            holder.likeImg.setImageResource(R.drawable.like_heart);
+            holder.likeImg.setImageResource(R.drawable.heart_active);
         } else {
             holder.likeImg.setImageResource(R.drawable.like_heart_grey);
         }
@@ -93,7 +93,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
                     notifyItemChanged(position);
                     callAddToFavAPI(productId);
                 } else if (lst_product.get(position).getIsFav().equals("0")) {
-                    holder.likeImg.setImageResource(R.drawable.like_heart);
+                    holder.likeImg.setImageResource(R.drawable.heart_active);
                     lst_product.get(position).setIsFav("1");
                     notifyItemChanged(position);
                     callAddToFavAPI(productId);

@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,7 +20,6 @@ import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -74,7 +72,7 @@ public class FavProductAdapter extends RecyclerView.Adapter<FavProductAdapter.Vi
 
 
         if (lst_product.get(position).getIsFav().equals("1")) {
-            holder.likeImg.setImageResource(R.drawable.like_heart);
+            holder.likeImg.setImageResource(R.drawable.heart_active);
         } else {
             holder.likeImg.setImageResource(R.drawable.like_heart_grey);
         }
@@ -89,7 +87,7 @@ public class FavProductAdapter extends RecyclerView.Adapter<FavProductAdapter.Vi
                     notifyItemChanged(position);
                     callAddToFavAPI(productId);
                 } else if (lst_product.get(position).getIsFav().equals("0")) {
-                    holder.likeImg.setImageResource(R.drawable.like_heart);
+                    holder.likeImg.setImageResource(R.drawable.heart_active);
                     lst_product.get(position).setIsFav("1");
                     notifyItemChanged(position);
                     callAddToFavAPI(productId);

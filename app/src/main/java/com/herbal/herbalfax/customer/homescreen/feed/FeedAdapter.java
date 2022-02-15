@@ -270,7 +270,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
                     } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                        userViewHolder.likeImg.setImageResource(R.drawable.like_heart);
+                        userViewHolder.likeImg.setImageResource(R.drawable.heart_active);
                         lst_feed.get(position).setIsFav("1");
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
@@ -307,7 +307,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 }
             });
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                userViewHolder.likeImg.setImageResource(R.drawable.like_heart);
+                userViewHolder.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 userViewHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
@@ -499,7 +499,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 videoHolder.likesCountTxt.setText("0" + " Likes");
             }
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                videoHolder.likeImg.setImageResource(R.drawable.like_heart);
+                videoHolder.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 videoHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
@@ -514,7 +514,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
                     } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                        videoHolder.likeImg.setImageResource(R.drawable.like_heart);
+                        videoHolder.likeImg.setImageResource(R.drawable.heart_active);
                         lst_feed.get(position).setIsFav("1");
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
@@ -714,7 +714,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 }
             }
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart);
+                viewHolderQuestion.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
@@ -731,7 +731,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
                     } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                        viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart);
+                        viewHolderQuestion.likeImg.setImageResource(R.drawable.heart_active);
                         lst_feed.get(position).setIsFav("1");
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);

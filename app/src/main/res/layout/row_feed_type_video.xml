@@ -147,7 +147,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/like_heart" />
+                android:src="@drawable/heart_active" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animationView"

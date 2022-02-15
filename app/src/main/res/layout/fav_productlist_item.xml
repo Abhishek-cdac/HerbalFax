@@ -68,7 +68,7 @@
                     android:layout_height="@dimen/_40sdp"
                     android:layout_alignEnd="@+id/headingTxt"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/like_heart" />
+                    android:src="@drawable/heart_active" />
 
             </RelativeLayout>
 
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
                     android:maxLines="2"
-android:text="$100"
+                    android:text="$100"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:textColor="@color/black"
                     android:textSize="15dp" />

@@ -126,7 +126,7 @@
                         android:visibility="visible"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
-                        android:src="@drawable/like_heart" />
+                        android:src="@drawable/heart_active" />
 
 <!--                    <androidx.cardview.widget.CardView-->
 <!--                        android:layout_width="40dp"-->

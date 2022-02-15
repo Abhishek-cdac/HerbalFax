@@ -80,7 +80,7 @@ public class NewDealsAdapter extends RecyclerView.Adapter<NewDealsAdapter.ViewHo
         });
 
         if (lst_deal.get(position).getIsFav().equals("1")) {
-            holder.dealFav.setImageResource(R.drawable.like_heart);
+            holder.dealFav.setImageResource(R.drawable.heart_active);
         } else {
             holder.dealFav.setImageResource(R.drawable.like_heart_grey);
         }
@@ -92,7 +92,7 @@ public class NewDealsAdapter extends RecyclerView.Adapter<NewDealsAdapter.ViewHo
                 notifyItemChanged(position);
                 callAddToFavAPI(productId);
             } else if (lst_deal.get(position).getIsFav().equals("0")) {
-                holder.dealFav.setImageResource(R.drawable.like_heart);
+                holder.dealFav.setImageResource(R.drawable.heart_active);
                 lst_deal.get(position).setIsFav("1");
                 notifyItemChanged(position);
                 callAddToFavAPI(productId);
