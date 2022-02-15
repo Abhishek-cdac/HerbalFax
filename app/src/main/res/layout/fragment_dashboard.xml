@@ -130,7 +130,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productListrecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginBottom="@dimen/_50sdp"
         android:paddingLeft="@dimen/_10sdp"
         android:paddingTop="@dimen/_10sdp"
@@ -139,10 +140,11 @@
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp"
-        android:visibility="gone"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginBottom="@dimen/_50sdp"
+        android:padding="@dimen/_10sdp"
+        android:theme="@style/AppTheme"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 

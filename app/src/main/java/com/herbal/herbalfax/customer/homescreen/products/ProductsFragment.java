@@ -125,13 +125,13 @@ public class ProductsFragment extends Fragment {
         hashMap.put("search_key", "0");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
-        pd.show();
-//        if(offset==0)
-//        {
-//            pd.show();
-//        }else{
-//            progress_bar.setVisibility(View.VISIBLE);
-//        }
+//        pd.show();
+        if(offset==0)
+        {
+            pd.show();
+        }else{
+            progress_bar.setVisibility(View.VISIBLE);
+        }
 
         Call<ProductListResponse> call = service.userStoreProductList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<ProductListResponse>() {

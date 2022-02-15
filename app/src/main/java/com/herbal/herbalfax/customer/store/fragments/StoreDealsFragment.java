@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +22,6 @@ import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
 import com.herbal.herbalfax.customer.store.adapter.StoreDealsAdapter;
 import com.herbal.herbalfax.util.CommonUtils;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.ProductListResponse;
@@ -43,6 +43,7 @@ public class StoreDealsFragment extends Fragment {
     RecyclerView storeDealsRecycler;
     LinearLayoutManager HorizontalLayout;
     StoreDealsAdapter storeDealsAdapter;
+    private ProgressBar progress_bar;
     private CommonClass clsCommon;
     ArrayList<StoreProduct> lst_deals;
     ArrayList<StoreProduct> localDeals=new ArrayList<>();
@@ -64,6 +65,7 @@ public class StoreDealsFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_store_deals_fragment, container, false);
         storeDealsRecycler = root.findViewById(R.id.storeDealsRecycler);
+        progress_bar=root.findViewById(R.id.progress_bar);
         totalCount = root.findViewById(R.id.totalCount);
         Bundle arguments = getArguments();
         if (arguments != null) {
@@ -102,13 +104,20 @@ public class StoreDealsFragment extends Fragment {
         hashMap.put("search_key", "0");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
-        pd.show();
+//        pd.show();
+        if(offset==0)
+        {
+            pd.show();
+        }else{
+            progress_bar.setVisibility(View.VISIBLE);
+        }
         Call<ProductListResponse> call = service.userStoreProductList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<ProductListResponse>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<ProductListResponse> call, Response<ProductListResponse> response) {
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {

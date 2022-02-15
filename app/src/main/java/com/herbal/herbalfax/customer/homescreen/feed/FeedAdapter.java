@@ -59,7 +59,6 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
     }
 
-    @NonNull
     @Override
     public AAH_CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -83,7 +82,6 @@ public class FeedAdapter extends AAH_VideosAdapter {
     }
 
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final AAH_CustomViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String postId = lst_feed.get(position).getIdposts();
@@ -263,23 +261,29 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 e.printStackTrace();
             }
 
-            userViewHolder.likeImg.setOnClickListener(view -> {
-                if (lst_feed.get(position).getIsFav().equals("1")) {
-                    lst_feed.get(position).setIsFav("0");
-                    userViewHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
-                    notifyItemChanged(position);
-                    callAddToFavAPI(postId);
-                } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                    userViewHolder.likeImg.setImageResource(R.drawable.ic_green_heart);
-                    lst_feed.get(position).setIsFav("1");
-                    notifyItemChanged(position);
-                    callAddToFavAPI(postId);
+            userViewHolder.likeImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (lst_feed.get(position).getIsFav().equals("1")) {
+                        lst_feed.get(position).setIsFav("0");
+                        userViewHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
+                        notifyItemChanged(position);
+                        callAddToFavAPI(postId);
+                    } else if (lst_feed.get(position).getIsFav().equals("0")) {
+                        userViewHolder.likeImg.setImageResource(R.drawable.heart_active);
+                        lst_feed.get(position).setIsFav("1");
+                        notifyItemChanged(position);
+                        callAddToFavAPI(postId);
+                    }
                 }
             });
-            userViewHolder.commentll.setOnClickListener(view -> {
-                Intent i = new Intent(mContext, AddCommentActivity.class);
-                i.putExtra("post_id", postId);
-                mContext.startActivity(i);
+            userViewHolder.commentll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, AddCommentActivity.class);
+                    i.putExtra("post_id", postId);
+                    mContext.startActivity(i);
+                }
             });
             userViewHolder.upTxt.setText(lst_feed.get(position).getPostLikes());
 
@@ -287,10 +291,23 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
             userViewHolder.downTxt.setText(lst_feed.get(position).getPostDislikes());
 
-            userViewHolder.upTxt.setOnClickListener(view -> itemClick.onItemClicks(view, position, 4, postId, "1"));
-            userViewHolder.downTxt.setOnClickListener(view -> itemClick.onItemClicks(view, position, 4, postId, "0"));
+            userViewHolder.upTxt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClick.onItemClicks(view, position, 4, postId, "1");
+
+                }
+            });
+            userViewHolder.downTxt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClick.onItemClicks(view, position, 4, postId, "0");
+
+
+                }
+            });
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                userViewHolder.likeImg.setImageResource(R.drawable.ic_green_heart);
+                userViewHolder.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 userViewHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
@@ -466,10 +483,13 @@ public class FeedAdapter extends AAH_VideosAdapter {
                             .into(videoHolder.iv_profile);
                 }
             }
-            videoHolder.commentll.setOnClickListener(view -> {
-                Intent i = new Intent(mContext, AddCommentActivity.class);
-                i.putExtra("post_id", postId);
-                mContext.startActivity(i);
+            videoHolder.commentll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, AddCommentActivity.class);
+                    i.putExtra("post_id", postId);
+                    mContext.startActivity(i);
+                }
             });
 
             videoHolder.upTxt.setText(lst_feed.get(position).getPostLikes());
@@ -479,27 +499,42 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 videoHolder.likesCountTxt.setText("0" + " Likes");
             }
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                videoHolder.likeImg.setImageResource(R.drawable.ic_green_heart);
+                videoHolder.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 videoHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
             videoHolder.downTxt.setText(lst_feed.get(position).getPostDislikes());
 
-            videoHolder.likeImg.setOnClickListener(view -> {
-                if (lst_feed.get(position).getIsFav().equals("1")) {
-                    lst_feed.get(position).setIsFav("0");
-                    videoHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
-                    notifyItemChanged(position);
-                    callAddToFavAPI(postId);
-                } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                    videoHolder.likeImg.setImageResource(R.drawable.ic_green_heart);
-                    lst_feed.get(position).setIsFav("1");
-                    notifyItemChanged(position);
-                    callAddToFavAPI(postId);
+            videoHolder.likeImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (lst_feed.get(position).getIsFav().equals("1")) {
+                        lst_feed.get(position).setIsFav("0");
+                        videoHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
+                        notifyItemChanged(position);
+                        callAddToFavAPI(postId);
+                    } else if (lst_feed.get(position).getIsFav().equals("0")) {
+                        videoHolder.likeImg.setImageResource(R.drawable.heart_active);
+                        lst_feed.get(position).setIsFav("1");
+                        notifyItemChanged(position);
+                        callAddToFavAPI(postId);
+                    }
                 }
             });
-            videoHolder.upTxt.setOnClickListener(view -> itemClick.onItemClicks(view, position, 4, postId, "1"));
-            videoHolder.downTxt.setOnClickListener(view -> itemClick.onItemClicks(view, position, 4, postId, "0"));
+            videoHolder.upTxt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClick.onItemClicks(view, position, 4, postId, "1");
+
+                }
+            });
+            videoHolder.downTxt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClick.onItemClicks(view, position, 4, postId, "0");
+
+                }
+            });
 
             picasso.load(lst_feed.get(position).getPostThumbnail())
                     .into(videoHolder.videoImg.getImageView());
@@ -679,7 +714,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 }
             }
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                viewHolderQuestion.likeImg.setImageResource(R.drawable.ic_green_heart);
+                viewHolderQuestion.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
@@ -687,19 +722,22 @@ public class FeedAdapter extends AAH_VideosAdapter {
 //            viewHolderQuestion.imageview2.setElevation(20f);
 
 
-            viewHolderQuestion.likeImg.setOnClickListener(view -> {
-                if (lst_feed.get(position).getIsFav().equals("1")) {
-                    lst_feed.get(position).setIsFav("0");
-                    viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart_grey);
-                    notifyItemChanged(position);
-                    callAddToFavAPI(postId);
-                } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                    viewHolderQuestion.likeImg.setImageResource(R.drawable.ic_green_heart);
-                    lst_feed.get(position).setIsFav("1");
-                    notifyItemChanged(position);
-                    callAddToFavAPI(postId);
+            viewHolderQuestion.likeImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (lst_feed.get(position).getIsFav().equals("1")) {
+                        lst_feed.get(position).setIsFav("0");
+                        viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart_grey);
+                        notifyItemChanged(position);
+                        callAddToFavAPI(postId);
+                    } else if (lst_feed.get(position).getIsFav().equals("0")) {
+                        viewHolderQuestion.likeImg.setImageResource(R.drawable.heart_active);
+                        lst_feed.get(position).setIsFav("1");
+                        notifyItemChanged(position);
+                        callAddToFavAPI(postId);
+                    }
+                    //  callAddToFavAPI(postId);
                 }
-                //  callAddToFavAPI(postId);
             });
 
 //            viewHolderQuestion.moreImg.setOnClickListener(new View.OnClickListener() {
@@ -712,8 +750,20 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
             viewHolderQuestion.downTxt.setText(lst_feed.get(position).getPostDislikes());
 
-            viewHolderQuestion.upTxt.setOnClickListener(view -> itemClick.onItemClicks(view, position, 4, postId, "1"));
-            viewHolderQuestion.downTxt.setOnClickListener(view -> itemClick.onItemClicks(view, position, 4, postId, "0"));
+            viewHolderQuestion.upTxt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClick.onItemClicks(view, position, 4, postId, "1");
+
+                }
+            });
+            viewHolderQuestion.downTxt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClick.onItemClicks(view, position, 4, postId, "0");
+
+                }
+            });
 
         }
     }
@@ -733,13 +783,13 @@ public class FeedAdapter extends AAH_VideosAdapter {
         Call<CommonResponse> call = service.userPostAddFav("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new retrofit2.Callback<CommonResponse>() {
             @Override
-            public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
 
                 Log.e("Added to Fav", "Added to Fav");
             }
 
             @Override
-            public void onFailure(@NonNull Call<CommonResponse> call, @NonNull Throwable t) {
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -976,24 +1026,33 @@ public class FeedAdapter extends AAH_VideosAdapter {
             moreImg = itemView.findViewById(R.id.moreImg);
             feedPostImg = itemView.findViewById(R.id.feedPostImg);
             moreImg.setOnClickListener(v -> showBottomSheet(getAdapterPosition()));
-            shareImg.setOnClickListener(view -> {
-                try {
-                    ShareDialogClass cdd = new ShareDialogClass((Activity) mContext);
-                    cdd.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
+            shareImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        ShareDialogClass cdd = new ShareDialogClass((Activity) mContext);
+                        cdd.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             });
 
-            viewCommentTxt.setOnClickListener(view -> {
-                Intent mIntent = new Intent(view.getContext(), AddCommentActivity.class);
-                mIntent.putExtra("post_id", lst_feed.get(getAdapterPosition()).getIdposts());
-                mContext.startActivity(mIntent);
+            viewCommentTxt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent mIntent = new Intent(view.getContext(), AddCommentActivity.class);
+                    mIntent.putExtra("post_id", lst_feed.get(getAdapterPosition()).getIdposts());
+                    mContext.startActivity(mIntent);
+                }
             });
-            AddComment.setOnClickListener(view -> {
-                Intent mIntent = new Intent(view.getContext(), AddCommentActivity.class);
-                mIntent.putExtra("post_id", lst_feed.get(getAdapterPosition()).getIdposts());
-                mContext.startActivity(mIntent);
+            AddComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent mIntent = new Intent(view.getContext(), AddCommentActivity.class);
+                    mIntent.putExtra("post_id", lst_feed.get(getAdapterPosition()).getIdposts());
+                    mContext.startActivity(mIntent);
+                }
             });
         }
     }
@@ -1005,7 +1064,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
     }
 
 
-    static class ImageLoadedCallback implements Callback {
+    class ImageLoadedCallback implements Callback {
         LottieAnimationView iv_loader;
 
         public ImageLoadedCallback(LottieAnimationView view) {

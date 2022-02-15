@@ -19,8 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_5sdp"
-            android:layout_gravity="center_vertical"
-
             android:weightSum="1">
 
             <FrameLayout
@@ -31,8 +29,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profileImg"
-                    android:layout_width="@dimen/_44sdp"
-                    android:layout_height="@dimen/_44sdp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:backgroundTint="@color/green"
                     android:src="@color/green" />
 
@@ -43,7 +41,7 @@
                     android:background="@color/green"
                     android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
-                    android:text=""
+                    android:text="M"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14sdp"
                     android:visibility="gone" />
@@ -64,6 +62,7 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:text=""
                     android:gravity="center"
+
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
 
@@ -148,7 +147,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/like_heart_grey" />
+                android:src="@drawable/heart_active" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animationView"
@@ -225,7 +224,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto_regular"
                 android:padding="@dimen/_5sdp"
-                android:text=""
+                android:text="+1135 Views"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11sdp" />
 
@@ -308,7 +307,7 @@
                 android:drawableLeft="@drawable/ic_reshare"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="0"
+                android:text="0 K"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
 

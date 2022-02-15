@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ import retrofit2.Response;
 public class StoreProductFragment extends Fragment {
     LinearLayoutManager RecyclerViewLayoutManager;
     private ArrayList<StoreProduct> lst_products;
+    private ProgressBar progress_bar;
     private ArrayList<StoreProduct> localListproducts=new ArrayList<>();
     RecyclerView recyclerView, storeProductsRecylcer;
     LinearLayoutManager HorizontalLayout;
@@ -74,6 +76,7 @@ public class StoreProductFragment extends Fragment {
         }
         totalCount = root.findViewById(R.id.totalCount);
         storeProductsRecylcer = root.findViewById(R.id.storeProductsRecycler);
+        progress_bar=root.findViewById(R.id.progress_bar);
         callProductAPI(storeId);
         return root;
 
@@ -104,13 +107,20 @@ public class StoreProductFragment extends Fragment {
         hashMap.put("search_key", "0");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
-        pd.show();
+//        pd.show();
+        if(offset==0)
+        {
+            pd.show();
+        }else{
+            progress_bar.setVisibility(View.VISIBLE);
+        }
         Call<ProductListResponse> call = service.userStoreProductList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<ProductListResponse>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<ProductListResponse> call, Response<ProductListResponse> response) {
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
