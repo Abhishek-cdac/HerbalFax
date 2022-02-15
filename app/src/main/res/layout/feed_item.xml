@@ -28,8 +28,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profileImg"
-                    android:layout_width="30dp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_44sdp"
+                    android:layout_height="@dimen/_44sdp"
                     android:backgroundTint="@color/green"
                     android:src="@color/green" />
 
@@ -39,19 +39,19 @@
                     android:layout_height="wrap_content"
                     android:background="@color/green"
                     android:fontFamily="@font/raleway_semibold"
-                    android:gravity="center"
-                    android:text="M"
+                    android:layout_gravity="center"
+                    android:text=""
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14sdp"
                     android:visibility="gone" />
             </FrameLayout>
 
             <LinearLayout
+                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight="1"
-
                 android:orientation="vertical">
 
                 <TextView
@@ -124,11 +124,9 @@
                         android:layout_height="50dp"
                         android:layout_gravity="end"
                         android:visibility="visible"
-                        android:elevation="@dimen/_2sdp"
-                        android:outlineProvider="paddedBounds"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_10sdp"
-                        android:src="@drawable/like_heart" />
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:src="@drawable/like_heart_grey" />
 
 <!--                    <androidx.cardview.widget.CardView-->
 <!--                        android:layout_width="40dp"-->
@@ -157,6 +155,7 @@
 <!--                            android:src="@drawable/like_heart" />-->
 <!--                        </LinearLayout>-->
 <!--                    </androidx.cardview.widget.CardView>-->
+<!--
 
                     <com.sdsmdg.harjot.longshadows.LongShadowsWrapper
                         android:layout_width="50dp"
@@ -177,6 +176,7 @@
                             app:shadow_length="50" />
 
                     </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>
+-->
 
 
 <!--                    <com.qhutch.elevationimageview.ElevationImageView-->
@@ -201,8 +201,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_medium"
                 android:padding="@dimen/_10sdp"
-                android:text="
-"
+                android:text=""
                 android:textColor="@color/text_grey"
                 android:textSize="@dimen/_12sdp" />
 
@@ -242,13 +241,13 @@
                         android:id="@+id/img4"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:layout_marginLeft="@dimen/_60sdp"
+                        android:layout_marginStart="@dimen/_60sdp"
                         android:src="@drawable/profileimg" />
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/img5"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:layout_marginLeft="@dimen/_80sdp"
+                        android:layout_marginStart="@dimen/_80sdp"
                         android:src="@drawable/profileimg" />
                 </FrameLayout>
                 <TextView
@@ -257,7 +256,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/roboto_regular"
                     android:padding="@dimen/_5sdp"
-                    android:text="+1135 Views"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="@dimen/_11sdp" />
 
@@ -300,7 +299,7 @@
             android:paddingTop="@dimen/_5sdp"
             android:layout_margin="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:paddingRight="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
             android:paddingBottom="@dimen/_5sdp"
             android:weightSum="1">
 
@@ -309,14 +308,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight=".1"
-                android:drawableLeft="@drawable/ic_up_arrow"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="0"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_12sdp"
+                app:drawableStartCompat="@drawable/ic_up_arrow" />
 
             <TextView
                 android:id="@+id/downTxt"
@@ -325,12 +324,12 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_weight=".4"
-                android:drawableLeft="@drawable/ic_down_arrow"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="0"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_12sdp"
+                app:drawableLeftCompat="@drawable/ic_down_arrow" />
 
             <TextView
                 android:id="@+id/reshareTxt"
@@ -342,7 +341,7 @@
                 android:drawableLeft="@drawable/ic_reshare"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="10K"
+                android:text="0"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
 
@@ -351,9 +350,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight=".1"
-                android:drawableLeft="@drawable/ic_icon_open_share"
+                android:drawableStart="@drawable/ic_icon_open_share"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Share"
@@ -368,7 +367,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_weight=".7"
             android:fontFamily="@font/raleway_semibold"
             android:padding="@dimen/_2sdp"
@@ -388,7 +387,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight=".7"
                 android:fontFamily="@font/raleway_medium"
                 android:text="Dhairya Dayla"
@@ -400,7 +399,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight=".7"
                 android:fontFamily="@font/raleway_regular"
                 android:text="Wow...."
@@ -413,7 +412,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_weight=".7"
             android:fontFamily="@font/raleway_regular"
             android:padding="@dimen/_2sdp"
@@ -442,7 +441,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight=".8"
                 android:fontFamily="@font/raleway_regular"
                 android:text="Add a comment..."

@@ -4,10 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center|left">
+    android:gravity="center|start">
 
-<!--    style="@style/BottomSheet"
--->
 <LinearLayout
     android:background="@color/white"
     android:paddingHorizontal="@dimen/_20sdp"
@@ -22,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Today’s Deal"
+        android:text="@string/today_s_deal"
         android:fontFamily="@font/raleway_semibold"
         android:textColor="@color/text_grey"
         android:textSize="@dimen/_15sdp" />

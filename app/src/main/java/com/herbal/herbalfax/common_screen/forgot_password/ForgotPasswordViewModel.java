@@ -5,9 +5,6 @@ import android.view.View;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-
-import com.herbal.herbalfax.common_screen.verify_email_after_signup.ConfirmOtp;
-
 public class ForgotPasswordViewModel extends ViewModel {
     public ForgotPasswordViewModel() {
 

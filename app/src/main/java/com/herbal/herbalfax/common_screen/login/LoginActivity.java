@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -56,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
         binding.setLifecycleOwner(this);
         binding.setLoginViewModel(loginViewModel);
+
+//        Drawable background = binding.loginEmail.getBackground();
+//        background.setAlpha(80);
 
         binding.loginEmail.setFilters(new InputFilter[]{ignoreFirstWhiteSpace(), new InputFilter.LengthFilter(50)});
         SessionPref pref = SessionPref.getInstance(this);
@@ -207,7 +211,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-
 
     private void logicAfterUserType(User user) {
         isBusiness = user.getUserType().equals("2");

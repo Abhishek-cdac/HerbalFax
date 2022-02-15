@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -67,7 +68,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         Call<ResendOTPModel> call = service.signupResendOtp(hashMap);
         call.enqueue(new Callback<ResendOTPModel>() {
             @Override
-            public void onResponse(Call<ResendOTPModel> call, Response<ResendOTPModel> response) {
+            public void onResponse(@NonNull Call<ResendOTPModel> call, @NonNull Response<ResendOTPModel> response) {
                 pd.cancel();
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -97,7 +98,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<ResendOTPModel> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResendOTPModel> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(ForgotPasswordActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();

@@ -2,13 +2,13 @@ package com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,12 +21,12 @@ import java.util.List;
 
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.MyView> {
 
-    private List<CartList> lst_cart_item;
+    private final List<CartList> lst_cart_item;
     Context context;
     Onclick itemClick;
     private final Picasso picasso;
 
-    public class MyView extends RecyclerView.ViewHolder {
+    public static class MyView extends RecyclerView.ViewHolder {
 
         TextView categoryTxt, cart_head, cart_price, cart_count;
         CardView deleteCard;
@@ -53,15 +53,17 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.MyView
     }
 
 
+    @NonNull
     @Override
     public CartItemAdapter.MyView onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item, parent, false);
-        return new CartItemAdapter.MyView(itemView);
+        return new MyView(itemView);
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(final CartItemAdapter.MyView holder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(@NonNull final CartItemAdapter.MyView holder, @SuppressLint("RecyclerView") final int position) {
         try {
             holder.cart_head.setText(lst_cart_item.get(position).getSPName());
             holder.categoryTxt.setText(lst_cart_item.get(position).getSPCTitle());
@@ -69,17 +71,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.MyView
             holder.cart_count.setText(lst_cart_item.get(position).getCartQty());
             picasso.load(lst_cart_item.get(position).getSPPPath())
                     .into(holder.productImg);
-            String idcart = lst_cart_item.get(position).getIdcart();
-            holder.deleteCard.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-
-
-                    itemClick.onItemClicks(view, position, 11, idcart);
-
-                }
-            });
+            String idCart = lst_cart_item.get(position).getIdcart();
+            holder.deleteCard.setOnClickListener(view -> itemClick.onItemClicks(view, position, 11, idCart));
 
 
         } catch (NullPointerException e) {

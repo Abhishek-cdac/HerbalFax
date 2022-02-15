@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 public class PhotosAdapter1 extends RecyclerView.Adapter<PhotosAdapter1.ViewHolder>  {
 
     ArrayList<Interest> lst_int ;
-    ArrayList<Interest> lst_intFilter ;
+
     Context mContext;
 
     public PhotosAdapter1(ArrayList<Interest> lst_int, Context applicationContext) {
@@ -34,7 +33,7 @@ public class PhotosAdapter1 extends RecyclerView.Adapter<PhotosAdapter1.ViewHold
     public PhotosAdapter1.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.photos_item, parent, false);
         mContext = parent.getContext();
-        return new PhotosAdapter1.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -49,7 +48,7 @@ public class PhotosAdapter1 extends RecyclerView.Adapter<PhotosAdapter1.ViewHold
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView iv_photos;
 
         public ViewHolder(@NonNull View itemView) {

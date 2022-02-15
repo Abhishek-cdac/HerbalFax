@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.common_screen.landingpage.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 public class FindFruityCannabisAdapter extends RecyclerView.Adapter<FindFruityCannabisAdapter.ViewHolder> {
 
     ArrayList<Interest> lst_int;
-    ArrayList<Interest> lst_intFilter;
+
     Context mContext;
     private final Picasso picasso;
     public FindFruityCannabisAdapter(ArrayList<Interest> lst_int, Context applicationContext) {
@@ -35,9 +36,10 @@ public class FindFruityCannabisAdapter extends RecyclerView.Adapter<FindFruityCa
     public FindFruityCannabisAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cannabis_item, parent, false);
         mContext = parent.getContext();
-        return new FindFruityCannabisAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull FindFruityCannabisAdapter.ViewHolder holder, int position) {
         if (position == 0) {
@@ -76,7 +78,7 @@ public class FindFruityCannabisAdapter extends RecyclerView.Adapter<FindFruityCa
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView CannabisImg;
         TextView CannabisTxt;
 

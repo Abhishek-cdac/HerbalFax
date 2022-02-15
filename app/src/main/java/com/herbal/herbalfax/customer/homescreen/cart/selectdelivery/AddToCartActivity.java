@@ -6,10 +6,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -58,19 +58,11 @@ public class AddToCartActivity extends AppCompatActivity {
         CartItemRecycler = findViewById(R.id.CartItemRecycler);
 
         callAddToCartAPI();
-        continue_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CheckOutActivity.class);
-                startActivity(intent);
-            }
+        continue_button.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), CheckOutActivity.class);
+            startActivity(intent);
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        back.setOnClickListener(view -> onBackPressed());
 
         itemClick = new Onclick() {
             @Override
@@ -94,16 +86,16 @@ public class AddToCartActivity extends AppCompatActivity {
         };
     }
 
-    private void callAddToCartAPI() {
+    public void callAddToCartAPI() {
         SessionPref pref = SessionPref.getInstance(getApplicationContext());
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
         Call<AddedCartModel> call = service.userCartList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken));
         call.enqueue(new Callback<AddedCartModel>() {
-            @SuppressLint("SetTextI18n")
+            @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
-            public void onResponse(Call<AddedCartModel> call, Response<AddedCartModel> response) {
+            public void onResponse(@NonNull Call<AddedCartModel> call, @NonNull Response<AddedCartModel> response) {
 
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -118,6 +110,8 @@ public class AddToCartActivity extends AppCompatActivity {
                         cartItemAdapter = new CartItemAdapter(lst_cart_item, getApplicationContext(), itemClick);
                         HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
                         CartItemRecycler.setAdapter(cartItemAdapter);
+                        cartItemAdapter.notifyDataSetChanged();
+
 
                     } else {
                         clsCommon.showDialogMsgFrag(AddToCartActivity.this, "HerbalFax", response.body().getMessage(), "Ok");
@@ -136,7 +130,7 @@ public class AddToCartActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<AddedCartModel> call, Throwable t) {
+            public void onFailure(@NotNull Call<AddedCartModel> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(getApplicationContext(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
@@ -148,5 +142,9 @@ public class AddToCartActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        callAddToCartAPI();
+    }
 }

@@ -8,9 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -38,13 +36,8 @@ import com.herbal.herbalfax.customer.selectInterest.Interest;
 import java.util.ArrayList;
 
 public class CommonLandingActivity extends AppCompatActivity {
-    RecyclerView recyclerView, photosRecyclerview, timelyRecyclerview, fruityrecyclerview, trendingRecyclerview, articleRecyclerview, eventsRecyclerview;
+    RecyclerView recyclerView, photosRecyclerview, timelyRecyclerview, fruityRecyclerview, trendingRecyclerview, articleRecyclerview, eventsRecyclerview;
     ArrayList<String> source;
-    private ArrayList<Interest> lst_fruityCannabis;
-    private ArrayList<Interest> lst_trending;
-    private ArrayList<Interest> lst_article;
-    private ArrayList<Interest> lst_events;
-    private ArrayList<Interest> lst_photos;
     private LinearLayout contentView;
 
     private static final float END_SCALE = 0.85f;
@@ -59,16 +52,10 @@ public class CommonLandingActivity extends AppCompatActivity {
     FindFruityCannabisAdapter findFruityCannabisAdapter;
     LinearLayout login_ll;
     TextView photosViewMore;
-    TextView eventsviewmore;
+    TextView eventsViewMore;
     ImageView menu_nav;
     private AppBarConfiguration mAppBarConfiguration;
-
-
-    View ChildView;
-    int RecyclerViewItemPosition;
-
     public DrawerLayout drawerLayout;
-    public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +66,11 @@ public class CommonLandingActivity extends AppCompatActivity {
         setupUI();
         setUpCategoryRecyclerView();
         setUpFruityRecyclerView();
-        setUptredingRecyclerView();
+        setUpTrendingRecyclerView();
         setUpArticleRecyclerView();
         setUpEventsRecyclerView();
         setUpPhotosRecyclerView();
-        setUpTimeyRecyclerView();
+        setUpTimeRecyclerView();
         initNavigation();
 
     }
@@ -145,31 +132,19 @@ public class CommonLandingActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view1);
 //        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav_view);
         contentView = findViewById(R.id.content_view);
-        menu_nav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+        menu_nav.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_events , // R.id.nav_cardlist, R.id.nav_parcel,
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_events , 
                 R.id.nav_login)
                 .setDrawerLayout(drawerLayout)
                 .build();
-       // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-       // NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
 
-
-
-//        NavigationUI.setupWithNavController(navigationView, navController);
-//        NavigationUI.setupWithNavController(bottomNavView, navController);
-
-        View headerview = navigationView.getHeaderView(0);
-        ImageView closeImg = headerview.findViewById(R.id.closeImg);
+        View headerView = navigationView.getHeaderView(0);
+        ImageView closeImg = headerView.findViewById(R.id.closeImg);
         closeImg.setOnClickListener(view -> drawerLayout.closeDrawer(GravityCompat.START));
 
 
@@ -191,20 +166,20 @@ public class CommonLandingActivity extends AppCompatActivity {
 
 
     private void setUpFruityRecyclerView() {
-        lst_fruityCannabis = new ArrayList<>();
+        ArrayList<Interest> lst_fruityCannabis = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
-        fruityrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
+        fruityRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
         findFruityCannabisAdapter = new FindFruityCannabisAdapter(lst_fruityCannabis, getApplicationContext());
         HorizontalLayout = new LinearLayoutManager(CommonLandingActivity.this, LinearLayoutManager.HORIZONTAL, false);
-        fruityrecyclerview.setLayoutManager(new GridLayoutManager(CommonLandingActivity.this, 3));
+        fruityRecyclerview.setLayoutManager(new GridLayoutManager(CommonLandingActivity.this, 3));
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new SpacesItemDecoration(2));
-        fruityrecyclerview.setAdapter(findFruityCannabisAdapter);
+        fruityRecyclerview.setAdapter(findFruityCannabisAdapter);
 
     }
 
     private void setUpPhotosRecyclerView() {
-        lst_photos = new ArrayList<>();
+        ArrayList<Interest> lst_photos = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
         photosRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
         photosAdapter = new PhotosAdapter(lst_photos, getApplicationContext());
@@ -227,7 +202,7 @@ public class CommonLandingActivity extends AppCompatActivity {
 
     }
 
-    private void setUpTimeyRecyclerView() {
+    private void setUpTimeRecyclerView() {
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
         timelyRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
         AddItemsToTimeRecyclerViewArrayList();
@@ -238,8 +213,8 @@ public class CommonLandingActivity extends AppCompatActivity {
 
     }
 
-    private void setUptredingRecyclerView() {
-        lst_trending = new ArrayList<>();
+    private void setUpTrendingRecyclerView() {
+        ArrayList<Interest> lst_trending = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
         trendingRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
         trendingAdapter = new TrendingAdapter(lst_trending, getApplicationContext());
@@ -250,18 +225,20 @@ public class CommonLandingActivity extends AppCompatActivity {
     }
 
     private void setUpArticleRecyclerView() {
-        lst_article = new ArrayList<>();
+        ArrayList<Interest> lst_article = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
         articleRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
         articlesAdapter = new ArticlesAdapter(lst_article, getApplicationContext());
         HorizontalLayout = new LinearLayoutManager(CommonLandingActivity.this, LinearLayoutManager.HORIZONTAL, false);
-        articleRecyclerview.setLayoutManager(HorizontalLayout);
+        articleRecyclerview.setLayoutManager(new GridLayoutManager(CommonLandingActivity.this, 3));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new SpacesItemDecoration(2));
         articleRecyclerview.setAdapter(articlesAdapter);
 
     }
 
     private void setUpEventsRecyclerView() {
-        lst_events = new ArrayList<>();
+        ArrayList<Interest> lst_events = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
         eventsRecyclerview.setLayoutManager(RecyclerViewLayoutManager);
         eventsAdapter = new EventsAdapter(lst_events, getApplicationContext());
@@ -275,37 +252,23 @@ public class CommonLandingActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.caterecyclerview);
         menu_nav = findViewById(R.id.menu_nav);
         login_ll = findViewById(R.id.login_ll);
-        fruityrecyclerview = findViewById(R.id.fruityrecyclerview);
+        fruityRecyclerview = findViewById(R.id.fruityrecyclerview);
         trendingRecyclerview = findViewById(R.id.trendingrecyclerview);
         articleRecyclerview = findViewById(R.id.articleRecyclerview);
         eventsRecyclerview = findViewById(R.id.eventsRecyclerview);
         photosRecyclerview = findViewById(R.id.photosRecyclerview);
         timelyRecyclerview = findViewById(R.id.timelyRecyclerview);
         photosViewMore = findViewById(R.id.photosviewmore);
-        eventsviewmore = findViewById(R.id.eventsviewmore);
+        eventsViewMore = findViewById(R.id.eventsviewmore);
+        
 
-
-//        login_ll.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
-        photosViewMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PhotosDetailsActivity.class);
-                startActivity(intent);
-            }
+        photosViewMore.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), PhotosDetailsActivity.class);
+            startActivity(intent);
         });
-        eventsviewmore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), EventsDetailsActivity.class);
-                startActivity(intent);
-            }
+        eventsViewMore.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), EventsDetailsActivity.class);
+            startActivity(intent);
         });
     }
 

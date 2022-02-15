@@ -90,7 +90,7 @@ Blog blog;
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView BlogImg;
         TextView title, desc;

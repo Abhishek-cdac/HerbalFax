@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.common_screen.landingpage.events.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,13 +32,12 @@ public class  EventsMenuAdapter extends RecyclerView.Adapter<EventsMenuAdapter.V
     public EventsMenuAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.new_deals_item, parent, false);
         mContext = parent.getContext();
-        return new EventsMenuAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull EventsMenuAdapter.ViewHolder holder, int position) {
-      /*  NewDealsCategorys deals = DealsCategory.get(position);
-        holder.category.setText(deals.getCategory());*/
         if(position==0){
             holder.category.setText("All Events");
         }
@@ -60,7 +60,7 @@ public class  EventsMenuAdapter extends RecyclerView.Adapter<EventsMenuAdapter.V
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView category;
 
 

@@ -264,7 +264,7 @@ android:visibility="gone"
                         android:fontFamily="@font/raleway_semibold"
                         android:text="@string/viewmore"
                         android:textColor="@android:color/black"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -311,7 +311,7 @@ android:visibility="gone"
                         android:fontFamily="@font/raleway_semibold"
                         android:text="@string/viewmore"
                         android:textColor="@android:color/black"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView

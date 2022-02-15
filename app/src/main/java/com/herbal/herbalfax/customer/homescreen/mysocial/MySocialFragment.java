@@ -23,15 +23,6 @@ public class MySocialFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         mySocialViewModel = ViewModelProviders.of(this).get(MySocialViewModel.class);
         View root = inflater.inflate(R.layout.fragment_my_social, container, false);
-//        final TextView textView = root.findViewById(R.id.text_slideshow);
-//        mySocialViewModel.getText().observe(getActivity(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-
-
         return root;
     }
 }

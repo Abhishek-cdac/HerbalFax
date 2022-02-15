@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,19 +16,19 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView> {
 
-    private List<String> list;
+    private final List<String> list;
     Context context;
 
-    public class MyView extends RecyclerView.ViewHolder {
+    public static class MyView extends RecyclerView.ViewHolder {
 
         TextView categoryTxt;
-        CardView cardviewCategory;
+        CardView cardViewCategory;
 
 
         public MyView(View view) {
             super(view);
 
-            cardviewCategory = view.findViewById(R.id.cardviewCategory);
+            cardViewCategory = view.findViewById(R.id.cardviewCategory);
             categoryTxt = (TextView) view.findViewById(R.id.categoryTxt);
         }
     }
@@ -38,6 +39,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     }
 
 
+    @NonNull
     @Override
     public MyView onCreateViewHolder(ViewGroup parent,
                                      int viewType) {
@@ -49,13 +51,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     @Override
     public void onBindViewHolder(final MyView holder,final int position) {
         holder.categoryTxt.setText(list.get(position));
-        holder.cardviewCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                holder.cardviewCategory.setCardBackgroundColor(context.getResources().getColor(R.color.black));
-                holder.categoryTxt.setTextColor(context.getResources().getColor(R.color.white));
+        holder.cardViewCategory.setOnClickListener(view -> {
+            holder.cardViewCategory.setCardBackgroundColor(context.getResources().getColor(R.color.black));
+            holder.categoryTxt.setTextColor(context.getResources().getColor(R.color.white));
 
-            }
         });
     }
 

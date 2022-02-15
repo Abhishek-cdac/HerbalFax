@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.customer.homescreen.group.Adaptor.AddPeopleListAdaptor;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -30,11 +29,6 @@ public class AddCommentsAdapter extends RecyclerView.Adapter<AddCommentsAdapter.
         picasso = Picasso.get();
     }
 
-    public static void setAdapter(AddPeopleListAdaptor addPeopleListAdaptor) {
-    }
-
-    public static void setLayoutManager(RecyclerView.LayoutManager recyclerViewLayoutManager) {
-    }
 
 
     @NonNull
@@ -42,7 +36,7 @@ public class AddCommentsAdapter extends RecyclerView.Adapter<AddCommentsAdapter.
     public AddCommentsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_people_comment_list, parent, false);
         mContext = parent.getContext();
-        return new AddCommentsAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -66,7 +60,7 @@ public class AddCommentsAdapter extends RecyclerView.Adapter<AddCommentsAdapter.
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView userImg;
         TextView userName, userComments;
 

@@ -1,17 +1,15 @@
 package com.herbal.herbalfax.common_screen.selectiontype;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
@@ -53,20 +51,6 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
             binding.customerImg.setImageResource(R.drawable.ic_customer_white);
             binding.vendorImg.setImageResource(R.drawable.ic_vendor_black);
 
-/*
-
-            @SuppressLint("UseCompatLoadingForDrawables")
-            Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_baseline_list_24);
-            img.setBounds(0, 0, 60, 60);
-            binding.customerImg.setImageResource(img, null, null, null);
-
-            Drawable img1 = getApplicationContext().getResources().getDrawable(R.drawable.ic_icon_menu_map_pin_black);
-            img1.setBounds(0, 0, 60, 60);
-            mapView.setCompoundDrawables(img1, null, null, null);
-*/
-
-
-            //            binding.sellerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
             binding.checkboxCustomer.setVisibility(View.VISIBLE);
             binding.checkboxSeller.setVisibility(View.GONE);
             binding.continueButton.setEnabled(true);
@@ -77,8 +61,6 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
             binding.vendorLayout.setBackground(ContextCompat.getDrawable(RegistrationSelectionActivity.this,R.drawable.bg_roundrect_green));
             binding.customerTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
             binding.VendorTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-//            binding.customerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-//            binding.sellerCard.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
             binding.customerImg.setImageResource(R.drawable.ic_customer_black);
             binding.vendorImg.setImageResource(R.drawable.ic_vendor_white);
             binding.accCust.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.black));
@@ -94,7 +76,6 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
             if (selectedType == -1) {
                 clsCommon.showDialogMsg(RegistrationSelectionActivity.this, "HerbalFax", "Please select type", "Ok");
             } else {
-                String userType;
                 Intent intent = new Intent(RegistrationSelectionActivity.this, SignUpAsCustomerActivity.class);
                 intent.putExtra("selectedType", selectedType);
                 // intent.putExtra("selectedType", selectedType == 0 ? "customer" : selectedType == 1 ? "seller" );

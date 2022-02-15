@@ -1,7 +1,7 @@
 package com.herbal.herbalfax.common_screen.landingpage.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHolder> {
 
     ArrayList<Interest> lst_int;
-    ArrayList<Interest> lst_intFilter;
+
     Context mContext;
     private final Picasso picasso;
 
@@ -36,9 +36,10 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
     public TrendingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trending_item, parent, false);
         mContext = parent.getContext();
-        return new TrendingAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TrendingAdapter.ViewHolder holder, int position) {
 
@@ -67,7 +68,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView headingTxt, subHeadingTxt, timeTxt, personTxt;
         ImageView imgProfile;
 

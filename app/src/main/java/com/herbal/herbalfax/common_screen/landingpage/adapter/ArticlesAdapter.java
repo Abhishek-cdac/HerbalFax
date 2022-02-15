@@ -39,20 +39,25 @@ public class ArticlesAdapter  extends RecyclerView.Adapter<ArticlesAdapter.ViewH
 
     @Override
     public void onBindViewHolder(@NonNull ArticlesAdapter.ViewHolder holder, int position) {
-        if (position == 0) {
+        if( position == 0) {
+            holder.nameArticle.setText("All");
+            picasso.load(R.drawable.all)
+                    .into(holder.articleImg);
+        }
+       else if (position == 1) {
 
             holder.nameArticle.setText("News");
             picasso.load(R.drawable.newspaper)
                     .into(holder.articleImg);
-        } else if( position == 1) {
+        } else if( position == 2) {
             holder.nameArticle.setText("Fashion");
             picasso.load(R.drawable.fashion)
                     .into(holder.articleImg);
-        }else if( position == 2) {
+        }else if( position == 3) {
             holder.nameArticle.setText("sports");
             picasso.load(R.drawable.football)
                     .into(holder.articleImg);
-        }else if( position == 3) {
+        }else if( position == 4) {
             holder.nameArticle.setText("Technology");
             picasso.load(R.drawable.technology)
                     .into(holder.articleImg);
@@ -61,7 +66,7 @@ public class ArticlesAdapter  extends RecyclerView.Adapter<ArticlesAdapter.ViewH
 
     @Override
     public int getItemCount() {
-        return 4;  // lst_intFilter.size();
+        return 5;  // lst_intFilter.size();
     }
 
 

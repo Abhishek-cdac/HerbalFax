@@ -71,7 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         userName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
         DOB.setText(pref.getStringVal(SessionPref.LoginUserbirthDate));
-        gendertype.setText(pref.getStringVal(SessionPref.LoginUsergender));
+      //gendertype.setText(pref.getStringVal(SessionPref.LoginUsergender));
         cityname.setText(pref.getStringVal(SessionPref.LoginUserCity));
         mailaddress.setText(pref.getStringVal(SessionPref.LoginUseremail));
         profileCategory.setText(pref.getStringVal(SessionPref.LoginProfession));

@@ -283,5 +283,8 @@
 
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="sign_up_here">Sign up here</string>
+    <string name="new_user_join_now">NEW USER? JOIN NOW</string>
+    <string name="today_s_deal">Today’s Deal</string>
 
 </resources>

@@ -1,8 +1,6 @@
 package com.herbal.herbalfax.common_screen.landingpage.events.addevent;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -15,7 +13,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,7 +29,6 @@ import com.herbal.herbalfax.common_screen.landingpage.events.eventlist.EventsDet
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.placepicker.GooglePlacePickerActivity;
-import com.herbal.herbalfax.databinding.ActivityAddEventBinding;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -55,7 +51,6 @@ import retrofit2.Response;
 
 public class AddEventActivity extends AppCompatActivity {
     CommonClass clsCommon;
-    private ActivityAddEventBinding binding;
 
     final Calendar myCalendar = Calendar.getInstance();
     Bitmap bitmap = null;
@@ -74,7 +69,7 @@ public class AddEventActivity extends AppCompatActivity {
 
         clsCommon = new CommonClass();
         AddEventViewModel addEventViewModel = new AddEventViewModel();
-        binding = DataBindingUtil.setContentView(AddEventActivity.this, R.layout.activity_add_event);
+        com.herbal.herbalfax.databinding.ActivityAddEventBinding binding = DataBindingUtil.setContentView(AddEventActivity.this, R.layout.activity_add_event);
         binding.setLifecycleOwner(this);
         binding.setAddEventViewModel(addEventViewModel);
         eventDate = findViewById(R.id.eventDate);
@@ -126,16 +121,7 @@ public class AddEventActivity extends AppCompatActivity {
 
             // Launch Time Picker Dialog
             TimePickerDialog timePickerDialog = new TimePickerDialog(AddEventActivity.this,
-                    new TimePickerDialog.OnTimeSetListener() {
-
-                        @SuppressLint("SetTextI18n")
-                        @Override
-                        public void onTimeSet(TimePicker view, int hourOfDay,
-                                              int minute) {
-
-                            eventTimeEdt.setText(hourOfDay + ":" + minute);
-                        }
-                    }, mHour, mMinute, false);
+                    (view1, hourOfDay, minute) -> eventTimeEdt.setText(hourOfDay + ":" + minute), mHour, mMinute, false);
             timePickerDialog.show();
         });
         addEventViewModel.getAddEvents().observe(this, addEvents -> {
@@ -272,8 +258,7 @@ public class AddEventActivity extends AppCompatActivity {
             }
 
 
-            if (requestCode == GooglePlacePickerActivity.REQUEST_LOCATION && resultCode ==
-                    Activity.RESULT_OK) {
+            if (requestCode == GooglePlacePickerActivity.REQUEST_LOCATION) {
                 String placeName = data.getStringExtra("place");
                 android.util.Log.e("AddStoreActivity.....", "" + placeName);
                 String latLng = data.getStringExtra("latLng");

@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.herbal.herbalfax.R;
@@ -79,40 +80,29 @@ public class VerifyEmailActivity extends AppCompatActivity {
 
         resend = findViewById(R.id.resend);
         confirm_button = findViewById(R.id.confirm_button);
-        resend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                callResendOTP(emailStr);
+        resend.setOnClickListener(view -> callResendOTP(emailStr));
+        confirm_button.setOnClickListener(view -> {
 
 
-            }
-        });
-        confirm_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            String one = editText1.getText().toString();
+            String two = editText2.getText().toString();
+            String three = editText3.getText().toString();
+            String four = editText4.getText().toString();
 
+            String finalOTP = one + two + three + four;
+            Log.e("finalOTP", "" + finalOTP);
 
-                String one = editText1.getText().toString();
-                String two = editText2.getText().toString();
-                String three = editText3.getText().toString();
-                String four = editText4.getText().toString();
-
-                String finalOTP = one + two + three + four;
-                Log.e("finalOTP", "" + finalOTP);
-
-                if (finalOTP.equals(otpStr)) {
-                    Intent intent = new Intent(getApplicationContext(), CreateNewPasswordActivity.class);
-                    intent.putExtra("email", emailStr);
-                    intent.putExtra("otp", otpStr);
-                    startActivity(intent);
-                } else {
-                    clsCommon.showDialogMsg(VerifyEmailActivity.this, "HerbalFax", "Incorrect OTP", "Ok");
-
-                }
-
+            if (finalOTP.equals(otpStr)) {
+                Intent intent = new Intent(getApplicationContext(), CreateNewPasswordActivity.class);
+                intent.putExtra("email", emailStr);
+                intent.putExtra("otp", otpStr);
+                startActivity(intent);
+            } else {
+                clsCommon.showDialogMsg(VerifyEmailActivity.this, "HerbalFax", "Incorrect OTP", "Ok");
 
             }
+
+
         });
     }
 
@@ -128,12 +118,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
             text.setText(msg);
 
             Button dialogButton = (Button) dialog.findViewById(R.id.send_button1);
-            dialogButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });
+            dialogButton.setOnClickListener(v -> dialog.dismiss());
 
             dialog.show();
 
@@ -150,7 +135,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
         Call<ResendOTPModel> call = service.signupResendOtp(hashMap);
         call.enqueue(new Callback<ResendOTPModel>() {
             @Override
-            public void onResponse(Call<ResendOTPModel> call, Response<ResendOTPModel> response) {
+            public void onResponse(@NonNull Call<ResendOTPModel> call, @NonNull Response<ResendOTPModel> response) {
                 pd.cancel();
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -180,7 +165,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<ResendOTPModel> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResendOTPModel> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(VerifyEmailActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
@@ -190,7 +175,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
 
     public class PinTextWatcher implements TextWatcher {
 
-        private int currentIndex;
+        private final int currentIndex;
         private boolean isFirst = false, isLast = false;
         private String newTypedString = "";
 

@@ -14,16 +14,12 @@ import androidx.annotation.Nullable;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.blogs.BlogListAdapter;
-import com.herbal.herbalfax.customer.blogs.NewsAdapter;
-import com.herbal.herbalfax.customer.homescreen.feed.FeedAdapter;
 
 public class BlogsBottomSheet extends BottomSheetDialogFragment {
-    private final BlogListAdapter blogListAdapter;
     private final int index;
 
 
     public BlogsBottomSheet(BlogListAdapter blogListAdapter, int adapterPosition) {
-        this.blogListAdapter = blogListAdapter;
         this.index = adapterPosition;
     }
 
@@ -33,8 +29,6 @@ public class BlogsBottomSheet extends BottomSheetDialogFragment {
         View view;
 
         view = inflater.inflate(R.layout.frag_blogs_bottom_sheet, container, false);
-//      setStyle(STYLE_NORMAL, R.style.BottomSheet);
-
         TextView todayDeal_txt, deal_heading_txt, bought_txt, address_txt, validity_txt;
         ImageView deal_Img;
         Button dealPrice_btn;
@@ -51,24 +45,12 @@ public class BlogsBottomSheet extends BottomSheetDialogFragment {
             // ref.onGallerySelect();
             dismiss();
         });
-        deal_heading_txt.setOnClickListener(v -> {
-            dismiss();
-        });
-        address_txt.setOnClickListener(v -> {
-            dismiss();
-        });
-        bought_txt.setOnClickListener(v -> {
-            dismiss();
-        });
-        validity_txt.setOnClickListener(v -> {
-            dismiss();
-        });
-        deal_Img.setOnClickListener(v -> {
-            dismiss();
-        });
-        dealPrice_btn.setOnClickListener(v -> {
-            dismiss();
-        });
+        deal_heading_txt.setOnClickListener(v -> dismiss());
+        address_txt.setOnClickListener(v -> dismiss());
+        bought_txt.setOnClickListener(v -> dismiss());
+        validity_txt.setOnClickListener(v -> dismiss());
+        deal_Img.setOnClickListener(v -> dismiss());
+        dealPrice_btn.setOnClickListener(v -> dismiss());
 
         return view;
     }

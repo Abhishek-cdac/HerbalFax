@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +41,7 @@ public class BlogDetailsActivity extends AppCompatActivity {
     LinearLayoutManager HorizontalLayout;
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
     BlogDetailsAdapter blogDetailsAdapter;
-    ImageView reportImg, BlogImg, backBtn, imgprofile;
+    ImageView reportImg, BlogImg, backBtn, imgProfile;
     TextView title, desc, userNameTxt, professionNameTxt;
     TextView upTxt, downTxt;
 
@@ -58,7 +59,7 @@ public class BlogDetailsActivity extends AppCompatActivity {
         BlogDetailRecyclerview = findViewById(R.id.BlogDetailRecyclerview);
 
         reportImg = findViewById(R.id.reportImg);
-        imgprofile = findViewById(R.id.imgprofile);
+        imgProfile = findViewById(R.id.imgprofile);
         userNameTxt = findViewById(R.id.userNameTxt);
         professionNameTxt = findViewById(R.id.professionNameTxt);
 
@@ -69,12 +70,7 @@ public class BlogDetailsActivity extends AppCompatActivity {
         title = findViewById(R.id.title);
         desc = findViewById(R.id.desc);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backBtn.setOnClickListener(view -> onBackPressed());
 
 
         try {
@@ -86,18 +82,7 @@ public class BlogDetailsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         callBlogDetailsApi(blogId);
-        upTxt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callLikeBlogsAPI(blogId, "1");
-            }
-        });downTxt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callLikeBlogsAPI(blogId, "0");
-
-            }
-        });
+        upTxt.setOnClickListener(view -> callLikeBlogsAPI(blogId, "1"));downTxt.setOnClickListener(view -> callLikeBlogsAPI(blogId, "0"));
 
     }
     private void callLikeBlogsAPI(String blogId, String status) {
@@ -115,12 +100,12 @@ public class BlogDetailsActivity extends AppCompatActivity {
         Call<CommonResponse> call = service.userBlogAddLike("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
+            public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
                 callBlogDetailsApi(blogId);
             }
 
             @Override
-            public void onFailure(Call<CommonResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<CommonResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -139,7 +124,7 @@ public class BlogDetailsActivity extends AppCompatActivity {
         Call<BlogsDetailResponse> call = service.userGetBlogView("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<BlogsDetailResponse>() {
             @Override
-            public void onResponse(Call<BlogsDetailResponse> call, Response<BlogsDetailResponse> response) {
+            public void onResponse(@NonNull Call<BlogsDetailResponse> call, @NonNull Response<BlogsDetailResponse> response) {
 
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -164,11 +149,11 @@ public class BlogDetailsActivity extends AppCompatActivity {
                                     .into(BlogImg);
                             if (blog.getuProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                                 Picasso.get().load(R.drawable.profileimg)
-                                        .into(imgprofile);
+                                        .into(imgProfile);
                             }
                             else {
                                 Picasso.get() .load(blog.getuProPic())
-                                        .into(imgprofile);
+                                        .into(imgProfile);
                             }
 
                             if (blog.getIsReport().equals("1")) {
@@ -176,8 +161,6 @@ public class BlogDetailsActivity extends AppCompatActivity {
                             } else {
                                reportImg.setImageResource(R.drawable.ic_icon_report_flag);
                             }
-
-
                             upTxt.setText(blog.getBlogCountYes());
                             downTxt.setText(blog.getBlogCountNo());
 
@@ -187,15 +170,9 @@ public class BlogDetailsActivity extends AppCompatActivity {
                             HorizontalLayout = new LinearLayoutManager(BlogDetailsActivity.this, LinearLayoutManager.VERTICAL, false);
                             BlogDetailRecyclerview.setLayoutManager(HorizontalLayout);
                             BlogDetailRecyclerview.setAdapter(blogDetailsAdapter);
-
-
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
-
-                    } else {
-                        //   clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }
                 } else {
                     try {
@@ -211,7 +188,7 @@ public class BlogDetailsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<BlogsDetailResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<BlogsDetailResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
 
                 Toast.makeText(getApplicationContext(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();

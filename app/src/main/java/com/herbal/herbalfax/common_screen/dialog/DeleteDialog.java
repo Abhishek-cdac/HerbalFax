@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
@@ -91,11 +93,10 @@ public class DeleteDialog extends Dialog implements android.view.View.OnClickLis
         Call<CommonResponse> call = service.vendorProductDelete("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
+            public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
-
                         Log.e("ProductId data success ", "" + productId);
 
                     }
@@ -112,7 +113,7 @@ public class DeleteDialog extends Dialog implements android.view.View.OnClickLis
             }
 
             @Override
-            public void onFailure(@NotNull Call<CommonResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<CommonResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(c, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }

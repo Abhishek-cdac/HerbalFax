@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -13,8 +13,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="#FFFFF"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#EFEFEF">
 
         <LinearLayout
             android:id="@+id/headeradd"
@@ -31,13 +31,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="@dimen/_15sdp"
-                android:src="@drawable/ic_icon_arrow_left_white" />
+                android:src="@drawable/ic_icon_arrow_left_white"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/headerTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center|left"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_weight=".8"
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center_vertical"
@@ -74,7 +76,7 @@
             android:layout_marginEnd="@dimen/_15sdp"
 
             android:layout_marginRight="@dimen/_15sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:background="@drawable/rect_button_whiteeeee"
             android:drawableLeft="@drawable/ic_search_icon"
             android:drawablePadding="@dimen/_5sdp"
@@ -90,10 +92,10 @@
             android:id="@+id/ll_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/_15sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_below="@id/searchcv"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:weightSum="1">
 
             <TextView
@@ -171,7 +173,7 @@
             android:layout_below="@+id/ll_head"
             android:layout_marginBottom="@dimen/_40sdp"
             android:scrollbars="vertical"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <androidx.core.widget.NestedScrollView
 
@@ -187,16 +189,16 @@
 
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/selectfashion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:paddingVertical="@dimen/_12sdp"
+                    android:padding="@dimen/_5sdp"
                     android:text="Select Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
@@ -205,19 +207,19 @@
                     android:id="@+id/category"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_below="@id/selectfashion"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
-                    android:layout_below="@id/selectfashion"
                     android:layout_marginBottom="10dp"
                     android:elevation="2dp"
-                    app:cardElevation="@dimen/_2sdp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/_2sdp">
 
                     <EditText
                         android:id="@+id/categoryEdt"
-
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_10sdp"
                         android:background="@drawable/rect_button"
                         android:fontFamily="@font/raleway_regular"
                         android:hint="Select Category"
@@ -251,10 +253,10 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:paddingVertical="@dimen/_12sdp"
+                    android:padding="@dimen/_5sdp"
                     android:text="Add Title"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
@@ -268,8 +270,8 @@
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
                     android:elevation="2dp"
-                    app:cardElevation="@dimen/_2sdp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/_2sdp">
 
 
                     <EditText
@@ -295,29 +297,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:paddingVertical="@dimen/_12sdp"
+                        android:fontFamily="@font/raleway_medium"
                         android:text="Add Url"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/_43sdp"
-                        android:padding="@dimen/_15sdp"
-                        android:src="@drawable/ic_icon_open_link_intact" />
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
-
                         android:layout_marginEnd="@dimen/_15sdp"
+                        android:drawableLeft="@drawable/ic_icon_open_link_intact"
+                        android:drawablePadding="@dimen/_10sdp"
                         android:fontFamily="@font/raleway_medium"
-                        android:paddingVertical="@dimen/_12sdp"
                         android:text="optional"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp" />
@@ -334,8 +328,8 @@
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
                     android:elevation="2dp"
-                    app:cardElevation="@dimen/_2sdp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/_2sdp">
 
                     <EditText
                         android:layout_width="match_parent"
@@ -362,9 +356,9 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
+                    android:elevation="2dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_5sdp"
-                    android:elevation="2dp"
                     app:cardElevation="@dimen/_2sdp"
                     app:cardPreventCornerOverlap="false">
 
@@ -407,10 +401,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/upload"
-                    android:layout_marginTop="0dp"
-                    android:fontFamily="@font/raleway_medium"
                     android:layout_marginStart="@dimen/_15sdp"
-                    android:paddingVertical="@dimen/_12sdp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/raleway_medium"
                     android:text="Description"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
@@ -425,8 +418,8 @@
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
                     android:elevation="2dp"
-                    app:cardElevation="@dimen/_2sdp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/_2sdp">
 
                     <EditText
                         android:layout_width="match_parent"
@@ -475,10 +468,10 @@
                     android:id="@+id/savebtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_below="@id/txt"
-                    android:layout_marginTop="@dimen/_10sdp">
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp">
 
                     <TextView
                         android:id="@+id/save"

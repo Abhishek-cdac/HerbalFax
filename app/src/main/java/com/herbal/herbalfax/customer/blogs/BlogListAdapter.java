@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.ViewHolder> {
 
     ArrayList<Blog> lst_int;
-    ArrayList<Blog> lst_intFilter;
+
     Context mContext;
     private final Picasso picasso;
     private final Onclick itemClick;
@@ -76,52 +76,46 @@ public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.ViewHo
         }
 
 
-        holder.reportLl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (lst_int.get(position).getIsReport().equals("1")) {
-                    lst_int.get(position).setIsReport("0");
-                    holder.reportImg.setImageResource(R.drawable.ic_icon_report_flag);
-                    notifyItemChanged(position);
-                    itemClick.onItemClicks(view, position, 1, blogId, "0");
-                    //  callAddToFavAPI(postId);
-                } else if (lst_int.get(position).getIsReport().equals("0")) {
-                    holder.reportImg.setImageResource(R.drawable.ic_flag_green); //ic_icon_report_flag
-                    lst_int.get(position).setIsReport("1");
-                    notifyItemChanged(position);
-                    itemClick.onItemClicks(view, position, 1, blogId, "1");
+        holder.reportLl.setOnClickListener(view -> {
+            if (lst_int.get(position).getIsReport().equals("1")) {
+                lst_int.get(position).setIsReport("0");
+                holder.reportImg.setImageResource(R.drawable.ic_icon_report_flag);
+                notifyItemChanged(position);
+                itemClick.onItemClicks(view, position, 1, blogId, "0");
+                //  callAddToFavAPI(postId);
+            } else if (lst_int.get(position).getIsReport().equals("0")) {
+                holder.reportImg.setImageResource(R.drawable.ic_flag_green); //ic_icon_report_flag
+                lst_int.get(position).setIsReport("1");
+                notifyItemChanged(position);
+                itemClick.onItemClicks(view, position, 1, blogId, "1");
 
-                    //callAddToFavAPI(postId);
-                }
-
-                //  itemClick.onItemClicks(view, position, 1, blogId, "1");
+                //callAddToFavAPI(postId);
             }
+
+            //  itemClick.onItemClicks(view, position, 1, blogId, "1");
         });
         if (lst_int.get(position).getIsFav().equals("1")) {
-            holder.likeheart.setImageResource(R.drawable.ic_icon_heart);
+            holder.likeHeart.setImageResource(R.drawable.ic_icon_heart);
         } else {
-            holder.likeheart.setImageResource(R.drawable.ic_icon_heart_border);
+            holder.likeHeart.setImageResource(R.drawable.ic_icon_heart_border);
         }
 
-        holder.likeLl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (lst_int.get(position).getIsFav().equals("1")) {
-                    lst_int.get(position).setIsFav("0");
-                    holder.likeheart.setImageResource(R.drawable.ic_icon_heart_border);
-                    notifyItemChanged(position);
-                    itemClick.onItemClicks(view, position, 2, blogId );
-                    //  callAddToFavAPI(postId);
-                } else if (lst_int.get(position).getIsFav().equals("0")) {
-                    holder.likeheart.setImageResource(R.drawable.ic_icon_heart);
-                    lst_int.get(position).setIsFav("1");
-                    notifyItemChanged(position);
-                    itemClick.onItemClicks(view, position, 2, blogId );
-
-                }
-
+        holder.likeLl.setOnClickListener(view -> {
+            if (lst_int.get(position).getIsFav().equals("1")) {
+                lst_int.get(position).setIsFav("0");
+                holder.likeHeart.setImageResource(R.drawable.ic_icon_heart_border);
+                notifyItemChanged(position);
+                itemClick.onItemClicks(view, position, 2, blogId );
+                //  callAddToFavAPI(postId);
+            } else if (lst_int.get(position).getIsFav().equals("0")) {
+                holder.likeHeart.setImageResource(R.drawable.ic_icon_heart);
+                lst_int.get(position).setIsFav("1");
+                notifyItemChanged(position);
+                itemClick.onItemClicks(view, position, 2, blogId );
 
             }
+
+
         });
 
 
@@ -136,7 +130,7 @@ public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView headingTxt, subHeadingTxt, timeTxt, personTxt;
-        ImageView imgProfile, reportImg, likeheart;
+        ImageView imgProfile, reportImg, likeHeart;
         CardView readMoreCardview;
         LinearLayout likeLl, reportLl, ll_newsrecylcer;
 
@@ -144,7 +138,7 @@ public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            likeheart = itemView.findViewById(R.id.likeheart);
+            likeHeart = itemView.findViewById(R.id.likeheart);
             reportImg = itemView.findViewById(R.id.reportImg);
             imgProfile = itemView.findViewById(R.id.imgprofile);
             readMoreCardview = itemView.findViewById(R.id.readMoreCardview);

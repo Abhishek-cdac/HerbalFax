@@ -36,7 +36,6 @@ import retrofit2.Response;
 public class BlogsActivity extends AppCompatActivity {
     BlogsCategoryAdapter blogsCategoryAdapter;
     RecyclerView articleRecyclerview, SubHeadingRecyclerview;
-    private ArrayList<BlogCategory> lst_blog;
     BlogListAdapter blogListAdapter;
     private CommonClass clsCommon;
     String categoryId;
@@ -53,12 +52,7 @@ public class BlogsActivity extends AppCompatActivity {
         articleRecyclerview = findViewById(R.id.articleRecyclerview);
         SubHeadingRecyclerview = findViewById(R.id.SubHeadingRecyclerview);
         backImg = findViewById(R.id.backImg);
-        backImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backImg.setOnClickListener(view -> onBackPressed());
         clsCommon = CommonClass.getInstance();
         callGetAllBlogsCategoryAPI();
         callGetAllBlogsAPI("");
@@ -104,13 +98,7 @@ public class BlogsActivity extends AppCompatActivity {
 
                 if (response.code() == 200) {
                     assert response.body() != null;
-                    if (response.body().getStatus() == 1) {
-
-                        assert response.body() != null;
-
-                    } else {
-                        //   clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
-                    }
+                    assert response.body().getStatus() != 1 || response.body() != null;
                 }
 
 
@@ -153,8 +141,6 @@ public class BlogsActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Reported Successfully", Toast.LENGTH_SHORT).show();
                         }
 
-                    } else {
-                        //   clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }
                 }
 
@@ -199,9 +185,8 @@ public class BlogsActivity extends AppCompatActivity {
                         }
 
 
-                    } else {
-                        //   clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }
+
                 }
 
 

@@ -1,11 +1,9 @@
 package com.herbal.herbalfax.customer.bottomsheet;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,21 +42,11 @@ public class MoreBottomSheet extends BottomSheetDialogFragment {
            // ref.onGallerySelect();
             dismiss();
         });
-        txt_copyLink.setOnClickListener(v -> {
-            dismiss();
-        });
-        txt_shareTo.setOnClickListener(v -> {
-            dismiss();
-        });
-        txt_report.setOnClickListener(v -> {
-            dismiss();
-        });
-        txt_turnOnNotification.setOnClickListener(v -> {
-            dismiss();
-        });
-        txt_unfollow.setOnClickListener(v -> {
-            dismiss();
-        });
+        txt_copyLink.setOnClickListener(v -> dismiss());
+        txt_shareTo.setOnClickListener(v -> dismiss());
+        txt_report.setOnClickListener(v -> dismiss());
+        txt_turnOnNotification.setOnClickListener(v -> dismiss());
+        txt_unfollow.setOnClickListener(v -> dismiss());
 
         return view;
     }
