@@ -23,7 +23,6 @@ import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.SpacesItemDecoration;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.products.adapter.CustomerProductListAdapter;
-import com.herbal.herbalfax.customer.homescreen.products.toprated.TopRatedActivity;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.util.CommonUtils;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.ProductListResponse;
