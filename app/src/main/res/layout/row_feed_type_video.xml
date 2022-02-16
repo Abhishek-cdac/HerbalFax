@@ -29,8 +29,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profileImg"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_44sdp"
+                    android:layout_height="@dimen/_44sdp"
                     android:backgroundTint="@color/green"
                     android:src="@color/green" />
 
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/green"
                     android:fontFamily="@font/raleway_semibold"
-                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="M"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14sdp"
@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight="1"
+                android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <TextView

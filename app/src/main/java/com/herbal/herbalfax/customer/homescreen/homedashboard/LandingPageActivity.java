@@ -171,13 +171,13 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(bottomNavView, navController);
 
-        View headerview = navigationView.getHeaderView(0);
-        ImageView closeImg = headerview.findViewById(R.id.closeImg);
-        CardView editBTn = headerview.findViewById(R.id.editBTn);
+        View headerView = navigationView.getHeaderView(0);
+        ImageView closeImg = headerView.findViewById(R.id.closeImg);
+        CardView editBTn = headerView.findViewById(R.id.editBTn);
 
-        TextView profileName = headerview.findViewById(R.id.userName);
-        TextView professionTv = headerview.findViewById(R.id.professionTv);
-        LinearLayout nav_headerMAin = headerview.findViewById(R.id.nav_headerMAin);
+        TextView profileName = headerView.findViewById(R.id.userName);
+        TextView professionTv = headerView.findViewById(R.id.professionTv);
+        LinearLayout nav_headerMAin = headerView.findViewById(R.id.nav_headerMAin);
         profileName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
         // professionTv.setText();
         nav_headerMAin.setOnClickListener(view -> {
@@ -200,7 +200,6 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                 finish();
 
             } else if (id == R.id.nav_gallery) {
-
                 //   ReplaceFrag(new NearByStoreFragment());
             }
             drawer.closeDrawer(GravityCompat.START);
@@ -322,15 +321,15 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
 /*
+
+
             case R.id.action_notification:
                 Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
                 startActivity(intent);
                 return true;
 */
-
             case R.id.action_map:
                 //   ReplaceFrag(new NearByStoreFragment());
-
                 //    Intent intent1 = new Intent(getApplicationContext(), EventsDetailsActivity.class);
                 //EditProfileActivity.class);
                 Intent intent1 = new Intent(getApplicationContext(), NearByActivity.class);
