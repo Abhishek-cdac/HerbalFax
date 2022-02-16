@@ -12,6 +12,7 @@ public class AddEventViewModel extends ViewModel {
     }
 
     public MutableLiveData<AddEvents> userMutableLiveData;
+    public MutableLiveData<Boolean> CancelClick = new MutableLiveData<>();
 
     public MutableLiveData<String> eventName = new MutableLiveData<>();
     public MutableLiveData<String> eventDate = new MutableLiveData<>();
@@ -59,13 +60,21 @@ public class AddEventViewModel extends ViewModel {
         userMutableLiveData.setValue(user);
     }
   public void onClickCancelEvent(View view) {
-
+      {
+          CancelClick.setValue(true);
+      }
     }
 
 
     public void clearFileds() {
         user = new AddEvents("", "", "", "", "");
         userMutableLiveData.setValue(user);
+
+    }
+
+    public MutableLiveData<Boolean> OnCancelClick() {
+
+        return CancelClick;
 
     }
 

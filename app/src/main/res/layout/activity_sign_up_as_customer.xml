@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -59,7 +60,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -68,14 +69,15 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
 
-                    app:cardPreventCornerOverlap="false">
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_person"
                         android:drawablePadding="@dimen/_5sdp"
@@ -106,7 +108,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -115,14 +117,16 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
 
-                    app:cardPreventCornerOverlap="false">
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
                         android:id="@+id/birthday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_calendar"
                         android:drawablePadding="@dimen/_5sdp"
@@ -196,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/selectProfession"
@@ -206,7 +210,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -215,15 +219,16 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
 
-                    app:cardPreventCornerOverlap="false">
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
                         android:id="@+id/professionedt"
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:clickable="true"
                         android:drawableEnd="@drawable/ic_arrow_down"
@@ -256,7 +261,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -265,14 +270,15 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
 
-                    app:cardPreventCornerOverlap="false">
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
                         android:layout_width="match_parent"
-
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_building"
                         android:drawablePadding="@dimen/_5sdp"
@@ -301,7 +307,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -310,14 +316,15 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
 
-                    app:cardPreventCornerOverlap="false">
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
                         android:layout_width="match_parent"
-
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_zipcode"
                         android:drawablePadding="@dimen/_5sdp"
@@ -347,7 +354,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -356,14 +363,15 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
-                    app:cardPreventCornerOverlap="false">
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
                         android:id="@+id/login_email"
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_person_icon"
                         android:drawablePadding="@dimen/_5sdp"
@@ -397,8 +405,8 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="34dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_6sdp"
@@ -407,8 +415,9 @@
                         android:dividerHeight="0.0px"
                         android:elevation="@dimen/_2sdp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="2dp"
-                        app:cardPreventCornerOverlap="false">
+                        app:cardCornerRadius="@dimen/_23sdp"
+                        app:cardPreventCornerOverlap="false"
+                        card_view:cardElevation="@dimen/_12sdp">
 
 
                         <Spinner
@@ -417,7 +426,7 @@
                             style="@style/Spinner"
                             android:layout_width="@dimen/_40sdp"
                             android:layout_height="match_parent"
-
+                            android:layout_gravity="center"
                             android:background="@drawable/rect_button"
                             android:drawSelectorOnTop="true"
                             android:dropDownVerticalOffset="-53dp"
@@ -431,7 +440,7 @@
                     <androidx.cardview.widget.CardView
 
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
@@ -439,17 +448,17 @@
                         android:clipToPadding="false"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_2sdp"
+                        android:elevation="@dimen/_12sdp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="2dp"
+                        app:cardCornerRadius="@dimen/_23sdp"
+                        app:cardPreventCornerOverlap="false"
 
-                        app:cardPreventCornerOverlap="false">
+                        card_view:cardElevation="@dimen/_12sdp">
 
                         <EditText
-
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:background="@drawable/rect_button"
                             android:drawableEnd="@drawable/ic_icon_mobile"
                             android:drawablePadding="@dimen/_5sdp"
@@ -461,7 +470,7 @@
                             android:textColor="@color/text_grey"
                             android:textColorHint="@color/text_grey"
                             android:textSize="@dimen/_12sdp" />
-                        -->
+
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
@@ -483,7 +492,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -492,14 +501,16 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
 
-                    app:cardPreventCornerOverlap="false">
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
                         android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_lock_icon"
                         android:drawablePadding="@dimen/_5sdp"
@@ -528,7 +539,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -537,15 +548,16 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="2dp"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
 
-                    app:cardPreventCornerOverlap="false">
+                    card_view:cardElevation="@dimen/_12sdp">
 
                     <EditText
-
                         android:id="@+id/confirm_Password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/rect_button"
                         android:drawableEnd="@drawable/ic_lock_icon"
                         android:drawablePadding="@dimen/_5sdp"
@@ -571,11 +583,9 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/_5sdp"
-
-                    app:cardElevation="2dp"
-
-                    app:cardPreventCornerOverlap="false">
+                    app:cardCornerRadius="@dimen/_15sdp"
+                    app:cardPreventCornerOverlap="false"
+                    card_view:cardElevation="@dimen/_12sdp">
 
 
                     <LinearLayout
@@ -687,7 +697,7 @@
 
                 <Button
                     android:id="@+id/signup_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="@dimen/_5sdp"
@@ -696,8 +706,8 @@
                     android:elevation="@dimen/_15sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:onClick="@{(v) -> SignUpAsCustomerViewModel.onClickRegister(v)}"
+                    android:paddingHorizontal="@dimen/_40sdp"
                     android:text="@string/signup"
-
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_12sdp" />
 
@@ -707,8 +717,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:paddingTop="@dimen/_30sdp"
-                    android:paddingBottom="@dimen/_30sdp">
+                    android:paddingVertical="@dimen/_20sdp">
 
                     <TextView
                         android:layout_width="wrap_content"

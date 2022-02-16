@@ -124,6 +124,10 @@ public class AddEventActivity extends AppCompatActivity {
                     (view1, hourOfDay, minute) -> eventTimeEdt.setText(hourOfDay + ":" + minute), mHour, mMinute, false);
             timePickerDialog.show();
         });
+
+        addEventViewModel.OnCancelClick().observe(this, addEvents -> {
+            onBackPressed();
+    });
         addEventViewModel.getAddEvents().observe(this, addEvents -> {
 
 
@@ -191,8 +195,8 @@ public class AddEventActivity extends AppCompatActivity {
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("EventImage", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-      //  Call<AddEventResponse> call = service.userEventCreate("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
-        Call<AddEventResponse> call = service.userEventCreate("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), eventName,eventDate,eventTime,eventDay ,eventLat,eventLong,eventDesc,eventAddress, filePart);
+        //  Call<AddEventResponse> call = service.userEventCreate("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
+        Call<AddEventResponse> call = service.userEventCreate("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), eventName, eventDate, eventTime, eventDay, eventLat, eventLong, eventDesc, eventAddress, filePart);
         call.enqueue(new Callback<AddEventResponse>() {
             @Override
             public void onResponse(@NonNull Call<AddEventResponse> call, @NonNull Response<AddEventResponse> response) {

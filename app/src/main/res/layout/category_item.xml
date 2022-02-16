@@ -11,19 +11,20 @@
    card_view:cardBackgroundColor="@color/white"
     card_view:cardCornerRadius="@dimen/_20sdp"
     card_view:cardElevation="4dp"
+
     card_view:contentPadding="8dp">
 
     <!--Text View over Card View-->
     <TextView
-        android:padding="@dimen/_2sdp"
         android:id="@+id/categoryTxt"
         android:gravity="center"
+        android:paddingHorizontal="@dimen/_10sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/text_grey"
         android:text="Shopping"
-        android:fontFamily="@font/raleway_regular"
+        android:fontFamily="@font/roboto_regular"
         android:textSize="15dp" />
 
 </androidx.cardview.widget.CardView>

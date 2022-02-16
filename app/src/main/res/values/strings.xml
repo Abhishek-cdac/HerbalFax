@@ -57,7 +57,7 @@
     <string name="mobileNumber">Mobile Number</string>
     <string name="uploadPic">Upload Profile Picture</string>
     <string name="uploadProfile">Update Profile</string>
-    <string name="termAndCon">I agree to term And Conditions</string>
+    <string name="termAndCon"><u>I agree to term And Conditions</u></string>
     <string name="signup">Sign Up</string>
     <string name="alreadyUser">Already User?</string>
 
@@ -99,9 +99,9 @@
     <string name="search_hint">Find Stores, Product &amp; Post</string>
     <string name="fruity">Find Fruity Cannabis</string>
     <string name="trending">Trending</string>
-    <string name="article">Article</string>
+    <string name="article">Articles</string>
     <string name="events">Events</string>
-    <string name="viewmore">View more</string>
+    <string name="viewmore">View More</string>
     <string name="photo">Photos</string>
 
     <string name="menu_feed">Feeds</string>

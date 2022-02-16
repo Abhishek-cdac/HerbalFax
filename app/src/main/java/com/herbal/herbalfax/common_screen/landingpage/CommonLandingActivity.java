@@ -276,11 +276,11 @@ public class CommonLandingActivity extends AppCompatActivity {
     public void AddItemsToRecyclerViewArrayList() {
         source = new ArrayList<>();
         source.add("All");
-        source.add("Map");
+        source.add("Maps");
         source.add("News");
         source.add("Shopping");
         source.add("Images");
-        source.add("Video");
+        source.add("Videos");
 
     }
 

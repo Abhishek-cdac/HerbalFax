@@ -54,11 +54,11 @@ public class ArticlesAdapter  extends RecyclerView.Adapter<ArticlesAdapter.ViewH
             picasso.load(R.drawable.fashion)
                     .into(holder.articleImg);
         }else if( position == 3) {
-            holder.nameArticle.setText("sports");
+            holder.nameArticle.setText("Sports");
             picasso.load(R.drawable.football)
                     .into(holder.articleImg);
         }else if( position == 4) {
-            holder.nameArticle.setText("Technology");
+            holder.nameArticle.setText("Tech");
             picasso.load(R.drawable.technology)
                     .into(holder.articleImg);
         }

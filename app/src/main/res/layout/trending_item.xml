@@ -33,7 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/profileimg" />
 
             </androidx.cardview.widget.CardView>
@@ -42,7 +42,7 @@
                 android:id="@+id/rlcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_toRightOf="@+id/imgcard">
 
                 <androidx.cardview.widget.CardView
@@ -61,14 +61,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/raleway_regular"
+                        android:fontFamily="@font/roboto_regular"
                         android:paddingTop="@dimen/_2sdp"
                         android:paddingBottom="@dimen/_2sdp"
-                        android:paddingRight="@dimen/_15sdp"
-                        android:paddingLeft="@dimen/_15sdp"
+                        android:paddingRight="@dimen/_20sdp"
+                        android:paddingLeft="@dimen/_20sdp"
                         android:text="Tutorial"
                         android:textColor="@color/white"
-                        android:textSize="8dp" />
+                        android:textSize="@dimen/_10sdp" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -95,26 +95,38 @@
                     android:layout_below="@+id/subHeadingTxt"
                     android:layout_marginBottom="@dimen/_2sdp">
 
-                    <TextView
-
-                        android:id="@+id/timeTxt"
+                    <LinearLayout
+                        android:id="@+id/llTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_icon_open_clock"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:fontFamily="@font/raleway_regular"
-                        android:maxLines="2"
+                        android:layout_alignParentEnd="false"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                        android:text="32 min ago"
-                        android:textColor="@color/black"
-                        android:textSize="10dp" />
+                        <ImageView
+                            android:layout_gravity="center"
 
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_icon_open_clock" />
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:id="@+id/timeTxt"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/raleway_regular"
+                            android:text="32 min ago"
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:layout_alignParentEnd="true"
-                        android:layout_toRightOf="@+id/timeTxt"
+                        android:layout_toRightOf="@+id/llTime"
                         android:gravity="end"
                         android:orientation="horizontal">
 
@@ -149,9 +161,9 @@
 
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_5sdp"
             android:background="#ababab">
 
         </View>
