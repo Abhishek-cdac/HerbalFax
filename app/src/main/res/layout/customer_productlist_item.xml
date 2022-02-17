@@ -111,8 +111,8 @@
                                 </androidx.cardview.widget.CardView>-->
                 <ImageView
                     android:id="@+id/likeImg"
-                    android:layout_width="@dimen/_40sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:layout_alignEnd="@+id/headingTxt"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/like_heart_grey"

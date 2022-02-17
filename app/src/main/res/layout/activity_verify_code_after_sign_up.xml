@@ -96,14 +96,14 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    card_view:cardElevation="8dp"
-
+                    card_view:cardElevation="12dp"
+app:cardCornerRadius="@dimen/_23sdp"
                     card_view:cardPreventCornerOverlap="false">
 
                     <EditText
                         android:id="@+id/login_email"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
+                        android:layout_height="@dimen/_45sdp"
                         android:background="@drawable/rect_button"
                         android:fontFamily="@font/poppins_regular"
                         android:hint="@string/entercode"
@@ -155,9 +155,10 @@
                 <Button
                     android:onClick="@{(v) -> VerifyCodeAfterSignUpViewModel.onClickConfirm(v)}"
                     android:id="@+id/confirm_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:paddingHorizontal="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
                     android:background="@drawable/rect_button_green"

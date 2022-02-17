@@ -53,7 +53,6 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
         emailStr = findViewById(R.id.emailStr);
 
 
-        Log.e("maskingEmail ", "" + maskingEmail);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             email = getIntent().getExtras().getString("Email");
@@ -62,9 +61,13 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
 
             Log.e("Email ", "" + email);
             Log.e("userId ", "" + userId);
+            Log.e("maskingEmail ", "" + maskingEmail);
+
+            emailStr.setText(maskingEmail);
+
         }
 
-        emailStr.setText(maskingEmail);
+
 
         verifyCodeAfterSignUpViewModel.getUser().observe(this, confirmOtp -> {
 

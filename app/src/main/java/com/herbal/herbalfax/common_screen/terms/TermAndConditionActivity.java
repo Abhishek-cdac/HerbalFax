@@ -3,6 +3,8 @@ package com.herbal.herbalfax.common_screen.terms;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ import retrofit2.Response;
 public class TermAndConditionActivity extends AppCompatActivity {
     TextView title, subTitle;
     private CommonClass clsCommon;
+    ImageView backImg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,14 @@ public class TermAndConditionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_term_and_condition);
         clsCommon = new CommonClass();
         title = findViewById(R.id.title);
+        backImg = findViewById(R.id.backImg);
         subTitle = findViewById(R.id.subtitle);
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         callTermAndConditionAPI();
     }
 

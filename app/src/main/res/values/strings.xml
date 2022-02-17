@@ -10,7 +10,7 @@
     <string name="login1">Login</string>
     <string name="send">Send</string>
 
-    <string name="forget_password">Forget Password?</string>
+    <string name="forget_password">Forgot Password?</string>
     <string name="resetPass">Reset Password</string>
     <string name="resetDummy">We just need your registered </string>
     <string name="resetDummy1">Email Address</string>
@@ -24,7 +24,7 @@
     <string name="confirm">CONFIRM</string>
 
     <string name="CreateNewPassword">Create New Password</string>
-    <string name="NewPassDummy">Your new password must be different from your previous used password</string>
+    <string name="NewPassDummy">Your New Password Must be Different from Previously Used Password</string>
     <string name="NewPassword">New Password</string>
     <string name="ConfirmPassword">Confirm Password</string>
     <string name="ResetPassword">Reset Password</string>
@@ -32,7 +32,7 @@
     <string name="confirmPassword_hint">Confirm your password</string>
 
     <string name="registration">Registration</string>
-    <string name="alreadyReg">Already registered? </string>
+    <string name="alreadyReg">Already Registered? </string>
     <string name="loginHere">Login here</string>
     <string name="continue1">Continue</string>
     <string name="Vendor">Vendor</string>
@@ -43,7 +43,7 @@
     <string name="verificationCodeDummy">We are sending verification code to this email id. Please recheck it before continue</string>
 
     <string name="editprofile">Edit Profile</string>
-    <string name="signupAsCustomer">Sign Up As Customer</string>
+    <string name="signupAsCustomer">Sign Up as Customer</string>
     <string name="name">Name</string>
     <string name="birthday">Birthday</string>
     <string name="gender">Gender</string>
@@ -57,7 +57,7 @@
     <string name="mobileNumber">Mobile Number</string>
     <string name="uploadPic">Upload Profile Picture</string>
     <string name="uploadProfile">Update Profile</string>
-    <string name="termAndCon"><u>I agree to term And Conditions</u></string>
+    <string name="termAndCon"><u>I agree to term and conditions</u></string>
     <string name="signup">Sign Up</string>
     <string name="alreadyUser">Already User?</string>
 
@@ -69,7 +69,7 @@
     <string name="zip_hint">Enter your zip code</string>
 
     <string name="EmailVerification">Email Verification</string>
-    <string name="VerifyEmailDummy"> Please enter your code we sent to </string>
+    <string name="VerifyEmailDummy"> please enter the code we sent to </string>
     <string name="VerifyDummyy">Her******@gmail.com</string>
     <string name="entercode">Enter code</string>
     <string name="enterEmail">Enter Email ID</string>
@@ -283,8 +283,8 @@
 
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
-    <string name="sign_up_here">Sign up here</string>
-    <string name="new_user_join_now">NEW USER? JOIN NOW</string>
+    <string name="sign_up_here"> Sign up here</string>
+    <string name="new_user_join_now">New User? Join Now</string>
     <string name="today_s_deal">Today’s Deal</string>
 
 </resources>
