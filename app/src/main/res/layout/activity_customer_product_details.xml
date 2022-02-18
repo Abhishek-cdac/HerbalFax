@@ -105,16 +105,18 @@
             app:sliderIndicatorOrientation="horizontal"
             app:sliderIndicatorPadding="3dp"
             app:sliderIndicatorRadius="2dp"
+
+
+
             app:sliderIndicatorSelectedColor="#5A5A5A"
             app:sliderIndicatorUnselectedColor="#FFF"
             app:sliderScrollTimeInSec="1" />
-
-
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            android:layout_marginBottom="-20dp"
             app:cardCornerRadius="@dimen/_20sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
