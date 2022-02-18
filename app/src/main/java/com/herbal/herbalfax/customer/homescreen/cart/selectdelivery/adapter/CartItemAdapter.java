@@ -29,8 +29,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.MyView
     public static class MyView extends RecyclerView.ViewHolder {
 
         TextView categoryTxt, cart_head, cart_price, cart_count;
-        CardView deleteCard;
-        ImageView productImg;
+//        CardView deleteCard;
+        ImageView productImg,deleteCard;
 
 
         public MyView(View view) {

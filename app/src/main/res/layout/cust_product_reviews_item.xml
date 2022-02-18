@@ -34,7 +34,7 @@
                 android:padding="@dimen/_2sdp"
                 android:text="Conroy's Mart"
                 android:textColor="@color/black"
-                android:textSize="12dp" />
+                android:textSize="14dp" />
 
             <LinearLayout
                 android:id="@+id/ratingLL"
