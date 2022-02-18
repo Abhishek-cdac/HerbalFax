@@ -96,7 +96,7 @@
         android:layout_marginBottom="@dimen/_20sdp"
         android:background="@drawable/rect_button_green"
         android:elevation="@dimen/_15sdp"
-        android:text="@string/confirm"
+        android:text="@string/continue1"
         android:textColor="@color/white"
         android:textSize="@dimen/_14sdp" />
 

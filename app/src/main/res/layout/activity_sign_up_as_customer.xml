@@ -193,6 +193,21 @@
                         android:text="@string/Other"
                         android:textColor="@color/text_grey"
                         app:buttonTint="@color/black" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rect_button"
+                        android:drawableEnd="@drawable/ic_building"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/city_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={SignUpAsCustomerViewModel.city}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_12sdp" />
                 </RadioGroup>
 
                 <TextView
@@ -274,21 +289,6 @@
                     app:cardPreventCornerOverlap="false"
 
                     card_view:cardElevation="@dimen/_12sdp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rect_button"
-                        android:drawableEnd="@drawable/ic_building"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/city_hint"
-                        android:padding="@dimen/_10sdp"
-                        android:text="@={SignUpAsCustomerViewModel.city}"
-                        android:textColor="@color/text_grey"
-                        android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -677,7 +677,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:buttonTint="@color/green"
-                        android:checked="true"
+                        android:checked="false"
                         android:shadowColor="@color/black" />
 
                     <TextView
