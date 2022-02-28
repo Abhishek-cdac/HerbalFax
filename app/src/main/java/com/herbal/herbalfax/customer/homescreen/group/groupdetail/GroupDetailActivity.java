@@ -18,17 +18,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.gms.common.internal.service.Common;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
-import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedAdapter;
-import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_CustomRecyclerView;
 import com.herbal.herbalfax.customer.homescreen.group.groupdetail.model.GroupDetailResponse;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.GetAllPostResponse;
@@ -54,7 +50,7 @@ public class GroupDetailActivity extends AppCompatActivity {
     TextView placeholder,headerTxt, groupTitle, groupCategory, memberCount, addPostTxt;
     ImageView back, img1, img2, img3, groupImg;
     private String GroupId;
-CommonClass clsCommon;
+    CommonClass clsCommon;
     FeedAdapter feedAdapter;
     Onclick itemClick;
 
@@ -170,7 +166,7 @@ CommonClass clsCommon;
         hashMap.put("offset", "0");
         hashMap.put("limit", "50");
         hashMap.put("search_key", "");
-  hashMap.put("GroupId", GroupId);
+        hashMap.put("GroupId", GroupId);
 
 
 

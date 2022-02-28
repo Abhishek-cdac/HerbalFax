@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:maxHeight="@dimen/_30sdp"
+    android:layout_height="@dimen/_50sdp">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_11sdp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/crossToolBarImage"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_menu" />
+
+            <TextView
+                android:id="@+id/headerTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/crossToolBarImage"
+                android:gravity="center"
+                android:text="@string/productdetail"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/headerIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/logo"
+                android:visibility="visible"></ImageView>
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/login_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end|center"
+            android:padding="@dimen/_5sdp">
+
+            <TextView
+                android:id="@+id/addQuestionTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:background="@drawable/rect_button_light_green"
+                android:drawableLeft="@drawable/ic_icon_plus_circle"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/CreateAskFax"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+            <TextView
+                android:id="@+id/createGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:background="@drawable/rect_button_light_green"
+                android:drawableLeft="@drawable/ic_icon_plus_circle"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Create Group"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+            <ImageView
+                android:id="@+id/searchIcon"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:visibility="visible"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/ic_baseline_search_24"/>
+
+            <ImageView
+                android:id="@+id/locationIcon"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:visibility="visible"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/ic_white_store"/>
+
+            <ImageView
+                android:id="@+id/cardIcon"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:visibility="visible"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/ic_cart_toolbar"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+</RelativeLayout>

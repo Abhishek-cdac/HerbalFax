@@ -9,6 +9,10 @@
     <string name="Password">Password</string>
     <string name="login1">Login</string>
     <string name="send">Send</string>
+    <string name="product">Products</string>
+
+    <string name="groups">Groups</string>
+
 
     <string name="forget_password">Forgot Password?</string>
     <string name="resetPass">Reset Password</string>

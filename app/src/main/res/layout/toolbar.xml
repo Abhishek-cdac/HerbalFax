@@ -42,7 +42,7 @@
                 android:textSize="@dimen/_15sdp" />
 
             <ImageView
-android:id="@+id/loginToolBar"
+                android:id="@+id/loginToolBar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="@dimen/_5sdp"
