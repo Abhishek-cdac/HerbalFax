@@ -34,8 +34,9 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:gravity="start"
             android:text="@string/logout"
+            android:fontFamily="@font/raleway_medium"
             android:textColor="@color/black"
-            android:textSize="@dimen/_18sdp" />
+            android:textSize="@dimen/_15sdp" />
 
 
     </LinearLayout>

@@ -131,13 +131,9 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-
         TextView drawerTextView;
-
         ImageView drawerArrowImage;
-
         RelativeLayout linearLayout;
-
         LinearLayout linearLayoutSelect;
 
         MyViewHolder(View itemView) {
@@ -162,7 +158,6 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public class MyViewHolderHeader extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView profile_image,closeImg;
-
         TextView professionTv;
         TextView textName;
 
