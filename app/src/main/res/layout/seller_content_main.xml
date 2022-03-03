@@ -20,7 +20,9 @@
 
         app:itemTextAppearanceActive="@color/green"
         app:itemTextAppearanceInactive="@color/text_grey"
+        app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/bnv_tab_item_foreground"
+        app:itemBackground="@drawable/checked_uncheked"
         app:menu="@menu/seller_bottom_nav_menu" />
 
 

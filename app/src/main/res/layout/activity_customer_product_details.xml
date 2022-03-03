@@ -133,6 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:tabIndicatorColor="@color/green"
+                    app:tabIndicator="@drawable/green_line"
+                    app:tabIndicatorFullWidth="false"
                     app:tabSelectedTextColor="@color/black"
                     app:tabTextColor="@color/text_grey"
                     tools:ignore="MissingConstraints" />

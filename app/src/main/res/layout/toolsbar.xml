@@ -10,7 +10,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_height="match_parent">
 
             <ImageView
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_30sdp"
                 android:padding="@dimen/_5sdp"
                 android:src="@drawable/logo"
                 android:visibility="visible"></ImageView>
@@ -96,7 +96,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:padding="@dimen/_5sdp"
                 android:visibility="visible"
-                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:src="@drawable/ic_baseline_search_24"/>
 
             <ImageView
@@ -105,7 +105,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:padding="@dimen/_5sdp"
                 android:visibility="visible"
-                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:src="@drawable/ic_white_store"/>
 
             <ImageView

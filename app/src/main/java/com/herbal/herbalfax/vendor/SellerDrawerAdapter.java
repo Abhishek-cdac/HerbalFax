@@ -1,23 +1,23 @@
-package com.herbal.herbalfax.customer.homescreen.homedashboard;
+package com.herbal.herbalfax.vendor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
-import com.herbal.herbalfax.R;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
+import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 
 import java.util.List;
 
-public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SellerDrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context context;
     private List<String> listDrawerMain;
     private int viewItem = 1;
@@ -29,7 +29,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private CancelClickListener listener;
     private LogoutClickListener logoutClickListener;
 
-    private int[] drawerIcon = {0, R.drawable.ic_icon_menu_home, R.drawable.ic_icon_menu_map_pin, R.drawable.ic_icon_menu_social, R.drawable.ic_icon_menu_map_store, R.drawable.ic_icon_menu_explore_strain, R.drawable.ic_icon_menu_shopping_cart, R.drawable.ic_icon_menu_calculator, R.drawable.ic_icon_menu_credit_card, R.drawable.ic_icon_menu_parcel, R.drawable.ic_icon_notifications_outline, 0};
+    private int[] drawerIcon = {0, R.drawable.ic_icon_menu_social, R.drawable.ic_icon_notifications_outline, R.drawable.ic_icon_driver_bike, R.drawable.ic_icon_star_outline, 0};
 
 
     /**
@@ -39,7 +39,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
      * @param listDrawerMain   the list drawer main
 
      */
-    DrawerAdapter(Context context, List listDrawerMain) {
+    SellerDrawerAdapter(Context context, List listDrawerMain) {
         this.context = context;
         this.listDrawerMain = listDrawerMain;
         this.pref=SessionPref.getInstance(context);
@@ -56,6 +56,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         if (viewType == viewItem) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_items, parent, false);
             MyViewHolder myViewHolder = new MyViewHolder(v);
+
             return myViewHolder;
         } else if (viewType == viewProg) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_header, parent, false);
@@ -77,6 +78,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public class MyViewHolderBottomHeader extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView logoutTextView;
+        private View bottomDivideLine;
         private ImageView logoutArrowImage;
         private LinearLayout linearLayoutSelect;
 
@@ -90,6 +92,8 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             logoutTextView = itemView.findViewById(R.id.logoutTextView);
             logoutArrowImage=itemView.findViewById(R.id.logoutArrowImage);
             linearLayoutSelect=itemView.findViewById(R.id.linear_layout_select);
+            bottomDivideLine=itemView.findViewById(R.id.bottomDivideLine);
+            bottomDivideLine.setVisibility(View.VISIBLE);
             linearLayoutSelect.setOnClickListener(this);
         }
 
@@ -118,7 +122,12 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             if (drawerIcon.length != 0) {
                 myViewHolder.drawerArrowImage.setImageResource(drawerIcon[position]);
             }
-
+             if( drawerIcon.length-2==position)
+             {
+                 myViewHolder.itemDivideLine.setVisibility(View.GONE);
+             }else {
+                 myViewHolder.itemDivideLine.setVisibility(View.VISIBLE);
+             }
             if (getPostion() == position) {
                 ((MyViewHolder) holder).linearLayoutSelect.setBackgroundColor(ContextCompat.getColor(context,R.color.green));
             } else {
@@ -140,14 +149,6 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return postion;
     }
 
-    /**
-     * Set postion.
-     *
-     * @param postion the postion
-     */
-    public void setPostion(int postion) {
-        this.postion = postion;
-    }
 
     @Override
     public int getItemCount() {
@@ -167,7 +168,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         /**
          * The Divider line.
          */
-        View dividerLine;
+        private View itemDivideLine;
         /**
          * The Drawer arrow image.
          */
@@ -192,6 +193,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             drawerArrowImage = itemView.findViewById(R.id.drawerArrowImage);
             drawerTextView = itemView.findViewById(R.id.drawerTextView);
             linearLayout = itemView.findViewById(R.id.linearLayout);
+            itemDivideLine=itemView.findViewById(R.id.itemDivideLine);
             linearLayoutSelect.setOnClickListener(this);
 
         }
@@ -238,6 +240,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             closeImg = itemView.findViewById(R.id.closeImg);
             professionTv = itemView.findViewById(R.id.professionTv);
             textName = itemView.findViewById(R.id.userName);
+            closeImg.setVisibility(View.GONE);
             closeImg.setOnClickListener(this);
         }
 
@@ -263,20 +266,6 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     }
 
-
-    /**
-     * Load image.
-     *
-     * @param view     the view
-     * @param imageUrl the image url
-     */
-    public static void loadImage(ImageView view, String imageUrl) {
-
-        Glide.with(view.getContext()).load(imageUrl)
-                .dontAnimate().into(view);
-
-    }
-
     void setOnCardItemClickListener(CustomItemClickListener mItemClick) {
         this.customClickListener = mItemClick;
     }
@@ -289,9 +278,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         this.logoutClickListener = mItemClick;
     }
 
-    /**
-     * The interface Custom item click listener.
-     */
+
     public interface CustomItemClickListener {
         /**
          * On card item click.
@@ -302,17 +289,13 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         void onCardItemClick(View view, int position);
     }
 
-    /**
-     * The interface Switch click listener.
-     */
+
     public interface CancelClickListener {
 
         void onCancelClickListener();
     }
 
-    /**
-     * The interface Switch click listener.
-     */
+
     public interface LogoutClickListener {
 
         void onLogoutClickListener();
