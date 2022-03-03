@@ -44,25 +44,27 @@
                 app:civ_circle_background_color="@color/black"
                 android:layout_gravity="end"
                 app:civ_border_color="@color/green"/>-->
-        <androidx.cardview.widget.CardView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/editBTn"
-            android:shape="ring"
-            android:layout_marginRight="@dimen/_5sdp"
-            android:layout_gravity="end"
-            android:outlineAmbientShadowColor="@color/green"
-            app:cardElevation="@dimen/_10sdp"
-            app:cardBackgroundColor="@color/black"
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:id="@+id/editBTn"-->
+<!--            android:shape="ring"-->
+<!--            android:layout_marginRight="@dimen/_5sdp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:outlineAmbientShadowColor="@color/green"-->
+<!--            app:cardElevation="@dimen/_10sdp"-->
+<!--            app:cardBackgroundColor="@color/black"-->
 
-            app:cardCornerRadius="50dp">
+<!--            app:cardCornerRadius="50dp">-->
 
             <ImageView
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_icon_feather_edit" />
-        </androidx.cardview.widget.CardView>
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_7sdp"
+                android:layout_gravity="end"
+                android:background="@drawable/edit_icon" />
+<!--        </androidx.cardview.widget.CardView>-->
     </FrameLayout>
 
 

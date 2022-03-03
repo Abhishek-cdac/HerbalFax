@@ -9,6 +9,7 @@
         android:id="@+id/headeradd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:background="@color/green"
         android:minHeight="?attr/actionBarSize"
         android:orientation="horizontal">

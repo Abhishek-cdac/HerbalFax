@@ -13,11 +13,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.customer.homescreen.group.Adaptor.AddPeopleListAdaptor;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
-import com.herbal.herbalfax.customer.store.adapter.StoreDealsAdapter;
 
 import java.util.ArrayList;
 

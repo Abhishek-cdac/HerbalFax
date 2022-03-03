@@ -3,13 +3,18 @@ package com.herbal.herbalfax.customer.homescreen.homedashboard;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,21 +22,26 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
+import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxFragment;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
 import com.herbal.herbalfax.customer.homescreen.deals.DealsFragment;
+import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.group.GroupsFragment;
@@ -54,6 +64,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
     private CommonClass clsCommon;
 
     private static final float END_SCALE = 0.85f;
+    private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
     LinearLayoutManager linearLayoutManager;
     private RecyclerView drawerRecylerView;
@@ -84,6 +95,8 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         addDrawerLayoutItem();
         setAdapter();
         setOnClick();
+
+        //showBottomNavigation(false);
     }
 
     private void setOnClick()
@@ -109,6 +122,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         drawerItem.add(getResources().getString(R.string.card_list));
         drawerItem.add(getResources().getString(R.string.parcels));
         drawerItem.add(getResources().getString(R.string.action_notification));
+//        drawerItem.add(getResources().getString(R.string.logout));
         drawerItem.add(null);
 
 
@@ -128,6 +142,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
+                        //  Toast.makeText(LandingPageActivity.this, "success!", Toast.LENGTH_SHORT).show();
                     } else {
                         clsCommon.showDialogMsg(LandingPageActivity.this, "HerbalFax", response.body().getMessage(), "Ok");
                     }
@@ -163,6 +178,9 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         createGroup=findViewById(R.id.createGroup);
         addQuestionTxt=findViewById(R.id.addQuestionTxt);
 
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+
     }
 
     private void initFab() {
@@ -173,11 +191,25 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             Intent intent = new Intent(getApplicationContext(), AddPostActivity.class);
             intent.putExtra("PostGroupId", "0");
             startActivity(intent);
+
+//                Fragment newCase=new AddPostFragment();
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                FragmentTransaction transaction = fragmentManager.beginTransaction();
+//                transaction.replace(R.id.nav_host_fragment,newCase); // give your fragment container id in first parameter
+//                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+//                transaction.commit();
+
+            //    ReplaceFrag(new OrdersFragment());
+
         });
 
     }
 
     private void initNavigation() {
+
+//        drawer = findViewById(R.id.drawer_layout);
+//        drawerRecylerView=findViewById(R.id.drawerRecylerView);
+//        NavigationView navigationView = findViewById(R.id.nav_view);
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav_view);
         contentView = findViewById(R.id.content_view);
         bottomNavView.setOnItemSelectedListener(item -> {
@@ -244,6 +276,54 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             }
             return false;
         });
+
+//        // Passing each menu ID as a set of Ids because each
+//        // menu should be considered as top level destinations.
+//        mAppBarConfiguration = new AppBarConfiguration.Builder(
+//                R.id.bottom_home, R.id.bottom_dashboard, R.id.bottom_notifications, R.id.bottom_deal, R.id.bottom_askfax)
+//                .build();
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
+//        NavigationUI.setupWithNavController(navigationView, navController);
+//        NavigationUI.setupWithNavController(bottomNavView);
+
+//        View headerView = navigationView.getHeaderView(0);
+//        ImageView closeImg = headerView.findViewById(R.id.closeImg);
+//        CardView editBTn = headerView.findViewById(R.id.editBTn);
+//
+//        TextView profileName = headerView.findViewById(R.id.userName);
+//        TextView professionTv = headerView.findViewById(R.id.professionTv);
+//        LinearLayout nav_headerMAin = headerView.findViewById(R.id.nav_headerMAin);
+//        profileName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
+        // professionTv.setText();
+//        nav_headerMAin.setOnClickListener(view -> {
+//            Log.e("ProfileActivity....", "ProfileActivity");
+//            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+//            startActivity(intent);
+//        });
+//        closeImg.setOnClickListener(view -> drawer.closeDrawer(GravityCompat.START));
+//        editBTn.setOnClickListener(view -> {
+//                    Intent intent = new Intent(getApplicationContext(), EditProfileActivity.class);
+//                    startActivity(intent);
+//                }
+//        );
+//        navigationView.setNavigationItemSelectedListener(menuItem -> {
+//            int id = menuItem.getItemId();
+//            if (id == R.id.nav_logout) {
+//                SessionPref.logout(mContext);
+//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//
+//            } else if (id == R.id.nav_gallery) {
+//                //   ReplaceFrag(new NearByStoreFragment());
+//            }
+//            drawer.closeDrawer(GravityCompat.START);
+//            return true;
+//        });
+
+//        animateNavigationDrawer();
     }
 
     public void onDrawer() {
@@ -252,6 +332,16 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             drawerAdapter.notifyDataSetChanged();
         }
     }
+
+    private void openFragment(Fragment fragment) {
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        //this is a helper class that replaces the container with the fragment. You can replace or add fragments.
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(null); //if you add fragments it will be added to the backStack. If you replace the fragment it will add only the last fragment
+        transaction.commit(); // commit() performs the action
+    }
+
 
     public void setAdapter() {
 
@@ -281,9 +371,32 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             onBackPressed();
 
         });
-
+//        drawerAdapter.setOnSwitchClickListener(isChecked -> {
+//
+//            String languageId;
+//            if (isChecked) {
+//                languageId = "en";
+//            } else {
+//                languageId = "ar";
+//            }
+//            if (CommonUtils.isInternetOn(DrawerActivity.this)) {
+//                mDrawerViewModel.changeLanguageAPI(mentorPreference, languageId);
+//            } else {
+//                CommonUtils.showMessage(getString(R.string.internet_connection_error), DrawerActivity.this);
+//            }
+//
+//        });
 
     }
+//    /**
+//     * Open drawer.
+//     */
+//    public void onDrawer() {
+//        drawer.openDrawer(GravityCompat.START);
+//        if (drawer != null) {
+//            drawer.notifyDataSetChanged();
+//        }
+//    }
 
 
     private void animateNavigationDrawer() {
@@ -306,6 +419,41 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
             }
         });
     }
+
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//
+////        action_search= menu.findItem(R.id.action_search);
+////        action_map= menu.findItem(R.id.action_map);
+////        action_cart= menu.findItem(R.id.action_cart);
+//
+//
+//        return true;
+//    }
+
+//    private void hideMenuItem()
+//    {
+//        action_search.setVisible(false);
+//        action_map.setVisible(false);
+//        action_cart.setVisible(false);
+//    }
+//
+//    private void showMenuItem()
+//    {
+//        action_search.setVisible(true);
+//        action_map.setVisible(true);
+//        action_cart.setVisible(true);
+//    }
+
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+//                || super.onSupportNavigateUp();
+//    }
 
     @Override
     public void onBackPressed() {

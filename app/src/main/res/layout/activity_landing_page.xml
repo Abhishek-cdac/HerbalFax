@@ -24,6 +24,7 @@
                 android:layout_height="match_parent" />
         </RelativeLayout>
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/drawerRecylerView"
             android:layout_width="@dimen/_300sdp"

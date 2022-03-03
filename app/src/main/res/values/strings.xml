@@ -117,10 +117,12 @@
     <string name="saved_dispensaries">Saved Dispensaries</string>
     <string name="explore_strains">Explore Strains</string>
     <string name="orders">Orders</string>
+    <string name="my_orders">My Orders</string>
     <string name="event">Events</string>
     <string name="card_list">Card List</string>
     <string name="parcels">Parcel Service</string>
     <string name="deal">Deals</string>
+    <string name="my_deal">My Deals</string>
     <string name="ask_fax">Ask Fax</string>
     <string name="action_settings">Setting</string>
 
@@ -184,7 +186,8 @@
 
 
     <string name="addnewstore">Add new store</string>
-    <string name="myDriver">My Driver</string>
+    <string name="my_driver">My Driver</string>
+    <string name="driver">Driver</string>
     <string name="become_HB_choice">Become HerbalFax Choice</string>
     <string name="menu_mystore">My Store</string>
     <string name="title_order">Orders</string>
@@ -275,6 +278,7 @@
     <string name="deals">Deals</string>
     <string name="stores">Stores</string>
     <string name="products">Products</string>
+    <string name="my_products">My Products</string>
     <string name="CreateAskFax">Add Question</string>
     <string name="optional_include_a_link_that_gives_context">Optional: Include a link that gives context</string>
     <string name="tips_on_getting_good_answers_quickly">Tips on getting good answers quickly</string>
