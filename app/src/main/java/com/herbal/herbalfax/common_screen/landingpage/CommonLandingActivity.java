@@ -248,6 +248,7 @@ public class CommonLandingActivity extends AppCompatActivity {
 
     }
 
+
     private void setupUI() {
         recyclerView = findViewById(R.id.caterecyclerview);
         menu_nav = findViewById(R.id.menu_nav);

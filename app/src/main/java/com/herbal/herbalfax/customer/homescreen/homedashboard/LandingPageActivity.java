@@ -213,8 +213,6 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 //        NavigationView navigationView = findViewById(R.id.nav_view);
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav_view);
         contentView = findViewById(R.id.content_view);
-
-
         bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bottom_home:
