@@ -77,6 +77,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
     Context mContext;
 
     SessionPref pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,13 +85,14 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         mContext = getApplicationContext();
         Bundle extras = getIntent().getExtras();
         clsCommon = CommonClass.getInstance();
-        drawer=findViewById(R.id.drawerLayout);
-        headerIcon=findViewById(R.id.headerIcon);
-        headerTxt=findViewById(R.id.headerTxt);
+        drawer = findViewById(R.id.drawerLayout);
+        headerIcon = findViewById(R.id.headerIcon);
+        headerTxt = findViewById(R.id.headerTxt);
         crossToolBarImage = findViewById(R.id.crossToolBarImage);
-        drawerRecylerView=findViewById(R.id.drawerRecylerView);
+        drawerRecylerView = findViewById(R.id.drawerRecylerView);
         pref = SessionPref.getInstance(this);
         callGetUserAPI();
+        setSellerFragment();
         addDrawerLayoutItem();
         initToolbar();
         initNavigation();
@@ -99,8 +101,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
 
     }
 
-    private void setOnClick()
-    {
+    private void setOnClick() {
         crossToolBarImage.setOnClickListener(v -> onDrawer());
     }
 
@@ -195,6 +196,13 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
 
     }
 
+    private void setSellerFragment()
+    {
+        ReplaceFragment(new SellerStoreListFragment());
+        headerTxt.setVisibility(View.GONE);
+        headerIcon.setVisibility(View.VISIBLE);
+    }
+
     private void initNavigation() {
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav_view);
         contentView = findViewById(R.id.content_view);
@@ -203,13 +211,13 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bottom_home:
-                    ReplaceFrag(new SellerStoreListFragment());
+                    ReplaceFragment(new SellerStoreListFragment());
                     headerTxt.setVisibility(View.GONE);
                     headerIcon.setVisibility(View.VISIBLE);
 
                     return true;
                 case R.id.bottom_dashboard:
-                    ReplaceFrag(new SellerProductFragment());
+                    ReplaceFragment(new SellerProductFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_products);
@@ -217,21 +225,21 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                     return true;
                 case R.id.bottom_notifications:
 
-                    ReplaceFrag(new SellerOrderFragment());
+                    ReplaceFragment(new SellerOrderFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_orders);
                     return true;
                 case R.id.bottom_deal:
 
-                    ReplaceFrag(new SellerDealsFragment());
+                    ReplaceFragment(new SellerDealsFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_deal);
                     return true;
                 case R.id.bottom_askfax:
 
-                    ReplaceFrag(new SellerDriverFragment());
+                    ReplaceFragment(new SellerDriverFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_driver);
@@ -300,6 +308,21 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
             finish();
         }
 
+    }
+
+
+    public void ReplaceFragment(@Nullable Fragment fragment) {
+        try {
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            assert fragment != null;
+            ft.replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName());
+            ft.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
