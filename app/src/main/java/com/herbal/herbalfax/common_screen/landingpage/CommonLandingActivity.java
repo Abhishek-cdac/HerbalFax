@@ -245,7 +245,6 @@ public class CommonLandingActivity extends AppCompatActivity {
         HorizontalLayout = new LinearLayoutManager(CommonLandingActivity.this, LinearLayoutManager.HORIZONTAL, false);
         eventsRecyclerview.setLayoutManager(HorizontalLayout);
         eventsRecyclerview.setAdapter(eventsAdapter);
-
     }
 
 
@@ -261,7 +260,6 @@ public class CommonLandingActivity extends AppCompatActivity {
         timelyRecyclerview = findViewById(R.id.timelyRecyclerview);
         photosViewMore = findViewById(R.id.photosviewmore);
         eventsViewMore = findViewById(R.id.eventsviewmore);
-        
 
         photosViewMore.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), PhotosDetailsActivity.class);

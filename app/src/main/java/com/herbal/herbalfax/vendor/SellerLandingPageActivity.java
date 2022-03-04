@@ -211,13 +211,13 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bottom_home:
-                    ReplaceFragment(new SellerStoreListFragment());
+                    ReplaceFrag(new SellerStoreListFragment());
                     headerTxt.setVisibility(View.GONE);
                     headerIcon.setVisibility(View.VISIBLE);
 
                     return true;
                 case R.id.bottom_dashboard:
-                    ReplaceFragment(new SellerProductFragment());
+                    ReplaceFrag(new SellerProductFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_products);
@@ -225,21 +225,21 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                     return true;
                 case R.id.bottom_notifications:
 
-                    ReplaceFragment(new SellerOrderFragment());
+                    ReplaceFrag(new SellerOrderFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_orders);
                     return true;
                 case R.id.bottom_deal:
 
-                    ReplaceFragment(new SellerDealsFragment());
+                    ReplaceFrag(new SellerDealsFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_deal);
                     return true;
                 case R.id.bottom_askfax:
 
-                    ReplaceFragment(new SellerDriverFragment());
+                    ReplaceFrag(new SellerDriverFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_driver);
