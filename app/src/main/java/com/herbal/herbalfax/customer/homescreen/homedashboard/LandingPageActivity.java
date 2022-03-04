@@ -205,6 +205,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 
     }
 
+
     private void initNavigation() {
 
 //        drawer = findViewById(R.id.drawer_layout);
