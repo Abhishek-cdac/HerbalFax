@@ -66,7 +66,7 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
     private int visibleItemCount=0;
     private int totalItemCount=0;
     private int limit=10;
-    private int offset=10;
+    private int offset=0;
     private boolean isLoading= true;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
