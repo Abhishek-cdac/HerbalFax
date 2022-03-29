@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -50,6 +51,7 @@ import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.Store;
 import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.StoreBusinessHr;
 import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.StoreDetailResponse;
 import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -79,7 +81,9 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
     public final static int PICK_PHOTO_FOR_LOGO = 2;
     public final static int PICK_PHOTO_FOR_STORE_IMAGES = 3;
     private CommonClass clsCommon;
+    private ArrayList<File> fileList=new ArrayList<>();
     private TextView msgTxt;
+    private File mFile;
     private ActivityAddStoreBinding binding;
     private ArrayList<AllStoreCategory> lst_store_category;
     EditText locations;
@@ -750,6 +754,7 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
 
     private void removeImages(int position) {
         storeImageList.remove(position);
+        fileList.remove(position);
         addImagesAdapter.notifyDataSetChanged();
 
         if(storeImageList.size()==0)
@@ -916,21 +921,21 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
         } catch (Exception e) {
             e.printStackTrace();
         }
-        File storeImage = new File(getCacheDir(), "storeImage");
-        try {
-            storeImage.createNewFile();
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bitmap2.compress(Bitmap.CompressFormat.JPEG, 40, bos);
-            byte[] bitmapdata = bos.toByteArray();
-            //write the bytes in file
-            FileOutputStream fos = null;
-            fos = new FileOutputStream(storeImage);
-            fos.write(bitmapdata);
-            fos.flush();
-            fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        File storeImage = new File(getCacheDir(), "storeImage");
+//        try {
+//            storeImage.createNewFile();
+//            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//            bitmap2.compress(Bitmap.CompressFormat.JPEG, 40, bos);
+//            byte[] bitmapdata = bos.toByteArray();
+//            //write the bytes in file
+//            FileOutputStream fos = null;
+//            fos = new FileOutputStream(storeImage);
+//            fos.write(bitmapdata);
+//            fos.flush();
+//            fos.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 //      RequestBody fbody = RequestBody.create(MediaType.parse("image/*"), f));
         RequestBody storeName = RequestBody.create(MediaType.parse("text/plain"), newStore.getStoreFullName());
@@ -967,12 +972,37 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
 
         /*   --- StoreLicCertificate, StorePhotos[], StoreLogo are Image ---*/
 
+        MultipartBody.Part[] multipartTypedOutput = new MultipartBody.Part[storeImageList.size()];
+        File storeImage;
+        for(int i=0;i<storeImageList.size();i++)
+        {
+//            f= new File(getCacheDir(), "product");
+//            try {
+//                Bitmap bitmaps=productList.get(i);
+//                f.createNewFile();
+//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//                bitmaps.compress(Bitmap.CompressFormat.JPEG, 40, bos);
+//                byte[] bitmapdata = bos.toByteArray();
+//                //write the bytes in file
+//                FileOutputStream fos = null;
+//                fos = new FileOutputStream(f);
+//                fos.write(bitmapdata);
+//                fos.flush();
+//                fos.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+            storeImage=fileList.get(i);
+            RequestBody surveyBody = RequestBody.create(MediaType.parse("image/*"), storeImage);
+            multipartTypedOutput[i] = MultipartBody.Part.createFormData("StorePhotos[]", storeImage.getPath(), surveyBody);
+        }
+
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("StoreLicCertificate", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
-        MultipartBody.Part StorePhotos = MultipartBody.Part.createFormData("StorePhotos[]", storeImage.getName(), RequestBody.create(MediaType.parse("image/*"), storeImage));
+//        MultipartBody.Part StorePhotos = MultipartBody.Part.createFormData("StorePhotos[]", storeImage.getName(), RequestBody.create(MediaType.parse("image/*"), storeImage));
         MultipartBody.Part StoreLogo = MultipartBody.Part.createFormData("StoreLogo", storeLogo.getName(), RequestBody.create(MediaType.parse("image/*"), storeLogo));
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-        Call<CommonResponse> call = service.storeAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart, StorePhotos, StoreLogo);
+        Call<CommonResponse> call = service.storeAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart, multipartTypedOutput, StoreLogo);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
             public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
@@ -1013,6 +1043,24 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
                 Toast.makeText(AddStoreActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    /**
+     * Set file.
+     *
+     * @param file the file
+     */
+    public void setFile(File file) {
+        this.mFile = file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return the file
+     */
+    public File getFile() {
+        return mFile;
     }
 
     private void callStorePreDataAPI() {
@@ -1154,18 +1202,22 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
                 bitmap2 = (Bitmap) data.getExtras().get("data");
             } else {
                 try {
+
                     bitmap2 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
                     storeImageList.add(bitmap2);
 
-                    if(addImagesAdapter!=null)
-                    {
-                        if(storeImageList.size()>0)
-                        {
-                            recycleView.setVisibility(View.VISIBLE);
-                            msgTxt.setVisibility(View.GONE);
-                        }
-                        addImagesAdapter.notifyDataSetChanged();
-                    }
+                    Uri selectedImage = data.getData();
+                    CropImage.activity(selectedImage).setFixAspectRatio(false).setAspectRatio(5, 5).start(this);
+
+//                    if(addImagesAdapter!=null)
+//                    {
+//                        if(storeImageList.size()>0)
+//                        {
+//                            recycleView.setVisibility(View.VISIBLE);
+//                            msgTxt.setVisibility(View.GONE);
+//                        }
+//                        addImagesAdapter.notifyDataSetChanged();
+//                    }
 
 
 
@@ -1177,6 +1229,31 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
 //                storephoto_image.setImageBitmap(bitmap2);
 
             }
+        }
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                Uri resultUri = result.getUri();
+                File file = new File(resultUri.getPath());
+                setFile(file);
+                fileList.add(file);
+
+                if(addImagesAdapter!=null)
+                {
+                    if(storeImageList.size()>0)
+                    {
+                        recycleView.setVisibility(View.VISIBLE);
+                        msgTxt.setVisibility(View.GONE);
+                    }
+                    addImagesAdapter.notifyDataSetChanged();
+                }
+
+                String profilePicture = resultUri.getPath();
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+
+            }
+
         }
     }
 

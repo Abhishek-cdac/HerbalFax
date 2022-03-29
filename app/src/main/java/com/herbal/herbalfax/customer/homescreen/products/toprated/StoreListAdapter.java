@@ -5,7 +5,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -16,24 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.customer.homescreen.homedashboard.DrawerAdapter;
 import com.herbal.herbalfax.customer.homescreen.products.toprated.beancmodel.TopVendorListResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
 import com.squareup.picasso.Picasso;
+import java.util.List;
 
-import java.util.ArrayList;
+public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.ViewHolder> {
 
-public class TopRatedListAdapter extends RecyclerView.Adapter<TopRatedListAdapter.ViewHolder> {
-
-    ArrayList<TopVendorListResponse.Vendor> lst_product;
+    List<TopVendorListResponse.Store> lst_product;
     Context mContext;
     private CustomItemClickListener customClickListener;
     private final Picasso picasso;
     Onclick itemClick;
 
 
-    public TopRatedListAdapter(ArrayList<TopVendorListResponse.Vendor> lst_product, Context applicationContext, Onclick itemClick) {
+    public StoreListAdapter(List<TopVendorListResponse.Store> lst_product, Context applicationContext, Onclick itemClick) {
         picasso = Picasso.get();
         this.lst_product = lst_product;
         this.mContext = applicationContext;
@@ -43,22 +39,30 @@ public class TopRatedListAdapter extends RecyclerView.Adapter<TopRatedListAdapte
 
     @NonNull
     @Override
-    public TopRatedListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.toprated_list_item, parent, false);
+    public StoreListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.topstore_list_item, parent, false);
         mContext = parent.getContext();
-        return new TopRatedListAdapter.ViewHolder(view);
+        return new StoreListAdapter.ViewHolder(view);
     }
 
     @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(@NonNull TopRatedListAdapter.ViewHolder holder, int position) {
-        TopVendorListResponse.Vendor vendor=lst_product.get(position);
-        holder.name.setText(vendor.getUFullName());
-        holder.availStore.setText(vendor.getUActive()+" "+mContext.getString(R.string.store_available));
-        loadImage(holder.imgProfile,vendor.getUProPic());
-        String rating=vendor.getURatings();
-        Float value= Float.parseFloat(rating);
-        holder.ratingBar.setRating(value);
+    public void onBindViewHolder(@NonNull StoreListAdapter.ViewHolder holder, int position) {
+
+        TopVendorListResponse.Store store=lst_product.get(position);
+
+        holder.name.setText(store.getStoreName());
+        holder.availStore.setText(store.getStoreActive()+" "+mContext.getString(R.string.store_available));
+        Float ratingValue= Float.parseFloat(store.getStoreRating());
+        holder.ratingBar.setRating( ratingValue);
+        holder.locationTxt.setText(store.getStoreLocation());
+        loadImage(holder.productImg,store.getStoreLogo());
+
+        if(position==lst_product.size()-1)
+        {
+            holder.view.setVisibility(View.GONE);
+        }
+
 
    /*     if (lst_product.get(position).getSPPPath() != null) {
             if (!lst_product.get(position).getSPPPath().equals("")) {
@@ -67,8 +71,8 @@ public class TopRatedListAdapter extends RecyclerView.Adapter<TopRatedListAdapte
             }
         }
         holder.productName.setText(lst_product.get(position).getSPName());
-       holder.PriceTxt.setText(" : " + lst_product.get(position).getSPRate());
-       holder.categoryTxt.setText(lst_product.get(position).getSPCTitle());
+        holder.PriceTxt.setText(" : " + lst_product.get(position).getSPRate());
+        holder.categoryTxt.setText(lst_product.get(position).getSPCTitle());
         holder.descTxt.setText(lst_product.get(position).getSPDesc());
         String productId = lst_product.get(position).getIdstoreProducts();
         holder.cardview.setOnClickListener(new View.OnClickListener() {
@@ -96,38 +100,26 @@ public class TopRatedListAdapter extends RecyclerView.Adapter<TopRatedListAdapte
     }
 
 
-    /**
-     * Load image.
-     *
-     * @param view     the view
-     * @param imageUrl the image url
-     */
-    public void loadImage(ImageView view, String imageUrl) {
-
-        Glide.with(view.getContext()).load(imageUrl)
-                .dontAnimate().into(view);
-
-    }
-
-
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView imgProfile;
-        TextView name, availStore, categoryTxt, descTxt, PriceTxt;
+        ImageView productImg;
+        TextView name, availStore,locationTxt;
         RatingBar ratingBar;
-        CardView parentView;
-//        FrameLayout cardview;
+        View view;
+        CardView cardview;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgProfile = itemView.findViewById(R.id.profileImg);
             name = itemView.findViewById(R.id.name);
-
+            productImg = itemView.findViewById(R.id.profile);
+            view=itemView.findViewById(R.id.itemDivideLine);
             availStore = itemView.findViewById(R.id.availStore);
-            PriceTxt = itemView.findViewById(R.id.PriceTxt);
-            ratingBar=itemView.findViewById(R.id.ratingBar3);
-            parentView = itemView.findViewById(R.id.parentView);
-            parentView.setOnClickListener(this);
+            locationTxt=itemView.findViewById(R.id.locationTxt);
+            ratingBar=itemView.findViewById(R.id.ratingBar);
+            cardview = itemView.findViewById(R.id.parentCard);
+            view=itemView.findViewById(R.id.itemDivideLine);
+            cardview.setOnClickListener(this);
 
         }
 
@@ -142,7 +134,6 @@ public class TopRatedListAdapter extends RecyclerView.Adapter<TopRatedListAdapte
     /**
      * The interface Custom item click listener.
      */
-
     public interface CustomItemClickListener {
         /**
          * On card item click.
@@ -156,4 +147,18 @@ public class TopRatedListAdapter extends RecyclerView.Adapter<TopRatedListAdapte
     void setOnCardItemClickListener(CustomItemClickListener mItemClick) {
         this.customClickListener = mItemClick;
     }
+
+    /**
+     * Load image.
+     *
+     * @param view     the view
+     * @param imageUrl the image url
+     */
+    public static void loadImage(ImageView view, String imageUrl) {
+
+        Glide.with(view.getContext()).load(imageUrl)
+                .dontAnimate().into(view);
+
+    }
+
 }

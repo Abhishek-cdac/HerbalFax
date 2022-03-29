@@ -37,6 +37,7 @@ import com.herbal.herbalfax.customer.homescreen.homedashboard.getallcommentmodel
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.GetAllPostResponse;
 import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.UserStoreListResponse;
 import com.herbal.herbalfax.customer.homescreen.products.model.AddToCartModel;
+import com.herbal.herbalfax.customer.homescreen.products.toprated.beancmodel.TopVendorListResponse;
 import com.herbal.herbalfax.customer.selectInterest.getintrestmodel.GetInterestResponse;
 import com.herbal.herbalfax.customer.selectInterest.saveintrestmodel.SaveInterestResponse;
 import com.herbal.herbalfax.customer.signup.presignupmodel.PreSignUpData;
@@ -218,7 +219,7 @@ public interface GetDataService {
 
     @Multipart
     @POST("vendor/store-add")
-    Call<CommonResponse> storeAdd(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart, @Part MultipartBody.Part StorePhotos, @Part MultipartBody.Part StoreLogo);
+    Call<CommonResponse> storeAdd(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart, @Part MultipartBody.Part StorePhotos[], @Part MultipartBody.Part StoreLogo);
 
     @POST("vendor/store-add-pre-data")
     Call<StoreAddPreData> storeAddPreData(@Header("Authorization") String token);
@@ -244,12 +245,16 @@ public interface GetDataService {
 
     @Multipart
     @POST("vendor/product-add")
-    Call<CommonResponse> vendorProductAdd(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part filePart);
+    Call<CommonResponse> vendorProductAdd(@Header("Authorization") String token, @PartMap Map<String, RequestBody> map, @Part MultipartBody.Part[] filePart);
 
 
     @FormUrlEncoded
     @POST("user-store-product-list")
     Call<ProductListResponse> userStoreProductList(@Header("Authorization") String token, @FieldMap Map<String, String> param);
+
+    @FormUrlEncoded
+    @POST("user-vendor-top-rated")
+    Call<TopVendorListResponse> userVendorTopList(@Header("Authorization") String token, @FieldMap Map<String, String> param);
 
     @FormUrlEncoded
     @POST("user-store-product-details")

@@ -11,13 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.homescreen.cardList.CardListViewModel;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
-
-
 public class AddCardFragment extends Fragment implements OnInnerFragmentClicks {
 
     private CardListViewModel cardListViewModel;

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -51,6 +52,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
     RecyclerView productRecyclerView;
     private SellerProductViewModel sellerProductViewModel;
     private int pastVisiblesItems=0;
+    private ProgressBar progress_bar;
     private int visibleItemCount=0;
     private int totalItemCount=0;
     private int limit=10;
@@ -73,6 +75,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
         View root = inflater.inflate(R.layout.fragment_sellerproduct, container, false);
         clsCommon = CommonClass.getInstance();
         storeSpinner = root.findViewById(R.id.storeSpinner);
+        progress_bar=root.findViewById(R.id.progress_bar);
         storeCategorySpinner = root.findViewById(R.id.storeCategorySpinner);
         addProduct = root.findViewById(R.id.addProduct);
 
@@ -119,12 +122,19 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
         hashMap.put("search_key", "0");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
-        pd.show();
+//        pd.show();
+        if(offset==0)
+        {
+            pd.show();
+        }else{
+            progress_bar.setVisibility(View.VISIBLE);
+        }
         Call<ProductListResponse> call = service.userStoreProductList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<ProductListResponse>() {
             @Override
             public void onResponse(Call<ProductListResponse> call, Response<ProductListResponse> response) {
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
@@ -226,6 +236,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", jObjError.getString("message"), "Ok");
                     } catch (Exception e) {
+                        progress_bar.setVisibility(View.GONE);
                         Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -236,6 +247,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
             public void onFailure(@NotNull Call<ProductListResponse> call, Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });

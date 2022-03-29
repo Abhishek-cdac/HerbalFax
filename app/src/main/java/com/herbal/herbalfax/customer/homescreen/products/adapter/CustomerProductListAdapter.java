@@ -19,6 +19,7 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.homescreen.homedashboard.DrawerAdapter;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
 import com.squareup.picasso.Picasso;
@@ -36,6 +37,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
     Context mContext;
     private final Picasso picasso;
     Onclick itemClick;
+    private CustomItemClickListener customClickListener;
 
 
     public CustomerProductListAdapter(ArrayList<StoreProduct> lst_product, Context applicationContext, Onclick itemClick) {
@@ -155,6 +157,20 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
             viewBtn = itemView.findViewById(R.id.viewBtn);
 
         }
+    }
+
+    void setOnCardItemClickListener(CustomItemClickListener mItemClick) {
+        this.customClickListener = mItemClick;
+    }
+
+    public interface CustomItemClickListener {
+        /**
+         * On card item click.
+         *
+         * @param view     the view
+         * @param position the position
+         */
+        void viewItemClick(View view, int position);
     }
 
 

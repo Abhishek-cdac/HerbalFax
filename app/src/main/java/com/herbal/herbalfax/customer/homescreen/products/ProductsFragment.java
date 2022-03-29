@@ -23,6 +23,8 @@ import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.SpacesItemDecoration;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.products.adapter.CustomerProductListAdapter;
+import com.herbal.herbalfax.customer.homescreen.products.toprated.TopRatedActivity;
+import com.herbal.herbalfax.customer.homescreen.products.toprated.beancmodel.TopVendorListResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.util.CommonUtils;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.ProductListResponse;
@@ -82,15 +84,22 @@ public class ProductsFragment extends Fragment {
         itemClick = new Onclick() {
             @Override
             public void onItemClicks(View view, int position, int i, String productId, String s) {
+                Intent intent = new Intent(getActivity(), TopRatedActivity.class);
+                intent.putExtra("productId", productId);
+                startActivity(intent);
 
             }
 
             @Override
             public void onItemClicks(View view, int position, int i, String productId) {
                 if (i == 10) {
-                    Intent intent = new Intent(getActivity(), CustomerProductDetailsActivity.class);
-                  intent.putExtra("productId", productId);
+
+                    Intent intent = new Intent(getActivity(), TopRatedActivity.class);
+                    intent.putExtra("productId", productId);
                     startActivity(intent);
+//                    Intent intent = new Intent(getActivity(), CustomerProductDetailsActivity.class);
+//                  intent.putExtra("productId", productId);
+//                    startActivity(intent);
 
 
                 }
@@ -163,6 +172,7 @@ public class ProductsFragment extends Fragment {
                             customerProductListAdapter.notifyDataSetChanged();
                             isLoading=true;
                         }
+
 
                         productRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                             @Override
