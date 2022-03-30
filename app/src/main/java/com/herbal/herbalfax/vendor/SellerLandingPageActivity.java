@@ -198,7 +198,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
 
     private void setSellerFragment()
     {
-        ReplaceFragment(new SellerStoreListFragment());
+        ReplaceFrag(new SellerStoreListFragment());
         headerTxt.setVisibility(View.GONE);
         headerIcon.setVisibility(View.VISIBLE);
     }
