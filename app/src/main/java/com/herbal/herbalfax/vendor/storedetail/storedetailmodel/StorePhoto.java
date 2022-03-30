@@ -11,7 +11,7 @@ public class StorePhoto {
     private String idstorePhotos;
     @SerializedName("SPhoto_IdStore")
     private String sPhotoIdStore;
-    @SerializedName("SPhoto_Path")
+    @SerializedName("SPP_Path")
     private String sPhotoPath;
 
     public String getIdstorePhotos() {

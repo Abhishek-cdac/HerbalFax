@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -44,6 +45,7 @@ import com.herbal.herbalfax.vendor.sellerproduct.productcategorymodel.ProductCat
 import com.herbal.herbalfax.vendor.sellerproduct.productcategorymodel.ProductCategoryResponse;
 import com.herbal.herbalfax.vendor.storelist.storelistmodel.Store;
 import com.herbal.herbalfax.vendor.storelist.storelistmodel.StoreListResponse;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -73,8 +75,12 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
     Spinner categorySpinner, storeSpinner;
     public final static int ALL_PERMISSIONS_RESULT = 107;
     public final static int PICK_PHOTO_FOR_AVATAR = 1;
-    Bitmap bitmap = null;
+    private Bitmap bitmap = null;
+    private File mFile;
+    private Uri selectedImage;
     private ArrayList<Bitmap> productList=new ArrayList<>();
+    private ArrayList<Uri> listUri=new ArrayList<>();
+    private ArrayList<File> fileList=new ArrayList<>();
     private AddImagesAdapter addImagesAdapter;
     private RecyclerView recycleView;
     private TextView msgTxt;
@@ -157,7 +163,7 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
             ActivityCompat.requestPermissions(AddDealsActivity.this,
                     PERMISSIONS,
                     ALL_PERMISSIONS_RESULT);
-            if(productList.size()<5)
+            if(fileList.size()<5)
             {
                 pickImage();
             }else{
@@ -200,6 +206,7 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
 
     private void removeImages(int position) {
         productList.remove(position);
+        fileList.remove(position);
         addImagesAdapter.notifyDataSetChanged();
 
         if(productList.size()==0)
@@ -224,21 +231,21 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(this);
         pd.show();
         //create a file to write bitmap data
-        File f = new File(getCacheDir(), "product");
-        try {
-            f.createNewFile();
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bos);
-            byte[] bitmapdata = bos.toByteArray();
-            //write the bytes in file
-            FileOutputStream fos = null;
-            fos = new FileOutputStream(f);
-            fos.write(bitmapdata);
-            fos.flush();
-            fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        File f = new File(getCacheDir(), "product");
+//        try {
+//            f.createNewFile();
+//            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bos);
+//            byte[] bitmapdata = bos.toByteArray();
+//            //write the bytes in file
+//            FileOutputStream fos = null;
+//            fos = new FileOutputStream(f);
+//            fos.write(bitmapdata);
+//            fos.flush();
+//            fos.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         RequestBody productName = RequestBody.create(MediaType.parse("text/plain"), newProduct.getProductDealName());
         RequestBody productCategories = RequestBody.create(MediaType.parse("text/plain"), IdstoreCategories);
@@ -274,10 +281,38 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
 //      imageItems.add(f);
 ////      items.add(f);
 //      items.add(f);
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
+        MultipartBody.Part[] multipartTypedOutput = new MultipartBody.Part[productList.size()];
+        File f;
+        for(int i=0;i<fileList.size();i++)
+        {
+//            f = new File(listUri.get(i).getPath());
+//             f= new File(getCacheDir(), "product");
+//            try {
+//                Bitmap bitmaps=productList.get(i);
+//                f.createNewFile();
+//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//                bitmaps.compress(Bitmap.CompressFormat.JPEG, 40, bos);
+//                byte[] bitmapdata = bos.toByteArray();
+//                //write the bytes in file
+//                FileOutputStream fos = null;
+//                fos = new FileOutputStream(f);
+//                fos.write(bitmapdata);
+//                fos.flush();
+//                fos.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            RequestBody surveyBody = RequestBody.create(MediaType.parse("image/*"), f);
+//            multipartTypedOutput[i] = MultipartBody.Part.createFormData("imageFiles[]", f.getPath(), surveyBody);
+
+            f=fileList.get(i);
+            RequestBody surveyBody = RequestBody.create(MediaType.parse("image/*"), f);
+            multipartTypedOutput[i] = MultipartBody.Part.createFormData("ProductPhotos[]", f.getPath(), surveyBody);
+        }
+//        MultipartBody.Part filePart = MultipartBody.Part.createFormData("ProductPhotos[]", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-        Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, filePart);
+        Call<CommonResponse> call = service.vendorProductAdd("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap, multipartTypedOutput);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
             public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
@@ -307,7 +342,7 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
                         assert response.errorBody() != null;
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
                         clsCommon.showDialogMsg(AddDealsActivity.this,
-                                "HerbalFax",
+                                "HerbalFa    x",
                                 jObjError.getString("message"),
                                 getString(R.string.ok));
                     } catch (Exception e) {
@@ -344,9 +379,13 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
 
     @SuppressLint("IntentReset")
     public void pickImage() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        intent.setType("image/*");
-        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);
+
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, PICK_PHOTO_FOR_AVATAR);
+//        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+//        intent.setType("image/*");
+//        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);
     }
 
     private void callStoreListAPI() {
@@ -417,6 +456,24 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
                 Toast.makeText(AddDealsActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    /**
+     * Set file.
+     *
+     * @param file the file
+     */
+    public void setFile(File file) {
+        this.mFile = file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return the file
+     */
+    public File getFile() {
+        return mFile;
     }
 
 
@@ -527,19 +584,24 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
                 Activity.RESULT_OK) {
             if (data.getData() == null) {
                 bitmap = (Bitmap) data.getExtras().get("data");
+                 selectedImage = data.getData();
+                listUri.add(selectedImage);
             } else {
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
                     productList.add(bitmap);
-                    if(addImagesAdapter!=null)
-                    {
-                        if(productList.size()>0)
-                        {
-                            recycleView.setVisibility(View.VISIBLE);
-                            msgTxt.setVisibility(View.GONE);
-                        }
-                        addImagesAdapter.notifyDataSetChanged();
-                    }
+                    selectedImage = data.getData();
+                    Uri selectedImage = data.getData();
+                    CropImage.activity(selectedImage).setFixAspectRatio(false).setAspectRatio(5, 5).start(this);
+//                    if(addImagesAdapter!=null)
+//                    {
+//                        if(productList.size()>0)
+//                        {
+//                            recycleView.setVisibility(View.VISIBLE);
+//                            msgTxt.setVisibility(View.GONE);
+//                        }
+//                        addImagesAdapter.notifyDataSetChanged();
+//                    }
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -550,6 +612,31 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
             } else {
                 clsCommon.showDialogMsg(AddDealsActivity.this, "HerbalFax", "Please select Image", "Ok");
             }
+        }
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                Uri resultUri = result.getUri();
+                File file = new File(resultUri.getPath());
+                setFile(file);
+                fileList.add(file);
+
+                if(addImagesAdapter!=null)
+                {
+                    if(productList.size()>0)
+                    {
+                        recycleView.setVisibility(View.VISIBLE);
+                        msgTxt.setVisibility(View.GONE);
+                    }
+                    addImagesAdapter.notifyDataSetChanged();
+                }
+
+                String profilePicture = resultUri.getPath();
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+
+            }
+
         }
     }
 }

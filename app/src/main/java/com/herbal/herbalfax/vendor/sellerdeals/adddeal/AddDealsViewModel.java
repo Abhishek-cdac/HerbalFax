@@ -1,7 +1,5 @@
 package com.herbal.herbalfax.vendor.sellerdeals.adddeal;
-
 import android.view.View;
-
 import androidx.lifecycle.MutableLiveData;
 
 
@@ -36,6 +34,7 @@ public class AddDealsViewModel {
     public MutableLiveData<Boolean> onGalleryClick() {
         return Gallery;
     }
+
 
 
     public void onClickAddProductDeals(View view) {

@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -49,6 +50,7 @@ import retrofit2.Response;
 public class SellerDealsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     LinearLayoutManager RecyclerViewLayoutManager;
     LinearLayoutManager HorizontalLayout;
+    private ProgressBar progress_bar;
     Button addDeals;
     RecyclerView dealsRecyclerView;
     Onclick itemClick;
@@ -73,6 +75,7 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         View root = inflater.inflate(R.layout.fragment_sellerdeals, container, false);
         clsCommon = CommonClass.getInstance();
         addDeals = root.findViewById(R.id.addDeals);
+        progress_bar=root.findViewById(R.id.progress_bar);
         storeCategorySpinner = root.findViewById(R.id.storeCategorySpinner);
         searchEt = root.findViewById(R.id.searchEt);
         addDeals.setOnClickListener(view -> {
@@ -167,12 +170,20 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         hashMap.put("search_key", "0");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
-        pd.show();
+//        pd.show();
+        if(offset==0)
+        {
+            pd.show();
+        }else{
+            progress_bar.setVisibility(View.VISIBLE);
+        }
         Call<ProductListResponse> call = service.userStoreProductList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<ProductListResponse>() {
             @Override
+
             public void onResponse(@NonNull Call<ProductListResponse> call, @NonNull Response<ProductListResponse> response) {
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
@@ -234,6 +245,8 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", jObjError.getString("message"), "Ok");
                     } catch (Exception e) {
+                        pd.cancel();
+                        progress_bar.setVisibility(View.GONE);
                         Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -243,6 +256,7 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
             public void onFailure(@NotNull Call<ProductListResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });

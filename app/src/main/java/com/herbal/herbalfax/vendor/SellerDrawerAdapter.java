@@ -64,7 +64,7 @@ public class SellerDrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             return myViewHolderHeader;
         }
         else if (viewType == viewProglast) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_bottom, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.seller_drawer_bottom, parent, false);
             MyViewHolderBottomHeader myViewHolderBottomHeader = new MyViewHolderBottomHeader(v);
             return myViewHolderBottomHeader;
         } else
