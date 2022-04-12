@@ -417,8 +417,6 @@ public class AskFaxFragment extends Fragment implements AdapterView.OnItemSelect
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         try {
             IdBlogCategories = lst_blog_pre_data.get(i).getIdblogCategories();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

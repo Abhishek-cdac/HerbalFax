@@ -295,5 +295,6 @@
     <string name="sign_up_here"> Sign up here</string>
     <string name="new_user_join_now">New User? Join Now</string>
     <string name="today_s_deal">Today’s Deal</string>
+    <string name="business">Business</string>
 
 </resources>

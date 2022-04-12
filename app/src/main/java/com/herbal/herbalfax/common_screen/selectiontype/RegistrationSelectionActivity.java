@@ -29,8 +29,6 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         SelectionTypeViewModel viewModel = new SelectionTypeViewModel();
 
         clsCommon = CommonClass.getInstance();
@@ -48,8 +46,8 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
             binding.VendorTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
             binding.accCust.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
             binding.accVendor.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.black));
-            binding.customerImg.setImageResource(R.drawable.ic_customer_white);
-            binding.vendorImg.setImageResource(R.drawable.ic_vendor_black);
+         //   binding.customerImg.setImageResource(R.drawable.ic_customer_white);
+          //  binding.vendorImg.setImageResource(R.drawable.ic_vendor_black);
 
             binding.checkboxCustomer.setVisibility(View.VISIBLE);
             binding.checkboxSeller.setVisibility(View.GONE);
@@ -61,8 +59,8 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
             binding.vendorLayout.setBackground(ContextCompat.getDrawable(RegistrationSelectionActivity.this,R.drawable.bg_roundrect_green));
             binding.customerTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
             binding.VendorTxt.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-            binding.customerImg.setImageResource(R.drawable.ic_customer_black);
-            binding.vendorImg.setImageResource(R.drawable.ic_vendor_white);
+//          binding.customerImg.setImageResource(R.drawable.ic_customer_black);
+//          binding.vendorImg.setImageResource(R.drawable.ic_vendor_white);
             binding.accCust.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.black));
             binding.accVendor.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
 

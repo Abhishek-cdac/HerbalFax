@@ -225,7 +225,6 @@ public class SignUpAsCustomerActivity extends AppCompatActivity implements Adapt
                 callSignUpAPI(registerUser, userType);
             }
 
-
         });
 
         TextView term = findViewById(R.id.term);
