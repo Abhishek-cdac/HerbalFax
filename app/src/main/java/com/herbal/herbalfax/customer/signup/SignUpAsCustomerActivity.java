@@ -114,6 +114,11 @@ public class SignUpAsCustomerActivity extends AppCompatActivity implements Adapt
         binding.setLifecycleOwner(this);
         binding.setSignUpAsCustomerViewModel(signUpAsCustomerViewModel);
         Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            userType = getIntent().getExtras().getInt("selectedType");
+            Log.e("data ", "" + userType);
+        }
         radioGroup = findViewById(R.id.radioGroup1);
         termCheckBox = findViewById(R.id.termCheckBox);
         birthdayEdt = findViewById(R.id.birthday);
@@ -151,10 +156,6 @@ public class SignUpAsCustomerActivity extends AppCompatActivity implements Adapt
         callPreSignUpDataAPI();
 
 
-        if (extras != null) {
-            userType = getIntent().getExtras().getInt("selectedType");
-            Log.e("data ", "" + userType);
-        }
 
         signUpAsCustomerViewModel.onGalleryClick().observe(this, click -> {
             String[] PERMISSIONS = {

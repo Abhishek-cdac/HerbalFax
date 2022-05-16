@@ -252,13 +252,10 @@ public class VerifyEmailActivity extends AppCompatActivity {
     }
 
     public class PinOnKeyListener implements View.OnKeyListener {
-
         private int currentIndex;
-
         PinOnKeyListener(int currentIndex) {
             this.currentIndex = currentIndex;
         }
-
 
         @Override
         public boolean onKey(View view, int i, KeyEvent keyEvent) {

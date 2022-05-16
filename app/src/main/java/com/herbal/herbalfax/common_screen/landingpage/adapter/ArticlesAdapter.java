@@ -61,12 +61,16 @@ public class ArticlesAdapter  extends RecyclerView.Adapter<ArticlesAdapter.ViewH
             holder.nameArticle.setText("Tech");
             picasso.load(R.drawable.technology)
                     .into(holder.articleImg);
+        }else if( position == 5) {
+            holder.nameArticle.setText("Biology");
+            picasso.load(R.drawable.biology)
+                    .into(holder.articleImg);
         }
     }
 
     @Override
     public int getItemCount() {
-        return 5;  // lst_intFilter.size();
+        return 6;  // lst_intFilter.size();
     }
 
 

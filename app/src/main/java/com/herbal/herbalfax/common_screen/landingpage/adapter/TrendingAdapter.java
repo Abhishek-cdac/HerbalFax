@@ -46,11 +46,11 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
         if (position == 0) {
             holder.headingTxt.setText("Tutorials");
 
-            holder.subHeadingTxt.setText("The 1914 translation by H. Rackham");
+            holder.subHeadingTxt.setText("The Secrets of Creative Longevity: Follow Your Heart and Feed Your Cells");
             picasso.load(R.drawable.profileimg)
                     .into(holder.imgProfile);
         } else if( position == 1) {
-            holder.subHeadingTxt.setText("Release of Letraset sheets containing");
+            holder.subHeadingTxt.setText("Pioneering natural products for home health care solutions");
             holder.headingTxt.setText("Medicals");
             picasso.load(R.drawable.profileimg)
                     .into(holder.imgProfile);

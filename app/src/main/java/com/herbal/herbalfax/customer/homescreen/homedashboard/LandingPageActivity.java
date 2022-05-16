@@ -106,9 +106,6 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         locationIcon.setOnClickListener(this);
         searchIcon.setOnClickListener(this);
     }
-
-
-
     public void addDrawerLayoutItem() {
         drawerItem = new ArrayList<>();
         drawerItem.add(null);
@@ -116,13 +113,13 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
         drawerItem.add(getResources().getString(R.string.nearbystore));
         drawerItem.add(getResources().getString(R.string.mySocial));
         drawerItem.add(getResources().getString(R.string.saved_dispensaries));
+        drawerItem.add(getResources().getString(R.string.mygroup));
         drawerItem.add(getResources().getString(R.string.explore_strains));
         drawerItem.add(getResources().getString(R.string.orders));
-        drawerItem.add(getResources().getString(R.string.event));
-        drawerItem.add(getResources().getString(R.string.card_list));
-        drawerItem.add(getResources().getString(R.string.parcels));
+        drawerItem.add(getResources().getString(R.string.myevent));
         drawerItem.add(getResources().getString(R.string.action_notification));
-//        drawerItem.add(getResources().getString(R.string.logout));
+        drawerItem.add(getResources().getString(R.string.action_settings));
+        //        drawerItem.add(getResources().getString(R.string.logout));
         drawerItem.add(null);
 
 
@@ -219,14 +216,14 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     ReplaceFrag(new FeedFragment());
                     headerTxt.setVisibility(View.GONE);
                     headerIcon.setVisibility(View.VISIBLE);
-                    searchIcon.setVisibility(View.VISIBLE);
+                    searchIcon.setVisibility(View.GONE);
                     createGroup.setVisibility(View.GONE);
                     addQuestionTxt.setVisibility(View.GONE);
                     locationIcon.setVisibility(View.VISIBLE);
-                    fab.setVisibility(View.VISIBLE);
-                    cardIcon.setVisibility(View.VISIBLE);
+                    fab.setVisibility(View.GONE);
+                    cardIcon.setVisibility(View.GONE);
                     return true;
-                case R.id.bottom_dashboard:
+            /*    case R.id.bottom_dashboard:
                     ReplaceFrag(new ProductsFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerTxt.setText(getResources().getString(R.string.product));
@@ -238,7 +235,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     locationIcon.setVisibility(View.GONE);
                     cardIcon.setVisibility(View.GONE);
                     return true;
-                case R.id.bottom_notifications:
+            */    case R.id.bottom_notifications:
                     headerTxt.setVisibility(View.VISIBLE);
                     fab.setVisibility(View.GONE);
                     headerTxt.setText(getResources().getString(R.string.groups));
@@ -262,7 +259,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     locationIcon.setVisibility(View.GONE);
                     cardIcon.setVisibility(View.VISIBLE);
                     return true;
-                case R.id.bottom_askfax:
+              /*  case R.id.bottom_askfax:
                     headerTxt.setVisibility(View.VISIBLE);
                     createGroup.setVisibility(View.GONE);
                     fab.setVisibility(View.GONE);
@@ -274,7 +271,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     locationIcon.setVisibility(View.GONE);
                     cardIcon.setVisibility(View.GONE);
                     return true;
-            }
+            */}
             return false;
         });
 

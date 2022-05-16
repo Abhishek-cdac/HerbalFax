@@ -54,6 +54,7 @@ public class CommonLandingActivity extends AppCompatActivity {
     TextView photosViewMore;
     TextView eventsViewMore;
     ImageView menu_nav;
+    ImageView loginToolBar;
     private AppBarConfiguration mAppBarConfiguration;
     public DrawerLayout drawerLayout;
 
@@ -250,6 +251,7 @@ public class CommonLandingActivity extends AppCompatActivity {
 
     private void setupUI() {
         recyclerView = findViewById(R.id.caterecyclerview);
+        loginToolBar = findViewById(R.id.loginToolBar);
         menu_nav = findViewById(R.id.menu_nav);
         login_ll = findViewById(R.id.login_ll);
         fruityRecyclerview = findViewById(R.id.fruityrecyclerview);
@@ -263,6 +265,10 @@ public class CommonLandingActivity extends AppCompatActivity {
 
         photosViewMore.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), PhotosDetailsActivity.class);
+            startActivity(intent);
+        });
+        loginToolBar.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         });
         eventsViewMore.setOnClickListener(view -> {

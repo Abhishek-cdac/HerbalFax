@@ -17,7 +17,7 @@
         android:paddingBottom="@dimen/_5sdp"
         android:text="Today"
         android:textColor="@color/text_grey"
-        android:textSize="@dimen/_18sdp" />
+        android:textSize="@dimen/_14sdp" />
     <!-- Horizontal line -->
     <View
         android:id="@+id/line"

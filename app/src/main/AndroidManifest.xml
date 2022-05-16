@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.herbal.herbalfax">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -23,15 +22,18 @@
         android:allowBackup="true"
         android:icon="@drawable/herbalfax_black_logo"
         android:label="@string/app_name"
-        android:theme="@style/Theme.HerbalFax"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/Theme.HerbalFax"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-
-        <!--        android:theme="@style/Theme.HerbalFax"
--->
+        <activity
+            android:name=".signupnew.NewCustomerSignUpScTwo"
+            android:exported="false" />
+        <activity
+            android:name=".signupnew.NewCustomerSignUpScOne"
+            android:exported="false" /> <!-- android:theme="@style/Theme.HerbalFax" -->
         <activity
             android:name=".customer.homescreen.nearbystores.NearByActivity"
             android:exported="true" />
@@ -113,10 +115,10 @@
         <activity
             android:name=".customer.homescreen.products.CustomerProductDetailsActivity"
             android:exported="true" />
-        <activity
+     <!--   <activity
             android:name=".customer.homescreen.products.toprated.TopRatedActivity"
             android:exported="true" />
-        <activity
+     -->   <activity
             android:name=".TestActivity"
             android:exported="true" />
         <activity
@@ -230,11 +232,9 @@
             android:name=".common_screen.email_verification.VerifyEmailActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/CropwindowTheme" />
-
         <activity
             android:name=".common_screen.forgot_password.ForgotPasswordActivity"
             android:exported="true"

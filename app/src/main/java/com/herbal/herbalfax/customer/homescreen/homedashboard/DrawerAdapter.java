@@ -29,7 +29,16 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private CancelClickListener listener;
     private LogoutClickListener logoutClickListener;
 
-    private int[] drawerIcon = {0, R.drawable.ic_icon_menu_home, R.drawable.ic_icon_menu_map_pin, R.drawable.ic_icon_menu_social, R.drawable.ic_icon_menu_map_store, R.drawable.ic_icon_menu_explore_strain, R.drawable.ic_icon_menu_shopping_cart, R.drawable.ic_icon_menu_calculator, R.drawable.ic_icon_menu_credit_card, R.drawable.ic_icon_menu_parcel, R.drawable.ic_icon_notifications_outline, 0};
+    private int[] drawerIcon = {0, R.drawable.ic_icon_menu_home,
+            R.drawable.ic_icon_menu_map_pin,
+            R.drawable.ic_icon_menu_social,
+            R.drawable.ic_icon_menu_map_store,
+            R.drawable.group,
+            R.drawable.strain,
+            R.drawable.ic_icon_menu_shopping_cart,
+            R.drawable.ic_icon_menu_calculator,
+            R.drawable.ic_icon_notifications_outline,
+            R.drawable.setting, 0};
 
 
     /**

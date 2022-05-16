@@ -102,7 +102,7 @@
                         android:text="@={LoginViewModel.EmailAddress}"
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_14sdp" />
 
                 </androidx.cardview.widget.CardView>
                 <!--     android:text="@={LoginViewModel.EmailAddress}"
@@ -149,7 +149,7 @@
                         android:text="@={LoginViewModel.Password}"
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_14sdp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -211,7 +211,7 @@
                     android:text="@string/login"
                     android:onClick="@{(v) -> LoginViewModel.onClickLogin(v)}"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_18sdp" />
 
 
                 <LinearLayout
@@ -226,19 +226,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/raleway_medium"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/new_user_join_now"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp" />
 
                     <TextView
                         android:id="@+id/signUp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/raleway_medium"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/sign_up_here"
                         android:onClick="@{(v) -> LoginViewModel.onClickRegister(v)}"
-
                         android:textColor="@color/green"
                         android:textSize="@dimen/_14sdp" />
 

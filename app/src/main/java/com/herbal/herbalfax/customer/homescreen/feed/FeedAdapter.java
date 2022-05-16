@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,6 +96,13 @@ public class FeedAdapter extends AAH_VideosAdapter {
         if (holder.getItemViewType() == 0) {
             ViewHolder userViewHolder;
             userViewHolder = (ViewHolder) holder;
+            String text ="It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+            if (text.length()>40) {
+                text=text.substring(0,40)+"..";
+                userViewHolder.result.setText(Html.fromHtml(text+"<font color='#96C93D'> <u> More</u></font>"));
+
+            }
+
             userViewHolder.userName.setText("@" + lst_feed.get(position).getUFullName());
             userViewHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             userViewHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
@@ -104,7 +112,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
             }
             userViewHolder.commentcount.setText(lst_feed.get(position).getPostComments());
-            userViewHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+            userViewHolder.viewsCounttxt.setText("+"+lst_feed.get(position).getPostViews() + " Views");
 
             if (lst_feed.get(position).getUProPic() != null) {
                 if (lst_feed.get(position).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
@@ -320,6 +328,12 @@ public class FeedAdapter extends AAH_VideosAdapter {
             holder.setLooping(false); //optional - true by default
 
             videoHolder = (ViewHolderUserVideo) holder;
+            String text ="It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+            if (text.length()>40) {
+                text=text.substring(0,40)+"..";
+                videoHolder.result.setText(Html.fromHtml(text+"<font color='#96C93D'> <u> More</u></font>"));
+
+            }
 
             videoHolder.userName.setText("@" + lst_feed.get(position).getUFullName());
 
@@ -331,7 +345,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
             }
             videoHolder.commentcount.setText(lst_feed.get(position).getPostComments());
-            videoHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+            videoHolder.viewsCounttxt.setText("+"+lst_feed.get(position).getPostViews() + " Views");
 
             if (lst_views.size() == 0) {
                 videoHolder.img1.setVisibility(View.GONE);
@@ -549,6 +563,13 @@ public class FeedAdapter extends AAH_VideosAdapter {
         } else if (holder.getItemViewType() == 2) {
             ViewHolderQuestion viewHolderQuestion;
             viewHolderQuestion = (ViewHolderQuestion) holder;
+            String text ="It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+            if (text.length()>40) {
+                text=text.substring(0,40)+"..";
+                viewHolderQuestion.result.setText(Html.fromHtml(text+"<font color='#96C93D'> <u> More</u></font>"));
+
+            }
+
             viewHolderQuestion.userName.setText("@" + lst_feed.get(position).getUFullName());
             viewHolderQuestion.descHead.setText(lst_feed.get(position).getPostDesc());
             viewHolderQuestion.questionTxt.setText(lst_feed.get(position).getPostDesc());
@@ -557,7 +578,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
             }
             viewHolderQuestion.commentcount.setText(lst_feed.get(position).getPostComments());
-            viewHolderQuestion.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+            viewHolderQuestion.viewsCounttxt.setText("+"+lst_feed.get(position).getPostViews() + " Views");
             if (lst_views.size() == 0) {
                 viewHolderQuestion.img1.setVisibility(View.GONE);
                 viewHolderQuestion.img2.setVisibility(View.GONE);
@@ -842,9 +863,10 @@ public class FeedAdapter extends AAH_VideosAdapter {
         LinearLayout commentll;
         TextView upTxt, downTxt, viewAnswerTxt, viewFollowTxt, viewPassTxt;
         ImageView img1, img2, img3, img4, img5, imageview2;
-
+         TextView result ;
         public ViewHolderQuestion(@NonNull View itemView) {
             super(itemView);
+            result=  itemView.findViewById(R.id.descsubHead);
 
             img1 = itemView.findViewById(R.id.img1);
             img2 = itemView.findViewById(R.id.img2);
@@ -891,7 +913,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
         LottieAnimationView animationView;
         ImageView iv_post_image, iv_more_options;
         CardView card_image;
-        TextView userName, PersonNameTxt, descTxt, AddComment, viewsCounttxt;
+        TextView userName, PersonNameTxt, descTxt, AddComment, viewsCounttxt, result;
         TextView upTxt, descHead, downTxt, likesCountTxt, viewCommentTxt, userNameTxt;
         ImageView iv_mute_unmute;
         ImageView img_playback;
@@ -904,6 +926,8 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
         public ViewHolderUserVideo(@NonNull View itemView) {
             super(itemView);
+            result=  itemView.findViewById(R.id.descsubHead);
+
             profDetail = itemView.findViewById(R.id.detail);
             commentcount = itemView.findViewById(R.id.commentcount);
             viewsCounttxt = itemView.findViewById(R.id.viewsCounttxt);
@@ -997,7 +1021,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
     public class ViewHolder extends AAH_CustomViewHolder {
         TextView commentcount, viewsCounttxt, profDetail, userName, upTxt, downTxt, likesCountTxt, PersonNameTxt, descTxt, viewCommentTxt, AddComment, userNameTxt;
         ImageView profileImg, moreImg, feedPostImg, likeImg, AddCommentProfileImg;
-        TextView shareImg, descHead;
+        TextView shareImg, descHead, result;
         LinearLayout commentll;
 
         ImageView img1, img2, img3, img4, img5;
@@ -1005,6 +1029,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            result=  itemView.findViewById(R.id.descsubHead);
 
             img1 = itemView.findViewById(R.id.img1);
             img2 = itemView.findViewById(R.id.img2);

@@ -23,15 +23,30 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_height="wrap_content">
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
+
+        <androidx.cardview.widget.CardView
+
+            app:cardCornerRadius="@dimen/_5sdp"
             android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_110sdp"
-            android:src="@drawable/profileimg"
-            app:civ_border_width="2dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:civ_border_color="#8BF7D8"/>
+            android:layout_height="@dimen/_110sdp">
+
+            <ImageView
+                android:scaleType="fitXY"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="@dimen/_110sdp"
+                android:src="@drawable/profileimg"/>
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="@dimen/_110sdp"
+                android:background="@drawable/edit_icon" />
+        </androidx.cardview.widget.CardView>
         <!--    <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/edit_image"
@@ -57,14 +72,9 @@
 
 <!--            app:cardCornerRadius="50dp">-->
 
-            <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:layout_marginRight="@dimen/_7sdp"
-                android:layout_gravity="end"
-                android:background="@drawable/edit_icon" />
-<!--        </androidx.cardview.widget.CardView>-->
+     <!--        </androidx.cardview.widget.CardView>-->
+
+
     </FrameLayout>
 
 
