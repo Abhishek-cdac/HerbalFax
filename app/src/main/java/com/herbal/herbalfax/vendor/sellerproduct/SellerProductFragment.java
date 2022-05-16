@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -50,8 +51,15 @@ import retrofit2.Response;
 public class SellerProductFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     RecyclerView productRecyclerView;
     private SellerProductViewModel sellerProductViewModel;
+    private int pastVisiblesItems=0;
+    private ProgressBar progress_bar;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
     Button addProduct;
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    LinearLayoutManager RecyclerViewLayoutManager;
     LinearLayoutManager HorizontalLayout;
     private Onclick itemClick;
     ProductListAdapter productListAdapter;
@@ -67,6 +75,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
         View root = inflater.inflate(R.layout.fragment_sellerproduct, container, false);
         clsCommon = CommonClass.getInstance();
         storeSpinner = root.findViewById(R.id.storeSpinner);
+        progress_bar=root.findViewById(R.id.progress_bar);
         storeCategorySpinner = root.findViewById(R.id.storeCategorySpinner);
         addProduct = root.findViewById(R.id.addProduct);
 
@@ -105,20 +114,27 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("StoreId", "0");
-        hashMap.put("limit", "20");
-        hashMap.put("offset", "0");
+        hashMap.put("limit", limit+"");
+        hashMap.put("offset", offset+"");
         hashMap.put("category", "0");
         hashMap.put("active", "1");
         hashMap.put("product_type", "1");
         hashMap.put("search_key", "0");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
-        pd.show();
+//        pd.show();
+        if(offset==0)
+        {
+            pd.show();
+        }else{
+            progress_bar.setVisibility(View.VISIBLE);
+        }
         Call<ProductListResponse> call = service.userStoreProductList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<ProductListResponse>() {
             @Override
             public void onResponse(Call<ProductListResponse> call, Response<ProductListResponse> response) {
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
@@ -160,18 +176,57 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                             }
                         }*/
 
-                        lst_product = (ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
+                        ArrayList<StoreProduct> localList=(ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
+//                        lst_product = (ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
+
+
                         if (lst_product == null) {
                             lst_product = new ArrayList<>();
                         }
 
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-                        productRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
-                        productListAdapter = new ProductListAdapter(lst_product, getActivity(), itemClick);
-                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                        productRecyclerView.setHasFixedSize(true);
-                        productRecyclerView.addItemDecoration(new SpacesItemDecoration(2));
-                        productRecyclerView.setAdapter(productListAdapter);
+                        if(offset==1)
+                        {
+                            lst_product.clear();
+                        }
+                        lst_product.addAll(localList);
+                        if(productListAdapter==null)
+                        {
+                            RecyclerViewLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false);
+                            productRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
+                            productListAdapter = new ProductListAdapter(lst_product, getActivity(), itemClick);
+                            HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                            productRecyclerView.setHasFixedSize(true);
+                            productRecyclerView.addItemDecoration(new SpacesItemDecoration(2));
+                            productRecyclerView.setAdapter(productListAdapter);
+                        }else{
+                            productListAdapter.notifyDataSetChanged();
+                        }
+                        isLoading=true;
+
+
+                        productRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = RecyclerViewLayoutManager.getChildCount();
+                                    totalItemCount = RecyclerViewLayoutManager.getItemCount();
+                                    pastVisiblesItems = RecyclerViewLayoutManager.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callProductListApi();
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+
                     } else {
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }
@@ -181,6 +236,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", jObjError.getString("message"), "Ok");
                     } catch (Exception e) {
+                        progress_bar.setVisibility(View.GONE);
                         Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -191,6 +247,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
             public void onFailure(@NotNull Call<ProductListResponse> call, Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
+                progress_bar.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });

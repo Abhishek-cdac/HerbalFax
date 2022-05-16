@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.customer.bottomsheet;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,10 +15,8 @@ import androidx.annotation.Nullable;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.homescreen.addcard.AddCardActivity;
-import com.herbal.herbalfax.customer.homescreen.addcard.AddCardFragment;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.CheckOutActivity;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.SelectDeliveryAddressActivity;
-import com.herbal.herbalfax.customer.homescreen.feed.FeedAdapter;
 
 public class ShoppingDetailsBottomSheet extends BottomSheetDialogFragment {
 
@@ -47,6 +46,7 @@ public class ShoppingDetailsBottomSheet extends BottomSheetDialogFragment {
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -12,26 +12,43 @@
 
         <TextView
             android:id="@+id/totalCount"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".9"
-            android:text="Showing all 55 products"
+            android:text=""
             android:textColor="@color/black" />
 
         <ImageView
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_icon_filter_black" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_30sdp"
+
+        android:layout_height="match_parent">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/storeProductsRecycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:padding="@dimen/_20sdp" />
+        android:padding="@dimen/_20sdp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+         />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:padding="@dimen/_10sdp"
+            android:theme="@style/AppTheme"
+            android:visibility="gone"
+            />
+    </LinearLayout>
 
 
 </FrameLayout>

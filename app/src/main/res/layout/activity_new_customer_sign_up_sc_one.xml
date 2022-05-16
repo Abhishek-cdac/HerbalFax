@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="SignUpNewAsCustomerViewModel"
+            type="com.herbal.herbalfax.signupnew.SignUpNewAsCustomerViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
+
+
+            <LinearLayout
+
+                android:id="@+id/textbox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@string/signupAsCustomer"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_22sdp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="@string/name"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_2sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
+
+                    card_view:cardElevation="@dimen/_12sdp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rect_button"
+                        android:drawableEnd="@drawable/ic_person"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/name_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={SignUpNewAsCustomerViewModel.fullName}"
+
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="@string/birthday"
+
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_2sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
+
+                    card_view:cardElevation="@dimen/_12sdp">
+
+                    <EditText
+                        android:id="@+id/birthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rect_button"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/birthday_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+
+                </androidx.cardview.widget.CardView>
+                <!--  android:text="@={SignUpNewAsCustomerViewModel.birthDate}"
+                                      -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="@string/gender"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/male"
+                        android:textColor="@color/text_grey"
+                        app:buttonTint="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/female"
+                        android:textColor="@color/text_grey"
+                        app:buttonTint="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/Other"
+                        android:textColor="@color/text_grey"
+                        app:buttonTint="@color/black" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="@string/selectProfession"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_2sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
+
+                    card_view:cardElevation="@dimen/_12sdp">
+
+                    <EditText
+                        android:id="@+id/professionedt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rect_button"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/ic_arrow_down"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="@font/raleway_regular"
+
+                        android:hint="@string/profession_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={SignUpNewAsCustomerViewModel.profession}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="@string/city"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_2sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false"
+
+                    card_view:cardElevation="@dimen/_12sdp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rect_button"
+                        android:drawableEnd="@drawable/ic_building"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/city_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={SignUpNewAsCustomerViewModel.city}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <Button
+                    android:id="@+id/next_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:background="@drawable/rect_button_green"
+                    android:elevation="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
+                    android:paddingHorizontal="@dimen/_40sdp"
+                    android:text="@string/next"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_18sdp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

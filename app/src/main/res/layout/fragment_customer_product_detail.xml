@@ -5,6 +5,10 @@
     android:layout_margin="@dimen/_10sdp"
     android:orientation="vertical"
     android:padding="@dimen/_10sdp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="@dimen/_500sdp">
 
 
     <LinearLayout
@@ -26,35 +30,37 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
             android:orientation="horizontal"
-            android:padding="@dimen/_5sdp">
+          >
 
             <ImageView
                 android:id="@+id/one"
+                android:padding="@dimen/_2sdp"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 />
 
             <ImageView
                 android:id="@+id/two"
-
+                android:padding="@dimen/_2sdp"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp" />
 
             <ImageView
                 android:id="@+id/three"
-
+                android:padding="@dimen/_2sdp"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 />
 
             <ImageView
                 android:id="@+id/four"
-
+                android:padding="@dimen/_2sdp"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 />
 
             <ImageView
+                android:padding="@dimen/_2sdp"
                 android:id="@+id/five"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
@@ -69,7 +75,7 @@
                 android:fontFamily="@font/raleway_semibold"
 
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_14sdp" />
 
             <TextView
                 android:id="@+id/totalReview"
@@ -78,7 +84,7 @@
                 android:fontFamily="@font/raleway_medium"
 
                 android:textColor="@color/text_grey"
-                android:textSize="@dimen/_11sdp" />
+                android:textSize="@dimen/_12sdp" />
 
         </LinearLayout>
 
@@ -114,78 +120,161 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp" />
 
-                <LinearLayout
-                    android:background="@drawable/bg_roundrect_green_light_border"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_4sdp"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:background="@drawable/bg_roundrect_green_light_border"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="@dimen/_4sdp"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <ImageView
-                        android:id="@+id/remove"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:background="@color/light_green"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@drawable/ic_path_minus" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/remove"-->
+<!--                        android:layout_width="@dimen/_20sdp"-->
+<!--                        android:layout_height="@dimen/_20sdp"-->
+<!--                        android:background="@color/lighttt_green"-->
+<!--                        android:padding="@dimen/_5sdp"-->
+<!--                        android:src="@drawable/ic_path_minus" />-->
 
-                    <TextView
-                        android:id="@+id/quantityTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_15sdp"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="0"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/quantityTxt"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                        android:fontFamily="@font/roboto_medium"-->
+<!--                        android:text="0"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="15dp" />-->
 
 
-                    <ImageView
-                        android:id="@+id/add"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_marginLeft="@dimen/_15sdp"
-                        android:background="@color/light_green"
-                        android:src="@drawable/ic_baseline_add" />
-                </LinearLayout>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/add"-->
+<!--                        android:layout_width="@dimen/_20sdp"-->
+<!--                        android:layout_height="@dimen/_20sdp"-->
+<!--                        android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                        android:background="@color/lighttt_green"-->
+<!--                        android:src="@drawable/ic_baseline_add" />-->
+<!--                </LinearLayout>-->
 
 
             </LinearLayout>
 
 
+<!--            <TextView-->
+<!--                android:id="@+id/share"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:layout_weight=".3"-->
+<!--                android:drawableLeft="@drawable/ic_icon_share_black"-->
+<!--                android:drawablePadding="@dimen/_10sdp"-->
+<!--                android:gravity="bottom"-->
+<!--                android:textSize="@dimen/_15sdp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:fontFamily="@font/raleway_semibold"-->
+<!--                android:text="@string/share" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/PriceTxt"-->
+
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:layout_weight=".2"-->
+<!--                android:fontFamily="@font/roboto_medium"-->
+<!--                android:gravity="end|right"-->
+<!--                android:maxLines="2"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18dp" />-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:background="@drawable/bg_roundrect_green_light_border"
+
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_4sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/remove"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@color/lighttt_green"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_path_minus" />
+
+                <TextView
+                    android:id="@+id/quantityTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+                <ImageView
+                    android:id="@+id/add"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:background="@color/lighttt_green"
+                    android:src="@drawable/ic_baseline_add" />
+
+
+            </LinearLayout>
+
+
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_weight="1"
+              android:gravity="center"
+              android:layout_gravity="center"
+              android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/share"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_weight=".3"
-                android:drawableLeft="@drawable/ic_icon_share"
+                android:drawableLeft="@drawable/ic_icon_share_black"
                 android:drawablePadding="@dimen/_10sdp"
-                android:gravity="bottom"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="@string/share" />
-
+          </LinearLayout>
 
             <TextView
                 android:id="@+id/PriceTxt"
-
-                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_weight=".2"
+                android:text="$195"
                 android:fontFamily="@font/roboto_medium"
-                android:gravity="end"
                 android:maxLines="2"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="18dp" />
+
         </LinearLayout>
+
+
 
         <LinearLayout
             android:id="@+id/addToCart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
             android:background="@drawable/rect_button_black"
             android:orientation="horizontal">
 
@@ -202,6 +291,7 @@
                 android:layout_margin="@dimen/_10sdp"
                 android:drawablePadding="@dimen/_10sdp"
                 android:gravity="center"
+                android:textAllCaps="true"
                 android:text="@string/add_to_cart"
                 android:textColor="@color/white" />
 
@@ -210,6 +300,6 @@
 
     </LinearLayout>
 
-
+    </ScrollView>
 
 </LinearLayout>

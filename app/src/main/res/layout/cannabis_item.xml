@@ -8,23 +8,25 @@
     android:id="@+id/cardview"
     app:cardBackgroundColor="@color/white"
     android:layout_marginTop="5dp"
+    app:cardCornerRadius="@dimen/_5sdp"
     android:layout_marginLeft="@dimen/_5sdp"
     android:layout_marginRight="@dimen/_2sdp"
     android:layout_marginBottom="@dimen/_5sdp"
-    android:layout_height="wrap_content">
+    android:layout_height="@dimen/_130sdp">
     <RelativeLayout
+        android:gravity="center"
         android:background="@color/white"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:padding="@dimen/_10sdp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/CannabisImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:gravity="center"
             android:src="@drawable/community"
             android:visibility="visible" />
@@ -35,12 +37,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/CannabisImg"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/raleway_medium"
             android:gravity="center"
             android:paddingTop="@dimen/_10sdp"
             android:paddingBottom="@dimen/_10sdp"
-            android:text="Community "
+            android:text="Community"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp" />
 

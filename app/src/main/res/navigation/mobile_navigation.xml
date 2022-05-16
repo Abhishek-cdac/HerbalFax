@@ -56,32 +56,32 @@
         android:name="com.herbal.herbalfax.customer.homescreen.parcel.ParcelFragment"
         android:label="@string/parcels"
         tools:layout="@layout/fragment_parcelservice" />
-
     <fragment
+
         android:id="@+id/bottom_home"
         android:name="com.herbal.herbalfax.customer.homescreen.feed.FeedFragment"
         android:label="@string/menu_feed"
         tools:layout="@layout/fragment_home" />
-
+<!--
    <fragment
         android:id="@+id/bottom_dashboard"
         android:name="com.herbal.herbalfax.customer.homescreen.products.ProductsFragment"
         android:label="@string/menu_products"
-        tools:layout="@layout/fragment_dashboard" />
-
+        tools:layout="@layout/fragment_dashboard" />-->
+<!--
     <fragment
         android:id="@+id/bottom_notifications"
         android:name="com.herbal.herbalfax.customer.homescreen.nearbystores.NearByStoreFragment"
         android:label="@string/title_group"
         tools:layout="@layout/fragment_near_by_store" />
+-->
 
 
-
-   <!-- <fragment
+    <fragment
         android:id="@+id/bottom_notifications"
         android:name="com.herbal.herbalfax.customer.homescreen.group.GroupsFragment"
         android:label="@string/title_group"
-        tools:layout="@layout/fragment_notifications" />-->
+        tools:layout="@layout/fragment_notifications" />
 
 
     <fragment
@@ -89,11 +89,11 @@
         android:name="com.herbal.herbalfax.customer.homescreen.deals.DealsFragment"
         android:label="@string/deal"
         tools:layout="@layout/fragment_deals" />
-    <fragment
+   <!-- <fragment
         android:id="@+id/bottom_askfax"
         android:name="com.herbal.herbalfax.customer.homescreen.askfax.AskFaxFragment"
         android:label="@string/ask_fax"
         tools:layout="@layout/fragment_askfax" />
-
+-->
 
 </navigation>

@@ -3,6 +3,7 @@ package com.herbal.herbalfax.common_screen.dialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
@@ -40,6 +43,10 @@ public class DeleteDialog extends Dialog implements android.view.View.OnClickLis
 
         this.c = a;
         this.productId = productId;
+    }
+
+    public DeleteDialog(Context mContext) {
+        super(mContext);
     }
 
     @Override
@@ -86,11 +93,10 @@ public class DeleteDialog extends Dialog implements android.view.View.OnClickLis
         Call<CommonResponse> call = service.vendorProductDelete("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
+            public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
                 if (response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
-
                         Log.e("ProductId data success ", "" + productId);
 
                     }
@@ -107,7 +113,7 @@ public class DeleteDialog extends Dialog implements android.view.View.OnClickLis
             }
 
             @Override
-            public void onFailure(@NotNull Call<CommonResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<CommonResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(c, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }

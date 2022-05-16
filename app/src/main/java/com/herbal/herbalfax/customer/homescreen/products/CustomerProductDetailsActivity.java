@@ -1,6 +1,9 @@
 package com.herbal.herbalfax.customer.homescreen.products;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,7 +35,7 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
     ViewPager viewPager;
     String productId;
     CommonClass clsCommon;
-    ImageView productImg;
+    ImageView productImg, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         clsCommon = CommonClass.getInstance();
+        back = findViewById(R.id.back);
         productImg = findViewById(R.id.productImg);
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
@@ -77,8 +81,59 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
 
             }
         });
-        callProductDetails(productId);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        callProductDetails(productId);
+        wrapTabIndicatorToTitle(tabLayout,50,50);
+    }
+
+
+    public void wrapTabIndicatorToTitle(TabLayout tabLayout, int externalMargin, int internalMargin) {
+        View tabStrip = tabLayout.getChildAt(0);
+        if (tabStrip instanceof ViewGroup) {
+            ViewGroup tabStripGroup = (ViewGroup) tabStrip;
+            int childCount = ((ViewGroup) tabStrip).getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View tabView = tabStripGroup.getChildAt(i);
+                //set minimum width to 0 for instead for small texts, indicator is not wrapped as expected
+                tabView.setMinimumWidth(0);
+                // set padding to 0 for wrapping indicator as title
+                tabView.setPadding(0, tabView.getPaddingTop(), 0, tabView.getPaddingBottom());
+                // setting custom margin between tabs
+                if (tabView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) tabView.getLayoutParams();
+                    if (i == 0) {
+                        // left
+                        settingMargin(layoutParams, externalMargin, internalMargin);
+                    } else if (i == childCount - 1) {
+                        // right
+                        settingMargin(layoutParams, internalMargin, externalMargin);
+                    } else {
+                        // internal
+                        settingMargin(layoutParams, internalMargin, internalMargin);
+                    }
+                }
+            }
+
+            tabLayout.requestLayout();
+        }
+    }
+
+    private void settingMargin(ViewGroup.MarginLayoutParams layoutParams, int start, int end) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            layoutParams.setMarginStart(start);
+            layoutParams.setMarginEnd(end);
+            layoutParams.leftMargin = start;
+            layoutParams.rightMargin = end;
+        } else {
+            layoutParams.leftMargin = start;
+            layoutParams.rightMargin = end;
+        }
     }
 
     private void callProductDetails(String productId) {
@@ -103,9 +158,7 @@ public class CustomerProductDetailsActivity extends AppCompatActivity {
                                         .load(String.valueOf(response.body().getData().getStoreProduct().getSPPPath()))
                                         .into(productImg);
                             } else {
-//    Picasso.get()
-//            .load(R.drawable.profileimg)
-//            .into(productImg);
+
                             }
 
 

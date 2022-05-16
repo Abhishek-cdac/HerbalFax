@@ -48,12 +48,7 @@ public class BlogsCategoryAdapter extends RecyclerView.Adapter<BlogsCategoryAdap
         holder.nameArticle.setText(lst_blogCategory.get(position).getBCatTitle());
         picasso.load(lst_blogCategory.get(position).getBCatImage()).into(holder.articleImg);
         String categoryId = lst_blogCategory.get(position).getIdblogCategories();
-        holder.cardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                itemClick.onItemClicks(view, position, 3, categoryId);
-            }
-        });
+        holder.cardview.setOnClickListener(view -> itemClick.onItemClicks(view, position, 3, categoryId));
     }
 
     @Override
@@ -62,7 +57,7 @@ public class BlogsCategoryAdapter extends RecyclerView.Adapter<BlogsCategoryAdap
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameArticle;
         ImageView articleImg;
         CardView cardview;

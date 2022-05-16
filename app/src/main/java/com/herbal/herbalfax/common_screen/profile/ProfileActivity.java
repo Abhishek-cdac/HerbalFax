@@ -1,35 +1,49 @@
 package com.herbal.herbalfax.common_screen.profile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
-import android.widget.TextView;
+import androidx.cardview.widget.CardView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.homescreen.favourites.FavouritesActivity;
 import com.squareup.picasso.Picasso;
-import com.herbal.herbalfax.common_screen.landingpage.EventsDetailsActivity;
 
 public class ProfileActivity extends AppCompatActivity {
     TextView userName, profileCategory, DOB, gendertype, cityname, mobilenumber, mailaddress;
     SessionPref pref;
-    ImageView profileImage;
+    ImageView profileImage, back;
     Picasso picasso;
-
+    CardView favCard;
 
     TextView MyDealsBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         MyDealsBtn = findViewById(R.id.mydealsbtn);
+        favCard = findViewById(R.id.favCard);
+        back = findViewById(R.id.back);
 
+        favCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FavouritesActivity.class);
+                startActivity(intent);
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         MyDealsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,10 +61,17 @@ public class ProfileActivity extends AppCompatActivity {
         cityname = findViewById(R.id.cityname);
         mobilenumber = findViewById(R.id.mobilenumber);
         mailaddress = findViewById(R.id.mailaddress);
-        picasso.load(pref.getStringVal(SessionPref.LoginUserprofilePic)).into(profileImage);
+        try {
+            if (null != SessionPref.LoginUserprofilePic) {
+                picasso.load(pref.getStringVal(SessionPref.LoginUserprofilePic)).into(profileImage);
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
         userName.setText(pref.getStringVal(SessionPref.LoginUserfullName));
         DOB.setText(pref.getStringVal(SessionPref.LoginUserbirthDate));
-        gendertype.setText(pref.getStringVal(SessionPref.LoginUsergender));
+      //gendertype.setText(pref.getStringVal(SessionPref.LoginUsergender));
         cityname.setText(pref.getStringVal(SessionPref.LoginUserCity));
         mailaddress.setText(pref.getStringVal(SessionPref.LoginUseremail));
         profileCategory.setText(pref.getStringVal(SessionPref.LoginProfession));

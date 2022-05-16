@@ -25,11 +25,13 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
 import com.herbal.herbalfax.customer.store.StoreRatingAndReviewActivity;
 import com.herbal.herbalfax.customer.store.adapter.StoreReviewAdapter;
 import com.herbal.herbalfax.customer.store.storeratingmodel.StoreRating;
 import com.herbal.herbalfax.customer.store.storeratingmodel.StoreRatingsChart;
 import com.herbal.herbalfax.customer.store.storeratingmodel.UserStoreRatingList;
+import com.herbal.herbalfax.util.CommonUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -43,7 +45,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class StoreReviewFragment extends Fragment {
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    LinearLayoutManager RecyclerViewLayoutManager;
     RecyclerView storeReviewsRecycler;
     LinearLayoutManager HorizontalLayout;
     StoreReviewAdapter storeReViewsAdapter;
@@ -53,6 +55,12 @@ public class StoreReviewFragment extends Fragment {
     TextView storeOwner, ratingCount, oneRatingTxt, twoRatingTxt, threeRatingTxt, fourRatingTxt, fiveRatingTxt;
     CommonClass clsCommon;
     LinearProgressIndicator progressFive, progressFour, progressThree, progressTwo, progressOne;
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
 
     public StoreReviewFragment() {
         // Required empty public constructor
@@ -71,6 +79,7 @@ public class StoreReviewFragment extends Fragment {
             storeId = arguments.get("storeId").toString();
             Log.e("StoreReviewFragment", "" + storeId);
         }
+        ratingCount = root.findViewById(R.id.ratingCount);
         progressFive = root.findViewById(R.id.progressFive);
         progressFour = root.findViewById(R.id.progressFour);
         progressThree = root.findViewById(R.id.progressThree);
@@ -98,11 +107,21 @@ public class StoreReviewFragment extends Fragment {
             }
         });
 
-        callStoreRatingListAPI(storeId);
+//        callStoreRatingListAPI(storeId);
+        callStoreRatingAPI(storeId);
 
         return root;
 
 
+    }
+
+    private void callStoreRatingAPI(String storeId)
+    {
+        if (CommonUtils.isInternetOn(getActivity())) {
+            callStoreRatingListAPI(storeId);
+        }else{
+            Toast.makeText(getActivity(), getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void callStoreRatingListAPI(String storeId) {
@@ -110,8 +129,8 @@ public class StoreReviewFragment extends Fragment {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("StoreId", storeId);
-        hashMap.put("limit", "30");
-        hashMap.put("offset", "0");
+        hashMap.put("limit", limit+"");
+        hashMap.put("offset", offset+"");
 
         Call<UserStoreRatingList> call = service.userStoreRatingList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
         call.enqueue(new Callback<UserStoreRatingList>() {
@@ -137,6 +156,7 @@ public class StoreReviewFragment extends Fragment {
                         fourRatingTxt.setText(lst_storeRatingChart.get(3).getRateCount() + "%");
                         fiveRatingTxt.setText(lst_storeRatingChart.get(4).getRateCount() + "%");
 
+
                       /*  try {
                             progressOne.setProgress(lst_storeRatingChart.get(0).getRateCount());
                             progressTwo.setProgress(lst_storeRatingChart.get(1).getRateCount());
@@ -153,13 +173,43 @@ public class StoreReviewFragment extends Fragment {
                         if (lst_storeRating == null) {
                             lst_storeRating = new ArrayList<>();
                         }
+                        if(storeReViewsAdapter==null)
+                        {
+                            RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+                            storeReviewsRecycler.setLayoutManager(RecyclerViewLayoutManager);
+                            storeReViewsAdapter = new StoreReviewAdapter(lst_storeRating, getActivity());
+                            HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                            //storeReviewsRecycler.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                            storeReviewsRecycler.setAdapter(storeReViewsAdapter);
+                            isLoading=true;
+                        }else{
+                            storeReViewsAdapter.notifyDataSetChanged();
+                            isLoading=true;
+                        }
 
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-                        storeReviewsRecycler.setLayoutManager(RecyclerViewLayoutManager);
-                        storeReViewsAdapter = new StoreReviewAdapter(lst_storeRating, getActivity());
-                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                        //storeReviewsRecycler.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                        storeReviewsRecycler.setAdapter(storeReViewsAdapter);
+                        storeReviewsRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = RecyclerViewLayoutManager.getChildCount();
+                                    totalItemCount = RecyclerViewLayoutManager.getItemCount();
+                                    pastVisiblesItems = RecyclerViewLayoutManager.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callStoreRatingAPI(storeId);
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+
 
                         //  storeOwner.setText(Math.toIntExact(response.body().getData().getStoreRatingsCount()));
 

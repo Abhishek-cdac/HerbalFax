@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.common_screen.verify_email_after_signup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -52,7 +53,6 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
         emailStr = findViewById(R.id.emailStr);
 
 
-        Log.e("maskingEmail ", "" + maskingEmail);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             email = getIntent().getExtras().getString("Email");
@@ -61,9 +61,13 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
 
             Log.e("Email ", "" + email);
             Log.e("userId ", "" + userId);
+            Log.e("maskingEmail ", "" + maskingEmail);
+
+            emailStr.setText(maskingEmail);
+
         }
 
-        emailStr.setText(maskingEmail);
+
 
         verifyCodeAfterSignUpViewModel.getUser().observe(this, confirmOtp -> {
 
@@ -98,7 +102,7 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
         Call<ResendOTPModel> call = service.signupResendOtp(hashMap);
         call.enqueue(new Callback<ResendOTPModel>() {
             @Override
-            public void onResponse(Call<ResendOTPModel> call, Response<ResendOTPModel> response) {
+            public void onResponse(@NonNull Call<ResendOTPModel> call, @NonNull Response<ResendOTPModel> response) {
                 pd.cancel();
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -124,7 +128,7 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<ResendOTPModel> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResendOTPModel> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(VerifyCodeAfterSignUpActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
@@ -144,7 +148,7 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
         Call<SignUpOtpVerifyResponse> call = service.signupOtpVerify(hashMap);
         call.enqueue(new Callback<SignUpOtpVerifyResponse>() {
             @Override
-            public void onResponse(Call<SignUpOtpVerifyResponse> call, Response<SignUpOtpVerifyResponse> response) {
+            public void onResponse(@NonNull Call<SignUpOtpVerifyResponse> call, @NonNull Response<SignUpOtpVerifyResponse> response) {
                 pd.cancel();
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -170,7 +174,7 @@ public class VerifyCodeAfterSignUpActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<SignUpOtpVerifyResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<SignUpOtpVerifyResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(VerifyCodeAfterSignUpActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();

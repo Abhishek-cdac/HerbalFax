@@ -17,6 +17,10 @@
 
     </style>
 
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
     <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
 
         <item name="android:typeface">monospace</item>

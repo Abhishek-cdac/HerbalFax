@@ -5,14 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.herbal.herbalfax.common_screen.SplashActivity;
 import com.herbal.herbalfax.common_screen.landingpage.CommonLandingActivity;
-import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.LandingPageActivity;
 import com.herbal.herbalfax.vendor.SellerLandingPageActivity;
 
 
 public class SessionPref {
+    @SuppressLint("StaticFieldLeak")
     static SessionPref ref;
     public static final String USER_SESSIONNAME = "user_loginSession";
     Context mContext;

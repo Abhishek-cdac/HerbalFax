@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="AddQuestionAskFaxViewModel"
+            type="com.herbal.herbalfax.customer.homescreen.askfax.addaf.AddQuestionAskFaxViewModel" />
+
+    </data>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".customer.homescreen.askfax.addaf.AddQuestionAskFaxActivity">
+
+    <LinearLayout
+        android:id="@+id/headeradd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|left"
+            android:layout_weight=".8"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/addquestion"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="SpUsage" />
+
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/tips_on_getting_good_answers_quickly"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                tools:ignore="SpUsage" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_rectangle_bg" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_icon_check" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/make_sure_your_question_hasn_t_been_asked_already"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="SpUsage" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_rectangle_bg" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_icon_check" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/keep_your_question_short_and_to_the_point"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="SpUsage" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_rectangle_bg" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_icon_check" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/double_check_grammar_and_spelling"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="SpUsage" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_weight=".1"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_icon_awesome_users" />
+
+            <Spinner
+                android:id="@+id/privacySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".8" />
+
+            <ImageView
+
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_arrow_down" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/white"
+        android:elevation="8dp">
+
+        <EditText
+            android:id="@+id/questionTxt"
+            android:text="@={AddQuestionAskFaxViewModel.Question}"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/rect_button"
+            android:fontFamily="@font/raleway_regular"
+            android:hint="@string/start_your_question_what_how_why_etc"
+            android:maxLines="8"
+            android:paddingStart="@dimen/_5sdp"
+            android:textColor="@color/text_grey"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/_12sdp" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_medium"
+        android:text="@string/optional_include_a_link_that_gives_context"
+        android:textColor="@color/text_grey"
+        android:textSize="@dimen/_10sdp"
+        app:drawableStartCompat="@drawable/ic_icon_open_link_intact" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_20sdp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_weight=".5"
+                android:background="@drawable/rect_button_green"
+                android:elevation="@dimen/_15sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/add"
+                android:onClick="@{(v) -> AddQuestionAskFaxViewModel.onClickAdd(v)}"
+android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12sdp" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight=".5"
+                android:onClick="@{(v) -> AddQuestionAskFaxViewModel.onClickCancel(v)}"
+
+                android:background="@drawable/rect_button_gray"
+                android:elevation="@dimen/_15sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/cancel"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_16sdp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
+</layout>

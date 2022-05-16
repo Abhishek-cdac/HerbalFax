@@ -181,7 +181,7 @@
                     app:cardPreventCornerOverlap="false">
 
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
@@ -190,26 +190,43 @@
                             android:id="@+id/product_image"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="@dimen/_80sdp"
-                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
                             android:background="@drawable/dashed_border"
-
-
                             android:fontFamily="@font/raleway_regular"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_icon_l_file_upload" />
 
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycleView"
+                            android:layout_toRightOf="@+id/product_image"
+                            android:layout_centerVertical="true"
+                            android:visibility="gone"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_80sdp"
+
+                            />
+
 
                         <TextView
+                            android:id="@+id/msgTxt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/product_image"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
                             android:paddingBottom="@dimen/_5sdp"
                             android:text="@string/uploadproductpic"
                             android:textColor="@color/green"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_14sdp"
+                            android:visibility="visible" />
 
-                    </LinearLayout>
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
 

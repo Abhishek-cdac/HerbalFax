@@ -1,12 +1,15 @@
 package com.herbal.herbalfax.common_screen.terms;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
@@ -14,16 +17,10 @@ import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.terms.termmodel.TermResponse;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
-import com.herbal.herbalfax.customer.signup.SignUpAsCustomerActivity;
-import com.herbal.herbalfax.customer.signup.presignupmodel.AllCountry;
-import com.herbal.herbalfax.customer.signup.presignupmodel.AllGender;
-import com.herbal.herbalfax.customer.signup.presignupmodel.AllProfession;
-import com.herbal.herbalfax.customer.signup.presignupmodel.PreSignUpData;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +31,8 @@ import retrofit2.Response;
 public class TermAndConditionActivity extends AppCompatActivity {
     TextView title, subTitle;
     private CommonClass clsCommon;
+    ImageView backImg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,14 @@ public class TermAndConditionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_term_and_condition);
         clsCommon = new CommonClass();
         title = findViewById(R.id.title);
+        backImg = findViewById(R.id.backImg);
         subTitle = findViewById(R.id.subtitle);
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         callTermAndConditionAPI();
     }
 
@@ -57,7 +63,7 @@ public class TermAndConditionActivity extends AppCompatActivity {
         Call<TermResponse> call = service.getTnc(hashMap);
         call.enqueue(new Callback<TermResponse>() {
             @Override
-            public void onResponse(Call<TermResponse> call, Response<TermResponse> response) {
+            public void onResponse(@NonNull Call<TermResponse> call, @NonNull Response<TermResponse> response) {
                 pd.cancel();
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -83,7 +89,7 @@ public class TermAndConditionActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<TermResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<TermResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(TermAndConditionActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();

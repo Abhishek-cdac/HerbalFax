@@ -5,12 +5,21 @@
         android:id="@+id/bottom_home"
         android:icon="@drawable/feeds"
         android:title="@string/menu_feed" />
-
+<!--
     <item
         android:id="@+id/bottom_dashboard"
         android:icon="@drawable/products"
-        android:title="@string/menu_products" />
+        android:visible="false"
+        android:title="@string/menu_products" />-->
+ <item
+        android:id="@+id/bottom_daily"
+        android:icon="@drawable/newspaper"
+        android:title="@string/menu_daily" />
 
+    <item
+        android:id="@+id/bottom_search"
+        android:icon="@drawable/ic_search_icon"
+        android:title="@string/search" />
     <item
         android:id="@+id/bottom_notifications"
         android:icon="@drawable/people"
@@ -19,9 +28,10 @@
         android:id="@+id/bottom_deal"
         android:icon="@drawable/dealls"
         android:title="@string/deal" />
-    <item
+    <!--<item
         android:id="@+id/bottom_askfax"
+        android:visible="false"
         android:icon="@drawable/askfax"
-        android:title="@string/ask_fax" />
+        android:title="@string/ask_fax" />-->
 
 </menu>

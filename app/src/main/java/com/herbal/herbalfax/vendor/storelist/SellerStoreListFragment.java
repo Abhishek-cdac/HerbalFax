@@ -22,8 +22,8 @@ import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.SpacesItemDecoration;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
+import com.herbal.herbalfax.util.CommonUtils;
 import com.herbal.herbalfax.vendor.store.AddStoreActivity;
 import com.herbal.herbalfax.vendor.storedetail.SellerStoreDetailActivity;
 import com.herbal.herbalfax.vendor.storelist.storelistmodel.Store;
@@ -43,16 +43,22 @@ import retrofit2.Response;
 
 public class SellerStoreListFragment extends Fragment {
 
-    private AskFaxViewModel askFaxViewModel;
+
     RecyclerView recyclerView, storeRecyclerView;
     private MyStoreViewModel myStoreViewModel;
-
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    LinearLayoutManager RecyclerViewLayoutManager;
+    ArrayList<Store> localListStore=new ArrayList<>();
     MyStoreListAdapter myStoreListAdapter;
     private ArrayList<Store> lst_store;
     LinearLayoutManager HorizontalLayout;
     private CommonClass clsCommon;
     private Onclick itemClick;
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
 
     Button fab;
 
@@ -66,7 +72,8 @@ public class SellerStoreListFragment extends Fragment {
         storeRecyclerView = root.findViewById(R.id.storeListrecyclerview);
         fab = root.findViewById(R.id.fab);
         initFab();
-        callGetStoreListAPI();
+//        callGetStoreListAPI();
+        callStoreListAPI();
 
         itemClick = new Onclick() {
             @Override
@@ -86,6 +93,15 @@ public class SellerStoreListFragment extends Fragment {
         };
 
         return root;
+    }
+
+    private void callStoreListAPI()
+    {
+        if (CommonUtils.isInternetOn(getContext())) {
+            callGetStoreListAPI();
+        }else{
+            Toast.makeText(getActivity(), getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -120,6 +136,8 @@ public class SellerStoreListFragment extends Fragment {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("VendorId", pref.getStringVal(SessionPref.LoginUserID));
+        hashMap.put("offset", offset+"");
+        hashMap.put("limit", limit+"");
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
         pd.show();
@@ -135,15 +153,49 @@ public class SellerStoreListFragment extends Fragment {
                         if (lst_store == null) {
                             lst_store = new ArrayList<>();
                         }
+                        if(offset==0)
+                        {
+                            localListStore.clear();
+                        }
+                        localListStore.addAll(lst_store);
 
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-                        storeRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
-                        myStoreListAdapter = new MyStoreListAdapter(lst_store, getActivity(), itemClick);
-                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-                        storeRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                        storeRecyclerView.setHasFixedSize(true);
-                        storeRecyclerView.addItemDecoration(new SpacesItemDecoration(2));
-                        storeRecyclerView.setAdapter(myStoreListAdapter);
+                        if(myStoreListAdapter==null) {
+                            RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+                            storeRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
+                            myStoreListAdapter = new MyStoreListAdapter(localListStore, getActivity(), itemClick);
+                            HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+                            storeRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                            storeRecyclerView.setHasFixedSize(true);
+                            storeRecyclerView.addItemDecoration(new SpacesItemDecoration(2));
+                            storeRecyclerView.setAdapter(myStoreListAdapter);
+                            isLoading=true;
+                        }else{
+                            myStoreListAdapter.notifyDataSetChanged();
+                            isLoading=true;
+                        }
+
+                        storeRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = RecyclerViewLayoutManager.getChildCount();
+                                    totalItemCount = RecyclerViewLayoutManager.getItemCount();
+                                    pastVisiblesItems = RecyclerViewLayoutManager.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+                                                callStoreListAPI();
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
 
                     } else {
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");

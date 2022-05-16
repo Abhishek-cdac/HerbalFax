@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -109,7 +110,7 @@ public class CreateNewPasswordActivity extends AppCompatActivity {
         Call<UpdatePasswordResponse> call = service.updatePassword(hashMap);
         call.enqueue(new Callback<UpdatePasswordResponse>() {
             @Override
-            public void onResponse(Call<UpdatePasswordResponse> call, Response<UpdatePasswordResponse> response) {
+            public void onResponse(@NonNull Call<UpdatePasswordResponse> call, @NonNull Response<UpdatePasswordResponse> response) {
                 pd.cancel();
                 if (response.code() == 200) {
                     assert response.body() != null;
@@ -134,7 +135,7 @@ public class CreateNewPasswordActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NotNull Call<UpdatePasswordResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<UpdatePasswordResponse> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 pd.cancel();
                 Toast.makeText(CreateNewPasswordActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();

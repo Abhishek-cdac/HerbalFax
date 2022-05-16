@@ -1,5 +1,6 @@
 package com.herbal.herbalfax.common_screen.dialog;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class emailVerifyDialog extends Dialog implements  android.view.View.OnCl
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

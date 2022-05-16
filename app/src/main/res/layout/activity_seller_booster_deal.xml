@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".vendor.sellerdeals.booster.SellerBoosterDealActivity">
+
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/boostdeal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="SpUsage" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/product" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/productNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:id="@+id/location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/nameLL"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:drawableLeft="@drawable/ic_icon_menu_map_pin"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <TextView
+                        android:id="@+id/personBought"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:drawableLeft="@drawable/rating"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="0 Bought"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <TextView
+                        android:id="@+id/validity_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bought_ll"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_2sdp"
+
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:drawableLeft="@drawable/ic_calendar"
+
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Validity Till: "
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/priceTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bought_ll"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+
+                        android:drawableLeft="@drawable/ic_baseline_money"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="price  "
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:padding="@dimen/_5sdp"
+                android:text="Choose your plan"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/twoDaysRb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/_2_days" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toRightOf="@+id/twoDaysRb"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:gravity="end|center_vertical"
+                        android:padding="@dimen/_10sdp"
+                        android:text="$20"
+                        android:textColor="@color/black">
+
+                    </TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/fourDaysRb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/_4_days" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toRightOf="@+id/fourDaysRb"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:gravity="end|center_vertical"
+                        android:padding="@dimen/_10sdp"
+                        android:text="$20"
+                        android:textColor="@color/black">
+
+                    </TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/sixDaysRb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/_6_days" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toRightOf="@+id/sixDaysRb"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:gravity="end|center_vertical"
+                        android:padding="@dimen/_10sdp"
+                        android:text="$20"
+                        android:textColor="@color/black">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/endDateTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="end"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <Button
+                android:id="@+id/buyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rect_button_green"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:text="@string/pay_now"
+                android:layout_margin="@dimen/_10sdp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12sdp" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

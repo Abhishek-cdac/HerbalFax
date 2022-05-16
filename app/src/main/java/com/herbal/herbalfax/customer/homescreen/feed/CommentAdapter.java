@@ -140,7 +140,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         String commentId = commentList.get(position).getIdpostComments();
 
-        holder.like.setText(commentList.get(position).getPCLikes() + " Likes");
+        holder.like.setText(commentList.get(position).getPCLikes() + " like");
        /* holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

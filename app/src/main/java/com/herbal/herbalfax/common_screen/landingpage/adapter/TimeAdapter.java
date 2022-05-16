@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
@@ -14,10 +15,10 @@ import java.util.List;
 
 public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyView> {
 
-    private List<String> list;
+    private final List<String> list;
 Context context;
 
-    public class MyView extends RecyclerView.ViewHolder {
+    public static class MyView extends RecyclerView.ViewHolder {
 
         TextView textView;
         View line;
@@ -39,6 +40,7 @@ Context context;
     }
 
 
+    @NonNull
     @Override
     public MyView onCreateViewHolder(ViewGroup parent,
                                      int viewType) {
@@ -51,12 +53,7 @@ Context context;
     public void onBindViewHolder(final MyView holder,
                                  final int position) {
         holder.textView.setText(list.get(position));
-        holder.textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                holder.line.setVisibility(View.VISIBLE);
-            }
-        });
+        holder.textView.setOnClickListener(view -> holder.line.setVisibility(View.VISIBLE));
 
     }
 

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import com.herbal.herbalfax.customer.dialog.ShareDialogClass;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_CustomViewHolder;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_VideoImage;
 import com.herbal.herbalfax.customer.homescreen.feed.videoplay.AAH_VideosAdapter;
+import com.herbal.herbalfax.customer.homescreen.group.groupdetail.GroupDetailActivity;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.Post;
 import com.herbal.herbalfax.customer.homescreen.homedashboard.getallpostmodel.ViewUser;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
@@ -94,19 +96,36 @@ public class FeedAdapter extends AAH_VideosAdapter {
         if (holder.getItemViewType() == 0) {
             ViewHolder userViewHolder;
             userViewHolder = (ViewHolder) holder;
-            userViewHolder.userName.setText(lst_feed.get(position).getUFullName());
+            String text ="It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+            if (text.length()>40) {
+                text=text.substring(0,40)+"..";
+                userViewHolder.result.setText(Html.fromHtml(text+"<font color='#96C93D'> <u> More</u></font>"));
+
+            }
+
+            userViewHolder.userName.setText("@" + lst_feed.get(position).getUFullName());
             userViewHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             userViewHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
             userViewHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
-            userViewHolder.profDetail.setText(lst_feed.get(position).getmProfTitle());
+            if (lst_feed.get(position).getmProfTitle() != null) {
+                userViewHolder.profDetail.setText(lst_feed.get(position).getmProfTitle() + " . Public photo");
+
+            }
             userViewHolder.commentcount.setText(lst_feed.get(position).getPostComments());
-            userViewHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+            userViewHolder.viewsCounttxt.setText("+"+lst_feed.get(position).getPostViews() + " Views");
 
             if (lst_feed.get(position).getUProPic() != null) {
                 if (lst_feed.get(position).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     // userViewHolder.userNameTxt.setVisibility(View.VISIBLE);
+                    String fName = lst_feed.get(position).getUFullName();
+//                    firstAndLastCharacter(lst_feed.get(position).getUFullName());
+                    char first = fName.charAt(0);
+                    userViewHolder.userNameTxt.setVisibility(View.VISIBLE);
+                    userViewHolder.userNameTxt.setText(String.valueOf(first));
 
                 } else {
+                    userViewHolder.userNameTxt.setVisibility(View.GONE);
+
                     picasso.load(lst_feed.get(position).getUProPic())
                             .into(userViewHolder.profileImg);
                 }
@@ -119,8 +138,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 userViewHolder.img4.setVisibility(View.GONE);
                 userViewHolder.img5.setVisibility(View.GONE);
 
-            }
-            else if (lst_views.size() == 1) {
+            } else if (lst_views.size() == 1) {
                 userViewHolder.img1.setVisibility(View.VISIBLE);
                 userViewHolder.img2.setVisibility(View.GONE);
                 userViewHolder.img3.setVisibility(View.GONE);
@@ -129,15 +147,12 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }
-                else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(userViewHolder.img1);
                 }
 
-            }
-            else if (lst_views.size() == 2) {
+            } else if (lst_views.size() == 2) {
                 userViewHolder.img1.setVisibility(View.VISIBLE);
                 userViewHolder.img2.setVisibility(View.VISIBLE);
                 userViewHolder.img3.setVisibility(View.GONE);
@@ -146,15 +161,13 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(userViewHolder.img1);
                 }
                 picasso.load(lst_views.get(1).getUProPic())
                         .into(userViewHolder.img2);
-            }
-            else if (lst_views.size() == 3) {
+            } else if (lst_views.size() == 3) {
                 userViewHolder.img1.setVisibility(View.VISIBLE);
                 userViewHolder.img2.setVisibility(View.VISIBLE);
                 userViewHolder.img3.setVisibility(View.VISIBLE);
@@ -163,9 +176,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }else
-
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(userViewHolder.img1);
                 }
@@ -173,8 +184,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         .into(userViewHolder.img2);
                 picasso.load(lst_views.get(2).getUProPic())
                         .into(userViewHolder.img3);
-            }
-            else if (lst_views.size() == 4) {
+            } else if (lst_views.size() == 4) {
                 userViewHolder.img1.setVisibility(View.VISIBLE);
                 userViewHolder.img2.setVisibility(View.VISIBLE);
                 userViewHolder.img3.setVisibility(View.VISIBLE);
@@ -183,8 +193,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                } else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(userViewHolder.img1);
                 }
@@ -194,8 +203,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         .into(userViewHolder.img3);
                 picasso.load(lst_views.get(3).getUProPic())
                         .into(userViewHolder.img4);
-            }
-            else if (lst_views.size() == 5) {
+            } else if (lst_views.size() == 5) {
                 userViewHolder.img1.setVisibility(View.VISIBLE);
                 userViewHolder.img2.setVisibility(View.VISIBLE);
                 userViewHolder.img3.setVisibility(View.VISIBLE);
@@ -204,15 +212,14 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }else
-                   {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(userViewHolder.img1);
                 }
                 if (lst_views.get(1).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }else{
+                } else {
                     picasso.load(lst_views.get(1).getUProPic())
                             .into(userViewHolder.img2);
                 }
@@ -220,7 +227,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(2).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }else{
+                } else {
                     picasso.load(lst_views.get(2).getUProPic())
                             .into(userViewHolder.img3);
                 }
@@ -228,7 +235,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(3).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }else {
+                } else {
                     picasso.load(lst_views.get(3).getUProPic())
                             .into(userViewHolder.img4);
                 }
@@ -236,7 +243,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(4).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(userViewHolder.img1);
-                }else {
+                } else {
                     picasso.load(lst_views.get(4).getUProPic())
                             .into(userViewHolder.img5);
                 }
@@ -266,7 +273,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
                     } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                        userViewHolder.likeImg.setImageResource(R.drawable.like_heart);
+                        userViewHolder.likeImg.setImageResource(R.drawable.heart_active);
                         lst_feed.get(position).setIsFav("1");
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
@@ -282,6 +289,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 }
             });
             userViewHolder.upTxt.setText(lst_feed.get(position).getPostLikes());
+
 
             userViewHolder.downTxt.setText(lst_feed.get(position).getPostDislikes());
 
@@ -301,7 +309,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 }
             });
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                userViewHolder.likeImg.setImageResource(R.drawable.like_heart);
+                userViewHolder.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 userViewHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
@@ -312,8 +320,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 userViewHolder.likesCountTxt.setText("0" + " Likes");
             }
 
-        }
-        else if (holder.getItemViewType() == 1) {
+        } else if (holder.getItemViewType() == 1) {
             ViewHolderUserVideo videoHolder;
             //  Uri uriVideo = Uri.parse(lst_feed.get(position).getPostMediaLink());
 
@@ -321,14 +328,24 @@ public class FeedAdapter extends AAH_VideosAdapter {
             holder.setLooping(false); //optional - true by default
 
             videoHolder = (ViewHolderUserVideo) holder;
+            String text ="It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+            if (text.length()>40) {
+                text=text.substring(0,40)+"..";
+                videoHolder.result.setText(Html.fromHtml(text+"<font color='#96C93D'> <u> More</u></font>"));
 
-            videoHolder.userName.setText(lst_feed.get(position).getUFullName());
+            }
+
+            videoHolder.userName.setText("@" + lst_feed.get(position).getUFullName());
+
             videoHolder.descHead.setText(lst_feed.get(position).getPostDesc());
             videoHolder.descTxt.setText(lst_feed.get(position).getPostDesc());
             videoHolder.PersonNameTxt.setText(lst_feed.get(position).getUFullName());
-            videoHolder.profDetail.setText(lst_feed.get(position).getmProfTitle());
+            if (lst_feed.get(position).getmProfTitle() != null) {
+                videoHolder.profDetail.setText(lst_feed.get(position).getmProfTitle() + " . Public photo");
+
+            }
             videoHolder.commentcount.setText(lst_feed.get(position).getPostComments());
-            videoHolder.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+            videoHolder.viewsCounttxt.setText("+"+lst_feed.get(position).getPostViews() + " Views");
 
             if (lst_views.size() == 0) {
                 videoHolder.img1.setVisibility(View.GONE);
@@ -337,8 +354,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 videoHolder.img4.setVisibility(View.GONE);
                 videoHolder.img5.setVisibility(View.GONE);
 
-            }
-            else if (lst_views.size() == 1) {
+            } else if (lst_views.size() == 1) {
                 videoHolder.img1.setVisibility(View.VISIBLE);
                 videoHolder.img2.setVisibility(View.GONE);
                 videoHolder.img3.setVisibility(View.GONE);
@@ -347,15 +363,12 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }
-                else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(videoHolder.img1);
                 }
 
-            }
-            else if (lst_views.size() == 2) {
+            } else if (lst_views.size() == 2) {
                 videoHolder.img1.setVisibility(View.VISIBLE);
                 videoHolder.img2.setVisibility(View.VISIBLE);
                 videoHolder.img3.setVisibility(View.GONE);
@@ -364,15 +377,13 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(videoHolder.img1);
                 }
                 picasso.load(lst_views.get(1).getUProPic())
                         .into(videoHolder.img2);
-            }
-            else if (lst_views.size() == 3) {
+            } else if (lst_views.size() == 3) {
                 videoHolder.img1.setVisibility(View.VISIBLE);
                 videoHolder.img2.setVisibility(View.VISIBLE);
                 videoHolder.img3.setVisibility(View.VISIBLE);
@@ -381,9 +392,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }else
-
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(videoHolder.img1);
                 }
@@ -391,8 +400,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         .into(videoHolder.img2);
                 picasso.load(lst_views.get(2).getUProPic())
                         .into(videoHolder.img3);
-            }
-            else if (lst_views.size() == 4) {
+            } else if (lst_views.size() == 4) {
                 videoHolder.img1.setVisibility(View.VISIBLE);
                 videoHolder.img2.setVisibility(View.VISIBLE);
                 videoHolder.img3.setVisibility(View.VISIBLE);
@@ -401,8 +409,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                } else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(videoHolder.img1);
                 }
@@ -412,8 +419,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         .into(videoHolder.img3);
                 picasso.load(lst_views.get(3).getUProPic())
                         .into(videoHolder.img4);
-            }
-            else if (lst_views.size() == 5) {
+            } else if (lst_views.size() == 5) {
                 videoHolder.img1.setVisibility(View.VISIBLE);
                 videoHolder.img2.setVisibility(View.VISIBLE);
                 videoHolder.img3.setVisibility(View.VISIBLE);
@@ -422,15 +428,14 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(videoHolder.img1);
                 }
                 if (lst_views.get(1).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }else{
+                } else {
                     picasso.load(lst_views.get(1).getUProPic())
                             .into(videoHolder.img2);
                 }
@@ -438,7 +443,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(2).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }else{
+                } else {
                     picasso.load(lst_views.get(2).getUProPic())
                             .into(videoHolder.img3);
                 }
@@ -446,7 +451,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(3).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }else {
+                } else {
                     picasso.load(lst_views.get(3).getUProPic())
                             .into(videoHolder.img4);
                 }
@@ -454,23 +459,31 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(4).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(videoHolder.img1);
-                }else {
+                } else {
                     picasso.load(lst_views.get(4).getUProPic())
                             .into(videoHolder.img5);
                 }
             }
 
 
-
             if (lst_feed.get(position).getUProPic() != null) {
                 if (lst_feed.get(position).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    String fName = lst_feed.get(position).getUFullName();
+//                    firstAndLastCharacter(lst_feed.get(position).getUFullName());
+                    char first = fName.charAt(0);
+                    videoHolder.userNameTxt.setVisibility(View.VISIBLE);
+                    videoHolder.userNameTxt.setText(String.valueOf(first));
+
 
                     //  videoHolder.userNameTxt.setVisibility(View.VISIBLE);
 //                picasso.load(R.color.green)
 //                        .into(videoHolder.iv_profile);
                 } else {
+                    videoHolder.userNameTxt.setVisibility(View.GONE);
+
                     picasso.load(lst_feed.get(position).getUProPic())
                             .into(videoHolder.iv_profile);
+
                 }
             }
             videoHolder.commentll.setOnClickListener(new View.OnClickListener() {
@@ -489,7 +502,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 videoHolder.likesCountTxt.setText("0" + " Likes");
             }
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                videoHolder.likeImg.setImageResource(R.drawable.like_heart);
+                videoHolder.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 videoHolder.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
@@ -504,7 +517,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
                     } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                        videoHolder.likeImg.setImageResource(R.drawable.like_heart);
+                        videoHolder.likeImg.setImageResource(R.drawable.heart_active);
                         lst_feed.get(position).setIsFav("1");
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
@@ -547,18 +560,25 @@ public class FeedAdapter extends AAH_VideosAdapter {
 //
 //                }
             //  }
-        }
-
-        else if (holder.getItemViewType() == 2) {
+        } else if (holder.getItemViewType() == 2) {
             ViewHolderQuestion viewHolderQuestion;
             viewHolderQuestion = (ViewHolderQuestion) holder;
-            viewHolderQuestion.userName.setText(lst_feed.get(position).getUFullName());
+            String text ="It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+            if (text.length()>40) {
+                text=text.substring(0,40)+"..";
+                viewHolderQuestion.result.setText(Html.fromHtml(text+"<font color='#96C93D'> <u> More</u></font>"));
+
+            }
+
+            viewHolderQuestion.userName.setText("@" + lst_feed.get(position).getUFullName());
             viewHolderQuestion.descHead.setText(lst_feed.get(position).getPostDesc());
             viewHolderQuestion.questionTxt.setText(lst_feed.get(position).getPostDesc());
+            if (lst_feed.get(position).getmProfTitle() != null) {
+                viewHolderQuestion.profDetail.setText(lst_feed.get(position).getmProfTitle() + " . Public photo");
 
-            viewHolderQuestion.profDetail.setText(lst_feed.get(position).getmProfTitle());
+            }
             viewHolderQuestion.commentcount.setText(lst_feed.get(position).getPostComments());
-            viewHolderQuestion.viewsCounttxt.setText(lst_feed.get(position).getPostViews() + " Views");
+            viewHolderQuestion.viewsCounttxt.setText("+"+lst_feed.get(position).getPostViews() + " Views");
             if (lst_views.size() == 0) {
                 viewHolderQuestion.img1.setVisibility(View.GONE);
                 viewHolderQuestion.img2.setVisibility(View.GONE);
@@ -566,8 +586,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 viewHolderQuestion.img4.setVisibility(View.GONE);
                 viewHolderQuestion.img5.setVisibility(View.GONE);
 
-            }
-            else if (lst_views.size() == 1) {
+            } else if (lst_views.size() == 1) {
                 viewHolderQuestion.img1.setVisibility(View.VISIBLE);
                 viewHolderQuestion.img2.setVisibility(View.GONE);
                 viewHolderQuestion.img3.setVisibility(View.GONE);
@@ -576,9 +595,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }
-                else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(viewHolderQuestion.img1);
                 }
@@ -593,8 +610,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(viewHolderQuestion.img1);
                 }
@@ -610,9 +626,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }else
-
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(viewHolderQuestion.img1);
                 }
@@ -630,8 +644,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                } else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(viewHolderQuestion.img1);
                 }
@@ -651,15 +664,14 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(0).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }else
-                {
+                } else {
                     picasso.load(lst_views.get(0).getUProPic())
                             .into(viewHolderQuestion.img1);
                 }
                 if (lst_views.get(1).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }else{
+                } else {
                     picasso.load(lst_views.get(1).getUProPic())
                             .into(viewHolderQuestion.img2);
                 }
@@ -667,7 +679,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(2).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }else{
+                } else {
                     picasso.load(lst_views.get(2).getUProPic())
                             .into(viewHolderQuestion.img3);
                 }
@@ -675,7 +687,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(3).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }else {
+                } else {
                     picasso.load(lst_views.get(3).getUProPic())
                             .into(viewHolderQuestion.img4);
                 }
@@ -683,7 +695,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                 if (lst_views.get(4).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
                     picasso.load(R.drawable.profileimg)
                             .into(viewHolderQuestion.img1);
-                }else {
+                } else {
                     picasso.load(lst_views.get(4).getUProPic())
                             .into(viewHolderQuestion.img5);
                 }
@@ -692,20 +704,29 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
             if (lst_feed.get(position).getUProPic() != null) {
                 if (lst_feed.get(position).getUProPic().equals("http://herbalfax.nectarinfotel.com/upload/user_pro/")) {
+                    String fName = lst_feed.get(position).getUFullName();
+//                    firstAndLastCharacter(lst_feed.get(position).getUFullName());
+                    char first = fName.charAt(0);
+                    viewHolderQuestion.userNameTxt.setVisibility(View.VISIBLE);
+                    viewHolderQuestion.userNameTxt.setText(String.valueOf(first));
 
 //                picasso.load(R.color.green)
 //                        .into(viewHolderQuestion.profileImg);
                     //  viewHolderQuestion.userNameTxt.setVisibility(View.VISIBLE);
                 } else {
+                    viewHolderQuestion.userNameTxt.setVisibility(View.GONE);
+
                     picasso.load(lst_feed.get(position).getUProPic())
                             .into(viewHolderQuestion.profileImg);
                 }
             }
             if (lst_feed.get(position).getIsFav().equals("1")) {
-                viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart);
+                viewHolderQuestion.likeImg.setImageResource(R.drawable.heart_active);
             } else {
                 viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart_grey);
             }
+
+//            viewHolderQuestion.imageview2.setElevation(20f);
 
 
             viewHolderQuestion.likeImg.setOnClickListener(new View.OnClickListener() {
@@ -717,7 +738,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
                     } else if (lst_feed.get(position).getIsFav().equals("0")) {
-                        viewHolderQuestion.likeImg.setImageResource(R.drawable.like_heart);
+                        viewHolderQuestion.likeImg.setImageResource(R.drawable.heart_active);
                         lst_feed.get(position).setIsFav("1");
                         notifyItemChanged(position);
                         callAddToFavAPI(postId);
@@ -752,6 +773,23 @@ public class FeedAdapter extends AAH_VideosAdapter {
             });
 
         }
+    }
+
+    public static void firstAndLastCharacter(String str) {
+
+        // Finding string length
+        int n = str.length();
+
+        // First character of a string
+        char first = str.charAt(0);
+
+        // Last character of a string
+        //    char last = str.charAt(n - 1);
+
+        // Printing first and last
+        // character of a string
+        System.out.println("First: " + first);
+        //  System.out.println("Last: " + last);
     }
 
     private void callAddToFavAPI(String postId) {
@@ -806,29 +844,36 @@ public class FeedAdapter extends AAH_VideosAdapter {
     }
 
     FeedFragment feedFragment;
+    GroupDetailActivity groupDetailActivity;
 
     public void setRef(FeedFragment feedFragment) {
         this.feedFragment = feedFragment;
     }
 
+    public void setRef(GroupDetailActivity groupDetailActivity) {
+        this.groupDetailActivity = groupDetailActivity;
+    }
 
-    public  class ViewHolderQuestion extends AAH_CustomViewHolder {
+
+    public class ViewHolderQuestion extends AAH_CustomViewHolder {
         TextView userName, questionTxt, userNameTxt, profDetail, commentcount;
         ImageView profileImg, moreImg;
         ImageView likeImg;
         TextView shareImg, descHead, viewsCounttxt;
         LinearLayout commentll;
         TextView upTxt, downTxt, viewAnswerTxt, viewFollowTxt, viewPassTxt;
-        ImageView img1, img2, img3, img4, img5;
-
+        ImageView img1, img2, img3, img4, img5, imageview2;
+         TextView result ;
         public ViewHolderQuestion(@NonNull View itemView) {
             super(itemView);
+            result=  itemView.findViewById(R.id.descsubHead);
 
             img1 = itemView.findViewById(R.id.img1);
             img2 = itemView.findViewById(R.id.img2);
             img3 = itemView.findViewById(R.id.img3);
             img4 = itemView.findViewById(R.id.img4);
             img5 = itemView.findViewById(R.id.img5);
+//            imageview2=itemView.findViewById(R.id.imageview2);
             viewsCounttxt = itemView.findViewById(R.id.viewsCounttxt);
             commentcount = itemView.findViewById(R.id.commentcount);
             profDetail = itemView.findViewById(R.id.detail);
@@ -868,7 +913,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
         LottieAnimationView animationView;
         ImageView iv_post_image, iv_more_options;
         CardView card_image;
-        TextView userName, PersonNameTxt, descTxt, AddComment, viewsCounttxt;
+        TextView userName, PersonNameTxt, descTxt, AddComment, viewsCounttxt, result;
         TextView upTxt, descHead, downTxt, likesCountTxt, viewCommentTxt, userNameTxt;
         ImageView iv_mute_unmute;
         ImageView img_playback;
@@ -878,8 +923,11 @@ public class FeedAdapter extends AAH_VideosAdapter {
         LinearLayout commentll;
 
         ImageView img1, img2, img3, img4, img5;
+
         public ViewHolderUserVideo(@NonNull View itemView) {
             super(itemView);
+            result=  itemView.findViewById(R.id.descsubHead);
+
             profDetail = itemView.findViewById(R.id.detail);
             commentcount = itemView.findViewById(R.id.commentcount);
             viewsCounttxt = itemView.findViewById(R.id.viewsCounttxt);
@@ -973,7 +1021,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
     public class ViewHolder extends AAH_CustomViewHolder {
         TextView commentcount, viewsCounttxt, profDetail, userName, upTxt, downTxt, likesCountTxt, PersonNameTxt, descTxt, viewCommentTxt, AddComment, userNameTxt;
         ImageView profileImg, moreImg, feedPostImg, likeImg, AddCommentProfileImg;
-        TextView shareImg, descHead;
+        TextView shareImg, descHead, result;
         LinearLayout commentll;
 
         ImageView img1, img2, img3, img4, img5;
@@ -981,6 +1029,7 @@ public class FeedAdapter extends AAH_VideosAdapter {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            result=  itemView.findViewById(R.id.descsubHead);
 
             img1 = itemView.findViewById(R.id.img1);
             img2 = itemView.findViewById(R.id.img2);

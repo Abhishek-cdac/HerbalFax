@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     ArrayList<Interest> lst_int;
-    ArrayList<Interest> lst_intFilter;
+
     Context mContext;
 
     public NewsAdapter(ArrayList<Interest> lst_int, Context applicationContext) {

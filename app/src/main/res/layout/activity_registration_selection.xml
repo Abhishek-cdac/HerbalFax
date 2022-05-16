@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -9,8 +10,7 @@
 
     </data>
 
-    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -63,33 +63,41 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/customerCard"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_100sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:elevation="@dimen/_5sdp"
+                        android:elevation="@dimen/_2sdp"
                         android:onClick="@{(v) -> SelectionTypeViewModel.OnCustomer(v)}"
                         app:cardBackgroundColor="@color/white"
 
-                        app:cardCornerRadius="@dimen/_5sdp">
+                        app:cardCornerRadius="@dimen/_10sdp">
 
 
                         <LinearLayout
+                            android:id="@+id/customerLayout"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@drawable/bg_roundrect_white"
                             android:orientation="horizontal">
 
                             <ImageView
+                                android:id="@+id/customerImg"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/raleway_regular"
                                 android:padding="@dimen/_10sdp"
-                                android:src="@drawable/ic_customer_black" />
+                                android:src="@drawable/ic_customer_black"
+                                android:visibility="gone" />
 
                             <LinearLayout
-                                android:layout_width="@dimen/_120sdp"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_weight="1"
+                                android:gravity="center|left"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -98,18 +106,16 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_semibold"
                                     android:gravity="left"
-                                    android:paddingTop="@dimen/_5sdp"
-                                    android:paddingBottom="@dimen/_5sdp"
                                     android:text="@string/customer"
                                     android:textColor="@color/green"
-                                    android:textSize="@dimen/_22sdp" />
+                                    android:textSize="@dimen/_18sdp" />
 
                                 <TextView
+                                    android:id="@+id/accCust"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="left"
-                                    android:paddingBottom="@dimen/_5sdp"
                                     android:text="@string/account"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp" />
@@ -131,36 +137,41 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/sellerCard"
                         android:layout_width="match_parent"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
 
                         android:layout_height="@dimen/_100sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:elevation="@dimen/_5sdp"
+                        android:elevation="@dimen/_2sdp"
                         android:onClick="@{(v) -> SelectionTypeViewModel.onSeller(v)}"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
+                        app:cardCornerRadius="@dimen/_10sdp">
 
 
                         <LinearLayout
-
+                            android:id="@+id/vendorLayout"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@drawable/bg_roundrect_white"
                             android:orientation="horizontal">
 
                             <ImageView
-
+                                android:id="@+id/vendorImg"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="match_parent"
-
                                 android:padding="@dimen/_10sdp"
                                 android:src="@drawable/ic_vendor_black"
+                                android:visibility="gone"
 
                                 />
 
                             <LinearLayout
-                                android:layout_width="@dimen/_120sdp"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_weight="1"
+                                android:gravity="center|left"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -170,20 +181,16 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_semibold"
                                     android:gravity="left"
-                                    android:paddingTop="@dimen/_5sdp"
-                                    android:paddingBottom="@dimen/_5sdp"
-                                    android:text="@string/Vendor"
+                                    android:text="@string/business"
                                     android:textColor="@color/green"
-                                    android:textSize="@dimen/_22sdp" />
+                                    android:textSize="@dimen/_18sdp" />
 
                                 <TextView
+                                    android:id="@+id/accVendor"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
-
                                     android:gravity="left"
-
-                                    android:paddingBottom="@dimen/_5sdp"
                                     android:text="@string/account"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp" />
@@ -207,9 +214,12 @@
 
                     <Button
                         android:id="@+id/continue_button"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:paddingLeft="@dimen/_20sdp"
+                        android:enabled="false"
+                        android:paddingRight="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_20sdp"
                         android:layout_marginBottom="@dimen/_20sdp"
                         android:background="@drawable/rect_button_green"
@@ -246,10 +256,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:fontFamily="@font/poppins_bold"
+                            android:fontFamily="@font/raleway_medium"
                             android:onClick="@{(v) -> SelectionTypeViewModel.onLoginHere(v)}"
                             android:paddingLeft="@dimen/_5sdp"
-                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_5sdp"
                             android:paddingBottom="@dimen/_10sdp"
                             android:text="@string/loginHere"
                             android:textColor="@color/green"

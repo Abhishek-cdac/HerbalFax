@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/addcomment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add comments"
+        android:fontFamily="@font/raleway_bold"
+        android:textSize="@dimen/_18sdp"
+        android:textColor="@color/black"
+        />
+
+    <RelativeLayout
+        android:id="@+id/commentprofile"
+        android:layout_below="@id/addcomment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/rectanglecommentprofile" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="@dimen/_10sdp"
+            android:text="Mark Jakrbag"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profession:"
+            android:fontFamily="@font/raleway_semibold"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/green"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+        <TextView
+            android:id="@+id/profession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_110sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="@dimen/_10sdp"
+            android:text="Doctor"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/comments"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_below="@id/commentprofile"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/edit_text_border"
+        android:elevation="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_medium"
+        android:gravity="top"
+        android:hint="Type your comment here"
+        android:padding="@dimen/_10sdp"
+        android:textColorHint="@color/text_grey"
+        android:textSize="@dimen/_15sdp" />
+
+
+        <Button
+            android:id="@+id/submitComment"
+            android:layout_below="@id/comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rounded_corner_view_text"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="SUBMIT"
+            android:textColor="@color/white" />
+
+
+</RelativeLayout>

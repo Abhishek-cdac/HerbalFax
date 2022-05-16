@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-  >
+    android:background="#EFEFEF"
+
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#96C93D"
+        android:visibility="gone"
         android:orientation="horizontal">
 
         <ImageView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:src="@drawable/ic_icon_arrow_left_white" />
 
         <TextView
@@ -50,12 +52,63 @@
             android:textSize="12dp" />
 
     </LinearLayout>
-
-
     <LinearLayout
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="1"
+        android:gravity="center">
+
+        <Button
+android:layout_weight=".5"
+            android:id="@+id/yourgroup"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_button_green"
+            android:drawableLeft="@drawable/ic_icon_your_group_white"            android:drawablePadding="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="1"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:text="Your Groups"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+
+        <Button
+
+
+            android:layout_weight=".5"
+            android:id="@+id/discovery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:background="@drawable/rect_button_whiteeeee"
+            android:drawableLeft="@drawable/ic_icon_discover"            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:paddingLeft="@dimen/_40sdp"
+            android:paddingRight="@dimen/_40sdp"
+            android:text="Discover"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+
+    </LinearLayout>
+
+
+  <!--  <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="#EFEFEF"
+
         android:orientation="horizontal"
         android:weightSum="1">
 
@@ -67,16 +120,19 @@
             android:layout_marginRight="5dp"
             android:layout_weight="0.5"
             android:width="160dp"
-            android:background="@drawable/rounded_corner_view_text"
-            android:drawableLeft="@drawable/ic_icon_your_groups"
+            android:background="@drawable/rect_button_green"
+            android:drawableLeft="@drawable/ic_icon_your_group_white"
             android:drawablePadding="10dp"
+            android:elevation="10dp"
             android:gravity="center"
             android:padding="14dp"
             android:text="Your Groups"
+
             android:textColor="@color/white"
             android:textSize="14dp"
             android:textStyle="bold" />
-
+        &lt;!&ndash;android:background="@drawable/rounded_corner_view_text"
+                    android:drawableLeft="@drawable/ic_icon_your_groups"&ndash;&gt;
         <TextView
             android:id="@+id/discovery"
             android:layout_width="0dp"
@@ -86,38 +142,46 @@
             android:layout_marginBottom="10dp"
             android:layout_weight="0.5"
             android:width="160dp"
-            android:background="@drawable/rounded_corner_view_text"
+            android:background="@drawable/rect_button_whiteeeee"
             android:drawableLeft="@drawable/ic_icon_discover"
             android:drawablePadding="5dp"
             android:elevation="10dp"
             android:gravity="center"
             android:padding="14dp"
-            android:text="Discovery"
+            android:text="Discover"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold" />
+        &lt;!&ndash;  android:background="@drawable/rounded_corner_view_text"
+            android:drawableLeft="@drawable/ic_icon_discover"&ndash;&gt;
 
     </LinearLayout>
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:orientation="horizontal"
-        app:cardElevation="8dp">
-
-        <EditText
+  -->  <!--
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:drawableLeft="@drawable/ic_search_icon"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/raleway_regular"
-            android:hint="Search your group"
-            android:textColorHint="@color/black"
-            android:textSize="16dp" />
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:cardElevation="8dp">
 
-    </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>-->
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/rect_button_whiteeeee"
+        android:drawableLeft="@drawable/ic_search_icon"
+        android:drawablePadding="@dimen/_5sdp"
+        android:fontFamily="@font/raleway_regular"
+        android:hint="@string/searchgroup"
+        android:paddingLeft="@dimen/_5sdp"
+        android:textColor="@color/text_grey"
+        android:textColorHint="@color/text_grey"
+        android:textSize="@dimen/_12sdp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -129,6 +193,7 @@
         android:id="@+id/recycler_view_discover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:visibility="gone" />
 
 </LinearLayout>

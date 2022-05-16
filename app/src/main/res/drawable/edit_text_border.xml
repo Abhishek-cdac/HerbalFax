@@ -5,11 +5,11 @@
         android:color="@android:color/transparent"/>
 
     <corners
-        android:bottomRightRadius="8dp"
-        android:bottomLeftRadius="8dp"
-        android:topLeftRadius="8dp"
-        android:topRightRadius="8dp"/>
+        android:bottomRightRadius="@dimen/_23sdp"
+        android:bottomLeftRadius="@dimen/_23sdp"
+        android:topLeftRadius="@dimen/_23sdp"
+        android:topRightRadius="@dimen/_23sdp"/>
     <stroke
-        android:color="@color/text_grey"
+        android:color="#EDEDED"
         android:width="1dp"/>
 </shape>

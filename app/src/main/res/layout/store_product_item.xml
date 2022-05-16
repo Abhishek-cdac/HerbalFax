@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/likeImg"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/herbalfax_choice"
                 android:layout_gravity="top|end"
                 android:layout_margin="@dimen/_10sdp"
@@ -47,6 +47,7 @@
                 android:background="@drawable/rectangle_border"
                 android:fontFamily="@font/raleway_medium"
                 android:text="  New  "
+                android:visibility="gone"
                 android:textSize="@dimen/_7sdp" />
 
         </FrameLayout>

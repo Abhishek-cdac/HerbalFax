@@ -28,11 +28,14 @@ import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.Stor
 import com.herbal.herbalfax.customer.homescreen.nearbystores.userstoremodel.UserStoreListResponse;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
+import com.herbal.herbalfax.util.CommonUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,7 +50,14 @@ public class NearByStoreFragment extends Fragment {
     CommonClass clsCommon;
     RecyclerView StoreListrecyclerview, StoreListHorizontalrecyclerview;
     LinearLayoutManager HorizontalLayout;
-    RecyclerView.LayoutManager RecyclerViewLayoutManager;
+    ArrayList<Store> listStore=new ArrayList<>();
+    private int pastVisiblesItems=0;
+    private int visibleItemCount=0;
+    private int totalItemCount=0;
+    private int limit=10;
+    private int offset=0;
+    private boolean isLoading= true;
+    LinearLayoutManager RecyclerViewLayoutManager;
     UserStoreListAdapter userStoreListAdapter;
     Onclick itemClick;
     UserStoreHorizontalListAdapter userStoreHorizontalListAdapter;
@@ -80,7 +90,10 @@ public class NearByStoreFragment extends Fragment {
                 }
             }
         };
-        callStoreListAPI();
+
+        callStoreAPI();
+
+//        callStoreListAPI();
 
         ListView.setOnClickListener(new View.OnClickListener() {
             @SuppressLint({"ResourceAsColor", "UseCompatLoadingForDrawables"})
@@ -128,13 +141,27 @@ public class NearByStoreFragment extends Fragment {
         return root;
     }
 
+    private void callStoreAPI()
+    {
+        if (CommonUtils.isInternetOn(getContext())) {
+            callStoreListAPI();
+        }else{
+            Toast.makeText(getActivity(), getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private void callStoreListAPI() {
         SessionPref pref = SessionPref.getInstance(getActivity());
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
         pd.show();
-        Call<UserStoreListResponse> call = service.userStoreList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken));
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("fordate", "");
+        hashMap.put("limit", limit+"");
+        hashMap.put("offset", offset+"");
+
+        Call<UserStoreListResponse> call = service.userStoreList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken),hashMap);
         call.enqueue(new Callback<UserStoreListResponse>() {
             @Override
             public void onResponse(Call<UserStoreListResponse> call, Response<UserStoreListResponse> response) {
@@ -144,23 +171,61 @@ public class NearByStoreFragment extends Fragment {
                     if (response.body().getStatus() == 1) {
 
                         Log.e("NearByPreData..", "" + response.body().getData().getStores());
-                        ArrayList<Store> lst_store = (ArrayList<Store>) response.body().getData().getStores();
+                        ArrayList<Store> localStore = (ArrayList<Store>) response.body().getData().getStores();
+
+                        if(limit==0)
+                        {
+                            listStore.clear();
+                        }
+                        listStore.addAll(localStore);
+                        isLoading=true;
 
                         /*vertical list for map view*/
-                        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-                        StoreListrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
-                        userStoreListAdapter = new UserStoreListAdapter(lst_store, getActivity(), itemClick);
-                        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                        StoreListrecyclerview.setLayoutManager(HorizontalLayout);
-                        StoreListrecyclerview.setAdapter(userStoreListAdapter);
+                        if(userStoreListAdapter==null)
+                        {
+                            RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+                            StoreListrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
+                            userStoreListAdapter = new UserStoreListAdapter(listStore, getActivity(), itemClick);
+                            HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                            StoreListrecyclerview.setLayoutManager(HorizontalLayout);
+                            StoreListrecyclerview.setAdapter(userStoreListAdapter);
+                        }else{
+                            userStoreListAdapter.notifyDataSetChanged();
+                        }
+
 
                         /*horizontal list for map view*/
                         RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
                         StoreListHorizontalrecyclerview.setLayoutManager(RecyclerViewLayoutManager);
-                        userStoreHorizontalListAdapter = new UserStoreHorizontalListAdapter(lst_store, getActivity(), itemClick);
+                        userStoreHorizontalListAdapter = new UserStoreHorizontalListAdapter(listStore, getActivity(), itemClick);
                         HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
                         StoreListHorizontalrecyclerview.setLayoutManager(HorizontalLayout);
                         StoreListHorizontalrecyclerview.setAdapter(userStoreHorizontalListAdapter);
+
+
+                        StoreListrecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                                if (dy > 0) {
+                                    visibleItemCount = HorizontalLayout.getChildCount();
+                                    totalItemCount = HorizontalLayout.getItemCount();
+                                    pastVisiblesItems = HorizontalLayout.findFirstVisibleItemPosition();
+                                    if (isLoading) {
+                                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                                            if (!recyclerView.canScrollVertically(1)) {
+                                                isLoading = false;
+                                                offset = offset + 10;
+//                                                callStoreListAPI();
+                                                callStoreAPI();
+
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
 
                     } else {
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");

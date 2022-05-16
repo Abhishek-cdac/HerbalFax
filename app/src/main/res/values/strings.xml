@@ -9,8 +9,12 @@
     <string name="Password">Password</string>
     <string name="login1">Login</string>
     <string name="send">Send</string>
+    <string name="product">Products</string>
 
-    <string name="forget_password">Forget Password?</string>
+    <string name="groups">Groups</string>
+
+
+    <string name="forget_password">Forgot Password?</string>
     <string name="resetPass">Reset Password</string>
     <string name="resetDummy">We just need your registered </string>
     <string name="resetDummy1">Email Address</string>
@@ -24,7 +28,7 @@
     <string name="confirm">CONFIRM</string>
 
     <string name="CreateNewPassword">Create New Password</string>
-    <string name="NewPassDummy">Your new password must be different from your previous used password</string>
+    <string name="NewPassDummy">Your New Password Must be Different from Previously Used Password</string>
     <string name="NewPassword">New Password</string>
     <string name="ConfirmPassword">Confirm Password</string>
     <string name="ResetPassword">Reset Password</string>
@@ -32,7 +36,7 @@
     <string name="confirmPassword_hint">Confirm your password</string>
 
     <string name="registration">Registration</string>
-    <string name="alreadyReg">Already registered? </string>
+    <string name="alreadyReg">Already Registered? </string>
     <string name="loginHere">Login here</string>
     <string name="continue1">Continue</string>
     <string name="Vendor">Vendor</string>
@@ -43,7 +47,7 @@
     <string name="verificationCodeDummy">We are sending verification code to this email id. Please recheck it before continue</string>
 
     <string name="editprofile">Edit Profile</string>
-    <string name="signupAsCustomer">Sign Up As Customer</string>
+    <string name="signupAsCustomer">Sign Up as Customer</string>
     <string name="name">Name</string>
     <string name="birthday">Birthday</string>
     <string name="gender">Gender</string>
@@ -57,7 +61,10 @@
     <string name="mobileNumber">Mobile Number</string>
     <string name="uploadPic">Upload Profile Picture</string>
     <string name="uploadProfile">Update Profile</string>
-    <string name="termAndCon">I agree to term And Conditions</string>
+    <string name="termAndCon">I agree to the legal Terms and Conditions
+of this program, and that I am signing up to
+receive emails from HerbalFax &amp; More</string>
+    <string name="ageValid">I am at least 21 years of age.</string>
     <string name="signup">Sign Up</string>
     <string name="alreadyUser">Already User?</string>
 
@@ -69,7 +76,7 @@
     <string name="zip_hint">Enter your zip code</string>
 
     <string name="EmailVerification">Email Verification</string>
-    <string name="VerifyEmailDummy"> Please enter your code we sent to </string>
+    <string name="VerifyEmailDummy"> please enter the code we sent to </string>
     <string name="VerifyDummyy">Her******@gmail.com</string>
     <string name="entercode">Enter code</string>
     <string name="enterEmail">Enter Email ID</string>
@@ -99,24 +106,27 @@
     <string name="search_hint">Find Stores, Product &amp; Post</string>
     <string name="fruity">Find Fruity Cannabis</string>
     <string name="trending">Trending</string>
-    <string name="article">Article</string>
+    <string name="article">Articles</string>
     <string name="events">Events</string>
-    <string name="viewmore">View more</string>
+    <string name="viewmore">View More</string>
     <string name="photo">Photos</string>
 
     <string name="menu_feed">Feeds</string>
     <string name="menu_products">Products</string>
     <string name="menu_home">Home</string>
     <string name="title_group">Group</string>
-    <string name="nearbystore">Near by stores</string>
-    <string name="mySocial">My social</string>
-    <string name="saved_dispensaries">Saved dispensaries</string>
-    <string name="explore_strains">Explore strains</string>
-    <string name="orders">Orders</string>
+    <string name="nearbystore">Nearby Stores</string>
+    <string name="mySocial">My Social</string>
+    <string name="saved_dispensaries">My Stores</string>
+    <string name="explore_strains">My Strains</string>
+    <string name="orders">My Orders</string>
+    <string name="my_orders">My Orders</string>
     <string name="event">Events</string>
-    <string name="card_list">Card list</string>
-    <string name="parcels">Parcel service</string>
+    <string name="card_list">Card List</string>
+    <string name="parcels">Parcel Service</string>
     <string name="deal">Deals</string>
+    <string name="myevent">My Event</string>
+    <string name="my_deal">My Deals</string>
     <string name="ask_fax">Ask Fax</string>
     <string name="action_settings">Setting</string>
 
@@ -131,6 +141,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="addquestion">Add Question</string>
+    <string name="yourQuestion">Your Question</string>
     <string name="addpost">Add Post</string>
     <string name="upload_image_video">Upload Image/Video</string>
     <string name="add_image_video">Add Image/Video</string>
@@ -170,8 +181,8 @@
     <string name="list_view">List View</string>
     <string name="map_view">Map view</string>
     <string name="VerifyEmailtxt">We are sending verification code to this email</string>
-    <string name="add_comment">Add comments</string>
-    <string name="post">Post</string>
+    <string name="add_comment">Enter Comments here...</string>
+
     <string name="str_no_comments">No comments</string>
     <string name="comments">Comments</string>
     <string name="Like">like</string>
@@ -179,7 +190,8 @@
 
 
     <string name="addnewstore">Add new store</string>
-    <string name="myDriver">My Driver</string>
+    <string name="my_driver">My Driver</string>
+    <string name="driver">Driver</string>
     <string name="become_HB_choice">Become HerbalFax Choice</string>
     <string name="menu_mystore">My Store</string>
     <string name="title_order">Orders</string>
@@ -201,13 +213,15 @@
     <string name="Addstorelogo">Add Store Logo</string>
     <string name="uploadstorelogo">Upload Store Logo</string>
     <string name="Addstorephoto">Add Store Photo</string>
+    <string name="internet_connection_error">Please check internet connection</string>
     <string name="uploadstorephoto">Upload Store Photo</string>
     <string name="workingDays">Working Days</string>
     <string name="findstore_hint">Find Store</string>
     <string name="addnewproduct">Add new product</string>
     <string name="selectcategory">Select Category</string>
     <string name="selectstore">Select Store</string>
-    <string name="uploadproductpic">Upload Product Picture</string>
+    <string name="uploadproductpic">Upload Product Pictures</string>
+    <string name="uploaddealpic">Upload Deals Picture</string>
     <string name="productname">Product Name</string>
     <string name="productname_hint">Enter Product Name</string>
     <string name="price">Price</string>
@@ -228,12 +242,13 @@
     <string name="sharestory">Share Story</string>
     <string name="abhijeet">Hi Mayuri</string>
     <string name="toprated">Top Rated Vendors</string>
+    <string name="store_available">Stores available</string>
     <string name="share">Share</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="my_cart">My Cart</string>
     <string name="add_items">Add Items</string>
     <string name="total_price">Total Price</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="pick_up">PICK UP</string>
     <string name="deliver">DELIVER</string>
     <string name="tax">"Tax : "</string>
@@ -247,6 +262,46 @@
     <string name="Profile">Profile</string>
     <string name="total">Total</string>
     <string name="name_your_group">Name your group</string>
+    <string name="addnewdeal">Add new deal</string>
+    <string name="adddeals">Add Deal</string>
+    <string name="dealname">Deal Name</string>
+    <string name="dealname_hint">Enter deal name</string>
+    <string name="noofdeal">No. of Deals</string>
+    <string name="nodeal_hint">Enter no. of deals. etc : 10</string>
+    <string name="expiry_datehint">Enter expiry date</string>
+    <string name="_2_days">2 days</string>
+    <string name="_4_days">4 days</string>
+    <string name="_6_days">6 days</string>
+    <string name="boostdeal">Boost deal</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="participant">Participant :</string>
+    <string name="searchgroup">Search Group</string>
+    <string name="add_events">ADD EVENTS</string>
+    <string name="favourites">Favourites</string>
+    <string name="post">Post</string>
+    <string name="blogs">Blogs</string>
+    <string name="deals">Deals</string>
+    <string name="stores">Stores</string>
+    <string name="products">Products</string>
+    <string name="my_products">My Products</string>
+    <string name="CreateAskFax">Add Question</string>
+    <string name="optional_include_a_link_that_gives_context">Optional: Include a link that gives context</string>
+    <string name="tips_on_getting_good_answers_quickly">Tips on getting good answers quickly</string>
+    <string name="make_sure_your_question_hasn_t_been_asked_already">Make Sure your question hasn’t been asked already</string>
+    <string name="keep_your_question_short_and_to_the_point">Keep your question short and to the point</string>
+    <string name="double_check_grammar_and_spelling">Double-check grammar and spelling</string>
+    <string name="start_your_question_what_how_why_etc">Start your question “What”, “How”, “Why”, etc.</string>
+    <string name="add_answer">Add Answer</string>
+    <string name="answer">Answers</string>
 
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="sign_up_here"> Sign up here</string>
+    <string name="new_user_join_now">New User? Join Now</string>
+    <string name="today_s_deal">Today’s Deal</string>
+    <string name="business">Business</string>
+    <string name="next">Next</string>
+    <string name="menu_daily">Daily</string>
+    <string name="mygroup">My Groups</string>
 
 </resources>

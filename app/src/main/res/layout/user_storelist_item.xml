@@ -5,28 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_5sdp"
-    android:background="#EFEFEF"
+    android:background="@color/white"
     android:padding="@dimen/_10sdp"
+    card_view:cardCornerRadius="@dimen/_5sdp"
     card_view:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EFEFEF"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#EFEFEF"
+            android:background="@color/white"
             android:orientation="horizontal"
             android:padding="@dimen/_5sdp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/imgcard"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"
-                android:background="#EFEFEF"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 card_view:cardCornerRadius="@dimen/_6sdp">
 
                 <ImageView
@@ -48,17 +49,31 @@
                 android:orientation="vertical">
 
 
-                <TextView
-                    android:id="@+id/StoreNameText"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
-                    android:fontFamily="@font/raleway_semibold"
-                    android:maxLines="2"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Myntra"
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
+                    <TextView
+                        android:id="@+id/StoreNameText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".9"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:maxLines="2"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Myntra"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:layout_weight=".1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/like_heart_grey" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/StorecategoryText"
@@ -67,10 +82,12 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:padding="@dimen/_2sdp"
                     android:text="Clothing"
+
                     android:textColor="@color/green"
                     android:textSize="10dp" />
 
                 <LinearLayout
+                    android:padding="@dimen/_2sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -111,8 +128,9 @@
 
                     android:id="@+id/StoreAddressText"
                     android:layout_width="wrap_content"
+                    android:padding="@dimen/_2sdp"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_icon_map_marker_black"
+                    android:drawableLeft="@drawable/ic_icon_feather_map_pin_black"
                     android:drawablePadding="@dimen/_5sdp"
                     android:fontFamily="@font/raleway_regular"
                     android:maxLines="2"
@@ -122,16 +140,20 @@
                     android:textSize="10dp" />
 
                 <LinearLayout
+                    android:padding="@dimen/_2sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:drawableLeft="@drawable/ic_icon_open_clock_black"
+                        android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/raleway_semibold"
+                        android:gravity="center"
                         android:padding="@dimen/_2sdp"
-                        android:text="Open-Closed"
+                        android:text="Timing : "
                         android:textColor="@color/green"
                         android:textSize="10dp" />
 
@@ -139,7 +161,8 @@
                         android:id="@+id/timeTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:drawableRight="@drawable/ic_icon_feather_eye_black"
+                        android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/raleway_semibold"
                         android:padding="@dimen/_2sdp"
                         android:text="9:00 AM to 8:00 PM"
@@ -163,7 +186,8 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
-            android:background="#ababab">
+            android:background="#ababab"
+            android:visibility="gone">
 
         </View>
     </LinearLayout>

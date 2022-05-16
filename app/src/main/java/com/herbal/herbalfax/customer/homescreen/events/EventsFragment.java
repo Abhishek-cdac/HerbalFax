@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxViewModel;
 
 
 public class EventsFragment extends Fragment {

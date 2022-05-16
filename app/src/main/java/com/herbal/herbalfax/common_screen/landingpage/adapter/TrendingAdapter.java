@@ -1,7 +1,7 @@
 package com.herbal.herbalfax.common_screen.landingpage.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHolder> {
 
     ArrayList<Interest> lst_int;
-    ArrayList<Interest> lst_intFilter;
+
     Context mContext;
     private final Picasso picasso;
 
@@ -36,27 +36,28 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
     public TrendingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trending_item, parent, false);
         mContext = parent.getContext();
-        return new TrendingAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TrendingAdapter.ViewHolder holder, int position) {
 
         if (position == 0) {
             holder.headingTxt.setText("Tutorials");
 
-            holder.subHeadingTxt.setText("The 1914 translation by H. Rackham");
+            holder.subHeadingTxt.setText("The Secrets of Creative Longevity: Follow Your Heart and Feed Your Cells");
             picasso.load(R.drawable.profileimg)
                     .into(holder.imgProfile);
         } else if( position == 1) {
-            holder.subHeadingTxt.setText("Release of Letraset sheets containing");
+            holder.subHeadingTxt.setText("Pioneering natural products for home health care solutions");
             holder.headingTxt.setText("Medicals");
             picasso.load(R.drawable.profileimg)
                     .into(holder.imgProfile);
         }else if( position == 2) {
             holder.headingTxt.setText("Stores");
             holder.subHeadingTxt.setText("Hampden-Sydney College in Virginia");
-            picasso.load(R.drawable.dummyprofile)
+            picasso.load(R.drawable.profileimg)
                     .into(holder.imgProfile);
         }
     }
@@ -67,7 +68,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView headingTxt, subHeadingTxt, timeTxt, personTxt;
         ImageView imgProfile;
 

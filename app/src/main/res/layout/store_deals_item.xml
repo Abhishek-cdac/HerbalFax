@@ -22,8 +22,9 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/productImg"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_120sdp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:scaleType="fitXY"
@@ -54,14 +55,13 @@
                 android:textSize="@dimen/_13sdp" />
 
             <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:id="@+id/dealFav"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/herbalfax_choice"
                 android:layout_gravity="top|end"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/circle_background_white"
-                android:padding="3dp"
-                android:src="@drawable/ic_icon_ionic_ios_heart_grey" />
+                android:src="@drawable/heart_active" />
 
         </LinearLayout>
 
@@ -86,8 +86,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/location"
-            android:layout_margin="@dimen/_2sdp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
             android:paddingTop="@dimen/_5sdp"
             android:paddingBottom="@dimen/_5sdp"
             android:weightSum="1">
@@ -100,13 +102,13 @@
                 android:drawableLeft="@drawable/rating"
                 android:drawablePadding="@dimen/_3sdp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="90+ Bought"
+                android:text="0 Bought"
                 android:textColor="@color/text_grey"
                 android:textSize="@dimen/_10sdp" />
 
 
             <TextView
-
+                android:id="@+id/priceTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -126,11 +128,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/bought_ll"
             android:layout_gravity="center_vertical"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+
+            android:layout_marginBottom="@dimen/_2sdp"
             android:drawableLeft="@drawable/ic_calendar"
             android:drawablePadding="@dimen/_5sdp"
             android:fontFamily="@font/roboto_regular"
-
             android:text="Validity Till: 08/26/21"
             android:textColor="@color/text_grey"
             android:textSize="@dimen/_10sdp" />

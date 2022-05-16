@@ -27,21 +27,54 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HerbalFax"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+        tools:targetApi="n">
         <activity
-            android:name=".common_screen.landingpage.EventReadMoreActivity"
+            android:name=".signupnew.NewCustomerSignUpScTwo"
             android:exported="false" />
         <activity
-            android:name=".common_screen.landingpage.AddEventActivity"
-            android:exported="true"></activity>
+            android:name=".signupnew.NewCustomerSignUpScOne"
+            android:exported="false" /> <!-- android:theme="@style/Theme.HerbalFax" -->
+        <activity
+            android:name=".customer.homescreen.nearbystores.NearByActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.askfax.aflist.AddAnswerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.askfax.addaf.AddQuestionAskFaxActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.group.groupdetail.GroupDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.favourites.FavouritesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.homescreen.products.toprated.TopRatedActivity"
+            android:exported="true" />
+        <activity
+            android:name=".vendor.sellerdrivers.addrider.AddRiderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".vendor.sellerdeals.booster.SellerBoosterDealActivity"
+            android:exported="true" />
+        <activity
+            android:name=".vendor.sellerdeals.adddeal.AddDealsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".common_screen.landingpage.events.eventdetail.EventReadMoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".common_screen.landingpage.events.addevent.AddEventActivity"
+            android:exported="true" />
         <activity
             android:name=".customer.myorders.TrackOrderActivity"
             android:exported="true" />
         <activity
             android:name=".customer.myorders.MyOrdersActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
-            android:name=".customer.homescreen.group.CreateGroupActivity"
+            android:name=".customer.homescreen.group.creategroup.CreateGroupActivity"
             android:exported="true" />
         <activity
             android:name=".customer.homescreen.payment.PaymentCheckoutActivity"
@@ -58,15 +91,14 @@
         <activity
             android:name=".common_screen.profile.MyShoppingHistoryActivity"
             android:exported="true" />
-            android:exported="true" />
         <activity
-            android:name=".common_screen.landingpage.EventsDetailsActivity"
+            android:name=".common_screen.landingpage.events.eventlist.EventsDetailsActivity"
             android:exported="true" />
         <activity
             android:name=".common_screen.landingpage.PhotosDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".customer.homescreen.group.AddPeopleToGroupActivity"
+            android:name=".customer.homescreen.group.addmember.AddPeopleToGroupActivity"
             android:exported="true" />
         <activity
             android:name=".customer.homescreen.deals.DealsDetailsActivity"
@@ -83,10 +115,10 @@
         <activity
             android:name=".customer.homescreen.products.CustomerProductDetailsActivity"
             android:exported="true" />
-        <activity
+     <!--   <activity
             android:name=".customer.homescreen.products.toprated.TopRatedActivity"
             android:exported="true" />
-        <activity
+     -->   <activity
             android:name=".TestActivity"
             android:exported="true" />
         <activity
@@ -200,6 +232,9 @@
             android:name=".common_screen.email_verification.VerifyEmailActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/CropwindowTheme" />
         <activity
             android:name=".common_screen.forgot_password.ForgotPasswordActivity"
             android:exported="true"

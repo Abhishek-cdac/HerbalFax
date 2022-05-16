@@ -19,6 +19,7 @@ import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.commonmodel.CommonResponse;
+import com.herbal.herbalfax.customer.homescreen.homedashboard.DrawerAdapter;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
 import com.squareup.picasso.Picasso;
@@ -36,6 +37,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
     Context mContext;
     private final Picasso picasso;
     Onclick itemClick;
+    private CustomItemClickListener customClickListener;
 
 
     public CustomerProductListAdapter(ArrayList<StoreProduct> lst_product, Context applicationContext, Onclick itemClick) {
@@ -66,7 +68,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
             }
         }
         holder.productName.setText(lst_product.get(position).getSPName());
-        holder.PriceTxt.setText(lst_product.get(position).getSPRate()+ "$");
+        holder.PriceTxt.setText("$"+lst_product.get(position).getSPRate());
         holder.categoryTxt.setText(lst_product.get(position).getSPCTitle());
         holder.descTxt.setText(lst_product.get(position).getSPDesc());
         String productId = lst_product.get(position).getIdstoreProducts();
@@ -78,7 +80,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
         });
 
         if (lst_product.get(position).getIsFav().equals("1")) {
-            holder.likeImg.setImageResource(R.drawable.like_heart);
+            holder.likeImg.setImageResource(R.drawable.heart_active);
         } else {
             holder.likeImg.setImageResource(R.drawable.like_heart_grey);
         }
@@ -93,7 +95,7 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
                     notifyItemChanged(position);
                     callAddToFavAPI(productId);
                 } else if (lst_product.get(position).getIsFav().equals("0")) {
-                    holder.likeImg.setImageResource(R.drawable.like_heart);
+                    holder.likeImg.setImageResource(R.drawable.heart_active);
                     lst_product.get(position).setIsFav("1");
                     notifyItemChanged(position);
                     callAddToFavAPI(productId);
@@ -155,6 +157,20 @@ public class CustomerProductListAdapter extends RecyclerView.Adapter<CustomerPro
             viewBtn = itemView.findViewById(R.id.viewBtn);
 
         }
+    }
+
+    void setOnCardItemClickListener(CustomItemClickListener mItemClick) {
+        this.customClickListener = mItemClick;
+    }
+
+    public interface CustomItemClickListener {
+        /**
+         * On card item click.
+         *
+         * @param view     the view
+         * @param position the position
+         */
+        void viewItemClick(View view, int position);
     }
 
 

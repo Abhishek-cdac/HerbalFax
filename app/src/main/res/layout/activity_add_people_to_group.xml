@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".customer.homescreen.group.AddPeopleToGroupActivity">
+    tools:context=".customer.homescreen.group.addmember.AddPeopleToGroupActivity">
 
 
     <LinearLayout
@@ -91,14 +91,16 @@
         android:scrollbars="vertical" />
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selectBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_20sdp"
+android:foregroundGravity="center"
+        android:src="@drawable/ic_check_circle"
         android:background="@drawable/circle_background_green" />
 
 

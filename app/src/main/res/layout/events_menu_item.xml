@@ -21,13 +21,14 @@
             android:layout_height="match_parent">
 
             <FrameLayout
-                android:id="@+id/dealItemImg"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/eventItemImg"
+                    android:layout_width="120dp"
+                    android:layout_height="170dp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:scaleType="fitXY"
@@ -62,17 +63,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_semibold"
-                    android:text="Sleek Concrete Pants"
+                    android:text=""
                     android:layout_marginTop="@dimen/_8sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp"/>
 
             <TextView
-                android:id="@+id/eventdate"
+                android:id="@+id/eventDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Date on: 07/29/2021 at 8:00PM"
+
                 android:layout_marginTop="@dimen/_8sdp"
                 android:textColor="@color/green"
                 android:textSize="@dimen/_11sdp"/>
@@ -83,11 +84,6 @@
                 android:layout_height="@dimen/_58sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/raleway_medium"
-                android:text="Voluptatem in qui rerum quae. Sed laborum excepturi iusto reprehenderit quia et et. Vitae quis deleniti consectetur. Aut quod est doloremque enim ratione dolorem mollitia accusantium quia. Est fuga velit minima omnis commodi quae. Natus voluptatem repudiandae eum eos consequatur aut enim.
-
-Explicabo qui velit maiores temporibus sit facere quam ut veniam. Nemo amet iure officiis accusamus explicabo illo quis consequatur eius. Rem corporis laborum voluptate recusandae.
-
-Et est error dolorem ab enim qui consequatur. Exercitationem sint recusandae est. Repudiandae repellendus rerum delectus exercitationem. Eveniet modi ut quo ut libero atque."
                 android:textColor="#8E8E8E"
                 android:textSize="@dimen/_11sdp"/>
 
