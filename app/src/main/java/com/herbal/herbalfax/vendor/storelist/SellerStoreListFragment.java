@@ -46,6 +46,7 @@ public class SellerStoreListFragment extends Fragment {
     private AskFaxViewModel askFaxViewModel;
     RecyclerView recyclerView, storeRecyclerView;
     private MyStoreViewModel myStoreViewModel;
+
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
     MyStoreListAdapter myStoreListAdapter;
     private ArrayList<Store> lst_store;
