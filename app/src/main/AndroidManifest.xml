@@ -29,6 +29,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
+            android:name=".NewCustomerSignUpScTen"
+            android:exported="false" />
+        <activity
+            android:name=".NewVendorSignUpScOne"
+            android:exported="false" />
+
+        <activity
             android:name=".signupnew.NewCustomerSignUpScTwo"
             android:exported="false" />
         <activity
@@ -115,10 +122,12 @@
         <activity
             android:name=".customer.homescreen.products.CustomerProductDetailsActivity"
             android:exported="true" />
-     <!--   <activity
+        <!--
+   <activity
             android:name=".customer.homescreen.products.toprated.TopRatedActivity"
             android:exported="true" />
-     -->   <activity
+        -->
+        <activity
             android:name=".TestActivity"
             android:exported="true" />
         <activity

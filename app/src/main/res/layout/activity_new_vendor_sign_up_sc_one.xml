@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NewVendorSignUpScOne"
+    >
+
+    <LinearLayout
+        android:id="@+id/textbox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_icon_awesome_arrow_left"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="@dimen/_5sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/signupAsCustomer"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_22sdp"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="@dimen/_5sdp">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="First name"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.cardview.widget.CardView
+                    app:cardElevation="@dimen/_12sdp"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rect_button"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint=""
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={SignUpNewAsCustomerViewModel.fullName}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <!-- <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"/>-->
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableRight="@drawable/mandatory"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Last name"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.cardview.widget.CardView
+                    app:cardElevation="@dimen/_12sdp"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0.0px"
+                    android:elevation="@dimen/_2sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_23sdp"
+                    app:cardPreventCornerOverlap="false">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rect_button"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint=""
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={SignUpNewAsCustomerViewModel.fullName}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_14sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:drawableRight="@drawable/mandatory"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Email Address"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp" />
+
+        <androidx.cardview.widget.CardView
+            app:cardElevation="@dimen/_12sdp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            android:elevation="@dimen/_2sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_23sdp"
+            app:cardPreventCornerOverlap="false">
+
+            <EditText
+                android:id="@+id/birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rect_button"
+                android:drawableEnd="@drawable/ic_email_green"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/raleway_regular"
+                android:hint=""
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/text_grey"
+                android:textColorHint="@color/text_grey"
+                android:textSize="@dimen/_14sdp" />
+
+        </androidx.cardview.widget.CardView>
+        <!--  android:text="@={SignUpNewAsCustomerViewModel.birthDate}"
+                              -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:drawableRight="@drawable/mandatory"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Password"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp" />
+
+
+        <androidx.cardview.widget.CardView
+            app:cardElevation="@dimen/_12sdp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            android:elevation="@dimen/_2sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_23sdp"
+
+            app:cardPreventCornerOverlap="false">
+
+            <EditText
+                android:id="@+id/professionedt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rect_button"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_lock_icon"
+                android:drawablePadding="@dimen/_5sdp"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/raleway_regular"
+
+                android:hint=""
+                android:padding="@dimen/_10sdp"
+                android:text="@={SignUpNewAsCustomerViewModel.profession}"
+                android:textColor="@color/text_grey"
+                android:textColorHint="@color/text_grey"
+                android:textSize="@dimen/_14sdp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@drawable/rect_button_green"
+            android:elevation="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
+            android:paddingHorizontal="@dimen/_40sdp"
+            android:text="Create a Business account for free"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_13sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginTop="@dimen/_10sdp">
+            <View
+                android:layout_weight="1"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="0.1dp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/_19sdp"
+                android:text=" or continue with"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="#CFCFCF"/>
+            <View
+                android:layout_weight="1"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="0.1dp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@android:color/darker_gray" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+               android:background="@drawable/rect_button_blue"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#4266B2"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardElevation="@dimen/_5sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="50dp">
+                <ImageView
+                    android:src="@drawable/ic_icon_awesome_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                app:cardElevation="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                android:layout_margin="@dimen/_10sdp"
+               android:background="@drawable/rect_button_blue"
+                android:layout_weight="1"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_50sdp">
+                <ImageView
+                    android:src="@drawable/google"
+                    android:layout_width="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+       <!--     <Button
+                android:id="@+id/facebook_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:background="@drawable/rect_button_blue"
+                android:drawableLeft="@drawable/ic_icon_facebook"
+                android:elevation="@dimen/_15sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
+                android:paddingHorizontal="@dimen/_40sdp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_13sdp"></Button>
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/google_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="right"
+                android:layout_marginHorizontal="@dimen/_90sdp"
+                android:background="@drawable/rect_button_white_round"
+                android:drawableLeft="@drawable/ic_icon_facebook"
+                android:elevation="@dimen/_15sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
+                android:paddingHorizontal="@dimen/_40sdp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_13sdp" />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_50sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have a business account?"
+                android:textColor="#8E8E8E"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log in"
+                android:textColor="#96C93D"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
