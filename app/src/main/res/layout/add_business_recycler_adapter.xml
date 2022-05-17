@@ -9,8 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/addprofile_layout"
         android:orientation="horizontal"
-        android:padding="10sp"
-    >
+        android:padding="10sp"  >
 
         <ImageView
             android:layout_width="wrap_content"
