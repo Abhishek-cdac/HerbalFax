@@ -29,12 +29,29 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
+            android:name=".NewCustomerSignUpSc11"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NewVendorSignUpSc13"
+            android:exported="false" />
+        <activity
+            android:name=".NewCustomerSignUpSc14"
+            android:exported="false" />
+        <activity
+            android:name=".NewCustomerSignUpSc12"
+            android:exported="false" />
+        <activity
             android:name=".NewCustomerSignUpScTen"
             android:exported="false" />
         <activity
             android:name=".NewVendorSignUpScOne"
             android:exported="false" />
-
         <activity
             android:name=".signupnew.NewCustomerSignUpScTwo"
             android:exported="false" />

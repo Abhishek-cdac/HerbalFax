@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_below="@id/find_your_business"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addprofile_layout"
+        android:orientation="horizontal"
+        android:padding="10sp"
+    >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/addbusinessprofile"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            >
+            <TextView
+                android:layout_below="@+id/find_your_business"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="THC O Acetate Vape Pens"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/raleway_semibold"
+                />
+
+            <TextView
+                android:layout_below="@id/cant_find_business"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add it to Herbalfax. 100% free."
+                android:textColor="#8E8E8E"
+                android:textSize="@dimen/_14sdp"
+                android:fontFamily="@font/poppins_medium"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
