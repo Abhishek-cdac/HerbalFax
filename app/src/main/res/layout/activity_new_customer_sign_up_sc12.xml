@@ -18,6 +18,7 @@
             android:text="Add your business"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_22sdp"
+
             android:gravity="center_horizontal"
             />
     <TextView

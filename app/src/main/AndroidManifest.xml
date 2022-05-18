@@ -64,6 +64,7 @@
         <activity
             android:name=".NewCustomerSignUpScTen"
             android:exported="false" />
+
         <activity
             android:name=".NewVendorSignUpScOne"
             android:exported="false" />
