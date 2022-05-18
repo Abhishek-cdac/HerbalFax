@@ -4,38 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewVendorSignUpSc13"
+    tools:context=".NewVendorSignUpSc5"
     android:orientation="vertical"
     android:padding="@dimen/_20sdp">
 
-    <TextView
-        android:id="@+id/add_title"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/add_title_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="Add your business"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/_22sdp"
-        android:gravity="center_horizontal"
-        />
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_icon_awesome_arrow_left"
+            android:layout_gravity="center_vertical"
+            android:paddingTop="@dimen/_5sdp"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Add your business"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_22sdp"
+            android:gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+
     <TextView
         android:id="@+id/yourbusiness"
-        android:layout_below="@+id/add_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/add_title_layout"
         android:layout_gravity="left"
-        android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:fontFamily="@font/poppins_regular"
-        android:text="Your Business name"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/_14sdp"
         android:gravity="center_horizontal"
-        />
+        android:text="Business categories"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14sdp" />
     <LinearLayout
-        android:id="@+id/find_your_business"
+        android:id="@+id/business_categories"
         android:layout_below="@+id/yourbusiness"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -52,51 +72,33 @@
             android:paddingLeft="@dimen/_15sdp"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_gravity="center_vertical"
-            android:text="Herbalfax"/>
+            android:text="Pizza, Hair Salon, Plumbing"/>
     </LinearLayout>
-    <!--  <ImageView
-          android:layout_width="@dimen/_244sdp"
-          android:layout_height="@dimen/_214sdp"
-          android:layout_gravity="center"
-          android:layout_marginTop="@dimen/_25sdp"
-          android:src="@drawable/undraw_my_location_re_r52x"/>-->
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/add_business_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp"
-        android:layout_below="@id/find_your_business"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:padding="@dimen/_5sdp" />
 
     <LinearLayout
+        android:id="@+id/selected_category_layout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/_70sdp">
+        android:layout_below="@+id/business_categories"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:weightSum="1"
+        android:background="@drawable/card_border_green"
+        android:orientation="horizontal">
         <TextView
-            android:layout_below="@+id/find_your_business"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="My business isn't here"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15sdp"
-            android:fontFamily="@font/poppins_semibold"
-            android:padding="@dimen/_5sdp"/>
-
-        <TextView
-            android:layout_below="@id/cant_find_business"
+            android:layout_weight="0.7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add it to Herbalfax. 100% free."
-            android:textColor="#8E8E8E"
-            android:textSize="@dimen/_14sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/poppins_medium"
-            android:padding="@dimen/_5sdp"/>
+            android:textColor="#97C93C"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/_10sdp"
+            android:text="Home Garden > Kitchen  Bath"/>
+
+        <ImageView
+            android:layout_weight="0.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_icon_ionic_ios_close"/>
     </LinearLayout>
 
 
@@ -113,13 +115,8 @@
         android:fontFamily="@font/poppins_medium"
         android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
         android:paddingHorizontal="@dimen/_40sdp"
-        android:text="Add"
+        android:text="Continue"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_13sdp" />
 
 </RelativeLayout>
-
-
-
-
-
