@@ -303,5 +303,31 @@ receive emails from HerbalFax &amp; More</string>
     <string name="next">Next</string>
     <string name="menu_daily">Daily</string>
     <string name="mygroup">My Groups</string>
+    <string name="addyourbusiness">Add your business</string>
+    <string name="addyourbusinessdummy">Oh, it seems like this business is already claimed.</string>
+    <string name="addyourbusinessdummyone">New Image Wellness Center - Herbalife is already claimed by a business owner.</string>
+    <string name="addyourbusinessdummytwo">Is that you? You are currently logged in with puffd9@gmail.com. Try logging in using a different account.</string>
+    <string name="addyourbusinessdummythree">Otherwise, contact our customer support team.</string>
+    <string name="contactsupport">Contact Support</string>
+    <string name="login_with_another_account">Login with another account</string>
+    <string name="addyourbusinessdummyy">Tell customers which phone number they can call</string>
+    <string name="addyourbusinessdummyyone">Add the phone number of Herbaliyfe to help customers connect with you.</string>
+    <string name="business_phone_number">Business phone number</string>
+    <string name="addyourwebsitedummyy">Do you have a business website?</string>
+    <string name="addyourwebsitedummyyone">Tell your customers where they can find more information about your business.</string>
+    <string name="website">Website</string>
+    <string name="http_www_companyaddress_com">http://www.companyaddress.com</string>
+    <string name="i_don_t_have_a_website">I don\'t have a website</string>
+    <string name="addyourCatedummyy">What kind of business are you in?</string>
+    <string name="addyourcatedummyyone">Add up to 3 categories that best describe what Herbaliyfe core business is. you can always change and add more later.</string>
+    <string name="Business_categories">Business categories</string>
+    <string name="pizza_hair_salon_plumbing">Pizza, Hair Salon, Plumbing</string>
+    <string name="addyourbusinessAddessdummyy">Add your business address</string>
+    <string name="addyourbusinessAdddummyyone">Do you have a physical address your customers can visit? Add it below.</string>
+    <string name="street_address">Street address</string>
+    <string name="state">State</string>
+    <string name="verifyyourbusiness">Verify your business</string>
+    <string name="verifyyourbusinessdummyy">Choose a way to complete your claim</string>
+    <string name="verifyyourbusinessdummyyone">By continuing, you agree to Herbalfax Business Terms and acknowledge our Privacy Policy.</string>
 
 </resources>

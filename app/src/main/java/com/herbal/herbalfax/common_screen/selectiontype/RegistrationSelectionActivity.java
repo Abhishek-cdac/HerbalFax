@@ -17,6 +17,7 @@ import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.customer.signup.SignUpAsCustomerActivity;
 import com.herbal.herbalfax.databinding.ActivityRegistrationSelectionBinding;
 import com.herbal.herbalfax.signupnew.NewCustomerSignUpScOne;
+import com.herbal.herbalfax.signupnewvendor.NewVendorSignUpScTwo;
 
 public class RegistrationSelectionActivity extends AppCompatActivity {
 
@@ -76,12 +77,20 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
         viewModel.onContinueUser().observe(this, click -> {
             if (selectedType == -1) {
                 clsCommon.showDialogMsg(RegistrationSelectionActivity.this, "HerbalFax", "Please select type", "Ok");
-            } else {
+            } else if (selectedType == 1) {
                 Intent intent = new Intent(RegistrationSelectionActivity.this, NewCustomerSignUpScOne.class);  // SignUpAsCustomerActivity
                 intent.putExtra("selectedType", selectedType);
                 // intent.putExtra("selectedType", selectedType == 0 ? "customer" : selectedType == 1 ? "seller" );
                 startActivity(intent);
                 Log.e("selectedType", "" + selectedType);
+            }
+            else{
+                Intent intent = new Intent(RegistrationSelectionActivity.this, NewVendorSignUpScTwo.class);  // SignUpAsCustomerActivity
+                intent.putExtra("selectedType", selectedType);
+                // intent.putExtra("selectedType", selectedType == 0 ? "customer" : selectedType == 1 ? "seller" );
+                startActivity(intent);
+                Log.e("selectedType", "" + selectedType);
+
             }
         });
         viewModel.OnLoginHereClick().observe(this, click -> {
