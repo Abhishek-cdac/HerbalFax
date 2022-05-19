@@ -52,7 +52,21 @@
         <activity
             android:name=".NewVendorSignUpScEleven"
             android:exported="true">
-         </activity>
+        </activity>
+        <activity
+            android:name=".NewVendorSignUpSc15"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".NewCustomerSignUpSc11"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".NewVendorSignUpScThirteen"
             android:exported="false" />
@@ -65,6 +79,7 @@
         <activity
             android:name=".NewCustomerSignUpScTen"
             android:exported="false" />
+
         <activity
             android:name=".NewVendorSignUpScOne"
             android:exported="false" />
