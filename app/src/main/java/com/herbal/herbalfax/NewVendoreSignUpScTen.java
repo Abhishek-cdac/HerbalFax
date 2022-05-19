@@ -7,18 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class NewVendorSignUpScFourteen extends AppCompatActivity {
+public class NewVendoreSignUpScTen extends AppCompatActivity {
 Button add_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_customer_sign_up_sc14);
-
+        setContentView(R.layout.activity_add_your_business);
         add_button= findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NewVendorSignUpScFourteen.this, NewVendorSignUpScFifteen.class);
+                Intent intent= new Intent(getApplicationContext(), NewVendorSignUpScEleven.class);
                 startActivity(intent);
             }
         });

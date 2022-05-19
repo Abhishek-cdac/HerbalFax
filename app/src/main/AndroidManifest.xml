@@ -54,18 +54,9 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".NewVendorSignUpSc15"
+            android:name=".NewVendorSignUpScFifteen"
             android:exported="true">
 
-        </activity>
-        <activity
-            android:name=".NewCustomerSignUpSc11"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".NewVendorSignUpScThirteen"
@@ -77,7 +68,7 @@
             android:name=".NewVendorsSignUpScTwelve"
             android:exported="false" />
         <activity
-            android:name=".NewCustomerSignUpScTen"
+            android:name=".NewVendoreSignUpScTen"
             android:exported="false" />
 
         <activity

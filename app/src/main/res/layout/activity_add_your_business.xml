@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewCustomerSignUpScTen"
+    tools:context=".NewVendoreSignUpScTen"
     android:orientation="vertical"
     android:padding="@dimen/_20sdp">
     <LinearLayout
@@ -94,7 +94,7 @@
         android:textSize="@dimen/_13sdp" />
 
     <Button
-        android:id="@+id/add_location_button"
+        android:id="@+id/add_button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_55sdp"
         android:layout_gravity="center_horizontal"

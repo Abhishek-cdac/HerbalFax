@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.herbal.herbalfax.NewVendorSignUpScEleven;
+import com.herbal.herbalfax.NewVendoreSignUpScTen;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.homescreen.addcard.AddCardActivity;
 
@@ -35,7 +36,7 @@ public class ClaimBottomSheet extends BottomSheetDialogFragment {
 
         no_btn.setOnClickListener(v ->{
 
-                Intent intent= new Intent(getActivity(), NewVendorSignUpScEleven.class);
+                Intent intent= new Intent(getActivity(), NewVendoreSignUpScTen.class);
                 startActivity(intent);
                 }
            );
