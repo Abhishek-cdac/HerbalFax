@@ -329,5 +329,7 @@ receive emails from HerbalFax &amp; More</string>
     <string name="verifyyourbusiness">Verify your business</string>
     <string name="verifyyourbusinessdummyy">Choose a way to complete your claim</string>
     <string name="verifyyourbusinessdummyyone">By continuing, you agree to Herbalfax Business Terms and acknowledge our Privacy Policy.</string>
+    <string name="signupAsBusiness">Sign Up as Business</string>
+    <string name="do_you_really_want_to_stop_claiming_this_business">Do you really want to stop claiming this business</string>
 
 </resources>

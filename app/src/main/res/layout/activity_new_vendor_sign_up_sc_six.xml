@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/card_background"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -121,6 +121,7 @@
                         android:onClick="@{(v) -> NewVendorSignUpScSixViewModel.onNextHere(v)}"
                         android:paddingHorizontal="@dimen/_40sdp"
                         android:text="@string/continue1"
+                        android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
 

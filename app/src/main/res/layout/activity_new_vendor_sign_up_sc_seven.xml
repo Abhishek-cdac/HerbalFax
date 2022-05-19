@@ -85,6 +85,7 @@
                     android:layout_gravity="left"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:paddingTop="@dimen/_10sdp"
                     android:paddingBottom="@dimen/_10sdp"
@@ -314,6 +315,7 @@
                         android:onClick="@{(v) -> NewVendorSignUpScSevenViewModel.onNextHere(v)}"
                         android:paddingHorizontal="@dimen/_40sdp"
                         android:text="@string/continue1"
+                        android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
 

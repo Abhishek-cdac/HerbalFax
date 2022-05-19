@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="NewVendorSignUpScThreeViewModel"
             type="com.herbal.herbalfax.signupnewvendor.NewVendorSignUpScThreeViewModel" />
     </data>
+
     <ScrollView
 
         android:layout_width="match_parent"
@@ -97,17 +100,17 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:clipChildren="false"
                     android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:clipToPadding="false"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/card_background"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_2sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="20dp"
                     app:cardCornerRadius="@dimen/_25sdp"
+                    app:cardElevation="20dp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -130,10 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="@dimen/_150sdp"
+                    android:layout_marginTop="@dimen/_220sdp"
                     android:orientation="vertical">
-
-
 
 
                     <Button
@@ -148,8 +149,8 @@
                         android:fontFamily="@font/poppins_medium"
                         android:onClick="@{(v) -> NewVendorSignUpScThreeViewModel.onNextHere(v)}"
                         android:paddingHorizontal="@dimen/_40sdp"
-
                         android:text="@string/continue1"
+                        android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
 

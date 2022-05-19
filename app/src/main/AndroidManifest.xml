@@ -50,22 +50,17 @@
             android:name=".signupnewvendor.NewVendorSignUpScTwo"
             android:exported="false" />
         <activity
-            android:name=".NewCustomerSignUpSc11"
+            android:name=".NewVendorSignUpScEleven"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+         </activity>
         <activity
-            android:name=".NewVendorSignUpSc13"
+            android:name=".NewVendorSignUpScThirteen"
             android:exported="false" />
         <activity
-            android:name=".NewCustomerSignUpSc14"
+            android:name=".NewVendorSignUpScFourteen"
             android:exported="false" />
         <activity
-            android:name=".NewCustomerSignUpSc12"
+            android:name=".NewVendorsSignUpScTwelve"
             android:exported="false" />
         <activity
             android:name=".NewCustomerSignUpScTen"
@@ -181,7 +176,7 @@
         <activity
             android:name=".vendor.storedetail.SellerStoreDetailActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".customer.homescreen.cart.selectdeliveryaddress.SelectDeliveryAddressActivity"
             android:exported="true"

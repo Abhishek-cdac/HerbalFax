@@ -5,12 +5,14 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.bottomsheet.ShoppingDetailsBottomSheet;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.SelectDeliveryAddressActivity;
+import com.herbal.herbalfax.generated.callback.OnClickListener;
 
 public class NewVendorSignUpScEight extends AppCompatActivity {
 RadioButton receiveEmailRB;
@@ -36,13 +38,18 @@ TextView dummyTxt;
                 "code.";
 
         receiveEmailRB.setText(Html.fromHtml(next + two));
+        receiveEmailRB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBottomSheet();
+            }
+        });
 
     }
-
     private void showBottomSheet() {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        ShoppingDetailsBottomSheet sheet = new ShoppingDetailsBottomSheet(SelectDeliveryAddressActivity.this, SubTotal, Shipping, Tax, Total, IdAddress, Orders_Type);
-//        sheet.show(fragmentManager, "comment bottom sheet");
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        ClaimBottomSheet sheet = new ClaimBottomSheet(NewVendorSignUpScEight.this);
+        sheet.show(fragmentManager, "comment bottom sheet");
     }
 
 }

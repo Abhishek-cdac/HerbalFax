@@ -131,7 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="@dimen/_200sdp"
+                    android:layout_marginTop="@dimen/_220sdp"
                     android:orientation="vertical">
 
 
@@ -161,6 +161,7 @@
                         android:onClick="@{(v) -> NewVendorSignUpScFourViewModel.onNextHere(v)}"
                         android:paddingHorizontal="@dimen/_40sdp"
                         android:text="@string/continue1"
+                        android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
 

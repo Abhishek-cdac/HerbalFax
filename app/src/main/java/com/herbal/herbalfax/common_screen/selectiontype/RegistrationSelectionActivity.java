@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
+import com.herbal.herbalfax.NewVendorSignUpScOne;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
@@ -85,7 +86,7 @@ public class RegistrationSelectionActivity extends AppCompatActivity {
                 Log.e("selectedType", "" + selectedType);
             }
             else{
-                Intent intent = new Intent(RegistrationSelectionActivity.this, NewVendorSignUpScTwo.class);  // SignUpAsCustomerActivity
+                Intent intent = new Intent(RegistrationSelectionActivity.this, NewVendorSignUpScOne.class);  // SignUpAsCustomerActivity
                 intent.putExtra("selectedType", selectedType);
                 // intent.putExtra("selectedType", selectedType == 0 ? "customer" : selectedType == 1 ? "seller" );
                 startActivity(intent);
