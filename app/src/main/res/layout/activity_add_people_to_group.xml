@@ -82,10 +82,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/searchcv"
         android:id="@+id/recycler_people"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/searchcv"
         android:layout_marginTop="@dimen/_5sdp"
         android:padding="@dimen/_2sdp"
         android:scrollbars="vertical" />
@@ -97,11 +97,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/_20sdp"
-        android:padding="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_20sdp"
-android:foregroundGravity="center"
-        android:src="@drawable/ic_check_circle"
-        android:background="@drawable/circle_background_green" />
+        android:background="@drawable/circle_background_green"
+        android:foregroundGravity="center"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_check_circle" />
 
 
 </RelativeLayout>

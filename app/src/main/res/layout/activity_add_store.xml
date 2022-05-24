@@ -86,7 +86,8 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    android:padding="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_30sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -128,7 +129,8 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    android:padding="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_30sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
@@ -187,6 +189,8 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
+                    android:padding="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_30sdp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -229,7 +233,8 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-app:cardCornerRadius="@dimen/_20sdp"
+                    android:padding="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_30sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -272,10 +277,8 @@ app:cardCornerRadius="@dimen/_20sdp"
                     android:elevation="@dimen/_5sdp"
                     android:onClick="@{(v) -> AddStoreViewModel.OnGallery(v)}"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/_5sdp"
-
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="8dp"
-
                     app:cardPreventCornerOverlap="false">
 
 
@@ -333,6 +336,7 @@ app:cardCornerRadius="@dimen/_20sdp"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -375,11 +379,10 @@ app:cardCornerRadius="@dimen/_20sdp"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_30sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/rect_button"
@@ -430,7 +433,6 @@ app:cardCornerRadius="@dimen/_20sdp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -1031,10 +1033,8 @@ app:cardCornerRadius="@dimen/_20sdp"
                     android:elevation="@dimen/_5sdp"
                     android:onClick="@{(v) -> AddStoreViewModel.OnLogoGallery(v)}"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/_5sdp"
-
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="8dp"
-
                     app:cardPreventCornerOverlap="false">
 
 
@@ -1090,7 +1090,7 @@ app:cardCornerRadius="@dimen/_20sdp"
                     android:elevation="@dimen/_5sdp"
                     android:onClick="@{(v) -> AddStoreViewModel.OnStoreGallery(v)}"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
@@ -1138,7 +1138,7 @@ app:cardCornerRadius="@dimen/_20sdp"
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_20sdp"
