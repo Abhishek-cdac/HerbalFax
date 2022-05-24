@@ -1,18 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/_10sdp"
-    tools:context=".TestActivity">
+    android:padding="@dimen/_20sdp">
 
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/add_title_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/abhijeet"
-        android:textColor="@color/purple_200">
+        android:orientation="horizontal"
+        >
 
-    </TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_icon_awesome_arrow_left"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"
+            android:paddingTop="@dimen/_5sdp"/>
+        <TextView
 
-</LinearLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Add your business"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_22sdp"
+            android:gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/cant_find_business"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_title_layout"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_semibold"
+        android:padding="@dimen/_5sdp"
+        android:text="Hello! Let's start with your business name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_18sdp" />
+
+    <TextView
+        android:id="@+id/add_people_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cant_find_business"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/we_ll_use_this_information_to_help_you_claim_your_herbalfax_page_your_business_will_come_up_automatically_if_it_is_already_listed"
+        android:textColor="#8E8E8E"
+        android:textSize="@dimen/_14sdp" />
+
+    <TextView
+        android:id="@+id/yourbusiness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_people_number"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center_horizontal"
+        android:text="@string/your_business_name"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <LinearLayout
+        android:id="@+id/find_your_business"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/yourbusiness"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/card_border_green_out_line"
+        android:padding="@dimen/_5sdp">
+
+        <EditText
+            android:id="@+id/BusinessNameEdt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:hint="@string/pizza_hair_salon_plumbing"
+            android:background="@drawable/rect_button"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/text_grey"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+    <!--  <ImageView
+          android:layout_width="@dimen/_244sdp"
+          android:layout_height="@dimen/_214sdp"
+          android:layout_gravity="center"
+          android:layout_marginTop="@dimen/_25sdp"
+          android:src="@drawable/undraw_my_location_re_r52x"/>-->
+
+
+
+
+    <!--   <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_alignParentBottom="true"
+           android:layout_marginBottom="@dimen/_70sdp">
+           <TextView
+               android:layout_below="@+id/find_your_business"
+               android:layout_marginTop="@dimen/_20sdp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="My business isn't here"
+               android:textColor="@color/black"
+               android:textSize="@dimen/_15sdp"
+               android:fontFamily="@font/poppins_semibold"
+               android:padding="@dimen/_5sdp"/>
+
+           <TextView
+               android:layout_below="@id/cant_find_business"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Add it to Herbalfax. 100% free."
+               android:textColor="#8E8E8E"
+               android:textSize="@dimen/_14sdp"
+               android:layout_marginTop="@dimen/_5sdp"
+               android:fontFamily="@font/poppins_medium"
+               android:padding="@dimen/_5sdp"/>
+       </LinearLayout>-->
+
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/rect_button_green"
+        android:visibility="gone"
+        android:elevation="@dimen/_15sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
+        android:paddingHorizontal="@dimen/_40sdp"
+        android:text="@string/continue1"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_13sdp" />
+
+</RelativeLayout>

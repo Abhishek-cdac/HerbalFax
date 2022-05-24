@@ -29,7 +29,12 @@ public class SellerDrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private CancelClickListener listener;
     private LogoutClickListener logoutClickListener;
 
-    private int[] drawerIcon = {0, R.drawable.ic_icon_menu_social, R.drawable.ic_icon_notifications_outline, R.drawable.ic_icon_driver_bike, R.drawable.ic_icon_star_outline, 0};
+    private int[] drawerIcon = {0, R.drawable.ic_icon_menu_social,
+            R.drawable.ic_icon_notifications_outline,
+            R.drawable.ic_icon_driver_bike,
+            R.drawable.ic_icon_star_outline,
+            R.drawable.my_store,
+            R.drawable.setting, 0};
 
 
     /**

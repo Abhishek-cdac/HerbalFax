@@ -304,13 +304,13 @@ receive emails from HerbalFax &amp; More</string>
     <string name="menu_daily">Daily</string>
     <string name="mygroup">My Groups</string>
     <string name="addyourbusiness">Add your business</string>
-    <string name="addyourbusinessdummy">Oh, it seems like this business is already claimed.</string>
+    <string name="addyourbusinessdummy">Oh, it seems like this, business is already claimed.</string>
     <string name="addyourbusinessdummyone">New Image Wellness Center - Herbalife is already claimed by a business owner.</string>
     <string name="addyourbusinessdummytwo">Is that you? You are currently logged in with puffd9@gmail.com. Try logging in using a different account.</string>
     <string name="addyourbusinessdummythree">Otherwise, contact our customer support team.</string>
     <string name="contactsupport">Contact Support</string>
     <string name="login_with_another_account">Login with another account</string>
-    <string name="addyourbusinessdummyy">Tell customers which phone number they can call</string>
+    <string name="addyourbusinessdummyy">Tell customers, which phone number they can call</string>
     <string name="addyourbusinessdummyyone">Add the phone number of Herbaliyfe to help customers connect with you.</string>
     <string name="business_phone_number">Business phone number</string>
     <string name="addyourwebsitedummyy">Do you have a business website?</string>
@@ -331,5 +331,8 @@ receive emails from HerbalFax &amp; More</string>
     <string name="verifyyourbusinessdummyyone">By continuing, you agree to Herbalfax Business Terms and acknowledge our Privacy Policy.</string>
     <string name="signupAsBusiness">Sign Up as Business</string>
     <string name="do_you_really_want_to_stop_claiming_this_business">Do you really want to stop claiming this business</string>
+    <string name="your_business_name">Your Business name</string>
+    <string name="we_ll_use_this_information_to_help_you_claim_your_herbalfax_page_your_business_will_come_up_automatically_if_it_is_already_listed">We\'ll use this information to help you claim your Herbalfax page. Your business will come up automatically if it is already listed.</string>
+    <string name="health">Health</string>
 
 </resources>

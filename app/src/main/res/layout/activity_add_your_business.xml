@@ -11,35 +11,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="1"
         >
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".8"
             android:fontFamily="@font/raleway_semibold"
             android:text="What's next?"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_22sdp"
-            android:gravity="center_horizontal"
-            />
+            android:textSize="@dimen/_22sdp" />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_weight=".2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:layout_gravity="center_vertical"
             android:textColor="@color/green"
             android:fontFamily="@font/poppins_medium"
             android:textSize="@dimen/_15sdp"
-            android:layout_marginLeft="@dimen/_150sdp"/>
+           />
     </LinearLayout>
     <LinearLayout
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/card_border_green"
         android:padding="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -87,6 +88,7 @@
         android:background="@drawable/rect_button_black"
         android:elevation="@dimen/_15sdp"
         android:fontFamily="@font/poppins_medium"
+        android:textAllCaps="false"
         android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
         android:paddingHorizontal="@dimen/_40sdp"
         android:text="Go to account settings"
@@ -106,6 +108,7 @@
         android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
         android:paddingHorizontal="@dimen/_40sdp"
         android:text="Add a location"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_13sdp" />
 

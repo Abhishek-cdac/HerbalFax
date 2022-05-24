@@ -41,7 +41,7 @@
                         android:layout_gravity="center_vertical"
                         android:onClick="@{(v) -> NewVendorSignUpScThreeViewModel.onBackHere(v)}"
                         android:src="@drawable/ic_icon_arrow_left_black"
-                        android:visibility="gone" />
+                        android:visibility="visible" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -100,16 +100,18 @@
                     android:layout_marginBottom="@dimen/_30sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="20dp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <RadioButton
+
                         android:id="@+id/receiveEmailRB"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/rect_button"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/raleway_regular"
-                        android:padding="@dimen/_10sdp"
+                        android:padding="@dimen/_15sdp"
                         android:text="Received an email \nWe will send you an email on
 (puffd9@gmail.com) with 4 digit
 code."

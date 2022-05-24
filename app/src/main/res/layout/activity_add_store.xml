@@ -229,7 +229,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+app:cardCornerRadius="@dimen/_20sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText

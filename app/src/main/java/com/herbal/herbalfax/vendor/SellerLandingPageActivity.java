@@ -116,6 +116,8 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         drawerItem.add(getResources().getString(R.string.action_notification));
         drawerItem.add(getResources().getString(R.string.my_driver));
         drawerItem.add(getResources().getString(R.string.become_HB_choice));
+        drawerItem.add(getResources().getString(R.string.menu_mystore));
+        drawerItem.add(getResources().getString(R.string.action_settings));
         drawerItem.add(null);
 
 
