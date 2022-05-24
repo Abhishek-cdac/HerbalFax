@@ -21,10 +21,7 @@
             android:textSize="@dimen/_12sdp" />
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView
-
         android:id="@+id/dealsheadertxtrecycler"
         android:paddingLeft="@dimen/_20sdp"
         android:paddingRight="@dimen/_20sdp"
