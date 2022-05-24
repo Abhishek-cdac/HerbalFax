@@ -63,7 +63,6 @@ public class DealsFragment extends Fragment implements View.OnClickListener {
                 ViewModelProviders.of(this).get(DealsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_deals, container, false);
         clsCommon = CommonClass.getInstance();
-
         storeDealsRecycler = root.findViewById(R.id.storeDealsRecycler);
         dealsheadertxtrecycler = root.findViewById(R.id.dealsheadertxtrecycler);
         /*        buyBtn =  (Button) root.findViewById(R.id.fbLogin);*/

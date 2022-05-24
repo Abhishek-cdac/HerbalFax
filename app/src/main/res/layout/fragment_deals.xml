@@ -6,20 +6,32 @@
 
     android:layout_height="match_parent"
     android:orientation="vertical">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/_20sdp"
-            android:background="@drawable/rect_button_whiteeeee"
-            android:drawableLeft="@drawable/ic_search_icon"
-            android:drawablePadding="@dimen/_10sdp"
-            android:fontFamily="@font/raleway_regular"
-            android:hint="@string/search"
-            android:paddingLeft="@dimen/_10sdp"
-            android:textColor="@color/text_grey"
-            android:textColorHint="@color/text_grey"
-            android:textSize="@dimen/_12sdp" />
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="@font/raleway_semibold"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="Popular Searchs"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_22sdp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="View All"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:textColor="@color/green"
+            android:gravity="center_vertical"/>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dealsheadertxtrecycler"
