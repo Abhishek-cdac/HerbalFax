@@ -510,7 +510,6 @@
                     android:fontFamily="@font/poppins_medium"
                     android:onClick="@{(v) -> AddProductViewModel.onClickAddProduct(v)}"
                     android:text="@string/addproduct"
-
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_12sdp" />
             </LinearLayout>
