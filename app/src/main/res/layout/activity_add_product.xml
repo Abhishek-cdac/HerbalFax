@@ -84,7 +84,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
@@ -97,7 +97,6 @@
                         android:drawSelectorOnTop="true"
                         android:dropDownVerticalOffset="-53dp"
                         android:spinnerMode="dropdown"
-
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -125,7 +124,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
@@ -174,9 +173,10 @@
                     android:elevation="@dimen/_5sdp"
                     android:onClick="@{(v) -> AddProductViewModel.OnGallery(v)}"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
 
                     app:cardElevation="8dp"
+
 
                     app:cardPreventCornerOverlap="false">
 
@@ -253,7 +253,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -295,7 +295,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -323,6 +323,7 @@
                     android:drawableRight="@drawable/mandatory"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/quantity"
+
                     android:textColor="@color/green"
                     android:textSize="@dimen/_14sdp" />
 
@@ -338,7 +339,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -382,6 +383,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -436,7 +438,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -478,7 +480,7 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
-
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -499,7 +501,7 @@
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_20sdp"
