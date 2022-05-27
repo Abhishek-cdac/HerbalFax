@@ -57,6 +57,9 @@ public class MyStoreListAdapter extends RecyclerView.Adapter<MyStoreListAdapter.
                         .into(holder.StoreImg);
             }
         }
+
+
+     // holder.StoreTimeText.setText();
         holder.storeName.setText(lst_int.get(position).getStoreName());
         holder.StoreAddressText.setText(lst_int.get(position).getStoreLocation());
         holder.StoreCategoryText.setText(lst_int.get(position).getSCatTitle());
@@ -125,12 +128,13 @@ public class MyStoreListAdapter extends RecyclerView.Adapter<MyStoreListAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView StoreImg, ratingOne, ratingTwo, ratingThree, ratingFour, ratingFive;
 
-        TextView storeName, StoreCategoryText, StoreAddressText;
+        TextView storeName, StoreCategoryText, StoreAddressText, StoreTimeText;
         CardView cardview;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            StoreTimeText = itemView.findViewById(R.id.StoreTimeText);
             cardview = itemView.findViewById(R.id.cardview);
             StoreImg = itemView.findViewById(R.id.StoreImg);
             StoreCategoryText = itemView.findViewById(R.id.StorecategoryText);

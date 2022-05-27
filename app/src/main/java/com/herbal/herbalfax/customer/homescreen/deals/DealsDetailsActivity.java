@@ -61,7 +61,7 @@ public class DealsDetailsActivity extends AppCompatActivity implements AdapterVi
             Log.e("productId", "" + productId + "  " + productId);
         }
 
-        storeDealsRecycler = (RecyclerView) findViewById(R.id.storeDealsRecycler);
+        storeDealsRecycler = findViewById(R.id.storeDealsRecycler);
         buyBtn = findViewById(R.id.buyBtn);
         productNameText = findViewById(R.id.productNameText);
         productImg = findViewById(R.id.productImg);

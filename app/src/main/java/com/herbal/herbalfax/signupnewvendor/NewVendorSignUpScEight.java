@@ -1,29 +1,36 @@
 package com.herbal.herbalfax.signupnewvendor;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.customer.bottomsheet.ShoppingDetailsBottomSheet;
-import com.herbal.herbalfax.customer.homescreen.cart.selectdeliveryaddress.SelectDeliveryAddressActivity;
-import com.herbal.herbalfax.generated.callback.OnClickListener;
 
 public class NewVendorSignUpScEight extends AppCompatActivity {
-RadioButton receiveEmailRB;
-TextView dummyTxt;
+    RadioButton receiveEmailRB;
+    TextView dummyTxt;
+    ImageView back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_vendor_sign_up_sc_eight);
-        receiveEmailRB= findViewById(R.id.receiveEmailRB);
-        dummyTxt= findViewById(R.id.dummyTxt);
+        receiveEmailRB = findViewById(R.id.receiveEmailRB);
+        dummyTxt = findViewById(R.id.dummyTxt);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         String first = "By continuing, you agree to Herbalfax ";
         String second = "<font color='#96C93D'>Business Terms \n</font>";
@@ -46,6 +53,7 @@ TextView dummyTxt;
         });
 
     }
+
     private void showBottomSheet() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         ClaimBottomSheet sheet = new ClaimBottomSheet(NewVendorSignUpScEight.this);

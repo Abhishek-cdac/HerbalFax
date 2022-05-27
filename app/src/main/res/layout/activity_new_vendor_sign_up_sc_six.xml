@@ -87,7 +87,7 @@
                     <EditText
                         android:id="@+id/login_email"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@drawable/rect_button"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/raleway_regular"

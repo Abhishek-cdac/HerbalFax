@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -56,11 +56,10 @@
 
             <ImageView
                 android:id="@+id/dealFav"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/herbalfax_choice"
                 android:layout_gravity="top|end"
-                android:layout_margin="@dimen/_10sdp"
                 android:src="@drawable/heart_active" />
 
         </LinearLayout>
@@ -95,16 +94,17 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight=".8"
-                android:drawableLeft="@drawable/rating"
                 android:drawablePadding="@dimen/_3sdp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="0 Bought"
+                android:text="@string/_0_bought"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textColor="@color/text_grey"
-                android:textSize="@dimen/_10sdp" />
+                android:textSize="@dimen/_10sdp"
+                app:drawableStartCompat="@drawable/rating" />
 
 
             <TextView
@@ -146,7 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_below="@+id/validity_txt"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/rect_button_black">
 

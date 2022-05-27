@@ -1,20 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <TextView
-        android:id="@+id/text_fax"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFEF"
+
+    android:orientation="vertical">
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="#96C93D"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="20dp"
+            android:text="Groups"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/creategroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rect_button_light_green"
+            android:drawableLeft="@drawable/ic_icon_plus_circle"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Create Group"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="1"
+        android:gravity="center">
+
+        <Button
+            android:layout_weight=".3"
+            android:id="@+id/neworder"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_button_green"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="1"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:text="New"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+        <Button
+            android:layout_weight=".3"
+            android:id="@+id/pending"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_button_whiteeeee"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="1"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:text="Ongoing"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+        <Button
+            android:layout_weight=".3"
+            android:id="@+id/Completed"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_button_whiteeeee"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="1"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:text="Completed"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_pending"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:visibility="gone" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_completed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:visibility="gone" />
+
+</LinearLayout>

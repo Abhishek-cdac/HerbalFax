@@ -14,11 +14,11 @@ Button add_button;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_your_business);
-        add_button= findViewById(R.id.add_button);
+        add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(), NewVendorSignUpScEleven.class);
+                Intent intent= new Intent(getApplicationContext(), NewVendoreSignUpScNine.class);
                 startActivity(intent);
             }
         });

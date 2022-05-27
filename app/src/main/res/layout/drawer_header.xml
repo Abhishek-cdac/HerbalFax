@@ -1,83 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_headerMAin"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@color/green"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:id="@+id/nav_headerMAin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
     <ImageView
         android:id="@+id/closeImg"
-        android:layout_gravity="end"
         android:layout_width="wrap_content"
-        android:src="@drawable/ic_baseline_close_24"
-        android:layout_height="wrap_content"/>
-    <FrameLayout
-        android:layout_width="@dimen/_110sdp"
-        android:layout_gravity="center"
-        android:layout_height="@dimen/_110sdp"
-        android:backgroundTint="#A5FF00"
-        >
-        <androidx.cardview.widget.CardView
-            app:cardCornerRadius="@dimen/_15sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-            <ImageView
-                android:scaleType="fitXY"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/profile_image"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_baseline_close_24" />
+
+    <RelativeLayout
+        android:layout_width="130dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center">
+
+        <FrameLayout
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_110sdp">
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_110sdp"
                 android:layout_height="@dimen/_110sdp"
-                android:src="@drawable/sbdx3969"/>
-            <ImageView
+                app:cardBackgroundColor="@color/green"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="110dp"
+                    android:layout_height="@dimen/_110sdp"
+                    android:contentDescription="Your main image view"
+                    android:foregroundGravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profileimg" />
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="@dimen/_120sdp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edit_icon" />
+
+    </RelativeLayout>
+
+    <!--  <FrameLayout
+          android:layout_width="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginTop="@dimen/_5sdp"
+          android:layout_height="wrap_content">
+
+          <androidx.cardview.widget.CardView
+              app:cardCornerRadius="@dimen/_5sdp"
+              android:layout_width="@dimen/_110sdp"
+              android:layout_height="@dimen/_110sdp">
+
+              <ImageView
+                  android:scaleType="fitXY"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:id="@+id/profile_image"
+                  android:layout_width="@dimen/_110sdp"
+                  android:layout_height="@dimen/_110sdp"
+                  android:src="@drawable/profileimg"/>
+
+              <ImageView
+                  android:layout_width="@dimen/_30sdp"
+                  android:layout_height="@dimen/_30sdp"
+                  android:layout_marginTop="@dimen/_2sdp"
+                  android:layout_marginRight="@dimen/_1sdp"
+                  android:layout_gravity="end"
+                  android:layout_marginLeft="@dimen/_110sdp"
+                  android:background="@drawable/edit_icon" />
+          </androidx.cardview.widget.CardView>
+    -->      <!--    <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/edit_image"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_icon_feather_edit"
+                app:civ_border_width="2dp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:cropToPadding="@dimen/_10sdp"
+                app:civ_circle_background_color="@color/black"
                 android:layout_gravity="end"
-                android:layout_marginLeft="@dimen/_90sdp"
-                android:background="@drawable/edit_icon" />
-        </androidx.cardview.widget.CardView>
-<!--
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/imageView1"
-            android:src="@drawable/sbdx3969"
-            android:scaleType="fitCenter"
-            app:riv_corner_radius="@dimen/_10sdp"
-            app:riv_border_width="2dip"
-            app:riv_border_color="#A5FF00"
-            app:riv_mutate_background="true"
-            tools:ignore="MissingClass"
-            android:layout_height="@dimen/_110sdp"
-            android:layout_width="@dimen/_110sdp"/>
--->
+                app:civ_border_color="@color/green"/>-->
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="30dp"-->
+    <!--            android:layout_height="30dp"-->
+    <!--            android:id="@+id/editBTn"-->
+    <!--            android:shape="ring"-->
+    <!--            android:layout_marginRight="@dimen/_5sdp"-->
+    <!--            android:layout_gravity="end"-->
+    <!--            android:outlineAmbientShadowColor="@color/green"-->
+    <!--            app:cardElevation="@dimen/_10sdp"-->
+    <!--            app:cardBackgroundColor="@color/black"-->
 
-    </FrameLayout>
+    <!--            app:cardCornerRadius="50dp">-->
 
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--
+
+        </FrameLayout>
+
+    -->
 
     <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:layout_gravity="center"
         android:fontFamily="@font/raleway_semibold"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Nick Johnson"
-        android:textSize="@dimen/_18sdp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="@dimen/_18sdp" />
 
     <TextView
 
-        android:layout_gravity="center"
         android:id="@+id/professionTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Shopkeeper" />
 
 </LinearLayout>

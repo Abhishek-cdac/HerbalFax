@@ -171,7 +171,7 @@
             android:exported="true" />
         -->
         <activity
-            android:name=".TestActivity"
+            android:name=".NewVendoreSignUpScNine"
             android:exported="true" />
         <activity
             android:name=".vendor.sellerproduct.productdetail.ProductDetailsActivity"

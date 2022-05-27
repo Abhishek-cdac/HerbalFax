@@ -2,26 +2,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/bottom_notifications"
+        android:icon="@drawable/order_black_icon"
+        android:title="@string/title_order" />
+<!--
+    <item
         android:id="@+id/bottom_home"
         android:icon="@drawable/ic_store_green_icon"
         android:title="@string/menu_mystore" />
+-->
 
+    <item
+        android:id="@+id/bottom_daily"
+        android:icon="@drawable/newspaper"
+        android:title="@string/menu_daily" />
+
+    <item
+        android:id="@+id/bottom_search"
+        android:icon="@drawable/ic_search_icon"
+        android:title="@string/search" />
     <item
         android:id="@+id/bottom_dashboard"
         android:icon="@drawable/product_black_icon"
         android:title="@string/menu_products" />
 
     <item
-        android:id="@+id/bottom_notifications"
-        android:icon="@drawable/order_black_icon"
-        android:title="@string/orders" />
-    <item
         android:id="@+id/bottom_deal"
         android:icon="@drawable/deals_black_icon"
         android:title="@string/deal" />
+<!--
     <item
         android:id="@+id/bottom_askfax"
         android:icon="@drawable/ic_icon_driver_bike"
         android:title="@string/driver" />
+-->
 
 </menu>

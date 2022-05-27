@@ -148,6 +148,7 @@
         android:onClick="@{(v) -> SignUpNewAsCustomerViewModel.onNextHere(v)}"
         android:paddingHorizontal="@dimen/_40sdp"
         android:text="Add"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_13sdp" />
 

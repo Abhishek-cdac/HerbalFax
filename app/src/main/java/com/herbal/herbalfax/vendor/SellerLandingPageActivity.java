@@ -1,16 +1,13 @@
-
 package com.herbal.herbalfax.vendor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +31,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
@@ -48,10 +44,8 @@ import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
 import com.herbal.herbalfax.vendor.sellerdeals.SellerDealsFragment;
-import com.herbal.herbalfax.vendor.sellerdrivers.SellerDriverFragment;
 import com.herbal.herbalfax.vendor.sellerorders.SellerOrderFragment;
 import com.herbal.herbalfax.vendor.sellerproduct.SellerProductFragment;
-import com.herbal.herbalfax.vendor.storelist.SellerStoreListFragment;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -116,6 +110,8 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         drawerItem.add(getResources().getString(R.string.action_notification));
         drawerItem.add(getResources().getString(R.string.my_driver));
         drawerItem.add(getResources().getString(R.string.become_HB_choice));
+        drawerItem.add(getResources().getString(R.string.menu_mystore));
+        drawerItem.add(getResources().getString(R.string.action_settings));
         drawerItem.add(null);
 
 
@@ -193,61 +189,56 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
     }
 
     private void initToolbar() {
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
     }
 
     private void setSellerFragment()
     {
-        ReplaceFrag(new SellerStoreListFragment());
+        ReplaceFrag(new SellerOrderFragment());
+//      ReplaceFrag(new SellerStoreListFragment());
         headerTxt.setVisibility(View.GONE);
         headerIcon.setVisibility(View.VISIBLE);
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void initNavigation() {
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav_view);
         contentView = findViewById(R.id.content_view);
 
-
         bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.bottom_home:
-                    ReplaceFrag(new SellerStoreListFragment());
-                    headerTxt.setVisibility(View.GONE);
-                    headerIcon.setVisibility(View.VISIBLE);
-
-                    return true;
-                case R.id.bottom_dashboard:
-                    ReplaceFrag(new SellerProductFragment());
-                    headerTxt.setVisibility(View.VISIBLE);
-                    headerIcon.setVisibility(View.GONE);
-                    headerTxt.setText(R.string.my_products);
-
-                    return true;
                 case R.id.bottom_notifications:
-
                     ReplaceFrag(new SellerOrderFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_orders);
                     return true;
+//                case R.id.bottom_home:
+//                    ReplaceFrag(new SellerStoreListFragment());
+//                    headerTxt.setVisibility(View.GONE);
+//                    headerIcon.setVisibility(View.VISIBLE);
+//                    return true;
+                case R.id.bottom_dashboard:
+                    ReplaceFrag(new SellerProductFragment());
+                    headerTxt.setVisibility(View.VISIBLE);
+                    headerIcon.setVisibility(View.GONE);
+                    headerTxt.setText(R.string.my_products);
+                    return true;
                 case R.id.bottom_deal:
-
                     ReplaceFrag(new SellerDealsFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_deal);
                     return true;
-                case R.id.bottom_askfax:
 
-                    ReplaceFrag(new SellerDriverFragment());
-                    headerTxt.setVisibility(View.VISIBLE);
-                    headerIcon.setVisibility(View.GONE);
-                    headerTxt.setText(R.string.my_driver);
+//                case R.id.bottom_askfax:
+//                    ReplaceFrag(new SellerDriverFragment());
+//                    headerTxt.setVisibility(View.VISIBLE);
+//                    headerIcon.setVisibility(View.GONE);
+//                    headerTxt.setText(R.string.my_driver);
+//                    return true;
 
-                    return true;
             }
             return false;
         });

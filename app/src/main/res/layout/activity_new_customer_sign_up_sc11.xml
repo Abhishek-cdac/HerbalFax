@@ -14,11 +14,10 @@
         android:layout_gravity="left"
         android:layout_marginLeft="@dimen/_10sdp"
         android:fontFamily="@font/raleway_semibold"
+        android:gravity="center_horizontal"
         android:text="Add your business"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/_22sdp"
-        android:gravity="center_horizontal"
-        />
+        android:textSize="@dimen/_22sdp" />
     <TextView
         android:id="@+id/yourbusiness"
         android:layout_below="@+id/add_title"
@@ -43,15 +42,20 @@
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_15sdp"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/BusinessNameEdt"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#8E8E8E"
-            android:padding="@dimen/_5sdp"
-            android:paddingLeft="@dimen/_15sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_gravity="center_vertical"
-            android:text="Herbalfax"/>
+            android:hint="herbalfax"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:background="@drawable/rect_button"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/text_grey"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/_14sdp" />
     </LinearLayout>
     <!--  <ImageView
           android:layout_width="@dimen/_244sdp"
@@ -97,7 +101,6 @@
             android:fontFamily="@font/poppins_medium"
             android:padding="@dimen/_5sdp"/>
     </LinearLayout>
-
 
     <Button
         android:id="@+id/add_button"

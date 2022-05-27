@@ -18,6 +18,42 @@
         android:layout_width="wrap_content"
         android:src="@drawable/ic_baseline_close_24"
         android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_width="130dp"
+        android:layout_height="110dp">
+
+        <FrameLayout
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_110sdp">
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="@dimen/_110sdp">
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="110dp"
+                    android:layout_height="@dimen/_110sdp"
+                    android:contentDescription="Your main image view"
+                    android:foregroundGravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profileimg" />
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="@dimen/_120sdp"
+            android:layout_gravity="end"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edit_icon" />
+
+    </RelativeLayout>
+<!--
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_gravity="center"
@@ -32,7 +68,7 @@
             app:civ_border_width="2dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             app:civ_border_color="#8BF7D8"/>
-    <!--    <de.hdodenhof.circleimageview.CircleImageView
+    &lt;!&ndash;    <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/edit_image"
             android:layout_width="@dimen/_30sdp"
@@ -43,7 +79,7 @@
             android:cropToPadding="@dimen/_10sdp"
             app:civ_circle_background_color="@color/black"
             android:layout_gravity="end"
-            app:civ_border_color="@color/green"/>-->
+            app:civ_border_color="@color/green"/>&ndash;&gt;
         <androidx.cardview.widget.CardView
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -65,6 +101,7 @@
         </androidx.cardview.widget.CardView>
     </FrameLayout>
 
+-->
 
     <TextView
         android:id="@+id/userName"

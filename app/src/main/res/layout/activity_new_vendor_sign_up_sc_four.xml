@@ -112,8 +112,9 @@
 
                     <EditText
                         android:id="@+id/login_email"
+                        android:gravity="left"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:hint="@string/http_www_companyaddress_com"
                         android:background="@drawable/rect_button"
                         android:drawablePadding="@dimen/_5sdp"
