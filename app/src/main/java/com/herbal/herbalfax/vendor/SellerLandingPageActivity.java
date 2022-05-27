@@ -138,6 +138,14 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                         openDrawerItem(position);// Open particular class on drawer item click
 
                     }
+                    else if (id == R.id.nav_headerMAin) {
+                        // Open my profile screen
+                        Intent intent = new Intent(SellerLandingPageActivity.this, EditProfileActivity.class);
+                        startActivity(intent);
+                        onBackPressed();
+                       // getViewDataBinding().drawerLayout.closeDrawers();
+                        //getViewDataBinding().drawerLayout.closeDrawer(getViewDataBinding().drawerRecylerView, true);
+                    }
 //            if (id == R.id.linear_layout_select) {
 //                        onBackPressed();
 //                    }

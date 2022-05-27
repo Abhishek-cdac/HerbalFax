@@ -56,6 +56,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -82,6 +83,7 @@
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
@@ -124,6 +126,8 @@
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+
                     app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
@@ -177,6 +181,7 @@
 
                     app:cardElevation="8dp"
 
+                    android:layout_marginHorizontal="@dimen/_5sdp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -254,6 +259,8 @@
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -290,6 +297,8 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
@@ -329,6 +338,8 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -372,6 +383,8 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <androidx.cardview.widget.CardView
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -400,7 +413,6 @@
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
                         android:textSize="@dimen/_12sdp" />
-
                 </androidx.cardview.widget.CardView>
 
 
@@ -410,7 +422,7 @@
                     android:layout_gravity="left"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:drawableRight="@drawable/mandatory"
-                    android:fontFamily="@font/raleway_medium"
+                    android:fontFamily="@font/raleway_semibold"
                     android:text="@string/shippingdelivery"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
@@ -428,6 +440,8 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -470,6 +484,8 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -509,7 +525,7 @@
                     android:elevation="@dimen/_15sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:onClick="@{(v) -> AddProductViewModel.onClickAddProduct(v)}"
-                    android:text="@string/addproduct"
+                    android:text="@string/save"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_12sdp" />
             </LinearLayout>

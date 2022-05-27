@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
@@ -19,6 +19,7 @@
         android:elevation="@dimen/_5sdp"
         android:padding="@dimen/_20sdp"
         app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_20sdp"
         app:cardElevation="8dp"
         app:cardPreventCornerOverlap="false">
 
@@ -88,21 +89,37 @@
                 android:dividerHeight="0.0px"
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
+
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="8dp"
                 app:cardPreventCornerOverlap="false">
 
-                <Spinner
-
-                    android:id="@+id/storeSpinner"
-                    style="@style/Spinner"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rect_button"
-                    android:drawSelectorOnTop="true"
-                    android:dropDownVerticalOffset="-53dp"
-                    android:spinnerMode="dropdown"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
-                    />
+                    <Spinner
+                        android:id="@+id/storeSpinner"
+                        style="@style/Spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8"
+                        android:background="@drawable/rect_button"
+                        android:drawSelectorOnTop="true"
+                        android:dropDownVerticalOffset="-53dp"
+                        android:spinnerMode="dropdown"
+
+                        />
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_weight=".2"
+                        android:src="@drawable/ic_icon_ionic_ios_arrow_down"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="10dp"/>
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -133,22 +150,32 @@
                 android:dividerHeight="0.0px"
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="8dp"
                 app:cardPreventCornerOverlap="false">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                 <Spinner
-
                     android:id="@+id/storeCategorySpinner"
                     style="@style/Spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight=".8"
+                    android:layout_height="match_parent"
                     android:background="@drawable/rect_button"
                     android:drawSelectorOnTop="true"
-                    android:dropDownVerticalOffset="-53dp"
-                    android:spinnerMode="dropdown"
+                    android:spinnerMode="dropdown" />
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_weight=".2"
+                        android:src="@drawable/ic_icon_ionic_ios_arrow_down"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="10dp"/>
 
-                    />
-
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
@@ -157,11 +184,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productListrecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/filterll"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="@dimen/_15sdp"
         android:paddingLeft="@dimen/_20sdp"
         android:paddingTop="@dimen/_10sdp"
         android:paddingRight="@dimen/_20sdp"
@@ -175,10 +199,23 @@
         android:padding="@dimen/_10sdp"
         android:theme="@style/AppTheme"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/addProduct"
+        android:layout_width="50dp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentEnd="true"
 
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_bottom_margin"
+        android:background="@drawable/rect_button_green"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_icon_add_post"
+        android:visibility="visible"/>
+<!--
     <Button
         android:id="@+id/addProduct"
         android:layout_width="match_parent"
@@ -191,5 +228,5 @@
         android:background="@drawable/rect_button_green"
         android:padding="@dimen/_10sdp"
         android:text="@string/addnewproduct"
-        android:textColor="@color/white" />
-</LinearLayout>
+        android:textColor="@color/white" />-->
+</RelativeLayout>

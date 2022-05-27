@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_headerMAin"
     android:layout_width="match_parent"
@@ -128,6 +129,7 @@
         android:fontFamily="@font/raleway_semibold"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Nick Johnson"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="@dimen/_18sdp" />
 
@@ -137,6 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:text="Shopkeeper" />
 
 </LinearLayout>

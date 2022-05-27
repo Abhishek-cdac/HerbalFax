@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -58,7 +59,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
     private int limit=10;
     private int offset=0;
     private boolean isLoading= true;
-    Button addProduct;
+    ImageView addProduct;
     LinearLayoutManager RecyclerViewLayoutManager;
     LinearLayoutManager HorizontalLayout;
     private Onclick itemClick;
