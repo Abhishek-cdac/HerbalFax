@@ -2,57 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+
     android:layout_height="match_parent">
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:clipChildren="false"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0.0px"
-        android:elevation="@dimen/_5sdp"
-        android:padding="@dimen/_20sdp"
-        app:cardBackgroundColor="@color/white"
-        app:cardElevation="8dp"
-        app:cardPreventCornerOverlap="false">
+        android:orientation="horizontal"
+        android:padding="@dimen/_15sdp"
+        >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_search_icon" />
-
-            <EditText
-                android:id="@+id/searchEt"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:clipChildren="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            android:elevation="@dimen/_15sdp"
+            android:padding="@dimen/_20sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardPreventCornerOverlap="false"
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:background="@drawable/rect_button"
+                android:layout_height="@dimen/_40sdp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_search_icon"/>
 
-                android:fontFamily="@font/raleway_regular"
-                android:hint="@string/findprodunct_hint"
-                android:paddingLeft="@dimen/_10sdp"
-                android:textColor="@color/text_grey"
-                android:textColorHint="@color/text_grey"
-                android:textSize="@dimen/_12sdp" />
+                <EditText
+                    android:id="@+id/searchEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/rect_button"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/findprodunct_hint"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:textColor="@color/text_grey"
+                    android:textColorHint="@color/text_grey"
+                    android:textSize="@dimen/_12sdp"/>
 
-        </LinearLayout>
+            </LinearLayout>
 
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/filterbutton"
+            android:src="@drawable/ic_icon_filter" />
 
-
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/filterll"
         android:layout_width="match_parent"
@@ -93,6 +105,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardElevation="8dp"
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:cardPreventCornerOverlap="false">
 
                 <Spinner
@@ -105,9 +118,7 @@
                     android:drawSelectorOnTop="true"
                     android:dropDownVerticalOffset="-53dp"
                     android:spinnerMode="dropdown"
-
                     />
-
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
@@ -116,11 +127,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productDealsListRecyclerview"
         android:layout_width="match_parent"
-        android:layout_weight="1"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_15sdp"
         android:layout_below="@+id/filterll"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_weight="1"
         android:paddingLeft="@dimen/_20sdp"
         android:paddingTop="@dimen/_10sdp"
         android:paddingRight="@dimen/_20sdp"
@@ -137,8 +148,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:id="@+id/addDeals"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
 
-    <Button
+        android:layout_gravity="bottom|end"
+        android:padding="@dimen/_10sdp"
+        android:visibility="visible"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_bottom_margin"
+        android:src="@drawable/ic_icon_add_post"
+        android:background="@drawable/rect_button_green"
+        android:layout_height="@dimen/_50sdp">
+    </de.hdodenhof.circleimageview.CircleImageView>
+ <!--   <Button
         android:id="@+id/addDeals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -150,5 +175,5 @@
         android:background="@drawable/rect_button_green"
         android:padding="@dimen/_10sdp"
         android:text="@string/addnewdeal"
-        android:textColor="@color/white" />
+        android:textColor="@color/white" />-->
 </LinearLayout>

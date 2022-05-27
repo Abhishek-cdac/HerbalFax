@@ -1,7 +1,9 @@
 package com.herbal.herbalfax.vendor.sellerdeals;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +11,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -51,7 +55,8 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
     LinearLayoutManager RecyclerViewLayoutManager;
     LinearLayoutManager HorizontalLayout;
     private ProgressBar progress_bar;
-    Button addDeals;
+    ImageView addDeals;
+    ImageView imageView;
     RecyclerView dealsRecyclerView;
     Onclick itemClick;
     ArrayList<StoreProduct> lst_productDeals;
@@ -85,6 +90,19 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         dealsRecyclerView = root.findViewById(R.id.productDealsListRecyclerview);
         callStorePreDataAPI();
 //        callProductDealsListApi("0");
+        imageView = root.findViewById(R.id.filterbutton);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.CustomAlertDialog);
+                ViewGroup viewGroup = root.findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.customview, viewGroup, false);
+                builder.setView(dialogView);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                alertDialog.getWindow().setGravity(Gravity.TOP);
+            }
+        });
 
         return root;
     }
