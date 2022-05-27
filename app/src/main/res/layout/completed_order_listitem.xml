@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp">
+
+        <!--        android:background="#B3f2f2f2"-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imgcard"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/white"
+            card_view:cardCornerRadius="@dimen/_6sdp">
+
+            <ImageView
+                android:id="@+id/imgprofile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/conroy" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <RelativeLayout
+            android:id="@+id/rlcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/imgcard"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/subHeadingTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_semibold"
+                android:maxLines="2"
+                android:padding="@dimen/_2sdp"
+                android:text="Blick-Glover"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:id="@+id/trendingcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/subHeadingTxt"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/headingTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/price"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/priceTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+
+                    android:text="$120"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/quantitycv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/trendingcv"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/quantityTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/quantity"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/QtyTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+
+                    android:text="4"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/categoryRl"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quantitycv">
+
+                <TextView
+                    android:id="@+id/categoryTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Drop Shipping"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10dp" />
+
+
+            </RelativeLayout>
+
+
+
+
+
+            <TextView
+                android:id="@+id/viewBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_below="@+id/categoryRl"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Delivered"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/green"
+                android:textSize="@dimen/_12sdp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

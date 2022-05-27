@@ -128,7 +128,7 @@ receive emails from HerbalFax &amp; More</string>
     <string name="myevent">My Event</string>
     <string name="my_deal">My Deals</string>
     <string name="ask_fax">Ask Fax</string>
-    <string name="action_settings">Setting</string>
+    <string name="action_settings">Settings</string>
 
     <string name="action_notification">Notification</string>
     <string name="action_mapHome">Map</string>
@@ -193,7 +193,7 @@ receive emails from HerbalFax &amp; More</string>
     <string name="my_driver">My Driver</string>
     <string name="driver">Driver</string>
     <string name="become_HB_choice">Become HerbalFax Choice</string>
-    <string name="menu_mystore">My Store</string>
+    <string name="menu_mystore">My Stores</string>
     <string name="title_order">Orders</string>
     <string name="addstore">Add Store</string>
     <string name="addyourstore">Add Your Store</string>
@@ -334,5 +334,10 @@ receive emails from HerbalFax &amp; More</string>
     <string name="your_business_name">Your Business name</string>
     <string name="we_ll_use_this_information_to_help_you_claim_your_herbalfax_page_your_business_will_come_up_automatically_if_it_is_already_listed">We\'ll use this information to help you claim your Herbalfax page. Your business will come up automatically if it is already listed.</string>
     <string name="health">Health</string>
+    <string name="related_products">Related Products</string>
+    <string name="buy">Buy</string>
+    <string name="_15_reviews">15 Reviews</string>
+    <string name="validity_till">Validity Till:</string>
+    <string name="_0_bought">0 Bought</string>
 
 </resources>

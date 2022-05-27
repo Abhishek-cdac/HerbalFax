@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".customer.homescreen.deals.DealsDetailsActivity">
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -35,15 +36,14 @@
             android:padding="@dimen/_5sdp"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp"/>
+            android:textSize="@dimen/_18sdp" />
 
         <ImageView
-            android:layout_weight=".1"
             android:id="@+id/cart"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_weight=".1"
             android:padding="@dimen/_15sdp"
-
             android:src="@drawable/ic_cart_toolbar" />
 
     </LinearLayout>
@@ -74,11 +74,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_120sdp"
                     android:layout_gravity="center"
+                    android:contentDescription="TODO"
                     android:gravity="center"
                     android:scaleType="fitXY"
                     android:src="@drawable/product"
-                    android:visibility="visible"
-                    android:contentDescription="TODO" />
+                    android:visibility="visible" />
             </FrameLayout>
 
 
@@ -105,50 +105,85 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="top|end"
-                    android:layout_margin="@dimen/_10sdp"
+
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/circle_background_white"
                     android:padding="3dp"
-                    android:src="@drawable/ic_icon_ionic_ios_heart_grey" />
+                    android:src="@drawable/ic_heart_green_border" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="15 K"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/_10sdp" />
             </RelativeLayout>
 
-
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/rlcard"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nameLL"
-                android:layout_marginStart="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:layout_marginEnd="@dimen/_2sdp"
-                android:layout_marginBottom="@dimen/_2sdp"
-                android:drawableLeft="@drawable/ic_icon_menu_map_pin"
-                android:drawablePadding="@dimen/_5sdp"
-                android:fontFamily="@font/roboto_bold"
-                android:gravity="center"
-                android:text="752 Jacinto Dale"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/priceTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="$249"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:drawableLeft="@drawable/ic_icon_menu_map_pin"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="752 Jacinto Dale"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
 
 
-                />
+                    />
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/horizotallayout"
-                android:layout_below="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/rlcard"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:id="@+id/bought_ll"
-                    android:padding="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_2sdp"
                     android:layout_marginTop="@dimen/_2sdp"
                     android:layout_marginEnd="@dimen/_2sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
                     android:weightSum="1">
@@ -162,42 +197,42 @@
                         android:drawableLeft="@drawable/rating"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
                         android:text="0+ Bought"
-                        android:gravity="center"
                         android:textColor="@color/text_grey"
                         android:textSize="@dimen/_10sdp" />
+
                     <TextView
-                        android:layout_weight="0.2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/_5sdp"
-                            android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="40dp"
-                        android:gravity="center"
-
+                        android:layout_weight="0.2"
+                        android:drawableLeft="@drawable/ic_icon_share"
+                        android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_medium"
-                            android:drawableLeft="@drawable/ic_icon_share"
-                            android:text="Share"
+                        android:gravity="center"
+                        android:text="Share"
                         android:textColor="@color/text_grey"
                         android:textSize="@dimen/_10sdp" />
 
                     <TextView
-                        android:layout_weight="0.2"
                         android:id="@+id/validity_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/bought_ll"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="40dp"
-                        android:gravity="center"
+                        android:layout_weight="0.2"
                         android:drawableLeft="@drawable/ic_calendar"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
-                        android:text="Validity Till: "
+                        android:gravity="center"
+                        android:text="@string/validity_till"
                         android:textColor="@color/text_grey"
                         android:textSize="@dimen/_10sdp" />
                 </LinearLayout>
-</LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/para_txt"
@@ -206,7 +241,7 @@
                 android:layout_below="@+id/horizotallayout"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/roboto_regular"
-                 android:textColor="@color/text_grey"
+                android:textColor="@color/text_grey"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -217,24 +252,58 @@
                 android:layout_below="@+id/para_txt"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/priceTxt"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="$249"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp" />
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_icon_rating" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_icon_rating" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_icon_rating" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_icon_rating" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_icon_rating" />
+
+                    <TextView
+                        android:id="@+id/reviewtxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/_15_reviews"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
 
                 <FrameLayout
                     android:id="@+id/buyTxt"
                     android:layout_width="113dp"
                     android:layout_height="26dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="180dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="180dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/rect_button_black"
@@ -246,17 +315,16 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@null"
-                        android:drawableLeft="@drawable/ic_cart_toolbar"
+                        android:drawableStart="@drawable/ic_cart_toolbar"
                         android:fontFamily="@font/raleway_semibold"
                         android:gravity="center"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
-                        android:text="  Buy"
+                        android:text="@string/buy"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
                 </FrameLayout>
             </RelativeLayout>
-
 
 
         </RelativeLayout>
@@ -270,16 +338,16 @@
         android:paddingLeft="@dimen/_20sdp"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
-        android:text="Related Products"
+        android:text="@string/related_products"
         android:textColor="@android:color/black"
         android:textSize="@dimen/_22sdp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/storeDealsRecycler"
-        android:padding="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:padding="@dimen/_20sdp" />
 </LinearLayout>
 

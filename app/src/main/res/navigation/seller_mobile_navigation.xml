@@ -28,15 +28,23 @@
     <fragment
         android:id="@+id/nav_becomeHBChoice"
         android:name="com.herbal.herbalfax.customer.homescreen.orders.OrdersFragment"
-        android:label="@string/orders"
+        android:label="@string/title_order"
         tools:layout="@layout/fragment_send" />
 
+<!--
+    <fragment
+        android:id="@+id/bottom_home"
+        android:name="com.herbal.herbalfax.vendor.sellerorders.SellerOrderFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_sellerorder" />-->
+<!--
 
     <fragment
         android:id="@+id/bottom_home"
         android:name="com.herbal.herbalfax.vendor.storelist.SellerStoreListFragment"
         android:label="@string/menu_mystore"
         tools:layout="@layout/fragment_sellermystore" />
+-->
 
     <fragment
         android:id="@+id/bottom_dashboard"

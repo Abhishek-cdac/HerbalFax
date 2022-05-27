@@ -10,9 +10,9 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_20sdp"
         android:clipChildren="false"
         android:divider="@android:color/transparent"
         android:dividerHeight="0.0px"
@@ -24,6 +24,7 @@
         app:cardPreventCornerOverlap="false">
 
         <LinearLayout
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:orientation="horizontal">
@@ -70,23 +71,40 @@
 
         android:layout_below="@+id/cardView"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="@dimen/_100sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
         android:padding="@dimen/_20sdp"
         android:scrollbars="horizontal" />
 
-    <Button
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
         android:id="@+id/fab"
-        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_gravity="bottom|end"
+        android:padding="@dimen/_10sdp"
+        android:visibility="visible"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_bottom_margin"
+        android:src="@drawable/ic_icon_add_post"
+        android:background="@drawable/rect_button_green"
+        android:layout_height="@dimen/_50sdp">
+    </de.hdodenhof.circleimageview.CircleImageView>
+<!--
+    <Button
+
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_gravity="bottom|right"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/fab_bottom_margin"
         android:background="@drawable/rect_button_green"
         android:padding="@dimen/_10sdp"
-
-        android:text="@string/addnewstore"
         android:textColor="@color/white" />
+-->
 
 </RelativeLayout>
