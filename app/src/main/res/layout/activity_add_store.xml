@@ -437,6 +437,7 @@
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
                         android:elevation="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_20sdp"
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="8dp"
                         app:cardPreventCornerOverlap="false">
@@ -462,7 +463,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -517,7 +518,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -549,7 +550,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -604,7 +605,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -635,7 +636,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -691,7 +692,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -722,7 +723,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -778,7 +779,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -809,6 +810,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -864,7 +866,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -895,7 +897,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -949,7 +951,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -980,7 +982,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-
+                        app:cardCornerRadius="@dimen/_20sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
@@ -1023,7 +1025,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-
+                    app:cardCornerRadius="@dimen/_10sdp"
                     android:layout_height="@dimen/_100sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -1033,7 +1035,7 @@
                     android:elevation="@dimen/_5sdp"
                     android:onClick="@{(v) -> AddStoreViewModel.OnLogoGallery(v)}"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/_10sdp"
+
                     app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 

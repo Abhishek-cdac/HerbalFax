@@ -48,7 +48,7 @@
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
         android:layout_centerInParent="true"
         app:sliderAnimationDuration="600"
         app:sliderAutoCycleDirection="back_and_forth"
@@ -67,7 +67,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="@dimen/_10sdp"
+        android:background="@drawable/top_corner_rounded"
         app:cardElevation="@dimen/_8sdp">
 
         <LinearLayout
@@ -82,29 +82,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp">
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/editCard"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_alignParentEnd="true"
-
                     android:layout_gravity="end"
                     android:layout_marginRight="@dimen/_50sdp"
                     android:outlineAmbientShadowColor="@color/green"
                     android:shape="ring"
+                    app:strokeColor="@color/green"
+                    app:strokeWidth="1dp"
                     app:cardBackgroundColor="@color/black"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="@dimen/_10sdp">
 
                     <ImageView
-
                         android:layout_width="@dimen/_10sdp"
                         android:layout_height="@dimen/_10sdp"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_icon_feather_edit" />
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/deleteCard"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -114,6 +114,8 @@
                     android:layout_marginRight="@dimen/_20sdp"
                     android:outlineAmbientShadowColor="@color/green"
                     android:shape="ring"
+                    app:strokeColor="@color/green"
+                    app:strokeWidth="1dp"
                     app:cardBackgroundColor="@color/black"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="@dimen/_10sdp">
@@ -123,7 +125,7 @@
                         android:layout_height="@dimen/_10sdp"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_delete_forever_small_white" />
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
             </RelativeLayout>
 
