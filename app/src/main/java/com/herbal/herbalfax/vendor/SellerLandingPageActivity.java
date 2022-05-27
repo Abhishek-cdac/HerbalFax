@@ -41,11 +41,14 @@ import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
+import com.herbal.herbalfax.customer.homescreen.mysocial.MySocialFragment;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
 import com.herbal.herbalfax.vendor.sellerdeals.SellerDealsFragment;
+import com.herbal.herbalfax.vendor.sellerdrivers.SellerDriverFragment;
 import com.herbal.herbalfax.vendor.sellerorders.SellerOrderFragment;
 import com.herbal.herbalfax.vendor.sellerproduct.SellerProductFragment;
+import com.herbal.herbalfax.vendor.storelist.SellerStoreListFragment;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -130,8 +133,16 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         drawerAdapter.setOnCardItemClickListener((View view, int position) -> {
                     int id = view.getId();
                     if (id == R.id.linear_layout_select) {
-                        onBackPressed();
+                        //   drawerAdapter.setPostion(position);
+                        drawerAdapter.notifyDataSetChanged();// Refresh list
+                        openDrawerItem(position);// Open particular class on drawer item click
+
                     }
+//            if (id == R.id.linear_layout_select) {
+//                        onBackPressed();
+//                    }
+
+
                 }
         );
         drawerAdapter.setOnLogoutListener(() -> {
@@ -145,6 +156,26 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
             onBackPressed();
 
         });
+    }
+
+    private void openDrawerItem(int position) {
+        if (position == 5) {
+            ReplaceFrag(new SellerStoreListFragment());
+            onBackPressed();
+        }
+        else if(position==3){
+
+            ReplaceFrag(new SellerDriverFragment());
+            onBackPressed();
+        }else if(position==1){
+
+            ReplaceFrag(new MySocialFragment());
+            onBackPressed();
+        }else if(position==2){
+
+          //  ReplaceFrag(new MySocialFragment());
+            onBackPressed();
+        }
     }
 
 
@@ -193,8 +224,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         setSupportActionBar(toolbar);
     }
 
-    private void setSellerFragment()
-    {
+    private void setSellerFragment() {
         ReplaceFrag(new SellerOrderFragment());
 //      ReplaceFrag(new SellerStoreListFragment());
         headerTxt.setVisibility(View.GONE);
