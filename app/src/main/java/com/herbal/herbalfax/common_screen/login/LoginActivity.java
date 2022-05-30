@@ -80,7 +80,6 @@ public class LoginActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(Objects.requireNonNull(loginUser).getStrEmailAddress())) {
                 // binding.loginEmail.setError("Enter an E-Mail Address");
                 new CommonClass().showDialogMsg(LoginActivity.this, "HerbalFax", "Enter an E-Mail Address", "Ok");
-
                 binding.loginEmail.requestFocus();
             } else if (TextUtils.isEmpty(Objects.requireNonNull(loginUser).getStrPassword())) {
                 new CommonClass().showDialogMsg(LoginActivity.this, "HerbalFax", "Enter a Password", "Ok");
@@ -135,7 +134,8 @@ public class LoginActivity extends AppCompatActivity {
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("user_email", loginUser.getStrEmailAddress());
         hashMap.put("user_password", loginUser.getStrPassword());
-
+Log.e("email","Eamil"+loginUser.getStrEmailAddress());
+        Log.e("email","pwd"+loginUser.getStrPassword());
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(this);
         pd.show();
         Call<LoginResponse> call = service.login(hashMap);
@@ -144,8 +144,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 pd.cancel();
                 if (response.code() == 200) {
+                    Log.e("email","status"+loginUser.getStrEmailAddress());
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
+                        Log.e("email","status"+"one");
                         checkForTheLastActivity(response.body());
                     } else {
                         clsCommon.showDialogMsg(LoginActivity.this, "HerbalFax", response.body().getMessage(), "Ok");
