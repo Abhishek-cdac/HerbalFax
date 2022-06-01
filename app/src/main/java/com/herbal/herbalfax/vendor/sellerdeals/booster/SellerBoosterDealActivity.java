@@ -2,11 +2,15 @@ package com.herbal.herbalfax.vendor.sellerdeals.booster;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.herbal.herbalfax.R;
@@ -16,6 +20,7 @@ public class SellerBoosterDealActivity extends AppCompatActivity {
     TextView endDateTxt, productNameText, productLocation, validity_txt, priceTxt, personBought;
     Button buyBtn;
     ImageView back;
+    Button buybtn;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -62,6 +67,20 @@ public class SellerBoosterDealActivity extends AppCompatActivity {
         } else {
             productLocation.setText(dealLocation);
         }
+        buybtn = findViewById(R.id.buyBtn);
+        buybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SellerBoosterDealActivity.this,R.style.CustomAlertDialog);
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.buycustomview, viewGroup, false);
+                builder.setView(dialogView);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                alertDialog.getWindow().setGravity(Gravity.BOTTOM);
+            }
+        });
+
 
     }
 }

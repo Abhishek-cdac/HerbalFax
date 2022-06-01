@@ -19,7 +19,7 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.vendor.sellerdeals.booster.SellerBoosterDealActivity;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
-import com.squareup.picasso.Picasso;
+/*import com.squareup.picasso.Picasso;*/
 
 import java.util.ArrayList;
 
@@ -27,10 +27,10 @@ public class SellerProductDealsAdapter extends RecyclerView.Adapter<SellerProduc
 
     ArrayList<StoreProduct> lst_deal;
     Context mContext;
-    private final Picasso picasso;
+ /*   private final Picasso picasso;*/
 Onclick itemClick;
     public SellerProductDealsAdapter(ArrayList<StoreProduct> lst_deal, Context applicationContext, Onclick itemClick) {
-        picasso = Picasso.get();
+      /*  picasso = Picasso.get();*/
         this.lst_deal = lst_deal;
         this.itemClick = itemClick;
         this.mContext = applicationContext;
@@ -63,8 +63,8 @@ Onclick itemClick;
         }
 
         holder.priceTxt.setText("$" + lst_deal.get(position).getSPRate());
-        picasso.load(String.valueOf(lst_deal.get(position).getSPPPath()))
-                .into(holder.productImg);
+   /*     picasso.load(String.valueOf(lst_deal.get(position).getSPPPath()))
+                .into(holder.productImg);*/
 
         holder.buyBtn.setOnClickListener(view -> {
             Intent intent = new Intent(mContext, SellerBoosterDealActivity.class);
@@ -73,7 +73,6 @@ Onclick itemClick;
             intent.putExtra("dealExpiry", lst_deal.get(position).getsP_Expiry());
             intent.putExtra("dealPrice", lst_deal.get(position).getSPRate());
             intent.putExtra("dealLocation", lst_deal.get(position).getsP_Location());
-
             mContext.startActivity(intent);
         });
             }
