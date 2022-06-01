@@ -77,6 +77,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
@@ -126,6 +128,8 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
@@ -191,6 +195,7 @@
                     app:cardElevation="8dp"
                     android:padding="@dimen/_5sdp"
                     app:cardCornerRadius="@dimen/_30sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -235,6 +240,8 @@
                     app:cardElevation="8dp"
                     android:padding="@dimen/_5sdp"
                     app:cardCornerRadius="@dimen/_30sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -267,6 +274,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
 
                     android:layout_height="@dimen/_100sdp"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -331,6 +339,8 @@
                     android:background="@drawable/rectangle_border"
                     android:clipChildren="false"
                     android:clipToPadding="false"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
@@ -380,6 +390,8 @@
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_30sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -1033,6 +1045,8 @@
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+
                     android:onClick="@{(v) -> AddStoreViewModel.OnLogoGallery(v)}"
                     app:cardBackgroundColor="@color/white"
 
@@ -1094,6 +1108,8 @@
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="8dp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+
                     app:cardPreventCornerOverlap="false">
 
 
