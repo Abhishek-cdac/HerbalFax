@@ -89,6 +89,13 @@
         android:name="com.herbal.herbalfax.customer.homescreen.deals.DealsFragment"
         android:label="@string/deal"
         tools:layout="@layout/fragment_deals" />
+
+    <fragment
+
+        android:id="@+id/bottom_daily"
+        android:name="com.herbal.herbalfax.NewBuyerSc59"
+        android:label="@string/menu_daily"
+        tools:layout="@layout/activity_new_buyer_sc59" />
    <!-- <fragment
         android:id="@+id/bottom_askfax"
         android:name="com.herbal.herbalfax.customer.homescreen.askfax.AskFaxFragment"

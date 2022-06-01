@@ -18,7 +18,7 @@ import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.dialog.DeleteDialog;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
-import com.squareup.picasso.Picasso;
+/*import com.squareup.picasso.Picasso;*/
 
 import java.util.ArrayList;
 
@@ -26,12 +26,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     ArrayList<StoreProduct> lst_product;
     Context mContext;
-    private final Picasso picasso;
+    /*private final Picasso picasso;*/
     Onclick itemClick;
 
 
     public ProductListAdapter(ArrayList<StoreProduct> lst_product, Context applicationContext, Onclick itemClick) {
-        picasso = Picasso.get();
+        /*picasso = Picasso.get();*/
         this.lst_product = lst_product;
         this.mContext = applicationContext;
         this.itemClick = itemClick;
@@ -53,8 +53,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
         if (lst_product.get(position).getSPPPath() != null) {
             if (!lst_product.get(position).getSPPPath().equals("")) {
-                picasso.load(String.valueOf(lst_product.get(position).getSPPPath()))
-                        .into(holder.imgProfile);
+               /* picasso.load(String.valueOf(lst_product.get(position).getSPPPath()))
+                        .into(holder.imgProfile);*/
             }
         }
         holder.productName.setText(lst_product.get(position).getSPName());

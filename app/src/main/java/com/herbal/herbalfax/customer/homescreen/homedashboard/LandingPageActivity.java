@@ -29,6 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.herbal.herbalfax.NewBuyerSc59;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
@@ -221,8 +222,21 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     locationIcon.setVisibility(View.VISIBLE);
                     fab.setVisibility(View.GONE);
                     cardIcon.setVisibility(View.GONE);
-                    return true;
-            /*    case R.id.bottom_dashboard:
+                    return true;/*
+                case R.id.bottom_daily:
+                    ReplaceFrag(new NewBuyerSc59());
+                    headerTxt.setVisibility(View.VISIBLE);
+                    headerTxt.setText(getResources().getString(R.string.menu_daily));
+                    headerIcon.setVisibility(View.GONE);
+                    createGroup.setVisibility(View.GONE);
+                    fab.setVisibility(View.GONE);
+                    addQuestionTxt.setVisibility(View.GONE);
+                    searchIcon.setVisibility(View.GONE);
+                    locationIcon.setVisibility(View.GONE);
+                    cardIcon.setVisibility(View.GONE);
+                    return true;*/
+
+                /*    case R.id.bottom_dashboard:
                     ReplaceFrag(new ProductsFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerTxt.setText(getResources().getString(R.string.product));

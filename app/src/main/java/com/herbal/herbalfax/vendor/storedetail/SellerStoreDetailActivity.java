@@ -65,8 +65,8 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         Checkinrecyclerview = findViewById(R.id.Checkinrecyclerview);
         reviewll = findViewById(R.id.reviewll);
         checkinll = findViewById(R.id.checkinll);
-        edit = findViewById(R.id.edit);
-        delete = findViewById(R.id.delete);
+        /*edit = findViewById(R.id.edit);*/
+       /* delete = findViewById(R.id.delete);*/
         placeholder = findViewById(R.id.placeholder);
 
         ratingOne = findViewById(R.id.one);
@@ -102,7 +102,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         }
         setUpCheckinRecyclerView();
 
-        edit.setOnClickListener(view -> {
+  /*      edit.setOnClickListener(view -> {
             Intent intent = new Intent(this, AddStoreActivity.class);
             intent.putExtra("type", "edit");
             intent.putExtra("storeId", storeId);
@@ -111,7 +111,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         delete.setOnClickListener(view -> {
 
         });
-
+*/
         callSellerStoreDetailAPI(storeId);
         workingdays = findViewById(R.id.workingdays);
         workingdays.setOnClickListener(new View.OnClickListener() {

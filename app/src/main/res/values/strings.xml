@@ -145,7 +145,7 @@ receive emails from HerbalFax &amp; More</string>
     <string name="addpost">Add Post</string>
     <string name="upload_image_video">Upload Image/Video</string>
     <string name="add_image_video">Add Image/Video</string>
-    <string name="description_hint">Add Description</string>
+    <string name="description_hint">Type Description</string>
     <string name="cancel">cancel</string>
     <string name="blog">Blogs</string>
     <string name="readmore">Read more</string>
