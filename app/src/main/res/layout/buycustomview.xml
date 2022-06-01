@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="100dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Your Payment Method"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="#282828"
+            android:fontFamily="@font/raleway_bold"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#707070"
+            android:layout_marginTop="5dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="#656569"
+                    android:text="Total Price"
+                    android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/roboto_bold"
+
+                android:textColor="#96C93D"
+                android:text="$ 30"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/_22sdp" />
+
+
+           <!-- <Button
+                android:id="@+id/buyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/rect_button_green"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:text="@string/pay_now"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12sdp" />-->
+
+        </RelativeLayout>
+         <Button
+             android:id="@+id/creditcard_btn"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_gravity="center"
+             android:layout_marginStart="@dimen/_10sdp"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:layout_marginEnd="@dimen/_10sdp"
+             android:layout_marginBottom="@dimen/_10sdp"
+             android:background="@drawable/rect_button_black"
+             android:fontFamily="@font/raleway_bold"
+             android:gravity="center"
+             android:text="CREDIT CARD"
+             android:textColor="@android:color/white"
+             android:textSize="@dimen/_12sdp" />
+
+        <Button
+            android:id="@+id/debitcard_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_button_black"
+            android:fontFamily="@font/raleway_bold"
+            android:gravity="center"
+            android:text="Debit CARD"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

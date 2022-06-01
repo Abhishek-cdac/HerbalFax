@@ -12,13 +12,13 @@ import androidx.cardview.widget.CardView;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.favourites.FavouritesActivity;
-import com.squareup.picasso.Picasso;
+/*import com.squareup.picasso.Picasso;*/
 
 public class ProfileActivity extends AppCompatActivity {
     TextView userName, profileCategory, DOB, gendertype, cityname, mobilenumber, mailaddress;
     SessionPref pref;
     ImageView profileImage, back;
-    Picasso picasso;
+  /*  Picasso picasso;*/
     CardView favCard;
 
     TextView MyDealsBtn;
@@ -27,8 +27,8 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        MyDealsBtn = findViewById(R.id.mydealsbtn);
-        favCard = findViewById(R.id.favCard);
+     /*   MyDealsBtn = findViewById(R.id.mydealsbtn);
+        favCard = findViewById(R.id.favCard);*/
         back = findViewById(R.id.back);
 
         favCard.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
         mailaddress = findViewById(R.id.mailaddress);
         try {
             if (null != SessionPref.LoginUserprofilePic) {
-                picasso.load(pref.getStringVal(SessionPref.LoginUserprofilePic)).into(profileImage);
+             /*   picasso.load(pref.getStringVal(SessionPref.LoginUserprofilePic)).into(profileImage);*/
             }
         } catch (NullPointerException e) {
             e.printStackTrace();
