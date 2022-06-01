@@ -206,8 +206,6 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-
-
                         android:layout_height="wrap_content"
                         android:weightSum="1">
 
@@ -220,12 +218,12 @@
                             android:drawablePadding="@dimen/_5sdp"
                             android:fontFamily="@font/raleway_semibold"
                             android:maxLines="3"
-                            android:text="Store Timing : "
+                            android:text="Timing : "
                             android:textColor="@color/green"
                             android:textSize="@dimen/_12sdp" />
 
                         <TextView
-
+                            android:id="@+id/workingdays"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -233,7 +231,9 @@
                             android:maxLines="3"
                             android:text="Mon to Fri, 9am - 5:30pm"
                             android:textColor="@color/text_grey"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableRight="@drawable/ic_icon_feather_eye"
+                            android:drawablePadding="@dimen/_5sdp"/>
 
 
                     </LinearLayout>

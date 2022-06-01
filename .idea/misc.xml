@@ -19,7 +19,7 @@
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_profile.xml" value="0.26875" />
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_seller_booster_deal.xml" value="0.22" />
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_seller_landing_page.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_seller_store_detail.xml" value="0.26875" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_seller_store_detail.xml" value="0.25" />
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/add_seller_driver_list.xml" value="0.26875" />
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/app_bar_main.xml" value="0.26875" />
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/buycustomview.xml" value="0.25" />
@@ -33,6 +33,7 @@
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/seller_checkin_item.xml" value="0.26875" />
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/seller_store_deals_item.xml" value="0.26875" />
         <entry key="..\:/NewHerbalfax/app/src/main/res/layout/seller_store_reviews_item.xml" value="0.26875" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/workingdaysalter.xml" value="0.26875" />
       </map>
     </option>
   </component>

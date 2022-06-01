@@ -186,7 +186,13 @@
         <activity
             android:name=".vendor.storedetail.SellerStoreDetailActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="fullSensor" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".customer.homescreen.cart.selectdeliveryaddress.SelectDeliveryAddressActivity"
             android:exported="true"
