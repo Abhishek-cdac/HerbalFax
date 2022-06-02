@@ -95,6 +95,7 @@
                             android:background="@drawable/dashed_border"
                             android:fontFamily="@font/raleway_regular"
                             android:scaleType="fitXY"
+                            android:padding="30dp"
                             android:src="@drawable/ic_icon_l_file_upload" />
 
                         <androidx.recyclerview.widget.RecyclerView

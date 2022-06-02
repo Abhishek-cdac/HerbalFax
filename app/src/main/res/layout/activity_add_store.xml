@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
+
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:padding="@dimen/_5sdp"
@@ -145,6 +145,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/rect_button"
                         android:drawSelectorOnTop="true"
+                        android:text="Grocery"
                         android:dropDownVerticalOffset="-53dp"
                         android:spinnerMode="dropdown"
                         />
@@ -305,6 +306,7 @@
                             android:background="@drawable/dashed_border"
                             android:fontFamily="@font/raleway_regular"
                             android:scaleType="fitXY"
+                            android:padding="30dp"
                             android:src="@drawable/ic_icon_l_file_upload" />
 
 
@@ -1066,6 +1068,7 @@
                             android:background="@drawable/dashed_border"
                             android:fontFamily="@font/raleway_regular"
                             android:scaleType="fitXY"
+                            android:padding="30dp"
                             android:src="@drawable/ic_icon_l_file_upload" />
                         <TextView
                             android:layout_width="match_parent"
@@ -1123,6 +1126,7 @@
                             android:background="@drawable/dashed_border"
                             android:fontFamily="@font/raleway_regular"
                             android:scaleType="fitXY"
+                            android:padding="30dp"
                             android:src="@drawable/ic_icon_l_file_upload" />
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -1164,7 +1168,7 @@
                     android:text="@string/addstore"
 
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_16sdp" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
