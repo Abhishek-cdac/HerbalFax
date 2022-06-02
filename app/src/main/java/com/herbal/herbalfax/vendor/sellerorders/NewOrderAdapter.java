@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.homescreen.group.yourgroupmodel.Group;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.MyView
 
     private List<Group> lst_completeOrder = new ArrayList<>();
     Context context;
-    Picasso picasso;
+   // Picasso picasso;
     Onclick itemClick;
 
     public NewOrderAdapter(List<Group> lst_completeOrder, FragmentActivity activity, Onclick itemClick) {
@@ -31,7 +30,7 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.MyView
         this.lst_completeOrder = lst_completeOrder;
         this.context = activity;
         this.itemClick = itemClick;
-        picasso = Picasso.get();
+     //   picasso = Picasso.get();
     }
 
 

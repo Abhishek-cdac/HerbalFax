@@ -66,6 +66,7 @@
             android:id="@+id/neworder"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_width="0dp"
+            android:textAllCaps="false"
             android:layout_height="wrap_content"
             android:background="@drawable/rect_button_green"
             android:layout_marginBottom="@dimen/_2sdp"
@@ -90,7 +91,8 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:paddingLeft="@dimen/_15sdp"
             android:paddingRight="@dimen/_15sdp"
-            android:text="Ongoing"
+            android:textAllCaps="false"
+            android:text="Pending"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
         <Button
@@ -107,6 +109,7 @@
             android:paddingLeft="@dimen/_15sdp"
             android:paddingRight="@dimen/_15sdp"
             android:text="Completed"
+            android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
 

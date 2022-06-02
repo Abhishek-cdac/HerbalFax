@@ -104,11 +104,11 @@
                         android:id="@+id/storeSpinner"
                         style="@style/Spinner"
                         android:layout_width="0dp"
+                        android:entries="@array/store"
                         android:layout_height="match_parent"
                         android:layout_weight=".8"
                         android:background="@drawable/rect_button"
                         android:drawSelectorOnTop="true"
-                        android:dropDownVerticalOffset="-53dp"
                         android:spinnerMode="dropdown"
 
                         />

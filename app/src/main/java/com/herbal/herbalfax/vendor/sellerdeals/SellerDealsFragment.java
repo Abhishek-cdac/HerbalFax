@@ -100,7 +100,7 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                 builder.setView(dialogView);
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
-                alertDialog.getWindow().setGravity(Gravity.TOP);
+                alertDialog.getWindow().setGravity(Gravity.END|Gravity.TOP);
             }
         });
 

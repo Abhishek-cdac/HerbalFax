@@ -82,6 +82,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         reviewll.setOnClickListener(view -> {
             StoreDetailrecyclerview.setVisibility(View.VISIBLE);
             Checkinrecyclerview.setVisibility(View.GONE);
+            placeholder.setVisibility(View.VISIBLE);
 
         });
 
