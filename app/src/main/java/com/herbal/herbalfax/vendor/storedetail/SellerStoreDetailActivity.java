@@ -3,13 +3,17 @@ package com.herbal.herbalfax.vendor.storedetail;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +29,7 @@ import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.Store;
 import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.StoreBusinessHr;
 import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.StoreDetailResponse;
 import com.herbal.herbalfax.vendor.storedetail.storedetailmodel.StoreRatings;
-import com.squareup.picasso.Picasso;
+/*import com.squareup.picasso.Picasso;*/
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -48,7 +52,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
     LinearLayoutManager HorizontalLayout;
     SellerStoreReviewAdapter storeReviewAdapter;
     StoreCheckinAdapter storeCheckinAdapter;
-    TextView headerTxt, title, ratingTxt, storeLocation, storeFav, storeView, desc, placeholder;
+    TextView headerTxt, title, ratingTxt, storeLocation, storeFav, storeView, desc, placeholder, workingdays;
     ImageView storeLogoImg, edit, delete;
     ImageView ratingOne, ratingTwo, ratingThree, ratingFour, ratingFive;
 
@@ -61,8 +65,8 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         Checkinrecyclerview = findViewById(R.id.Checkinrecyclerview);
         reviewll = findViewById(R.id.reviewll);
         checkinll = findViewById(R.id.checkinll);
-        edit = findViewById(R.id.edit);
-        delete = findViewById(R.id.delete);
+        /*edit = findViewById(R.id.edit);*/
+       /* delete = findViewById(R.id.delete);*/
         placeholder = findViewById(R.id.placeholder);
 
         ratingOne = findViewById(R.id.one);
@@ -99,7 +103,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         }
         setUpCheckinRecyclerView();
 
-        edit.setOnClickListener(view -> {
+  /*      edit.setOnClickListener(view -> {
             Intent intent = new Intent(this, AddStoreActivity.class);
             intent.putExtra("type", "edit");
             intent.putExtra("storeId", storeId);
@@ -108,8 +112,24 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         delete.setOnClickListener(view -> {
 
         });
-
+*/
         callSellerStoreDetailAPI(storeId);
+        workingdays = findViewById(R.id.workingdays);
+        workingdays.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SellerStoreDetailActivity.this,R.style.BuyAlertDialog);
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.workingdaysalter, viewGroup, false);
+                builder.setView(dialogView);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                alertDialog.getWindow().setLayout(500, 600);
+                alertDialog.getWindow().setGravity(Gravity.CENTER);
+            }
+        });
+
+
     }
 
     private void setUpCheckinRecyclerView() {
@@ -119,8 +139,6 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         HorizontalLayout = new LinearLayoutManager(SellerStoreDetailActivity.this, LinearLayoutManager.VERTICAL, false);
         Checkinrecyclerview.setLayoutManager(HorizontalLayout);
         Checkinrecyclerview.setAdapter(storeCheckinAdapter);
-
-
     }
 
 
@@ -148,8 +166,8 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
                         title.setText(store.getStoreName());
                         if (store.getStoreLogo() != null) {
                             if (!store.getStoreLogo().equals("")) {
-                                Picasso.get().load(store.getStoreLogo())
-                                        .into(storeLogoImg);
+                               /* Picasso.get().load(store.getStoreLogo())
+                                        .into(storeLogoImg);*/
                             }
                         }
 

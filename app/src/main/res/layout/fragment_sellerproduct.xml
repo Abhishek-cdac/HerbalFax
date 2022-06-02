@@ -109,6 +109,7 @@
                         android:layout_weight=".8"
                         android:background="@drawable/rect_button"
                         android:drawSelectorOnTop="true"
+
                         android:spinnerMode="dropdown"
 
                         />

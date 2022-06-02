@@ -23,17 +23,18 @@
 
     <RelativeLayout
         android:layout_width="130dp"
-        android:layout_height="110dp"
+        android:layout_height="120dp"
         android:layout_gravity="center">
 
         <FrameLayout
             android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_110sdp">
+            android:layout_height="@dimen/_120sdp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_110sdp"
                 android:layout_height="@dimen/_110sdp"
                 app:cardBackgroundColor="@color/green"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_10sdp">
 
                 <ImageView

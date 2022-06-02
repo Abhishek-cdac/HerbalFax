@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="3"
+            android:text="Monday 9am - 8:30pm"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="3"
+            android:text="Tuesday 9am - 8:30pm"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="3"
+            android:text="Wednesday 9am - 8:30pm"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="3"
+            android:text="Thursday 9am - 8:30pm"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="3"
+            android:text="Friday 9am - 8:30pm"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="3"
+            android:text="Saturday 9am - 8:30pm"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_semibold"
+            android:maxLines="3"
+            android:text="Sunday - closed"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_12sdp"
+            />
+
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

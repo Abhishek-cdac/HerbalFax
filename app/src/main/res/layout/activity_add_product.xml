@@ -38,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:padding="@dimen/_5sdp"
@@ -84,17 +85,16 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
-                    app:cardCornerRadius="@dimen/_25sdp"
 
                     app:cardBackgroundColor="@color/white"
                     app:cardElevation="8dp"
+                    app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
-
                         android:id="@+id/categorySpinner"
                         style="@style/Spinner"
-                        android:layout_width="match_parent"
+                        android:layout_width="290dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/rect_button"
                         android:drawSelectorOnTop="true"
@@ -136,7 +136,7 @@
 
                         android:id="@+id/spinner"
                         style="@style/Spinner"
-                        android:layout_width="match_parent"
+                        android:layout_width="290dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/rect_button"
                         android:drawSelectorOnTop="true"
@@ -203,6 +203,7 @@
                             android:layout_marginBottom="@dimen/_10sdp"
                             android:background="@drawable/dashed_border"
                             android:fontFamily="@font/raleway_regular"
+                            android:padding="30dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_icon_l_file_upload" />
 
@@ -528,7 +529,7 @@
                     android:onClick="@{(v) -> AddProductViewModel.onClickAddProduct(v)}"
                     android:text="@string/save"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_16sdp" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

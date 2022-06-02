@@ -79,7 +79,6 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
         progress_bar=root.findViewById(R.id.progress_bar);
         storeCategorySpinner = root.findViewById(R.id.storeCategorySpinner);
         addProduct = root.findViewById(R.id.addProduct);
-
         itemClick = new Onclick() {
             @Override
             public void onItemClicks(View view, int position, int i, String productId, String s) {
@@ -175,8 +174,8 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                                 storeSpinner.setAdapter(spinnerArrayAdapter);
 
                             }
-                        }*/
-
+                        }
+*/
                         ArrayList<StoreProduct> localList=(ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
 //                        lst_product = (ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
 

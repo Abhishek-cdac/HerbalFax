@@ -53,50 +53,46 @@
                 android:orientation="horizontal"
                 android:padding="@dimen/_5sdp">
 
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/editCard"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                    <FrameLayout
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="@dimen/_100sdp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_90sdp"
+                            app:cardBackgroundColor="@color/green"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            app:cardCornerRadius="@dimen/_10sdp">
+
+                            <ImageView
+                                android:id="@+id/profile_image"
+                                android:layout_width="100dp"
+                                android:layout_height="@dimen/_100sdp"
+                                android:contentDescription="Your main image view"
+                                android:foregroundGravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/profileimg" />
+                        </androidx.cardview.widget.CardView>
+                    </FrameLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
                         android:layout_gravity="end"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:outlineAmbientShadowColor="@color/green"
-                        android:shape="ring"
-                        app:cardBackgroundColor="@color/black"
-                        app:cardCornerRadius="50dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="@dimen/_110sdp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/edit_icon" />
 
-                        app:cardElevation="@dimen/_10sdp">
+                </RelativeLayout>
 
-                        <ImageView
-
-                            android:layout_width="@dimen/_10sdp"
-                            android:layout_height="@dimen/_10sdp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/ic_icon_feather_edit" />
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/imgcard"
-                        android:layout_width="@dimen/_90sdp"
-                        android:layout_height="@dimen/_90sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="#EFEFEF"
-                        card_view:cardCornerRadius="@dimen/_6sdp">
-
-                        <ImageView
-                            android:id="@+id/imgprofile"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/profileimg" />
-
-                    </androidx.cardview.widget.CardView>
-
-                </FrameLayout>
 
 
                 <RelativeLayout
