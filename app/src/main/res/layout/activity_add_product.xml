@@ -5,6 +5,7 @@
     tools:context=".vendor.sellerproduct.addproduct.AddProductActivity">
 
     <data>
+
         <variable
             name="AddProductViewModel"
             type="com.herbal.herbalfax.vendor.sellerproduct.addproduct.AddProductViewModel" />
@@ -25,30 +26,26 @@
             android:minHeight="?attr/actionBarSize"
             android:orientation="horizontal">
 
-
             <ImageView
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/_15sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingRight="@dimen/_5sdp"
                 android:src="@drawable/ic_icon_arrow_left_white" />
 
             <TextView
                 android:id="@+id/headerTxt"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
+                android:layout_marginLeft="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
-
                 android:text="@string/addyourproduct"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_18sdp">
-
-            </TextView>
-
-
+                android:textSize="@dimen/_18sdp" />
 
         </LinearLayout>
 
@@ -78,29 +75,28 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
 
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
+                    app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
                         android:id="@+id/categorySpinner"
-                        style="@style/Spinner"
+                        android:theme="@style/Spinner"
                         android:layout_width="290dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/rect_button"
                         android:drawSelectorOnTop="true"
-                        android:dropDownVerticalOffset="-53dp"
                         android:spinnerMode="dropdown"
-                        />
+                        android:textSize="12dp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -119,6 +115,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -126,24 +123,18 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-
                     app:cardCornerRadius="@dimen/_25sdp"
+                    app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
-
                         android:id="@+id/spinner"
-                        style="@style/Spinner"
+                        android:theme="@style/Spinner"
                         android:layout_width="290dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/rect_button"
                         android:drawSelectorOnTop="true"
-                        android:dropDownVerticalOffset="-53dp"
-                        android:spinnerMode="dropdown"
-
-                        />
+                        android:spinnerMode="dropdown" />
 
                     <!--    <EditText
                         android:id="@+id/professionedt"
@@ -170,6 +161,7 @@
                     android:layout_width="match_parent"
 
                     android:layout_height="@dimen/_100sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -178,11 +170,10 @@
                     android:elevation="@dimen/_5sdp"
                     android:onClick="@{(v) -> AddProductViewModel.OnGallery(v)}"
                     app:cardBackgroundColor="@color/white"
+
                     app:cardCornerRadius="@dimen/_10sdp"
 
                     app:cardElevation="8dp"
-
-                    android:layout_marginHorizontal="@dimen/_5sdp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -209,13 +200,13 @@
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recycleView"
-                            android:layout_toRightOf="@+id/product_image"
-                            android:layout_centerVertical="true"
-                            android:visibility="gone"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="@dimen/_10sdp"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_80sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_toRightOf="@+id/product_image"
+                            android:visibility="gone"
 
                             />
 
@@ -252,6 +243,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -259,9 +251,8 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    app:cardElevation="8dp"
 
                     app:cardPreventCornerOverlap="false">
 
@@ -296,17 +287,17 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
 
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
+                    app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -340,10 +331,10 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-
                     android:layout_width="match_parent"
+
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -351,8 +342,8 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
+                    app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -385,10 +376,10 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <androidx.cardview.widget.CardView
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-
                     android:layout_width="match_parent"
+
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/rectangle_border"
                     android:clipChildren="false"
@@ -397,8 +388,8 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -442,10 +433,10 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-
                     android:layout_width="match_parent"
+
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -453,8 +444,8 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
+                    app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -486,10 +477,10 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-
                     android:layout_width="match_parent"
+
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -497,8 +488,8 @@
                     android:dividerHeight="0.0px"
                     android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
                     app:cardCornerRadius="@dimen/_25sdp"
+                    app:cardElevation="8dp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText

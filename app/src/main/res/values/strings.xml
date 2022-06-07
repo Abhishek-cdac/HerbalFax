@@ -342,4 +342,6 @@ receive emails from HerbalFax &amp; More</string>
     <string name="app_name1">AlertDialog</string>
     <string name="dialog_message">Welcome to Alert Dialog</string>
     <string name="dialog_title">Javatpoint Alert Dialog</string>
+    <string name="status">Status</string>
+    <string name="orderby">Ordered by</string>
 </resources>

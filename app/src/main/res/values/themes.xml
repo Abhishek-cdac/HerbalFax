@@ -91,7 +91,7 @@
         <item name="android:paddingEnd">0dp</item>
         <item name="android:textColor">@color/text_grey</item>
         <item name="fontFamily">@font/raleway_regular</item>
-        <item name="android:hint">+91</item>
+        <item name="android:hint">Select Here</item>
         <item name="android:textSize">12dp</item>
     </style>
 </resources>

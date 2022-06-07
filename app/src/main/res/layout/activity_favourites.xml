@@ -107,7 +107,7 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:background="@drawable/rect_button_whiteeeee"
-                android:drawableLeft="@drawable/product_black"
+                android:drawableLeft="@drawable/product_blacks"
                 android:drawablePadding="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/products"
