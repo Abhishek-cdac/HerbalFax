@@ -24,7 +24,6 @@ import com.herbal.herbalfax.customer.blogs.blogmodel.Blog;
 import com.herbal.herbalfax.customer.blogs.blogmodel.BlogResponse;
 import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxAdapter;
 import com.herbal.herbalfax.customer.homescreen.askfax.aflist.askfaxlistmodel.AfQuestion;
-import com.herbal.herbalfax.customer.homescreen.askfax.aflist.askfaxlistmodel.AskFaxListResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.FavDealAdapter;
 import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.model.FavDealResponse;
 import com.herbal.herbalfax.customer.homescreen.favourites.favdeal.model.StoreProduct;
@@ -143,7 +142,7 @@ public class FavouritesActivity extends AppCompatActivity {
                 img3.setBounds(0, 0, 60, 60);
                 storeTxt.setCompoundDrawables(img3, null, null, null);
 
-                Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_black);
+                Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_blacks);
                 img4.setBounds(0, 0, 60, 60);
                 productTxt.setCompoundDrawables(img4, null, null, null);
 
@@ -191,7 +190,7 @@ public class FavouritesActivity extends AppCompatActivity {
             img3.setBounds(0, 0, 60, 60);
             storeTxt.setCompoundDrawables(img3, null, null, null);
 
-            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_black);
+            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_blacks);
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
@@ -238,7 +237,7 @@ public class FavouritesActivity extends AppCompatActivity {
             img3.setBounds(0, 0, 60, 60);
             storeTxt.setCompoundDrawables(img3, null, null, null);
 
-            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_black);
+            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_blacks);
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
@@ -286,7 +285,7 @@ public class FavouritesActivity extends AppCompatActivity {
             img3.setBounds(0, 0, 60, 60);
             storeTxt.setCompoundDrawables(img3, null, null, null);
 
-            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_black);
+            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_blacks);
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
@@ -334,7 +333,7 @@ public class FavouritesActivity extends AppCompatActivity {
             img3.setBounds(0, 0, 60, 60);
             storeTxt.setCompoundDrawables(img3, null, null, null);
 
-            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_black);
+            Drawable img4 = getApplicationContext().getResources().getDrawable(R.drawable.product_blacks);
             img4.setBounds(0, 0, 60, 60);
             productTxt.setCompoundDrawables(img4, null, null, null);
 
