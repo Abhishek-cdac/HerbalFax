@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_deals.xml" value="0.13069908814589665" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_product.xml" value="0.33" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_store.xml" value="0.12409420289855072" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_your_business.xml" value="0.12409420289855072" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_new_customer_sign_up_sc14.xml" value="0.12409420289855072" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_new_vendor_sign_up_sc13.xml" value="0.13069908814589665" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_new_vendor_sign_up_sc15.xml" value="0.12409420289855072" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_pendingdetail.xml" value="0.22" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/buycustomview.xml" value="0.13069908814589665" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_sellerdeals.xml" value="0.12409420289855072" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_sellerorder.xml" value="0.26875" />
+        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/new_order_listitem.xml" value="0.26875" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable-mdpi/rect_button_light_green.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/back_select.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/back_tabs.xml" value="0.22552083333333334" />
