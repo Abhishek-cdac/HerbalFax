@@ -29,13 +29,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
+            android:name=".PendingdetailActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".NewBuyerSc59"
             android:exported="true"
             tools:ignore="Instantiatable">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".signupnewvendor.NewVendorSignUpScEight"
@@ -60,10 +72,10 @@
             android:exported="false" />
         <activity
             android:name=".NewVendorSignUpScEleven"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".NewVendorSignUpScFifteen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".NewVendorSignUpScThirteen"
             android:exported="false" />
@@ -176,14 +188,10 @@
             android:exported="true" />
         <activity
             android:name=".vendor.sellerproduct.productdetail.ProductDetailsActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".vendor.sellerproduct.addproduct.AddProductActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".customer.homescreen.placepicker.GooglePlacePickerActivity"
             android:exported="true"
@@ -191,9 +199,7 @@
         <activity
             android:name=".vendor.storedetail.SellerStoreDetailActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor">
-
-        </activity>
+            android:screenOrientation="fullSensor"></activity>
         <activity
             android:name=".customer.homescreen.cart.selectdeliveryaddress.SelectDeliveryAddressActivity"
             android:exported="true"

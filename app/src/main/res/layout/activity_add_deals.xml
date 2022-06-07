@@ -192,7 +192,6 @@
                     app:cardElevation="8dp"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     app:cardCornerRadius="@dimen/_25sdp"
-
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
