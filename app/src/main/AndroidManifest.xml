@@ -48,16 +48,13 @@
             android:name=".vendor.PickUpOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".NewBuyerSc59"
+            android:name=".NewsNBlogs"
             android:exported="true"
             tools:ignore="Instantiatable">
-
-            <!--
-            <intent-filter>
+       <!--     <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".signupnewvendor.NewVendorSignUpScEight"
