@@ -106,7 +106,7 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
-                            android:paddingBottom="@dimen/_5sdp"
+
                             android:text="@string/uploaddealpic"
                             android:textColor="@color/green"
                             android:textSize="@dimen/_14sdp"
@@ -145,7 +145,6 @@
                     app:cardPreventCornerOverlap="false">
 
                     <Spinner
-
                         android:id="@+id/categorySpinner"
                         style="@style/Spinner"
                         android:layout_width="match_parent"
@@ -154,8 +153,13 @@
                         android:drawSelectorOnTop="true"
                         android:dropDownVerticalOffset="-53dp"
                         android:spinnerMode="dropdown"
-
                         />
+                    <ImageView
+                        android:layout_marginLeft="@dimen/_165sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_icon_ionic_ios_arrow_down_green" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -186,8 +190,20 @@
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     app:cardCornerRadius="@dimen/_25sdp"
                     app:cardPreventCornerOverlap="false">
+                    <EditText
 
-                    <Spinner
+                        android:id="@+id/selectstore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rect_button"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/dealname_hint"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@={AddDealsViewModel.productDealName}"
+                        android:textColor="@color/text_grey"
+                        android:textColorHint="@color/text_grey"
+                        android:textSize="@dimen/_15sdp" />
+                   <!-- <Spinner
 
                         android:id="@+id/spinner"
                         style="@style/Spinner"
@@ -198,7 +214,7 @@
                         android:dropDownVerticalOffset="-53dp"
                         android:spinnerMode="dropdown"
 
-                        />
+                        />-->
 
                     <!--    <EditText
                         android:id="@+id/professionedt"
@@ -261,7 +277,7 @@
                         android:text="@={AddDealsViewModel.productDealName}"
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_15sdp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -306,7 +322,7 @@
                         android:text="@={AddDealsViewModel.productDealLocation}"
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_15sdp"/>
 
                 </androidx.cardview.widget.CardView>
 
@@ -351,9 +367,10 @@
                         android:text="@={AddDealsViewModel.productDealDate}"
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_15sdp" />
 
                 </androidx.cardview.widget.CardView>
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -365,7 +382,6 @@
                     android:text="@string/noofdeal"
                     android:textColor="@color/green"
                     android:textSize="@dimen/_14sdp" />
-
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -395,7 +411,7 @@
                         android:text="@={AddDealsViewModel.productDealQuantityNo}"
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_15sdp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -440,7 +456,7 @@
 
                         android:textColor="@color/text_grey"
                         android:textColorHint="@color/text_grey"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_15sdp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -455,14 +471,14 @@
                     android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/rect_button_green"
                     android:elevation="@dimen/_15sdp"
-                    android:fontFamily="@font/poppins_medium"
+                    android:fontFamily="@font/raleway_medium"
                     android:onClick="@{(v) -> AddDealsViewModel.onClickAddProductDeals(v)}"
-                    android:text="@string/adddeals"
+                    android:text="Add"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     app:cardCornerRadius="@dimen/_25sdp"
 
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
             </LinearLayout>
 

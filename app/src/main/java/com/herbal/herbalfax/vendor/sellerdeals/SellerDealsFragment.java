@@ -2,6 +2,7 @@ package com.herbal.herbalfax.vendor.sellerdeals;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,12 +13,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -55,6 +58,8 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
     LinearLayoutManager RecyclerViewLayoutManager;
     LinearLayoutManager HorizontalLayout;
     private ProgressBar progress_bar;
+    CardView filterpopview;
+    LinearLayout ll_head1;
     ImageView addDeals;
     ImageView imageView;
     RecyclerView dealsRecyclerView;
@@ -81,6 +86,9 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         clsCommon = CommonClass.getInstance();
         addDeals = root.findViewById(R.id.addDeals);
         progress_bar=root.findViewById(R.id.progress_bar);
+        filterpopview=root.findViewById(R.id.filterpopview);
+        ll_head1=root.findViewById(R.id.ll_head1);
+
         storeCategorySpinner = root.findViewById(R.id.storeCategorySpinner);
         searchEt = root.findViewById(R.id.searchEt);
         addDeals.setOnClickListener(view -> {
@@ -91,9 +99,14 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         callStorePreDataAPI();
 //        callProductDealsListApi("0");
         imageView = root.findViewById(R.id.filterbutton);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
+     /*   imageView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // TODO Auto-generated method stub
+                filterpopview.setVisibility(View.VISIBLE);
+            }
+
+
+           *//* public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.CustomAlertDialog);
                 ViewGroup viewGroup = root.findViewById(android.R.id.content);
                 View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.customview, viewGroup, false);
@@ -101,8 +114,43 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
                 alertDialog.getWindow().setGravity(Gravity.END|Gravity.TOP);
+            }*//*
+        });*/
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterpopview.setVisibility(View.VISIBLE);
             }
         });
+
+        /*ll_head1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterpopview.setVisibility(View.GONE);
+            }
+        });
+*/
+    /*    @Override
+        public boolean dispatchTouchEvent(MotionEvent ev) {
+            Rect viewRect = new Rect();
+            filterpopview.getGlobalVisibleRect(viewRect);
+            if (!viewRect.contains((int) ev.getRawX(), (int) ev.getRawY())) {
+                setVisibility(View.GONE);
+            }
+            return true;
+        }
+      *//*  ll_head1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Toast.makeText(getActivity(),"hiii",Toast.LENGTH_SHORT).show();
+                if (!hasFocus) {
+                    v.setVisibility(View.GONE);
+                }
+            }
+        });*/
+
 
         return root;
     }
@@ -121,7 +169,7 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                             ProductCategory productCategory=new ProductCategory();
                             productCategory.setIdstoreProductCategories("0");
                             productCategory.setSPCTitle("Select Category");
-                            lst_store_category = (ArrayList<ProductCategory>) response.body().getData().getProductCategories();
+                            lst_store_category = (ArrayList<ProductCategory>)response.body().getData().getProductCategories();
                             lst_store_category.add(0,productCategory);
 
                             if (lst_store_category != null && lst_store_category.size() > 0) {
