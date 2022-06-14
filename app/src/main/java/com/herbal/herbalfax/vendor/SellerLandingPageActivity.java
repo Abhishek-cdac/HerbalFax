@@ -261,7 +261,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                     ReplaceFrag(new SellerProductFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
-                    headerTxt.setText(R.string.my_products);
+                    headerTxt.setText(R.string.products);
                     return true;
                 case R.id.bottom_deal:
                     ReplaceFrag(new SellerDealsFragment());

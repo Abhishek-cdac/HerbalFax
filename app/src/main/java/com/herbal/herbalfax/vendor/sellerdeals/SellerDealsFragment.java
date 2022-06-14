@@ -2,6 +2,7 @@ package com.herbal.herbalfax.vendor.sellerdeals;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -119,10 +121,10 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                     if (response.body().getStatus() == 1) {
                         try {
                             ProductCategory productCategory=new ProductCategory();
-                            productCategory.setIdstoreProductCategories("0");
-                            productCategory.setSPCTitle("Select Category");
+//                            productCategory.setIdstoreProductCategories("0");
+//                            productCategory.setSPCTitle("Select Category");
                             lst_store_category = (ArrayList<ProductCategory>) response.body().getData().getProductCategories();
-                            lst_store_category.add(0,productCategory);
+                    //        lst_store_category.add(0,productCategory);
 
                             if (lst_store_category != null && lst_store_category.size() > 0) {
                                 String[] storeCategory = new String[lst_store_category.size()];
@@ -284,6 +286,9 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         try {
+            ((TextView) adapterView.getChildAt(0)).setTextColor(Color.GRAY);
+            ((TextView) adapterView.getChildAt(0)).setTextSize(14);
+
             IdStoreCategories = lst_store_category.get(i).getIdstoreProductCategories();
             if(IdStoreCategories==null)
             {

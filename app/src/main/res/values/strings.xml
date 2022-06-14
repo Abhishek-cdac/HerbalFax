@@ -126,7 +126,7 @@ receive emails from HerbalFax &amp; More</string>
     <string name="parcels">Parcel Service</string>
     <string name="deal">Deals</string>
     <string name="myevent">My Event</string>
-    <string name="my_deal">My Deals</string>
+    <string name="my_deal">Deals</string>
     <string name="ask_fax">Ask Fax</string>
     <string name="action_settings">Settings</string>
 
@@ -233,7 +233,7 @@ receive emails from HerbalFax &amp; More</string>
     <string name="cost_hint">Enter Cost</string>
     <string name="perkm">Per Distance(Per KM)</string>
     <string name="shippingdelivery">Shipping / Delivery</string>
-    <string name="findprodunct_hint">Find Products</string>
+    <string name="findprodunct_hint">Find Product</string>
     <string name="want_to_delete">Want To Delete</string>
     <string name="are_you_sure_you_want_to_delete_this_item">Are you sure you want to delete this item?</string>
     <string name="delete">Delete</string>
@@ -344,4 +344,6 @@ receive emails from HerbalFax &amp; More</string>
     <string name="dialog_title">Javatpoint Alert Dialog</string>
     <string name="status">Status</string>
     <string name="orderby">Ordered by</string>
+    <string name="select_store">Select Store</string>
+    <string name="select_category">Select Category</string>
 </resources>

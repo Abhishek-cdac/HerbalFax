@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="?attr/colorPrimary"
     android:minHeight="?attr/actionBarSize"
@@ -31,6 +33,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_toRightOf="@+id/crossToolBarImage"
                 android:gravity="center"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="@string/productdetail"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp"
