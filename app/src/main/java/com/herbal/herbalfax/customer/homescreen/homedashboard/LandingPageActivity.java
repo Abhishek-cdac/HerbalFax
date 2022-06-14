@@ -2,18 +2,13 @@ package com.herbal.herbalfax.customer.homescreen.homedashboard;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -21,32 +16,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
-import com.herbal.herbalfax.NewBuyerSc59;
+import com.herbal.herbalfax.NewsNBlogs;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.login.LoginActivity;
-import com.herbal.herbalfax.common_screen.profile.ProfileActivity;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
-import com.herbal.herbalfax.customer.homescreen.askfax.AskFaxFragment;
 import com.herbal.herbalfax.customer.homescreen.cart.selectdelivery.AddToCartActivity;
 import com.herbal.herbalfax.customer.homescreen.deals.DealsFragment;
-import com.herbal.herbalfax.customer.homescreen.edit.EditProfileActivity;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.group.GroupsFragment;
 import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
-import com.herbal.herbalfax.customer.homescreen.products.ProductsFragment;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.post.AddPostActivity;
 
@@ -222,9 +210,19 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     locationIcon.setVisibility(View.VISIBLE);
                     fab.setVisibility(View.GONE);
                     cardIcon.setVisibility(View.GONE);
-                    return true;/*
+                    return true;
                 case R.id.bottom_daily:
-                    ReplaceFrag(new NewBuyerSc59());
+                    headerTxt.setVisibility(View.VISIBLE);
+                    headerTxt.setText(getResources().getString(R.string.menu_daily));
+                    headerIcon.setVisibility(View.GONE);
+                    fab.setVisibility(View.GONE);
+                    createGroup.setVisibility(View.GONE);
+                    addQuestionTxt.setVisibility(View.GONE);
+                    ReplaceFrag(new NewsNBlogs());
+                    searchIcon.setVisibility(View.GONE);
+                    locationIcon.setVisibility(View.GONE);
+                    cardIcon.setVisibility(View.VISIBLE);
+                    /*ReplaceFrag(new NewsNBlogs());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerTxt.setText(getResources().getString(R.string.menu_daily));
                     headerIcon.setVisibility(View.GONE);
@@ -233,8 +231,8 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     addQuestionTxt.setVisibility(View.GONE);
                     searchIcon.setVisibility(View.GONE);
                     locationIcon.setVisibility(View.GONE);
-                    cardIcon.setVisibility(View.GONE);
-                    return true;*/
+                    cardIcon.setVisibility(View.GONE);*/
+                    return true;
 
                 /*    case R.id.bottom_dashboard:
                     ReplaceFrag(new ProductsFragment());

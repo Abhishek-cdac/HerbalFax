@@ -93,7 +93,7 @@
     <fragment
 
         android:id="@+id/bottom_daily"
-        android:name="com.herbal.herbalfax.NewBuyerSc59"
+        android:name="com.herbal.herbalfax.NewsNBlogs"
         android:label="@string/menu_daily"
         tools:layout="@layout/activity_new_buyer_sc59" />
    <!-- <fragment

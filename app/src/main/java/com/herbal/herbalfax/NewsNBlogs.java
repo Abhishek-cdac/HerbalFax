@@ -19,7 +19,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NewBuyerSc59 extends Fragment {
+public class NewsNBlogs extends Fragment {
     ArrayList personNames = new ArrayList<>(Arrays.asList("Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7"));
     TabLayout tabLayout;
     ViewPager viewPager;

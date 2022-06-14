@@ -39,12 +39,15 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            >
 
             <LinearLayout
                 android:layout_margin="@dimen/_10sdp"
@@ -53,8 +56,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/_150sdp"
-                    android:layout_height="@dimen/_200sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:scaleType="fitXY"
                     android:src="@drawable/bootdeal" />
@@ -69,28 +72,24 @@
                         android:id="@+id/productNameText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/raleway_semibold"
-                        android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_medium"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_15sdp"
+                        android:text="Wooden Table"/>
 
                     <TextView
+                        android:layout_marginTop="@dimen/_3sdp"
                         android:id="@+id/location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/nameLL"
-                        android:layout_marginStart="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_2sdp"
-                        android:layout_marginEnd="@dimen/_2sdp"
-                        android:layout_marginBottom="@dimen/_2sdp"
                         android:drawableLeft="@drawable/ic_icon_menu_map_pin"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center"
-                        android:padding="@dimen/_5sdp"
+                        android:text="595 Collins Knolls"
                         android:textColor="@color/text_grey"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
 
 
                     <TextView
@@ -98,15 +97,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/_3sdp"
                         android:drawableLeft="@drawable/rating"
                         android:drawablePadding="@dimen/_3sdp"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center"
-                        android:padding="@dimen/_5sdp"
                         android:text="0 Bought"
                         android:textColor="@color/text_grey"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
 
 
                     <TextView
@@ -115,40 +113,29 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/bought_ll"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/_2sdp"
-
-                        android:layout_marginTop="@dimen/_2sdp"
-                        android:layout_marginEnd="@dimen/_2sdp"
-                        android:layout_marginBottom="@dimen/_2sdp"
                         android:drawableLeft="@drawable/ic_calendar"
-
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center"
-                        android:padding="@dimen/_5sdp"
                         android:text="Validity Till: "
+                        android:layout_marginTop="@dimen/_3sdp"
                         android:textColor="@color/text_grey"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
+                        android:layout_marginTop="@dimen/_3sdp"
                         android:id="@+id/priceTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/bought_ll"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_2sdp"
-                        android:layout_marginEnd="@dimen/_2sdp"
-                        android:layout_marginBottom="@dimen/_2sdp"
-
                         android:drawableLeft="@drawable/ic_baseline_money"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center"
-                        android:padding="@dimen/_5sdp"
-                        android:text="price  "
+                        android:text="Price  "
                         android:textColor="@color/text_grey"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
 
 
                 </LinearLayout>
@@ -160,7 +147,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:padding="@dimen/_5sdp"
                 android:text="Choose your plan"
@@ -171,7 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp">
+              >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -183,8 +169,10 @@
                         android:id="@+id/twoDaysRb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/_10sdp"
-                        android:text="@string/_2_days" />
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="@string/_2_days"
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -193,7 +181,7 @@
                         android:layout_toRightOf="@+id/twoDaysRb"
                         android:fontFamily="@font/raleway_semibold"
                         android:gravity="end|center_vertical"
-                        android:padding="@dimen/_10sdp"
+
                         android:text="$20"
                         android:textColor="@color/black">
 
@@ -210,8 +198,10 @@
                         android:id="@+id/fourDaysRb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/_10sdp"
-                        android:text="@string/_4_days" />
+
+                        android:text="@string/_4_days"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="@dimen/_14sdp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -220,7 +210,7 @@
                         android:layout_toRightOf="@+id/fourDaysRb"
                         android:fontFamily="@font/raleway_semibold"
                         android:gravity="end|center_vertical"
-                        android:padding="@dimen/_10sdp"
+
                         android:text="$20"
                         android:textColor="@color/black">
 
@@ -237,8 +227,10 @@
                         android:id="@+id/sixDaysRb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/_10sdp"
-                        android:text="@string/_6_days" />
+
+                        android:text="@string/_6_days"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="@dimen/_14sdp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -247,7 +239,6 @@
                         android:layout_toRightOf="@+id/sixDaysRb"
                         android:fontFamily="@font/raleway_semibold"
                         android:gravity="end|center_vertical"
-                        android:padding="@dimen/_10sdp"
                         android:text="$20"
                         android:textColor="@color/black">
 
@@ -262,7 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_8sdp"
+
                 android:fontFamily="@font/roboto_regular"
                 android:padding="@dimen/_5sdp"
                 android:layout_gravity="end"
@@ -282,7 +273,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
                     android:fontFamily="@font/roboto_medium"
                     android:layout_gravity="left"
                     android:textColor="#656569"
@@ -292,30 +282,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
+
                     android:fontFamily="@font/roboto_medium"
                     android:layout_gravity="left"
                     android:textColor="#656569"
                     android:text="22/02/2021"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12sdp" />
             </LinearLayout>
 
                 <Button
                     android:id="@+id/buyBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="125dp"
+                    android:layout_height="35dp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/rect_button_green"
-                    android:fontFamily="@font/raleway_semibold"
+                    android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="@string/pay_now"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
             </RelativeLayout>
 
