@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFEFEF"
-
     android:orientation="vertical">
 
 
@@ -54,7 +53,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -123,15 +122,18 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:scrollbars="vertical" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_pending"
         android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:visibility="gone" />
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:id="@+id/recycler_view_completed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

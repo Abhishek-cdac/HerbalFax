@@ -107,14 +107,16 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                         e.printStackTrace();
                     }
                 }
-                else if (i == 12){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    ViewGroup viewGroup = root.findViewById(android.R.id.content);
-                    View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.customview_more, viewGroup, false);
-                    builder.setView(dialogView);
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
+             //   else if (i == 12){
+
+
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                    ViewGroup viewGroup = root.findViewById(android.R.id.content);
+//                    View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.customview_more, viewGroup, false);
+//                    builder.setView(dialogView);
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
+              //  }
             }
         };
         productRecyclerView = root.findViewById(R.id.productListrecyclerview);

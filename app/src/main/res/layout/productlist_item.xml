@@ -204,4 +204,50 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/filterpopview"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_45sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="#FFFFFF"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        app:cardElevation="@dimen/_8sdp"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Edit"
+                android:textColor="#282828" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#707070" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Delete"
+                android:textColor="#282828" />
+
+           </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

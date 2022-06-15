@@ -81,7 +81,15 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.moreImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemClick.onItemClicks(v, position, 12, "");
+            //    itemClick.onItemClicks(v, position, 12, "");
+                holder.filterpopview.setVisibility(View.VISIBLE);
+
+            }
+        });
+        holder.filterpopview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.filterpopview.setVisibility(View.GONE);
 
             }
         });
@@ -105,12 +113,14 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgProfile, moreImg;
         TextView headingTxt, productName, categoryTxt, descTxt, PriceTxt;
-        CardView editCard, deleteCard, herbalfax_choiceTxt;
+        CardView editCard, deleteCard, herbalfax_choiceTxt,filterpopview;
         FrameLayout cardview;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            filterpopview = itemView.findViewById(R.id.filterpopview);
             herbalfax_choiceTxt = itemView.findViewById(R.id.herbalfax_choiceTxt);
             headingTxt = itemView.findViewById(R.id.headingTxt);
             imgProfile = itemView.findViewById(R.id.imgprofile);

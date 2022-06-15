@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
+    card_view:cardCornerRadius="@dimen/_10sdp"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -31,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:src="@drawable/conroy" />
 
         </androidx.cardview.widget.CardView>
@@ -134,7 +135,8 @@
                     android:id="@+id/categoryTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+
                     android:fontFamily="@font/raleway_semibold"
                     android:text="Drop Shipping"
                     android:textColor="@color/text_grey"
@@ -144,24 +146,23 @@
             </RelativeLayout>
 
 
-
-
-
             <TextView
                 android:id="@+id/viewBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_below="@+id/categoryRl"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Delivered"
-                android:layout_alignParentEnd="true"
+                android:textAllCaps="true"
                 android:textColor="@color/green"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_14sdp" />
 
         </RelativeLayout>
 
     </LinearLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView>

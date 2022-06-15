@@ -1,27 +1,23 @@
 package com.herbal.herbalfax.vendor.sellerdeals;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -58,6 +54,7 @@ import retrofit2.Response;
 
 public class SellerDealsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     LinearLayoutManager RecyclerViewLayoutManager;
+    RelativeLayout rl_header;
     LinearLayoutManager HorizontalLayout;
     private ProgressBar progress_bar;
     CardView filterpopview;
@@ -67,19 +64,20 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
     RecyclerView dealsRecyclerView;
     Onclick itemClick;
     ArrayList<StoreProduct> lst_productDeals;
-    ArrayList<StoreProduct> localProductDeals=new ArrayList<>();
+    ArrayList<StoreProduct> localProductDeals = new ArrayList<>();
     CommonClass clsCommon;
     Spinner storeCategorySpinner;
     private ArrayList<ProductCategory> lst_store_category;
     SellerProductDealsAdapter sellerProductDealsAdapter;
-    private String IdStoreCategories="0";
+    private String IdStoreCategories = "0";
     EditText searchEt;
-    private int pastVisiblesItems=0;
-    private int visibleItemCount=0;
-    private int totalItemCount=0;
-    private int limit=10;
-    private int offset=0;
-    private boolean isLoading= true;
+    private int pastVisiblesItems = 0;
+    private int visibleItemCount = 0;
+    private int totalItemCount = 0;
+    private int limit = 10;
+    private int offset = 0;
+    private int visibleBox = 0;
+    private boolean isLoading = true;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -87,9 +85,10 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         View root = inflater.inflate(R.layout.fragment_sellerdeals, container, false);
         clsCommon = CommonClass.getInstance();
         addDeals = root.findViewById(R.id.addDeals);
-        progress_bar=root.findViewById(R.id.progress_bar);
-        filterpopview=root.findViewById(R.id.filterpopview);
-        ll_head1=root.findViewById(R.id.ll_head1);
+        rl_header = root.findViewById(R.id.rl_header);
+        progress_bar = root.findViewById(R.id.progress_bar);
+        filterpopview = root.findViewById(R.id.filterpopview);
+        ll_head1 = root.findViewById(R.id.ll_head1);
 
         storeCategorySpinner = root.findViewById(R.id.storeCategorySpinner);
         searchEt = root.findViewById(R.id.searchEt);
@@ -122,12 +121,37 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                visibleBox = 1;
                 filterpopview.setVisibility(View.VISIBLE);
             }
         });
 
+
+        rl_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterpopview.setVisibility(View.GONE);
+
+            }
+        });
+        if (visibleBox == 1){
+            filterpopview.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            filterpopview.setVisibility(View.GONE);
+        }
+
+        filterpopview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterpopview.setVisibility(View.GONE);
+
+            }
+        });
         /*ll_head1.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
                 filterpopview.setVisibility(View.GONE);
             }
@@ -168,11 +192,11 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                     assert response.body() != null;
                     if (response.body().getStatus() == 1) {
                         try {
-                            ProductCategory productCategory=new ProductCategory();
+                            ProductCategory productCategory = new ProductCategory();
 //                            productCategory.setIdstoreProductCategories("0");
 //                            productCategory.setSPCTitle("Select Category");
                             lst_store_category = (ArrayList<ProductCategory>) response.body().getData().getProductCategories();
-                    //        lst_store_category.add(0,productCategory);
+                            //        lst_store_category.add(0,productCategory);
 
                             if (lst_store_category != null && lst_store_category.size() > 0) {
                                 String[] storeCategory = new String[lst_store_category.size()];
@@ -216,11 +240,10 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         });
     }
 
-    private void callProductDealsAPI(String CategoryId)
-    {
+    private void callProductDealsAPI(String CategoryId) {
         if (CommonUtils.isInternetOn(getContext())) {
             callProductDealsListApi(CategoryId);
-        }else{
+        } else {
             Toast.makeText(getActivity(), getString(R.string.internet_connection_error), Toast.LENGTH_SHORT).show();
         }
     }
@@ -230,8 +253,8 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("StoreId", "0");
-        hashMap.put("limit", limit+"");
-        hashMap.put("offset", offset+"");
+        hashMap.put("limit", limit + "");
+        hashMap.put("offset", offset + "");
         hashMap.put("category", CategoryId);
         hashMap.put("active", "1");
         hashMap.put("product_type", "2");
@@ -239,10 +262,9 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
 
         TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
 //        pd.show();
-        if(offset==0)
-        {
+        if (offset == 0) {
             pd.show();
-        }else{
+        } else {
             progress_bar.setVisibility(View.VISIBLE);
         }
         Call<ProductListResponse> call = service.userStoreProductList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
@@ -260,14 +282,12 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                         if (lst_productDeals == null) {
                             lst_productDeals = new ArrayList<>();
                         }
-                        if(offset==0)
-                        {
+                        if (offset == 0) {
                             localProductDeals.clear();
                         }
                         localProductDeals.addAll(lst_productDeals);
 
-                        if(sellerProductDealsAdapter==null)
-                        {
+                        if (sellerProductDealsAdapter == null) {
                             RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
                             dealsRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
                             sellerProductDealsAdapter = new SellerProductDealsAdapter(localProductDeals, getActivity(), itemClick);
@@ -275,10 +295,10 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
                             dealsRecyclerView.setHasFixedSize(true);
                             dealsRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                             dealsRecyclerView.setAdapter(sellerProductDealsAdapter);
-                            isLoading=true;
-                        }else{
+                            isLoading = true;
+                        } else {
                             sellerProductDealsAdapter.notifyDataSetChanged();
-                            isLoading=true;
+                            isLoading = true;
                         }
 
                         dealsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -338,11 +358,10 @@ public class SellerDealsFragment extends Fragment implements AdapterView.OnItemS
             ((TextView) adapterView.getChildAt(0)).setTextSize(14);
 
             IdStoreCategories = lst_store_category.get(i).getIdstoreProductCategories();
-            if(IdStoreCategories==null)
-            {
-                IdStoreCategories="0";
+            if (IdStoreCategories == null) {
+                IdStoreCategories = "0";
             }
-            offset=0;
+            offset = 0;
             callProductDealsAPI(IdStoreCategories);
         } catch (Exception e) {
             e.printStackTrace();

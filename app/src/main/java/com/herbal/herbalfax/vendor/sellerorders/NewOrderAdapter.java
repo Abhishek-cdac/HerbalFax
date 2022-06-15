@@ -35,15 +35,15 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.MyView
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, joinTxt;
+        public TextView categoryTxt, viewBtn;
         public ImageView icon;
 
         public MyViewHolder(View view) {
             super(view);
-
+            categoryTxt= view.findViewById(R.id.categoryTxt);
+            viewBtn= view.findViewById(R.id.viewBtn);
         }
     }
-
 
 //    public CompleteOrderAdapter(List<Group> discoverList, FragmentActivity activity, Onclick itemClick) {
 //
@@ -58,6 +58,10 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.MyView
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(NewOrderAdapter.MyViewHolder holder, int position) {
+        if (position==1){
+            holder.viewBtn.setText("Pick up");
+            holder.categoryTxt.setText("Pick up Order");
+        }
        /* holder.title.setText(discoverList.get(position).getGrpName());
 
         if (!discoverList.get(position).getGrpImage().equals("")) {
@@ -74,14 +78,12 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.MyView
                 itemClick.onItemClicks(view, position, 17, GroupId);
             }
         });
-
 */
-
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 2;
     }
 
 }

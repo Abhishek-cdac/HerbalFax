@@ -138,7 +138,7 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/cart_item.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/category_item.xml" value="0.33" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/checkout_item.xml" value="0.209375" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/completed_order_listitem.xml" value="0.33" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/completed_order_listitem.xml" value="0.16" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/content_main.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/cust_product_reviews_item.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/customer_productlist_item.xml" value="0.22" />
@@ -187,9 +187,9 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/nav_header_common.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/nav_header_main.xml" value="0.33" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/new_deals_item.xml" value="0.209375" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/new_order_listitem.xml" value="0.67" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/pending_order_listitem.xml" value="0.22083333333333333" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/productlist_item.xml" value="0.25" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/new_order_listitem.xml" value="0.22" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/pending_order_listitem.xml" value="0.25" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/productlist_item.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/professional_dialog_layout.xml" value="0.16822916666666668" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/progress_dialog.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/row_comment.xml" value="0.22" />
