@@ -134,7 +134,6 @@ public class DealsFragment extends Fragment implements View.OnClickListener {
                         HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
                         dealsheadertxtrecycler.setLayoutManager(HorizontalLayout);
                         dealsheadertxtrecycler.setAdapter(newDealsAdaptor);
-
                     } else {
                         clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
                     }

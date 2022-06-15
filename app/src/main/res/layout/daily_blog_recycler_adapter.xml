@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="@dimen/_6sdp"
     android:layout_marginBottom="@dimen/_4sdp">
 
     <LinearLayout
@@ -36,20 +35,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="7:12 AM"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="Emmerich - Rogahn"
+                    android:textSize="@dimen/_14sdp"
                     android:textColor="#8E8E8E"
-                    android:textSize="@dimen/_14sdp" />
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="31"
+                    android:text="Share"
                     android:fontFamily="@font/roboto_regular"
                     android:textSize="@dimen/_14sdp"
                     android:textColor="#8E8E8E"
                     android:layout_alignParentRight="true"
                     android:drawablePadding="@dimen/_5sdp"
-                   />
+                    android:drawableLeft="@drawable/ic_icon_open_share"
+                    android:drawableRight="@drawable/ic_path_3024"/>
 
             </RelativeLayout>
 

@@ -1,7 +1,9 @@
 package com.herbal.herbalfax.vendor.sellerdeals.booster;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +14,17 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.herbal.herbalfax.R;
+import com.herbal.herbalfax.customer.bottomsheet.MoreBottomSheet;
 
 public class SellerBoosterDealActivity extends AppCompatActivity {
+    Context mContext;
     String dealName, dealId, dealPrice, dealExpiry, dealLocation;
     TextView endDateTxt, productNameText, productLocation, validity_txt, priceTxt, personBought;
     Button buyBtn;
     ImageView back;
-    Button buybtn;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -37,6 +41,7 @@ public class SellerBoosterDealActivity extends AppCompatActivity {
         buyBtn = findViewById(R.id.buyBtn);
         endDateTxt = findViewById(R.id.endDateTxt);
         back = findViewById(R.id.back);
+        buyBtn.setOnClickListener(v -> showBottomSheet(0));
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,20 +72,12 @@ public class SellerBoosterDealActivity extends AppCompatActivity {
         } else {
             productLocation.setText(dealLocation);
         }
-        buybtn = findViewById(R.id.buyBtn);
-        buybtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(SellerBoosterDealActivity.this,R.style.CustomAlertDialog);
-                ViewGroup viewGroup = findViewById(android.R.id.content);
-                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.buycustomview, viewGroup, false);
-                builder.setView(dialogView);
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-                alertDialog.getWindow().setGravity(Gravity.BOTTOM);
-            }
-        });
 
+    }
 
+    private void showBottomSheet(int adapterPosition) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        PayBottomSheet sheet = new PayBottomSheet(this, adapterPosition);
+        sheet.show(fragmentManager, "comment bottom sheet");
     }
 }
