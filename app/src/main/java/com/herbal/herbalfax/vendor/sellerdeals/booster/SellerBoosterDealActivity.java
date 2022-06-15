@@ -17,7 +17,7 @@ import com.herbal.herbalfax.R;
 
 public class SellerBoosterDealActivity extends AppCompatActivity {
     String dealName, dealId, dealPrice, dealExpiry, dealLocation;
-    TextView endDateTxt, productNameText, productLocation, validity_txt, priceTxt, personBought;
+    TextView endDateTxt, productNameText, productLocation, validity_txt, price, personBought;
     Button buyBtn;
     ImageView back;
     Button buybtn;
@@ -31,7 +31,7 @@ public class SellerBoosterDealActivity extends AppCompatActivity {
         productNameText = findViewById(R.id.productNameText);
         productLocation = findViewById(R.id.location);
         validity_txt = findViewById(R.id.validity_txt);
-        priceTxt = findViewById(R.id.priceTxt);
+        price = findViewById(R.id.price);
         personBought = findViewById(R.id.personBought);
         productLocation = findViewById(R.id.location);
         buyBtn = findViewById(R.id.buyBtn);
@@ -55,7 +55,7 @@ public class SellerBoosterDealActivity extends AppCompatActivity {
         productNameText.setText(dealName);
         productLocation.setText(dealLocation);
         personBought.setText("0 Bought");
-        priceTxt.setText("Price : $" + dealPrice);
+        price.setText("$" + dealPrice);
 
 
         if (dealExpiry != null) {
