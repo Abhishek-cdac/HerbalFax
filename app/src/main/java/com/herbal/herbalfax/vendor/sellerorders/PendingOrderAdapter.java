@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.homescreen.group.yourgroupmodel.Group;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
 
     private List<Group> lst_completeOrder = new ArrayList<>();
     Context context;
-    Picasso picasso;
+    //  Picasso picasso;
     Onclick itemClick;
 
     public PendingOrderAdapter(List<Group> lst_completeOrder, FragmentActivity activity, Onclick itemClick) {
@@ -31,16 +31,18 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
         this.lst_completeOrder = lst_completeOrder;
         this.context = activity;
         this.itemClick = itemClick;
-        picasso = Picasso.get();
+        //    picasso = Picasso.get();
     }
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, joinTxt;
+        public TextView categoryTxt, viewBtn;
         public ImageView icon;
 
         public MyViewHolder(View view) {
             super(view);
+            categoryTxt = view.findViewById(R.id.categoryTxt);
+            viewBtn = view.findViewById(R.id.viewBtn);
 
         }
     }
@@ -50,15 +52,22 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
 //
 //    }
 
+    @NonNull
     @Override
     public PendingOrderAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.pending_order_listitem, parent, false);
         return new PendingOrderAdapter.MyViewHolder(itemView);
     }
 
-    @SuppressLint("RecyclerView")
+    @SuppressLint({"RecyclerView", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(PendingOrderAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PendingOrderAdapter.MyViewHolder holder, int position) {
+
+        if (position == 0) {
+            holder.viewBtn.setText("Track");
+        } else {
+            holder.viewBtn.setText("Pick up order");
+        }
        /* holder.title.setText(discoverList.get(position).getGrpName());
 
         if (!discoverList.get(position).getGrpImage().equals("")) {
@@ -82,7 +91,7 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 2;
     }
 
 }

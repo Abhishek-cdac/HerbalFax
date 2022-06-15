@@ -36,11 +36,13 @@ public class CompleteOrderAdapter extends RecyclerView.Adapter<CompleteOrderAdap
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, joinTxt;
+        public TextView categoryTxt, viewBtn;
         public ImageView icon;
 
         public MyViewHolder(View view) {
             super(view);
+            viewBtn= view.findViewById(R.id.viewBtn);
+            categoryTxt= view.findViewById(R.id.categoryTxt);
 
         }
     }
@@ -59,6 +61,11 @@ public class CompleteOrderAdapter extends RecyclerView.Adapter<CompleteOrderAdap
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(CompleteOrderAdapter.MyViewHolder holder, int position) {
+    if (position==1){
+        holder.viewBtn.setText("PICKed up");
+        holder.categoryTxt.setText("Pick up Order");
+    }
+
        /* holder.title.setText(discoverList.get(position).getGrpName());
 
         if (!discoverList.get(position).getGrpImage().equals("")) {
@@ -82,7 +89,7 @@ public class CompleteOrderAdapter extends RecyclerView.Adapter<CompleteOrderAdap
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 2;
     }
 
 }

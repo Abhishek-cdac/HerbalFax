@@ -3,60 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/NewHerbalfax/app/src/main/res/drawable/ic_group_2721.xml" value="0.20555555555555555" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/drawable/ic_icon_ionic_ios_arrow_down.xml" value="0.2708333333333333" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/drawable/ic_icon_ionic_ios_arrow_down_green.xml" value="0.2708333333333333" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/drawable/ic_path_2341.xml" value="0.2805128205128205" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/drawable/tabs_selector.xml" value="0.19635416666666666" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_deals.xml" value="0.22" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_event.xml" value="0.13958333333333334" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_payment_method.xml" value="0.25" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_product.xml" value="0.33" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_rider.xml" value="0.22" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_store.xml" value="0.12409420289855072" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_add_your_business.xml" value="0.12409420289855072" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_blog_details.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_blogs.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_common_landing_nav.xml" value="0.13958333333333334" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_customer_product_details.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_deals_details.xml" value="0.13069908814589665" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_event_read_more.xml" value="0.13958333333333334" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_events_details.xml" value="0.13958333333333334" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_login.xml" value="0.13958333333333334" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_new_buyer_sc59.xml" value="0.12239583333333333" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_new_customer_sign_up_sc14.xml" value="0.12409420289855072" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_new_vendor_sign_up_sc13.xml" value="0.13069908814589665" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_new_vendor_sign_up_sc15.xml" value="0.12409420289855072" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_payment.xml" value="0.2" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_payment_checkout.xml" value="0.203125" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_payment_successfull.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_pendingdetail.xml" value="0.22" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_photos_details.xml" value="0.15" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/activity_seller_booster_deal.xml" value="0.25" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/articles_item.xml" value="0.16" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/blog_details_item.xml" value="0.12239583333333333" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/buycustomview.xml" value="0.13069908814589665" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/category_item.xml" value="0.14" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/customer_productlist_item.xml" value="0.25" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/customview.xml" value="0.25" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/daily_blog_recycler_adapter.xml" value="0.2" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/daily_news_recycler_adapter.xml" value="0.22" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/events_item.xml" value="0.13958333333333334" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/feed_item.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/frag_add_comments_bottom_sheet.xml" value="0.13958333333333334" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/frag_more_bottom_sheet.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_blogs.xml" value="0.12239583333333333" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_dashboard.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_deals.xml" value="0.13069908814589665" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_news.xml" value="0.12239583333333333" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_sellerdeals.xml" value="0.22" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/fragment_sellerorder.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/new_deals_item.xml" value="0.12681159420289856" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/new_order_listitem.xml" value="0.26875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/newslist_item.xml" value="0.12239583333333333" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/row_add_image.xml" value="0.2546875" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/seller_store_deals_item.xml" value="0.25" />
-        <entry key="..\:/NewHerbalfax/app/src/main/res/layout/store_deals_item.xml" value="0.26875" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable-mdpi/rect_button_light_green.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/back_select.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/back_tabs.xml" value="0.22552083333333334" />
@@ -67,6 +13,7 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/circle_background_green.xml" value="0.22205128205128205" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/circle_background_grey.xml" value="0.22205128205128205" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/circle_background_white.xml" value="0.1825" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/edit_icon.xml" value="0.13" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/edit_text_border.xml" value="0.22135416666666666" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/edittext_border.xml" value="0.1925925925925926" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/edittext_border_bg.xml" value="0.22552083333333334" />
@@ -75,6 +22,7 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_baseline_photo_camera_24.xml" value="0.22205128205128205" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_customer_black.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_customer_white.xml" value="0.22552083333333334" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon__phone.xml" value="0.13" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_arrow_left_black.xml" value="0.1955" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_arrow_left_white.xml" value="0.1385" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_blog_black.xml" value="0.22552083333333334" />
@@ -83,10 +31,11 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_feather_eye_white.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_feather_map_pin_black.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_feather_map_pin_greennnn.xml" value="0.22552083333333334" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_ionic_ios_checkmark_circle_outline.xml" value="0.21481481481481482" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_ionic_ios_checkmark_circle_outline.xml" value="0.13" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_ionic_ios_checkmark_circle_outline_black.xml" value="0.21481481481481482" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_menu_credit_card_black.xml" value="0.21481481481481482" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_menu_credit_card_darkblack.xml" value="0.21481481481481482" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_phone_green.xml" value="0.13" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_post_black.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_post_white.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_icon_share.xml" value="0.22552083333333334" />
@@ -100,6 +49,7 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_store_green_icon.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_vendor_black.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/ic_vendor_white.xml" value="0.22552083333333334" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/image_background.xml" value="0.13" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/line.xml" value="0.22552083333333334" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/popup_background.xml" value="0.133" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/drawable/rect_button.xml" value="0.22552083333333334" />
@@ -117,6 +67,7 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_add_people_to_group.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_add_product.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_add_question_ask_fax.xml" value="0.22" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_add_rider.xml" value="0.25" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_add_store.xml" value="0.2167689161554192" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_add_to_cart.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_add_your_business.xml" value="0.209375" />
@@ -159,6 +110,8 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_new_vendor_sign_up_sc_two.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_notification.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_payment_checkout.xml" value="0.209375" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_pendingdetail.xml" value="0.19833178869323448" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_pick_up_order.xml" value="0.21666666666666667" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_registration_selection.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/activity_select_delivery_address.xml" value="0.19375" />
@@ -190,6 +143,8 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/cust_product_reviews_item.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/customer_productlist_item.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/customview.xml" value="0.10739614994934144" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/customview_more.xml" value="0.22083333333333333" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/daily_blog_recycler_adapter.xml" value="0.10739614994934144" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/discover_listitem.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/drawer_bottom.xml" value="0.20520833333333333" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/drawer_header.xml" value="0.25" />
@@ -225,7 +180,7 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_sellerdriver.xml" value="0.14447463768115942" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_sellermystore.xml" value="0.21" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_sellerorder.xml" value="0.2" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_sellerproduct.xml" value="0.16" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_sellerproduct.xml" value="0.21" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_store_deals_fragment.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_store_products_fragment.xml" value="0.1" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/fragment_store_review_fragment.xml" value="0.209375" />
@@ -233,8 +188,9 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/nav_header_common.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/nav_header_main.xml" value="0.33" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/new_deals_item.xml" value="0.209375" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/new_order_listitem.xml" value="0.67" />
-        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/pending_order_listitem.xml" value="0.22083333333333333" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/new_order_listitem.xml" value="0.22" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/pending_order_listitem.xml" value="0.25" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/productlist_item.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/professional_dialog_layout.xml" value="0.16822916666666668" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/progress_dialog.xml" value="0.209375" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/row_comment.xml" value="0.22" />
@@ -245,6 +201,7 @@
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/seller_drawer_bottom.xml" value="0.22083333333333333" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/seller_nav_header_main.xml" value="0.5" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/seller_store_deals_item.xml" value="0.22" />
+        <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/seller_toolsbar.xml" value="0.22083333333333333" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/shopping_detail_bottom_sheet.xml" value="0.22" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/store_deals_item.xml" value="0.33" />
         <entry key="..\:/final/HerbalFaxNew/app/src/main/res/layout/store_deals_items1.xml" value="0.209375" />

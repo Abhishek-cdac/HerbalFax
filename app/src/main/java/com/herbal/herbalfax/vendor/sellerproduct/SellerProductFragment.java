@@ -1,6 +1,8 @@
 package com.herbal.herbalfax.vendor.sellerproduct;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,11 +14,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +39,9 @@ import com.herbal.herbalfax.vendor.sellerproduct.productdetail.ProductDetailsAct
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.ProductCategory;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.ProductListResponse;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
+import com.herbal.herbalfax.vendor.storelist.MyStoreListAdapter;
+import com.herbal.herbalfax.vendor.storelist.storelistmodel.Store;
+import com.herbal.herbalfax.vendor.storelist.storelistmodel.StoreListResponse;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -87,7 +94,8 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
 
             @Override
             public void onItemClicks(View view, int position, int i, String productId) {
-                if (i == 10) {
+                if (i == 10)
+                {
                     Intent intent = new Intent(getActivity(), ProductDetailsActivity.class);
                     intent.putExtra("ProductId", productId);
                     startActivity(intent);
@@ -99,13 +107,92 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                         e.printStackTrace();
                     }
                 }
+             //   else if (i == 12){
+
+
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                    ViewGroup viewGroup = root.findViewById(android.R.id.content);
+//                    View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.customview_more, viewGroup, false);
+//                    builder.setView(dialogView);
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
+              //  }
             }
         };
         productRecyclerView = root.findViewById(R.id.productListrecyclerview);
         initAddProduct();
         callProductListApi();
+        callGetStoreListAPI();
         return root;
     }
+
+
+    private void callGetStoreListAPI() {
+        SessionPref pref = SessionPref.getInstance(getActivity());
+
+        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("VendorId", pref.getStringVal(SessionPref.LoginUserID));
+        hashMap.put("offset", offset+"");
+        hashMap.put("limit", limit+"");
+
+        TransparentProgressDialog pd = TransparentProgressDialog.getInstance(getActivity());
+        pd.show();
+        Call<StoreListResponse> call = service.storeList("Bearer " + pref.getStringVal(SessionPref.LoginJwtoken), hashMap);
+        call.enqueue(new Callback<StoreListResponse>() {
+            @Override
+            public void onResponse(Call<StoreListResponse> call, Response<StoreListResponse> response) {
+                pd.cancel();
+                if (response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getStatus() == 1) {
+                        ArrayList<Store> lst_store = (ArrayList<Store>) response.body().getData().getStores();
+                        if (lst_store == null) {
+                            lst_store = new ArrayList<>();
+                        }
+
+
+                        if (lst_store != null && lst_store.size() > 0) {
+                            String[] storeList = new String[lst_store.size()];
+
+                            for (int i = 0; i < lst_store.size(); i++) {
+                                storeList[i] = lst_store.get(i).getStoreName();
+                                storeSpinner.setOnItemSelectedListener(SellerProductFragment.this);
+
+                                Log.e("storeCategory frg", "" + storeList[i]);
+                                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(),
+                                        android.R.layout.simple_spinner_item,
+                                        storeList);
+                                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+                                storeSpinner.setAdapter(spinnerArrayAdapter);
+
+                            }
+                        }
+
+
+                    } else {
+                        clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", response.body().getMessage(), "Ok");
+                    }
+                } else {
+                    try {
+                        assert response.errorBody() != null;
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        clsCommon.showDialogMsgFrag(getActivity(), "HerbalFax", jObjError.getString("message"), "Ok");
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<StoreListResponse> call, Throwable t) {
+                t.printStackTrace();
+                pd.cancel();
+                Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     private void callProductListApi() {
 
@@ -157,7 +244,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
 
                             }
                         }
-                   /*     lst_store =  response.body().getData().getVendorStores();
+                        /*lst_store =  response.body().getData().getVendorStores();
 
                         if (lst_store != null && lst_store.size() > 0) {
                             String[] storeList = new String[lst_store.size()];
@@ -174,8 +261,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                                 storeSpinner.setAdapter(spinnerArrayAdapter);
 
                             }
-                        }
-*/
+                        }*/
                         ArrayList<StoreProduct> localList=(ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
 //                        lst_product = (ArrayList<StoreProduct>) response.body().getData().getStoreProducts();
 
@@ -219,10 +305,8 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                                                 callProductListApi();
 
                                             }
-
                                         }
                                     }
-
                                 }
                             }
                         });
@@ -267,6 +351,8 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.GRAY);
+        ((TextView) adapterView.getChildAt(0)).setTextSize(15);
 
     }
 

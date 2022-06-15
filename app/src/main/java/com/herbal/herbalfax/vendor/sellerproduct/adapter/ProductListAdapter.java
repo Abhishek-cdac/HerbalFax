@@ -1,7 +1,7 @@
 package com.herbal.herbalfax.vendor.sellerproduct.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +15,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
-import com.herbal.herbalfax.common_screen.dialog.DeleteDialog;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
 import com.herbal.herbalfax.vendor.sellerproduct.productlistmodel.StoreProduct;
-/*import com.squareup.picasso.Picasso;*/
 
 import java.util.ArrayList;
 
@@ -57,6 +55,15 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                         .into(holder.imgProfile);*/
             }
         }
+
+        if (position == 1) {
+            holder.herbalfax_choiceTxt.setVisibility(View.VISIBLE);
+        } else if (position == 4) {
+            holder.herbalfax_choiceTxt.setVisibility(View.VISIBLE);
+        } else {
+            holder.herbalfax_choiceTxt.setVisibility(View.GONE);
+
+        }
         holder.productName.setText(lst_product.get(position).getSPName());
         holder.PriceTxt.setText(" : " + lst_product.get(position).getSPRate());
         holder.categoryTxt.setText(lst_product.get(position).getSPCTitle());
@@ -67,6 +74,22 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             public void onClick(View view) {
                 itemClick.onItemClicks(view, position, 10, productId);
 
+
+            }
+        });
+
+        holder.moreImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            //    itemClick.onItemClicks(v, position, 12, "");
+                holder.filterpopview.setVisibility(View.VISIBLE);
+
+            }
+        });
+        holder.filterpopview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.filterpopview.setVisibility(View.GONE);
 
             }
         });
@@ -88,14 +111,17 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgProfile;
+        ImageView imgProfile, moreImg;
         TextView headingTxt, productName, categoryTxt, descTxt, PriceTxt;
-        CardView editCard, deleteCard;
+        CardView editCard, deleteCard, herbalfax_choiceTxt,filterpopview;
         FrameLayout cardview;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            filterpopview = itemView.findViewById(R.id.filterpopview);
+            herbalfax_choiceTxt = itemView.findViewById(R.id.herbalfax_choiceTxt);
             headingTxt = itemView.findViewById(R.id.headingTxt);
             imgProfile = itemView.findViewById(R.id.imgprofile);
             descTxt = itemView.findViewById(R.id.descTxt);
@@ -105,6 +131,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             deleteCard = itemView.findViewById(R.id.deleteCard);
             editCard = itemView.findViewById(R.id.editCard);
             cardview = itemView.findViewById(R.id.cardview);
+            moreImg = itemView.findViewById(R.id.moreImg);
 
         }
     }

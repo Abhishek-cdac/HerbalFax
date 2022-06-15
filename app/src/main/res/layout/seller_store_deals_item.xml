@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_5sdp"
     android:background="@color/white"
-    app:cardCornerRadius="@dimen/_5sdp">
+    app:cardCornerRadius="@dimen/_8sdp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             <ImageView
                 android:id="@+id/productImg"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_height="@dimen/_105sdp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:scaleType="fitXY"
@@ -46,14 +46,12 @@
                 android:id="@+id/productNameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_weight=".9"
                 android:padding="@dimen/_5sdp"
                android:fontFamily="@font/raleway_semibold"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_12sdp" />
 
             <ImageView
                 android:id="@+id/dealFav"
@@ -77,6 +75,7 @@
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_marginEnd="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_2sdp"
+            android:gravity="center_vertical"
             android:drawableLeft="@drawable/ic_icon_menu_map_pin"
             android:drawablePadding="@dimen/_5sdp"
             android:fontFamily="@font/roboto_regular"
@@ -100,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".8"
+                android:gravity="center_vertical"
                 android:drawableLeft="@drawable/rating"
                 android:drawablePadding="@dimen/_3sdp"
                 android:fontFamily="@font/roboto_regular"
@@ -115,7 +115,6 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:fontFamily="@font/roboto_medium"
-
                 android:text="$273"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
@@ -132,7 +131,7 @@
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_marginEnd="@dimen/_2sdp"
-
+            android:gravity="center_vertical"
             android:layout_marginBottom="@dimen/_2sdp"
             android:drawableLeft="@drawable/ic_calendar"
             android:drawablePadding="@dimen/_5sdp"

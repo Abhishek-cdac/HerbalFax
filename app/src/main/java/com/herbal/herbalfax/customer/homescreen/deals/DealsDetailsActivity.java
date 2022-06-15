@@ -24,7 +24,7 @@ import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.homescreen.deals.adaptor.RelatedDealsAdapter;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
 import com.herbal.herbalfax.vendor.sellerproduct.productdetail.productdetailsmodel.ProductDetailsResponse;
-import com.squareup.picasso.Picasso;
+
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -71,12 +71,7 @@ public class DealsDetailsActivity extends AppCompatActivity implements AdapterVi
         headerTxt = findViewById(R.id.headerTxt);
         location = findViewById(R.id.location);
         back = findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        back.setOnClickListener(view -> onBackPressed());
         callProductDetails(productId);
         setUpDealsRecyclerView();
     }
@@ -134,9 +129,9 @@ public class DealsDetailsActivity extends AppCompatActivity implements AdapterVi
                              priceTxt.setText("$"+response.body().getData().getStoreProduct().getSPRate());
                             para_txt.setText(response.body().getData().getStoreProduct().getSPDesc());
                             if (!response.body().getData().getStoreProduct().getSPPPath().equals("")) {
-                                Picasso.get()
-                                        .load(String.valueOf(response.body().getData().getStoreProduct().getSPPPath()))
-                                        .into(productImg);
+//                                Picasso.get()
+//                                        .load(String.valueOf(response.body().getData().getStoreProduct().getSPPPath()))
+//                                        .into(productImg);
                             }
 
 

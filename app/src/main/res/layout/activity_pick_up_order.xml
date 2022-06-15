@@ -189,13 +189,12 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_weight=".2"
-                android:src="@drawable/ic_icon_phone_green"
+                android:src="@drawable/ic_group_3096"
                 app:civ_border_color="@color/white"
                 app:civ_border_width="1dp"
                 app:civ_circle_background_color="@color/black" />
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
