@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        app:cardCornerRadius="@dimen/_5sdp">
+        app:cardCornerRadius="@dimen/_8sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,8 +75,8 @@
 
                             <ImageView
                                 android:id="@+id/profile_image"
-                                android:layout_width="100dp"
-                                android:layout_height="@dimen/_100sdp"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_90sdp"
                                 android:contentDescription="Your main image view"
                                 android:foregroundGravity="center"
                                 android:scaleType="fitXY"
@@ -170,11 +170,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/categoryRl"
-                        android:fontFamily="@font/raleway_semibold"
+                        android:fontFamily="@font/raleway_medium"
                         android:maxLines="2"
                         android:text="@string/dummy_desc"
                         android:textColor="@color/text_grey"
-                        android:textSize="12dp" />
+                        android:textSize="11dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -218,7 +218,7 @@
         android:padding="@dimen/_10sdp"
         app:cardElevation="@dimen/_8sdp"
         android:visibility="gone"
-        app:cardCornerRadius="@dimen/_5sdp">
+        app:cardCornerRadius="@dimen/_8sdp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -231,6 +231,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Edit"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="#282828" />
 
             <View
@@ -245,6 +246,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Delete"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="#282828" />
 
            </LinearLayout>

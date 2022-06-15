@@ -40,7 +40,7 @@
                 android:layout_marginRight="@dimen/_10sdp"
                 android:background="@drawable/rect_button"
 
-                android:fontFamily="@font/raleway_regular"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="@string/findprodunct_hint"
                 android:paddingLeft="@dimen/_10sdp"
                 android:textColor="@color/text_grey"
@@ -73,7 +73,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_semibold"
+                android:fontFamily="@font/raleway_medium"
+                android:textSize="@dimen/_14sdp"
                 android:text="@string/select_store"
                 android:textColor="@color/green" />
 
@@ -134,8 +135,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_semibold"
+                android:fontFamily="@font/raleway_medium"
                 android:text="@string/select_category"
+                android:textSize="@dimen/_14sdp"
                 android:textColor="@color/green" />
 
             <androidx.cardview.widget.CardView

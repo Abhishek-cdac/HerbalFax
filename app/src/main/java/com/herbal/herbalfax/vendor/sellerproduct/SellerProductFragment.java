@@ -305,10 +305,8 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                                                 callProductListApi();
 
                                             }
-
                                         }
                                     }
-
                                 }
                             }
                         });
@@ -354,7 +352,7 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         ((TextView) adapterView.getChildAt(0)).setTextColor(Color.GRAY);
-        ((TextView) adapterView.getChildAt(0)).setTextSize(14);
+        ((TextView) adapterView.getChildAt(0)).setTextSize(15);
 
     }
 
