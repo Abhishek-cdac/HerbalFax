@@ -9,14 +9,24 @@
     android:orientation="vertical"
     tools:ignore="ExtraText">
 
-    <com.google.android.material.tabs.TabLayout
+  <!--  <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:tabTextColor="@color/green"
-        app:tabIndicatorColor="@color/green"
+        app:tabTextAppearance="@style/CustomTextAppearanceTab"
         >
+    </com.google.android.material.tabs.TabLayout>-->
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabSelectedTextColor="@color/green"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorColor="@color/green"
+        app:tabTextAppearance="@style/CustomTextAppearanceTab"
+        app:tabBackground="@drawable/tabs_selector">
     </com.google.android.material.tabs.TabLayout>
 
     <!--   <LinearLayout
@@ -48,12 +58,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp">
+     >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/_25sdp"
-            android:elevation="@dimen/_5sdp">
+            android:elevation="@dimen/_5sdp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,42 +89,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:weightSum="3"
 
                 >
                 <Button
-                    android:layout_weight="0.3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
                     android:text="Trending"
-                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_margin="10dp"
                     android:textColor="#0B151D"
                     android:background="@drawable/button_dark_green"
                     android:textSize="@dimen/_12sdp"
-                    android:fontFamily="@font/raleway_semibold"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"/>
 
                 <Button
-                    android:layout_margin="@dimen/_10sdp"
-                    android:layout_weight="0.3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
                     android:text="recent"
+                    android:layout_margin="10dp"
                     android:textColor="#0B151D"
+                    android:textAllCaps="false"
                     android:background="@drawable/button_light_green"
                     android:textSize="@dimen/_12sdp"
-                    android:fontFamily="@font/raleway_semibold"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"/>
 
                 <Button
-                    android:layout_margin="@dimen/_10sdp"
-                    android:layout_weight="0.3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
                     android:text="popular"
+                    android:layout_margin="10dp"
                     android:textColor="#0B151D"
+                    android:textAllCaps="false"
                     android:background="@drawable/button_light_green"
                     android:textSize="@dimen/_12sdp"
-                    android:fontFamily="@font/raleway_semibold"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"/>
             </LinearLayout>
 

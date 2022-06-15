@@ -36,7 +36,7 @@ FragmentManager fragmentManager;
         viewPager=(ViewPager)v.findViewById(R.id.viewPager);
 
         tabLayout.addTab(tabLayout.newTab().setText("News"));
-        tabLayout.addTab(tabLayout.newTab().setText("Blog"));
+        tabLayout.addTab(tabLayout.newTab().setText("Blogs"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
