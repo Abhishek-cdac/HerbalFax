@@ -19,8 +19,7 @@ public class MySocialFragment extends Fragment {
 
     private MySocialViewModel mySocialViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mySocialViewModel = ViewModelProviders.of(this).get(MySocialViewModel.class);
         View root = inflater.inflate(R.layout.fragment_my_social, container, false);
         return root;

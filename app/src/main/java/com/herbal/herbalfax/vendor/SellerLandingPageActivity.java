@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
 import com.herbal.herbalfax.vendor.sellerdeals.SellerDealsFragment;
 import com.herbal.herbalfax.vendor.sellerdrivers.SellerDriverFragment;
+import com.herbal.herbalfax.vendor.sellernotification.SellerNotificationFragment;
 import com.herbal.herbalfax.vendor.sellerorders.SellerOrderFragment;
 import com.herbal.herbalfax.vendor.sellerproduct.SellerProductFragment;
 import com.herbal.herbalfax.vendor.storelist.SellerStoreListFragment;
@@ -76,7 +78,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
     private ImageView crossToolBarImage;
     private RecyclerView drawerRecylerView;
     Context mContext;
-
+RelativeLayout toolbarRl;
     SessionPref pref;
 
     @Override
@@ -87,6 +89,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         Bundle extras = getIntent().getExtras();
         clsCommon = CommonClass.getInstance();
         drawer = findViewById(R.id.drawerLayout);
+        toolbarRl = findViewById(R.id.toolbarRl);
         headerIcon = findViewById(R.id.headerIcon);
         headerTxt = findViewById(R.id.headerTxt);
         crossToolBarImage = findViewById(R.id.crossToolBarImage);
@@ -169,20 +172,31 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
 
     private void openDrawerItem(int position) {
         if (position == 5) {
+            headerTxt.setVisibility(View.VISIBLE);
+            headerTxt.setText("My Stores");
+            headerIcon.setVisibility(View.GONE);
             ReplaceFrag(new SellerStoreListFragment());
             onBackPressed();
         }
         else if(position==3){
-
+            headerTxt.setVisibility(View.VISIBLE);
+            headerTxt.setText("Riders List");
+            headerIcon.setVisibility(View.GONE);
             ReplaceFrag(new SellerDriverFragment());
             onBackPressed();
-        }else if(position==1){
-
+        }
+        else if(position==1){
+            headerTxt.setVisibility(View.VISIBLE);
+            headerTxt.setText("My Social");
+            headerIcon.setVisibility(View.GONE);
             ReplaceFrag(new MySocialFragment());
             onBackPressed();
-        }else if(position==2){
-
-          //  ReplaceFrag(new MySocialFragment());
+        }
+        else if(position==2){
+            headerTxt.setVisibility(View.VISIBLE);
+            headerTxt.setText("Notifications");
+            headerIcon.setVisibility(View.GONE);
+            ReplaceFrag(new SellerNotificationFragment());
             onBackPressed();
         }
     }
