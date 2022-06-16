@@ -55,6 +55,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:background="#f4f4f4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -82,9 +83,9 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+                    
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    
                     android:padding="@dimen/_5sdp"
                     app:cardCornerRadius="@dimen/_30sdp"
                     app:cardPreventCornerOverlap="false">
@@ -127,9 +128,9 @@
                     android:dividerHeight="0.0px"
                     android:layout_marginHorizontal="@dimen/_10sdp"
 
-                    android:elevation="@dimen/_5sdp"
+                    
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    
                     android:padding="@dimen/_5sdp"
                     app:cardCornerRadius="@dimen/_30sdp"
                     app:cardPreventCornerOverlap="false">
@@ -188,11 +189,11 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    
                     android:padding="@dimen/_5sdp"
-                    app:cardCornerRadius="@dimen/_30sdp"
+                    app:cardCornerRadius="@dimen/_23sdp"
                     android:layout_marginHorizontal="@dimen/_10sdp"
 
                     app:cardPreventCornerOverlap="false">
@@ -233,11 +234,11 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
+                    
                     android:padding="@dimen/_5sdp"
-                    app:cardCornerRadius="@dimen/_30sdp"
+                    app:cardCornerRadius="@dimen/_23sdp"
                     android:layout_marginHorizontal="@dimen/_10sdp"
 
                     app:cardPreventCornerOverlap="false">
@@ -280,11 +281,10 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
                     android:onClick="@{(v) -> AddStoreViewModel.OnGallery(v)}"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/_10sdp"
-                    app:cardElevation="8dp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    
                     app:cardPreventCornerOverlap="false">
 
 
@@ -342,10 +342,10 @@
 
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
-                    app:cardCornerRadius="@dimen/_10sdp"
+                    
+                    app:cardCornerRadius="@dimen/_8sdp"
                     app:cardPreventCornerOverlap="false">
 
                     <EditText
@@ -385,10 +385,9 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="8dp"
-                    app:cardCornerRadius="@dimen/_30sdp"
+                    
+                    app:cardCornerRadius="@dimen/_23sdp"
                     android:layout_marginHorizontal="@dimen/_10sdp"
 
                     app:cardPreventCornerOverlap="false">
@@ -447,10 +446,9 @@
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                        
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -474,13 +472,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                       
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -529,13 +527,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -561,13 +559,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -616,13 +614,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -647,13 +645,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -703,13 +701,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -734,13 +732,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -790,13 +788,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -821,13 +819,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -877,13 +875,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -908,13 +906,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -962,13 +960,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -993,13 +991,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_weight="1"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_14sdp"
                         android:background="@drawable/green_square_border"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0.0px"
-                        android:elevation="@dimen/_5sdp"
+                        
                         app:cardBackgroundColor="@color/white"
-                        app:cardElevation="8dp"
+                  
                         app:cardPreventCornerOverlap="false">
 
                         <EditText
@@ -1043,13 +1041,13 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+
                     android:layout_marginHorizontal="@dimen/_10sdp"
 
                     android:onClick="@{(v) -> AddStoreViewModel.OnLogoGallery(v)}"
                     app:cardBackgroundColor="@color/white"
 
-                    app:cardElevation="8dp"
+
                     app:cardPreventCornerOverlap="false">
 
 
@@ -1100,11 +1098,11 @@
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0.0px"
-                    android:elevation="@dimen/_5sdp"
+
                     android:onClick="@{(v) -> AddStoreViewModel.OnStoreGallery(v)}"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    app:cardElevation="8dp"
+
                     android:layout_marginHorizontal="@dimen/_10sdp"
 
                     app:cardPreventCornerOverlap="false">

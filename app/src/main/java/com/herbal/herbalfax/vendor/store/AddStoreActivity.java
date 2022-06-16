@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -1127,6 +1128,10 @@ public class AddStoreActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.GRAY);
+        ((TextView) adapterView.getChildAt(0)).setTextSize(15);
+
         try {
             IdstoreCategories = lst_store_category.get(i).getIdstoreCategories();
 
