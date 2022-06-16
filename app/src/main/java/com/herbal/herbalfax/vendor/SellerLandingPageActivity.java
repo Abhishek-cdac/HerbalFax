@@ -199,6 +199,12 @@ RelativeLayout toolbarRl;
             ReplaceFrag(new SellerNotificationFragment());
             onBackPressed();
         }
+        else if(position==4){
+            Intent send = new Intent(getApplicationContext(), BecomeHerbalFaxChoiceActivity.class);
+            startActivity(send);
+            //  ReplaceFrag(new MySocialFragment());
+            onBackPressed();
+        }
     }
 
 
