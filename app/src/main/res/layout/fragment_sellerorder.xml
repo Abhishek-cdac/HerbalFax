@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFEFEF"
+    android:background="#f4f4f4"
     android:orientation="vertical">
 
 
@@ -57,32 +57,32 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
-        android:weightSum="1"
+        android:weightSum="3"
+        android:layout_marginHorizontal="@dimen/_20sdp"
         android:gravity="center">
 
         <Button
-            android:layout_weight=".3"
+            android:layout_weight="1"
             android:id="@+id/neworder"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_width="0dp"
             android:textAllCaps="false"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="wrap_content"
             android:background="@drawable/rect_button_green"
             android:layout_marginBottom="@dimen/_2sdp"
             android:fontFamily="@font/raleway_semibold"
             android:maxLines="1"
-            android:layout_marginLeft="@dimen/_10sdp"
             android:paddingLeft="@dimen/_15sdp"
             android:paddingRight="@dimen/_15sdp"
             android:text="New"
             android:textColor="@color/white"
             android:textSize="@dimen/_14sdp" />
         <Button
-            android:layout_weight=".3"
+            android:layout_weight="1"
             android:id="@+id/pending"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="wrap_content"
             android:background="@drawable/rect_button_whiteeeee"
             android:layout_marginBottom="@dimen/_2sdp"
             android:fontFamily="@font/raleway_semibold"
@@ -95,7 +95,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_14sdp" />
         <Button
-            android:layout_weight=".3"
+            android:layout_weight="1"
             android:id="@+id/Completed"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_width="0dp"

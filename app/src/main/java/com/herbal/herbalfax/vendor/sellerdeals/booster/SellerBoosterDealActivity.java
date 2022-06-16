@@ -55,7 +55,7 @@ public class SellerBoosterDealActivity extends AppCompatActivity {
             dealPrice = getIntent().getExtras().getString("dealPrice");
             dealExpiry = getIntent().getExtras().getString("dealExpiry");
             dealLocation = getIntent().getExtras().getString("dealLocation");
-        }
+         }
 
         productNameText.setText(dealName);
         productLocation.setText(dealLocation);

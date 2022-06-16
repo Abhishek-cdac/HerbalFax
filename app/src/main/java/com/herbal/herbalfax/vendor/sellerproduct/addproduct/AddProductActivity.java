@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -724,18 +725,14 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.GRAY);
+        ((TextView) adapterView.getChildAt(0)).setTextSize(15);
         try {
             IdStore = lst_store.get(i).getIdstores();
-            Log.e("onItemSelected", "" + IdStore);
             IdstoreCategories = lst_store_category.get(i).getIdstoreProductCategories();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
