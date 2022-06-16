@@ -44,6 +44,7 @@ import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.mysocial.MySocialFragment;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.store.StoreDetailsActivity;
+import com.herbal.herbalfax.vendor.search.SearchFragment;
 import com.herbal.herbalfax.vendor.sellerdeals.SellerDealsFragment;
 import com.herbal.herbalfax.vendor.sellerdrivers.SellerDriverFragment;
 import com.herbal.herbalfax.vendor.sellerorders.SellerOrderFragment;
@@ -261,6 +262,13 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                     ReplaceFrag(new SellerProductFragment());
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
+                    headerTxt.setText(R.string.products);
+                    return true;
+
+                case R.id.bottom_search:
+                    ReplaceFrag(new SearchFragment());
+                    headerTxt.setVisibility(View.GONE);
+                    headerIcon.setVisibility(View.VISIBLE);
                     headerTxt.setText(R.string.products);
                     return true;
                 case R.id.bottom_deal:
