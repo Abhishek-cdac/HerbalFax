@@ -24,15 +24,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:layout_marginLeft="@dimen/_8sdp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:layout_weight=".6"
                 android:clipChildren="false"
@@ -86,7 +87,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ll_head"
-            android:layout_marginLeft="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginRight="@dimen/_5sdp"
             android:orientation="horizontal"

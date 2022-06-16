@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.herbal.herbalfax.NewsNBlogs;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.api.GetDataService;
 import com.herbal.herbalfax.api.RetrofitClientInstance;
@@ -268,6 +269,12 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                     headerTxt.setVisibility(View.VISIBLE);
                     headerIcon.setVisibility(View.GONE);
                     headerTxt.setText(R.string.my_deal);
+                    return true;
+                case R.id.bottom_daily:
+                    headerTxt.setVisibility(View.VISIBLE);
+                    headerTxt.setText(getResources().getString(R.string.menu_daily));
+                    headerIcon.setVisibility(View.GONE);
+                    ReplaceFrag(new NewsNBlogs());
                     return true;
 
 //                case R.id.bottom_askfax:
