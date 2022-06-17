@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SportFragment extends Fragment {
-
+    int mNum;
     View v;
     private RecyclerView myrecyclerview;
 
@@ -29,6 +29,17 @@ public class SportFragment extends Fragment {
 
     public SportFragment() {
         // Required empty public constructor
+    }
+
+    static SportFragment newInstance(int num) {
+        SportFragment f = new SportFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("num", num);
+        f.setArguments(args);
+
+        return f;
     }
 
     @Nullable
@@ -66,6 +77,7 @@ public class SportFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mNum = getArguments() != null ? getArguments().getInt("num") : 1;
     }
 
 }

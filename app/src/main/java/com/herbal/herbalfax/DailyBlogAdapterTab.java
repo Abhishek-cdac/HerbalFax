@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -60,7 +61,7 @@ public class DailyBlogAdapterTab extends RecyclerView.Adapter<DailyBlogAdapterTa
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        CardView cardParent;
+        LinearLayout cardParent;
 
 
         public ViewHolder(@NonNull View itemView) {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:windowBackground"
+    android:background="#FFFFFF"
     tools:context=".NewsNBlogs"
 
     android:orientation="vertical"
@@ -21,19 +21,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/light_white"
+            android:layout_height="wrap_content">
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabSelectedTextColor="@color/green"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             app:tabTextColor="@color/black"
             app:tabIndicatorColor="@color/green"
             app:tabTextAppearance="@style/CustomTextAppearanceTab"
             app:tabBackground="@drawable/tabs_selector">
         </com.google.android.material.tabs.TabLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +59,7 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/_25sdp"
                 android:elevation="@dimen/_5sdp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="10dp">
@@ -135,7 +148,7 @@
 
         </ScrollView>
     </LinearLayout>
-
+    </LinearLayout>
 
 
 

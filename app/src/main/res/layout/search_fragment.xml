@@ -497,8 +497,6 @@
                     android:id="@+id/photosRecyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
                     android:background="#EFEFEF"
                     android:paddingTop="@dimen/_10sdp"
                     />
@@ -514,7 +512,7 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:gravity="end|center"
                     android:text="@string/viewmore"
-                    android:layout_marginBottom="@dimen/_80sdp"
+                    android:layout_marginBottom="@dimen/_60sdp"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_12sdp" />
 
