@@ -1,9 +1,11 @@
 package com.herbal.herbalfax.vendor.sellerdrivers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,12 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
+import com.herbal.herbalfax.vendor.sellerdrivers.addrider.AddRiderActivity;
 
 import java.util.ArrayList;
 
 
 public class SellerDriverFragment extends Fragment {
-
+    ImageView addDriver;
     ArrayList<Interest> lst_cart_item = new ArrayList<>();
     private SellerDriversViewModel sellerDriversViewModel;
     RecyclerView sellerMyDriverAdapter;
@@ -33,10 +36,19 @@ public class SellerDriverFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_sellerdriver, container, false);
         /*final TextView textView = root.findViewById(R.id.text_fax);*/
         sellerMyDriverAdapter = root.findViewById(R.id.mydriversprofile);
+        addDriver = root.findViewById(R.id.addDriver);
+        addDriver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddRiderActivity.class);
+                startActivity(intent);
+            }
+        });
 
         setMyDriveradapter();
         return root;
     }
+
     private void setMyDriveradapter() {
         lst_cart_item = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());

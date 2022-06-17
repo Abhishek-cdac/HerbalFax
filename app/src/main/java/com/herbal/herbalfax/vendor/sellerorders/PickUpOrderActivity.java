@@ -1,14 +1,16 @@
-package com.herbal.herbalfax;
+package com.herbal.herbalfax.vendor.sellerorders;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PendingdetailActivity extends AppCompatActivity {
+import com.herbal.herbalfax.R;
+
+public class PickUpOrderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pendingdetail);
+        setContentView(R.layout.activity_pick_up_order);
     }
 }

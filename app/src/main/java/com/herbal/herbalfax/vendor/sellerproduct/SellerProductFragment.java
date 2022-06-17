@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,6 +34,8 @@ import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.SpacesItemDecoration;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
+import com.herbal.herbalfax.signupnewvendor.ClaimBottomSheet;
+import com.herbal.herbalfax.signupnewvendor.NewVendorSignUpScEight;
 import com.herbal.herbalfax.vendor.sellerproduct.adapter.ProductListAdapter;
 import com.herbal.herbalfax.vendor.sellerproduct.addproduct.AddProductActivity;
 import com.herbal.herbalfax.vendor.sellerproduct.productdetail.ProductDetailsActivity;
@@ -76,6 +79,14 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
     private Spinner storeSpinner, storeCategorySpinner;
     private List<ProductCategory> lst_store_category;
 
+
+    private void showBottomSheet(String productId) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        SellerProductEditDeleteBottomSheet sheet =
+                new SellerProductEditDeleteBottomSheet(SellerProductFragment.this, productId);
+        sheet.show(fragmentManager, "comment bottom sheet");
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         sellerProductViewModel =
@@ -107,16 +118,16 @@ public class SellerProductFragment extends Fragment implements AdapterView.OnIte
                         e.printStackTrace();
                     }
                 }
-             //   else if (i == 12){
+                else if (i == 12){
 
-
+                      showBottomSheet(productId);
 //                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 //                    ViewGroup viewGroup = root.findViewById(android.R.id.content);
 //                    View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.customview_more, viewGroup, false);
 //                    builder.setView(dialogView);
 //                    AlertDialog alertDialog = builder.create();
 //                    alertDialog.show();
-              //  }
+                }
             }
         };
         productRecyclerView = root.findViewById(R.id.productListrecyclerview);

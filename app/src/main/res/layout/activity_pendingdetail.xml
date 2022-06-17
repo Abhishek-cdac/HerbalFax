@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PendingdetailActivity"
+    tools:context=".vendor.sellerorders.OrderPendingDetailActivity"
 
     android:orientation="vertical">
 
@@ -307,7 +307,7 @@
           </androidx.cardview.widget.CardView>-->
 
         <Button
-            android:id="@+id/creditcard_btn"
+            android:id="@+id/assignDriver_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
