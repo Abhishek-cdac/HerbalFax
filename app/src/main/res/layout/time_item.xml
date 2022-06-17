@@ -23,9 +23,7 @@
         android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:visibility="gone"
-        android:layout_marginRight="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
+        android:visibility="visible"
         android:background="@color/green">
 
     </View>
