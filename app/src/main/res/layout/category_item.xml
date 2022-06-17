@@ -10,8 +10,6 @@
     android:layout_marginRight="@dimen/_5sdp"
    card_view:cardBackgroundColor="@color/white"
     card_view:cardCornerRadius="@dimen/_20sdp"
-    card_view:cardElevation="4dp"
-
     card_view:contentPadding="8dp">
 
     <!--Text View over Card View-->

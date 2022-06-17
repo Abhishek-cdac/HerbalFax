@@ -2,6 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
+    android:layout_marginStart="@dimen/_5sdp"
+    android:layout_marginEnd="@dimen/_15sdp"
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
@@ -10,8 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:paddingRight="@dimen/_10sdp"
-        android:paddingLeft="@dimen/_10sdp"
         android:fontFamily="@font/raleway_semibold"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
