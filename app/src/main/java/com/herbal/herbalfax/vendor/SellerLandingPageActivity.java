@@ -78,7 +78,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
     private ImageView crossToolBarImage;
     private RecyclerView drawerRecylerView;
     Context mContext;
-RelativeLayout toolbarRl;
+    RelativeLayout toolbarRl;
     SessionPref pref;
 
     @Override
@@ -141,13 +141,12 @@ RelativeLayout toolbarRl;
                         drawerAdapter.notifyDataSetChanged();// Refresh list
                         openDrawerItem(position);// Open particular class on drawer item click
 
-                    }
-                    else if (id == R.id.nav_headerMAin) {
+                    } else if (id == R.id.nav_headerMAin) {
                         // Open my profile screen
                         Intent intent = new Intent(SellerLandingPageActivity.this, EditProfileActivity.class);
                         startActivity(intent);
                         onBackPressed();
-                       // getViewDataBinding().drawerLayout.closeDrawers();
+                        // getViewDataBinding().drawerLayout.closeDrawers();
                         //getViewDataBinding().drawerLayout.closeDrawer(getViewDataBinding().drawerRecylerView, true);
                     }
 //            if (id == R.id.linear_layout_select) {
@@ -177,29 +176,25 @@ RelativeLayout toolbarRl;
             headerIcon.setVisibility(View.GONE);
             ReplaceFrag(new SellerStoreListFragment());
             onBackPressed();
-        }
-        else if(position==3){
+        } else if (position == 3) {
             headerTxt.setVisibility(View.VISIBLE);
             headerTxt.setText("Riders List");
             headerIcon.setVisibility(View.GONE);
             ReplaceFrag(new SellerDriverFragment());
             onBackPressed();
-        }
-        else if(position==1){
+        } else if (position == 1) {
             headerTxt.setVisibility(View.VISIBLE);
             headerTxt.setText("My Social");
             headerIcon.setVisibility(View.GONE);
             ReplaceFrag(new MySocialFragment());
             onBackPressed();
-        }
-        else if(position==2){
+        } else if (position == 2) {
             headerTxt.setVisibility(View.VISIBLE);
             headerTxt.setText("Notifications");
             headerIcon.setVisibility(View.GONE);
             ReplaceFrag(new SellerNotificationFragment());
             onBackPressed();
-        }
-        else if(position==4){
+        } else if (position == 4) {
             Intent send = new Intent(getApplicationContext(), BecomeHerbalFaxChoiceActivity.class);
             startActivity(send);
             //  ReplaceFrag(new MySocialFragment());
