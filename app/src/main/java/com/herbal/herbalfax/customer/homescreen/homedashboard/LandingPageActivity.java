@@ -37,6 +37,7 @@ import com.herbal.herbalfax.customer.homescreen.group.GroupsFragment;
 import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.post.AddPostActivity;
+import com.herbal.herbalfax.vendor.search.SearchFragment;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -232,6 +233,12 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     searchIcon.setVisibility(View.GONE);
                     locationIcon.setVisibility(View.GONE);
                     cardIcon.setVisibility(View.GONE);*/
+                    return true;
+
+                case R.id.bottom_search:
+                    ReplaceFrag(new SearchFragment());
+                    headerTxt.setVisibility(View.GONE);
+                    headerIcon.setVisibility(View.VISIBLE);
                     return true;
 
                 /*    case R.id.bottom_dashboard:

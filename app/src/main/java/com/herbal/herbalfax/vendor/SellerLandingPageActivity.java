@@ -170,6 +170,7 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
         });
     }
 
+    @SuppressLint("SetTextI18n")
     private void openDrawerItem(int position) {
         if (position == 5) {
             headerTxt.setVisibility(View.VISIBLE);
@@ -285,7 +286,6 @@ public class SellerLandingPageActivity extends AppCompatActivity implements OnIn
                     ReplaceFrag(new SearchFragment());
                     headerTxt.setVisibility(View.GONE);
                     headerIcon.setVisibility(View.VISIBLE);
-                    headerTxt.setText(R.string.products);
                     return true;
                 case R.id.bottom_deal:
                     ReplaceFrag(new SellerDealsFragment());
