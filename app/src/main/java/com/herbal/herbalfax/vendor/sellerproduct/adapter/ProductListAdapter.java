@@ -81,18 +81,18 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.moreImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //    itemClick.onItemClicks(v, position, 12, "");
-                holder.filterpopview.setVisibility(View.VISIBLE);
+               itemClick.onItemClicks(v, position, 12, "");
+             //   holder.filterpopview.setVisibility(View.VISIBLE);
 
             }
         });
-        holder.filterpopview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                holder.filterpopview.setVisibility(View.GONE);
-
-            }
-        });
+//        holder.filterpopview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                holder.filterpopview.setVisibility(View.GONE);
+//
+//            }
+//        });
 
 
         holder.deleteCard.setOnClickListener(new View.OnClickListener() {

@@ -2,6 +2,7 @@ package com.herbal.herbalfax.vendor.sellerorders;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,33 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.MyView
         if (position==1){
             holder.viewBtn.setText("Pick up");
             holder.categoryTxt.setText("Pick up Order");
+
+            holder.viewBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PickUpOrderActivity.class);
+                    context.startActivity(intent);
+
+                }
+            });
         }
+        else{
+            holder.viewBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, OrderPendingDetailActivity.class);
+                    context.startActivity(intent);
+
+                }
+            });
+
+        }
+
+
+
+
+
+
        /* holder.title.setText(discoverList.get(position).getGrpName());
 
         if (!discoverList.get(position).getGrpImage().equals("")) {

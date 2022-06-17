@@ -284,8 +284,37 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
                 android:weightSum="1">
+                <TextView
+                    android:id="@+id/reviewll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5"
+                    android:padding="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:background="@drawable/rect_button_green"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text=" Review/Ratings"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:textSize="@dimen/_18sdp" />
 
-                <LinearLayout
+                <TextView
+                    android:padding="@dimen/_10sdp"
+android:id="@+id/checkinll"
+                    android:gravity="center"
+                    android:layout_weight=".5"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:background="@drawable/rect_button_whiteeeee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="  Check In"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18sdp" />
+
+                <!--<LinearLayout
 
                     android:id="@+id/reviewll"
                     android:layout_width="0dp"
@@ -297,11 +326,11 @@
                     android:gravity="center"
                     android:padding="@dimen/_2sdp">
 
-                    <!-- <ImageView
+                    &lt;!&ndash; <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_icon_rate_review" />-->
+                        android:src="@drawable/ic_icon_rate_review" />&ndash;&gt;
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -324,11 +353,11 @@
                     android:backgroundTint="@color/white"
                     android:gravity="center">
 
-                    <!--   <ImageView
+                    &lt;!&ndash;   <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_iconcheckmark_circle__black" />-->
+                        android:src="@drawable/ic_iconcheckmark_circle__black" />&ndash;&gt;
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -339,7 +368,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_18sdp" />
                 </LinearLayout>
-
+-->
             </LinearLayout>
 
             <androidx.cardview.widget.CardView

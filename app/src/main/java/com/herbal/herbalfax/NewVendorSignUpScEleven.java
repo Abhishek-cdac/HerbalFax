@@ -24,7 +24,7 @@ public class NewVendorSignUpScEleven extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NewVendorSignUpScEleven.this, NewVendorsSignUpScTwelve.class);
+                Intent intent = new Intent(NewVendorSignUpScEleven.this, NewVendorsSignUpAddYourBusiness.class);
                 startActivity(intent);
             }
         });

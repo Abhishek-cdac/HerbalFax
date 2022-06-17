@@ -46,7 +46,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
     String storeId;
     ArrayList<Interest> source;
     private CommonClass clsCommon;
-    LinearLayout reviewll, checkinll;
+    TextView reviewll, checkinll;
     RecyclerView StoreDetailrecyclerview, Checkinrecyclerview;
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
     LinearLayoutManager HorizontalLayout;
@@ -87,6 +87,10 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
             StoreDetailrecyclerview.setVisibility(View.VISIBLE);
             Checkinrecyclerview.setVisibility(View.GONE);
             placeholder.setVisibility(View.VISIBLE);
+            reviewll.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
+            checkinll.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+            reviewll.setTextColor(getResources().getColor(R.color.white));
+            checkinll.setTextColor(getResources().getColor(R.color.black));
 
         });
 
@@ -94,8 +98,13 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
             StoreDetailrecyclerview.setVisibility(View.GONE);
             Checkinrecyclerview.setVisibility(View.VISIBLE);
             placeholder.setVisibility(View.GONE);
+            reviewll.setBackground(getResources().getDrawable(R.drawable.rect_button_whiteeeee));
+            checkinll.setBackground(getResources().getDrawable(R.drawable.rect_button_green));
+            checkinll.setTextColor(getResources().getColor(R.color.white));
+            reviewll.setTextColor(getResources().getColor(R.color.black));
 
         });
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             storeId = getIntent().getExtras().getString("storeId");

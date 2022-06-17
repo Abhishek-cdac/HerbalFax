@@ -217,7 +217,7 @@
         android:background="@drawable/rect_button_green"
         android:padding="@dimen/_10sdp"
         android:src="@drawable/ic_icon_add_post"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 <!--
     <Button
         android:id="@+id/addProduct"

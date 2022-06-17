@@ -346,4 +346,6 @@ receive emails from HerbalFax &amp; More</string>
     <string name="orderby">Ordered by</string>
     <string name="select_store">Select Store</string>
     <string name="select_category">Select Category</string>
+    <string name="edit">Edit</string>
+    <string name="editproduct">Edit Product</string>
 </resources>
