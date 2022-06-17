@@ -52,6 +52,16 @@
         <activity
             android:name=".vendor.sellerorders.OrderAssignDriveActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".vendor.sellerorders.SellerTrackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vendor.sellerorders.OdersIdDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vendor.sellerorders.SellerTrackMyOrderActivity"
+            android:exported="false" />
         <activity
             android:name=".NewsNBlogs"
             android:exported="true"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".customer.homescreen.payment.PaymentCheckoutActivity">
 
     <LinearLayout
@@ -63,12 +63,11 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_repeat_lines_black"
-                />
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:src="@drawable/ic_repeat_lines_black" />
 
             <ImageView
                 android:layout_width="wrap_content"
-
                 android:layout_height="match_parent"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_icon_menu_credit_card_darkblack"
@@ -78,6 +77,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:src="@drawable/ic_repeat_lines_black"
 
                 />
@@ -96,8 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/_15sdp"
-            >
+            android:padding="@dimen/_15sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,6 +134,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="ADD NEW Payment Method"
+                    android:textAllCaps="true"
                     android:textColor="#656569"
                     android:textSize="@dimen/_16sdp" />
 
@@ -145,23 +145,22 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:fontFamily="@font/raleway_medium"
                     android:text="Cardholder Name"
-                    android:textColor="#656569"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_12sdp" />
 
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_1sdp"
                     android:padding="@dimen/_15sdp"
-                    app:cardCornerRadius="15dp">
+                    app:cardCornerRadius="18dp">
 
                     <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:background="@null"
                         android:hint="Cardholder Name"
                         android:padding="@dimen/_10sdp"
@@ -175,36 +174,34 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:fontFamily="@font/raleway_medium"
                     android:text="Card Number"
-                    android:textColor="#656569"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_12sdp" />
 
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_1sdp"
                     android:padding="@dimen/_15sdp"
-                    app:cardCornerRadius="15dp">
+                    app:cardCornerRadius="18dp">
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_height="match_parent"
                         android:background="@null"
                         android:drawableRight="@drawable/ic_icon_metro_credit_card"
-                        android:drawablePadding="40dp"
+
+                        android:drawablePadding="@dimen/_40sdp"
                         android:hint="Card Number"
-                        android:padding="@dimen/_5sdp"
-                        android:paddingRight="26dp"
+                        android:padding="@dimen/_10sdp"
                         android:textSize="10sp" />
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:orientation="horizontal"
                     android:padding="@dimen/_2sdp"
                     android:weightSum="2">
@@ -223,7 +220,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/raleway_medium"
                             android:text="Expiry Date"
-                            android:textColor="#656569"
+                            android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
 
 
@@ -233,11 +230,11 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_1sdp"
-                            app:cardCornerRadius="15dp">
+                            app:cardCornerRadius="18dp">
 
                             <EditText
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/_10sdp"
                                 android:background="@null"
                                 android:hint="MM/YY"
@@ -261,7 +258,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/raleway_medium"
                             android:text="CVV"
-                            android:textColor="#656569"
+                            android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
 
 
@@ -272,11 +269,11 @@
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_1sdp"
                             android:layout_marginBottom="@dimen/_1sdp"
-                            app:cardCornerRadius="15dp">
+                            app:cardCornerRadius="18dp">
 
                             <EditText
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/_10sdp"
                                 android:background="@null"
                                 android:hint="***"

@@ -8,12 +8,13 @@ import android.widget.ImageView;
 
 import com.herbal.herbalfax.R;
 
-public class OrderAssignDriveActivity extends AppCompatActivity {
+public class SellerTrackActivity extends AppCompatActivity {
 ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_assign_drive);
+        setContentView(R.layout.activity_seller_track);
         back= findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

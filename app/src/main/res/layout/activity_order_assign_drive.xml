@@ -32,7 +32,7 @@
             android:fontFamily="@font/raleway_semibold"
             android:gravity="center"
             android:padding="@dimen/_5sdp"
-            android:text="Pick Up ID: HF215456"
+            android:text="Rider Assigned"
             android:textColor="@color/white"
             android:textSize="@dimen/_18sdp"/>
     </LinearLayout>
@@ -40,7 +40,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp">
+        android:padding="@dimen/_20sdp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/_5sdp">
+                android:padding="@dimen/_7sdp">
                 <LinearLayout
                     android:id="@+id/orersdetails"
                     android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="@dimen/_2sdp"
-                        android:layout_marginLeft="@dimen/_35sdp">
+                        android:layout_marginLeft="@dimen/_20sdp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -106,14 +106,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
                                 android:text="Quantity"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_12sdp"
-                                android:fontFamily="@font/roboto_regular">
-                            </TextView>
+                                android:textSize="@dimen/_12sdp"></TextView>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -177,14 +177,14 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_5sdp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_semibold"
                         android:text="Shipping Cost"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        android:fontFamily="@font/roboto_regular">
-                    </TextView>
+                        android:textSize="@dimen/_12sdp"></TextView>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                         android:layout_alignParentRight="true"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
-                        android:fontFamily="@font/roboto_regular">
+                        android:fontFamily="@font/raleway_semibold">
                     </TextView>
                 </RelativeLayout>
 
@@ -220,7 +220,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shipping Cost"
+                    android:text="Drop Shipping"
 
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12sdp"
@@ -282,7 +282,7 @@
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="@dimen/_70sdp"
                         android:src="@drawable/ic_car_green"
-                        android:padding="@dimen/_14sdp"/>
+                        android:padding="@dimen/_18sdp"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"

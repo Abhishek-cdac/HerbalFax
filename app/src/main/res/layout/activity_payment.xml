@@ -63,6 +63,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:src="@drawable/ic_repeat_lines_black"
                 />
 
@@ -77,6 +78,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:src="@drawable/ic_repeat_lines_black"
 
                 />
@@ -103,7 +105,6 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="vertical">
@@ -111,16 +112,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="@font/raleway_semibold"
                     android:text="Step 2"
-                    android:textColor="#656569"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="@font/raleway_bold"
                     android:text="Payment"
                     android:textColor="@color/black"
@@ -133,23 +132,25 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Select Payment Method"
+                    android:textAllCaps="true"
                     android:textColor="#656569"
                     android:textSize="@dimen/_16sdp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_1sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_1sdp"
+android:layout_marginHorizontal="@dimen/_5sdp"
                     android:padding="@dimen/_15sdp"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="8dp"
+
+                    app:cardElevation="@dimen/_10sdp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:padding="@dimen/_5sdp">
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="@dimen/_10sdp">
 
                         <!--<LinearLayout
                             android:layout_width="wrap_content"
@@ -168,6 +169,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_10sdp"
+                            android:background="@null"
                             android:hint="**** **** **** 1234"
                             android:padding="@dimen/_15sdp" />
 
@@ -184,19 +186,19 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_1sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_1sdp"
-
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="20dp"
+                    android:layout_marginHorizontal="5dp"
+                    app:cardElevation="@dimen/_10sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
                         android:layout_gravity="center_vertical"
-                        android:padding="@dimen/_5sdp">
+
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/_10sdp">
 
                         <!--<LinearLayout
                             android:layout_width="wrap_content"
@@ -216,6 +218,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:fontFamily="@font/roboto_regular"
+                            android:gravity="center_vertical"
                             android:text="Add New Payment Method"
                             android:textColor="#96C93D"
                             android:textSize="@dimen/_10sdp" />
@@ -242,6 +245,7 @@
         android:layout_marginBottom="@dimen/_20sdp"
         android:background="@drawable/rect_button_black"
         android:padding="@dimen/_10sdp"
+        android:textAllCaps="true"
         android:text="Pay Now"
         android:textColor="@color/white" />
 </RelativeLayout>

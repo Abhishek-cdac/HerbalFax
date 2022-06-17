@@ -17,7 +17,7 @@
 
 
         <ImageView
-            android:id="@+id/backBtn"
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="@dimen/_15sdp"
@@ -209,7 +209,6 @@
         android:background="@drawable/rect_button_black"
         android:elevation="@dimen/_15sdp"
         android:fontFamily="@font/poppins_medium"
-        android:onClick="@{(v) -> AddProductViewModel.onClickAddProduct(v)}"
         android:text="@string/pick_up"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_16sdp" />

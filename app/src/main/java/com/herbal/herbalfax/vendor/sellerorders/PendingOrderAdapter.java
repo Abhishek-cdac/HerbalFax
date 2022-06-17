@@ -2,6 +2,7 @@ package com.herbal.herbalfax.vendor.sellerorders;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +66,13 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
 
         if (position == 0) {
             holder.viewBtn.setText("Track");
+            holder.viewBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SellerTrackActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         } else {
             holder.viewBtn.setText("Pick up order");
         }

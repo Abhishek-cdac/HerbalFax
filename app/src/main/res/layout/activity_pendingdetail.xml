@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vendor.sellerorders.OrderPendingDetailActivity"
+    android:orientation="vertical"
 
-    android:orientation="vertical">
+    tools:context=".vendor.sellerorders.OrderPendingDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,28 +33,30 @@
             android:padding="@dimen/_5sdp"
             android:text="Blick - Glover"
             android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp"/>
+            android:textSize="@dimen/_18sdp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_15sdp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/_15sdp">
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:cardBackgroundColor="@color/green"
-            app:cardCornerRadius="@dimen/_7sdp"
-            android:orientation="vertical">
+            app:cardCornerRadius="@dimen/_7sdp">
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/uppercard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_5sdp"
-                android:id="@+id/uppercard"
-                app:cardElevation="@dimen/_20sdp"
                 app:cardCornerRadius="@dimen/_7sdp"
-                >
+                app:cardElevation="@dimen/_20sdp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -139,6 +141,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/trendingcv"
                             android:gravity="center">
+
                             <TextView
                                 android:id="@+id/quantityTxt"
                                 android:layout_width="wrap_content"
@@ -160,6 +163,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="10dp" />
                         </RelativeLayout>
+
                         <RelativeLayout
                             android:id="@+id/categoryRl"
                             android:layout_width="match_parent"
@@ -180,10 +184,10 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_regular"
-                                android:gravity="center_vertical"
-
                                 android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/roboto_regular"
+
+                                android:gravity="center_vertical"
                                 android:text="12/06/2021"
                                 android:textColor="@color/text_grey"
                                 android:textSize="12dp" />
@@ -207,10 +211,10 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_regular"
-                                android:gravity="center_vertical"
-
                                 android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/roboto_regular"
+
+                                android:gravity="center_vertical"
                                 android:text="Ongoing"
                                 android:textColor="@color/text_grey"
                                 android:textSize="12dp" />
@@ -224,33 +228,32 @@
             </androidx.cardview.widget.CardView>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3"
                 android:layout_marginTop="@dimen/_140sdp"
-                >
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_weight="1"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:gravity="top"
-                    android:src="@drawable/pendingprofile1"
-                    />
-                <LinearLayout
                     android:layout_weight="1"
+                    android:gravity="top"
+                    android:src="@drawable/pendingprofile1" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
 
                     >
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:fontFamily="@font/raleway_regular"
                         android:text="Order By:"
                         android:textColor="@color/white"
@@ -260,9 +263,9 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
                         android:fontFamily="@font/raleway_semibold"
                         android:gravity="center_vertical"
-                        android:layout_alignParentEnd="true"
                         android:text="Alex .C"
                         android:textColor="@color/white"
                         android:textSize="15dp" />
@@ -280,20 +283,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center_vertical"
-                        android:layout_alignParentEnd="true"
                         android:text="9292 The Grove Reading RG73 Qua"
                         android:textColor="@color/white"
                         android:textSize="10dp" />
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_group_3096"
-                    />
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_group_3096" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -326,10 +328,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/raleway_semibold"
             android:gravity="center_vertical"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_alignParentEnd="true"
             android:text="Shipping/Delivery"
             android:textColor="@color/black"
             android:textSize="15dp" />
@@ -337,17 +339,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/raleway_medium"
             android:gravity="center_vertical"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_alignParentEnd="true"
             android:text="Add Tracking ID"
-            android:layout_marginLeft="@dimen/_8sdp"
             android:textColor="@color/green"
-            android:textSize="14dp"/>
+            android:textSize="14dp" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:clipChildren="false"
             android:clipToPadding="false"
@@ -355,10 +360,8 @@
             android:dividerHeight="0.0px"
             android:elevation="@dimen/_5sdp"
             app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_23sdp"
             app:cardElevation="2dp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            app:cardCornerRadius="@dimen/_25sdp"
             app:cardPreventCornerOverlap="false">
 
             <EditText
@@ -366,53 +369,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rect_button"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="trackinng id"
-                android:layout_marginLeft="@dimen/_15sdp"
-                />
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
         </androidx.cardview.widget.CardView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/raleway_medium"
             android:gravity="center_vertical"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_alignParentEnd="true"
             android:text="Tracking Website Link"
-            android:layout_marginLeft="@dimen/_8sdp"
             android:textColor="@color/green"
-            android:textSize="14dp"/>
+            android:textSize="14dp" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:divider="@android:color/transparent"
             android:dividerHeight="0.0px"
-            android:elevation="@dimen/_2sdp"
+            android:elevation="@dimen/_5sdp"
             app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_23sdp"
             app:cardElevation="2dp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            app:cardCornerRadius="@dimen/_25sdp"
             app:cardPreventCornerOverlap="false">
 
             <EditText
-                android:id="@+id/editetext2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rect_button"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="herbalfax.com/trackproduct"
-                android:layout_marginLeft="@dimen/_15sdp"
-                />
-
-
-
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
         </androidx.cardview.widget.CardView>
 
 
-    </LinearLayout>
 
+    </LinearLayout>
 
 
 </LinearLayout>

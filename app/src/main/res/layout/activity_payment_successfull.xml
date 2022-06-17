@@ -5,50 +5,51 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
    >
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_icon_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_weight=".6"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_5sdp"
+            android:text="Blick Glover"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp">
+        </TextView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_below="@+id/header"
+
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/green"
-            android:minHeight="?attr/actionBarSize"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/_15sdp"
-                android:src="@drawable/ic_icon_arrow_left_white" />
-
-            <TextView
-                android:id="@+id/headerTxt"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/raleway_semibold"
-                android:gravity="center_vertical"
-                android:padding="@dimen/_5sdp"
-                android:text="Blick Glover"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_18sdp">
-            </TextView>
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/img"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
-            android:layout_below="@+id/header"
             android:layout_marginTop="@dimen/_10sdp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
@@ -85,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="@dimen/_10sdp"
-                android:src="@drawable/ic_icon_ionic_ios_checkmark_circle_outline_black"
+                android:src="@drawable/checkmark_circle_black"
 
                 />
 
@@ -93,10 +94,10 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_120sdp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_gravity="center_vertical|center_horizontal"
 
             >
             <ImageView
@@ -104,8 +105,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-
-
                 android:src="@drawable/ic_icon_feather_check_circle"
                 />
             <TextView
@@ -113,18 +112,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_weight=".6"
                 android:fontFamily="@font/raleway_bold"
                 android:gravity="center"
                 android:text="Payment Complete"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_22sdp">
             </TextView>
-
-
         </LinearLayout>
-
     </LinearLayout>
-
-
 </RelativeLayout>
