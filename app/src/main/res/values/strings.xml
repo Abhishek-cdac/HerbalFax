@@ -221,7 +221,7 @@ receive emails from HerbalFax &amp; More</string>
     <string name="selectcategory">Select Category</string>
     <string name="selectstore">Select Store</string>
     <string name="uploadproductpic">Upload Product Pictures</string>
-    <string name="uploaddealpic">Upload Deals Picture</string>
+    <string name="uploaddealpic">Upload Deal Picture</string>
     <string name="productname">Product Name</string>
     <string name="productname_hint">Enter Product Name</string>
     <string name="price">Price</string>

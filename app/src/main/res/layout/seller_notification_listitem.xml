@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_10sdp"
+    android:elevation="8dp"
+    app:cardCornerRadius="@dimen/_8sdp"
+    android:layout_height="97dp">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/orderID"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_weight=".9"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Order ID: 784512 Received"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="16/06/2022"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_10sdp"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:maxLines="2"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:text="@string/dummy_desc"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/_9sdp"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

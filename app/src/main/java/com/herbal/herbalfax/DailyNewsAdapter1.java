@@ -1,13 +1,20 @@
 package com.herbal.herbalfax;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.herbal.herbalfax.customer.blogs.BlogDetailsActivity;
+import com.herbal.herbalfax.customer.homescreen.deals.DealsDetailsActivity;
+import com.herbal.herbalfax.customer.homescreen.deals.adaptor.NewDealsAdapter;
 
 import java.util.ArrayList;
 
@@ -29,6 +36,10 @@ public class DailyNewsAdapter1  extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        /*holder.news_recycler.setOnClickListener(view -> {
+            Intent i = new Intent(context, BlogDetailsActivity.class);
+            context.startActivity(i);
+        });*/
 
     }
     /*
@@ -50,11 +61,13 @@ public class DailyNewsAdapter1  extends RecyclerView.Adapter {
         return 5;
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name;// init the item view's
+        TextView name;
+        CardView news_recycler;
         public MyViewHolder(View itemView) {
             super(itemView);
             // get the reference of item view's
             name = (TextView) itemView.findViewById(R.id.name);
+            news_recycler = itemView.findViewById(R.id.news_recycler);
         }
     }
 }

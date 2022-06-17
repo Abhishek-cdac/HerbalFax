@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -547,6 +548,9 @@ public class AddDealsActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.GRAY);
+        ((TextView) adapterView.getChildAt(0)).setTextSize(15);
+
         try {
             IdStore = lst_store.get(i).getIdstores();
             Log.e("onItemSelected", "" + IdStore);

@@ -1,4 +1,4 @@
-package com.herbal.herbalfax.vendor.sellerdrivers;
+package com.herbal.herbalfax.vendor.sellernotification;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,37 +13,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.selectInterest.Interest;
+import com.herbal.herbalfax.vendor.sellerdrivers.SellerMyDriverAdapter;
 
 import java.util.ArrayList;
 
 
-public class SellerDriverFragment extends Fragment {
+public class SellerNotificationFragment extends Fragment {
 
-    ArrayList<Interest> lst_cart_item = new ArrayList<>();
-    private SellerDriversViewModel sellerDriversViewModel;
-    RecyclerView sellerMyDriverAdapter;
+    ArrayList<Interest> lst_notification = new ArrayList<>();
+    private SellerNotificationViewModel sellerNotificationViewModel;
+    RecyclerView notificatonRecyclerView;
     private LinearLayoutManager RecyclerViewLayoutManager;
-    SellerMyDriverAdapter sellermyDriveradapter;
+    SellerNotificationAdapter sellerNotificationAdapter;
     private LinearLayoutManager HorizontalLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        sellerDriversViewModel =
-                ViewModelProviders.of(this).get(SellerDriversViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_sellerdriver, container, false);
+        sellerNotificationViewModel =
+                ViewModelProviders.of(this).get(SellerNotificationViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_seller_notification, container, false);
         /*final TextView textView = root.findViewById(R.id.text_fax);*/
-        sellerMyDriverAdapter = root.findViewById(R.id.mydriversprofile);
+        notificatonRecyclerView = root.findViewById(R.id.notification_recyler);
 
         setMyDriveradapter();
         return root;
     }
     private void setMyDriveradapter() {
-        lst_cart_item = new ArrayList<>();
+        lst_notification = new ArrayList<>();
         RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-        sellerMyDriverAdapter.setLayoutManager(RecyclerViewLayoutManager);
-        sellermyDriveradapter = new SellerMyDriverAdapter(lst_cart_item, getActivity());
+        notificatonRecyclerView.setLayoutManager(RecyclerViewLayoutManager);
+        sellerNotificationAdapter = new SellerNotificationAdapter(lst_notification, getActivity());
         HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        sellerMyDriverAdapter.setAdapter(sellermyDriveradapter);
+        notificatonRecyclerView.setAdapter(sellerNotificationAdapter);
     }
 
 }

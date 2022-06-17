@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_marginTop="100dp">
@@ -9,32 +9,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        >
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose Your Payment Method"
             android:textSize="@dimen/_18sdp"
             android:textColor="#282828"
+            android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/raleway_bold"
             />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#707070"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
+
                     android:layout_marginTop="@dimen/_15sdp"
                     android:fontFamily="@font/roboto_medium"
                     android:textColor="#656569"
@@ -77,9 +81,9 @@
              android:layout_height="wrap_content"
              android:layout_alignParentRight="true"
              android:layout_gravity="center"
-             android:layout_marginStart="@dimen/_10sdp"
-             android:layout_marginTop="@dimen/_10sdp"
-             android:layout_marginEnd="@dimen/_10sdp"
+
+             android:layout_marginTop="@dimen/_20sdp"
+
              android:layout_marginBottom="@dimen/_10sdp"
              android:background="@drawable/rect_button_black"
              android:fontFamily="@font/raleway_bold"
@@ -94,9 +98,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_10sdp"
+
             android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/rect_button_black"
             android:fontFamily="@font/raleway_bold"
