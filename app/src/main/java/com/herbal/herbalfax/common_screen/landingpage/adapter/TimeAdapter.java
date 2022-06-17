@@ -51,6 +51,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyView> {
     }
 
 
+
     @Override
     public void onBindViewHolder(final MyView holder,
                                  @SuppressLint("RecyclerView") final int position) {
