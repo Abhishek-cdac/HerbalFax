@@ -159,8 +159,6 @@ public class SearchFragment extends Fragment {
         photosAdapter = new PhotosAdapter(lst_photos, getActivity());
         HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         photosRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new SpacesItemDecoration(2));
         photosRecyclerview.setAdapter(photosAdapter);
 
 

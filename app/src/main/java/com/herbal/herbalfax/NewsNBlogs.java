@@ -27,11 +27,28 @@ View v;
 
 FragmentManager fragmentManager;
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v =  inflater.inflate(R.layout.activity_new_buyer_sc59, container, false);
+
+
+        return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+
         tabLayout=(TabLayout)v.findViewById(R.id.tabLayout);
         viewPager=(ViewPager)v.findViewById(R.id.viewPager);
 
@@ -61,10 +78,9 @@ FragmentManager fragmentManager;
 
             }
         });
-
-        return v;
     }
-/*
+
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

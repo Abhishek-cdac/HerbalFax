@@ -62,7 +62,7 @@ public class DailyNewsAdapter1  extends RecyclerView.Adapter {
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name;
-        CardView news_recycler;
+        LinearLayout news_recycler;
         public MyViewHolder(View itemView) {
             super(itemView);
             // get the reference of item view's

@@ -14,14 +14,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class HomeFragment extends Fragment {
-
+    int mNum;
     View v;
     private RecyclerView homerecyclerview;
     ArrayList personNames = new ArrayList<>(Arrays.asList("Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7"));
 
-    public HomeFragment() {
-        // Required empty public constructor
+
+    static HomeFragment newInstance(int num) {
+        HomeFragment f = new HomeFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("num", num);
+        f.setArguments(args);
+
+        return f;
     }
+
+
+
+//    public HomeFragment() {
+//        // Required empty public constructor
+//    }
 
     @Nullable
     @Override
@@ -42,6 +56,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mNum = getArguments() != null ? getArguments().getInt("num") : 1;
     }
 
 }

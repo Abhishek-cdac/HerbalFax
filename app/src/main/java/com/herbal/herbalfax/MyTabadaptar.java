@@ -1,12 +1,15 @@
 package com.herbal.herbalfax;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
-public class MyTabadaptar extends FragmentPagerAdapter {
+public class MyTabadaptar extends FragmentStatePagerAdapter {
 
     private Context myContext;
     int totalTabs;
@@ -14,19 +17,22 @@ public class MyTabadaptar extends FragmentPagerAdapter {
     public MyTabadaptar(Context context, FragmentManager fm, int totalTabs) {
         super(fm);
         myContext = context;
-        this.totalTabs = totalTabs;
+//        this.totalTabs = totalTabs;
     }
 
     // this is for fragment tabs
     @Override
     public Fragment getItem(int position) {
+
         switch (position) {
             case 0:
-                HomeFragment homeFragment = new HomeFragment();
-                return homeFragment;
+//                HomeFragment homeFragment = new HomeFragment();
+//                return homeFragment;
+                return HomeFragment.newInstance(position);
             case 1:
-                SportFragment sportFragment = new SportFragment();
-                return sportFragment;
+//                SportFragment sportFragment = new SportFragment();
+//                return sportFragment;
+                return SportFragment.newInstance(position);
             default:
                 return null;
         }
@@ -34,6 +40,6 @@ public class MyTabadaptar extends FragmentPagerAdapter {
     // this counts total number of tabs
     @Override
     public int getCount() {
-        return totalTabs;
+        return 2;
     }
 }
