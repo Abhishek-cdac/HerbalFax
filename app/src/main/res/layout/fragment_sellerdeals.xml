@@ -171,8 +171,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/addDeals"
-        android:layout_width="40dp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_width="50dp"
+        android:layout_height="@dimen/_50sdp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"

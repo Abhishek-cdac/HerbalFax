@@ -14,13 +14,18 @@ import androidx.annotation.Nullable;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.herbal.herbalfax.R;
 import com.herbal.herbalfax.customer.blogs.BlogListAdapter;
+import com.herbal.herbalfax.customer.homescreen.deals.DealsFragment;
 
 public class BlogsBottomSheet extends BottomSheetDialogFragment {
-    private final int index;
+    private int index;
 
 
     public BlogsBottomSheet(BlogListAdapter blogListAdapter, int adapterPosition) {
         this.index = adapterPosition;
+    }
+
+    public BlogsBottomSheet(DealsFragment dealsFragment) {
+        //this.index = adapterPosition;
     }
 
     @Nullable

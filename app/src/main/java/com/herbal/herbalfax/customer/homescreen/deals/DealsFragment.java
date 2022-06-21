@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +24,7 @@ import com.herbal.herbalfax.api.RetrofitClientInstance;
 import com.herbal.herbalfax.common_screen.dialog.TransparentProgressDialog;
 import com.herbal.herbalfax.common_screen.utils.CommonClass;
 import com.herbal.herbalfax.common_screen.utils.session.SessionPref;
+import com.herbal.herbalfax.customer.bottomsheet.BlogsBottomSheet;
 import com.herbal.herbalfax.customer.homescreen.deals.adaptor.NewDealsAdapter;
 import com.herbal.herbalfax.customer.homescreen.deals.adaptor.NewDealsCategoriesAdaptor;
 import com.herbal.herbalfax.customer.interfaces.Onclick;
@@ -66,7 +69,6 @@ public class DealsFragment extends Fragment implements View.OnClickListener {
         storeDealsRecycler = root.findViewById(R.id.storeDealsRecycler);
         dealsheadertxtrecycler = root.findViewById(R.id.dealsheadertxtrecycler);
         /*        buyBtn =  (Button) root.findViewById(R.id.fbLogin);*/
-
         callProductDealsListApi("0");
         itemClick = new Onclick() {
             @Override
@@ -81,8 +83,18 @@ public class DealsFragment extends Fragment implements View.OnClickListener {
                 }
             }
         };
+        showBottomSheet();
+
 
         return root;
+    }
+
+    private void showBottomSheet() {
+        // boolean notification = lst.get(adapterPosition).getNotifyStatus().equals("On");
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        BlogsBottomSheet sheet = new BlogsBottomSheet(DealsFragment.this);
+        sheet.show(fragmentManager, "comment bottom sheet");
     }
 
     private void callProductDealsListApi(String categoryId) {

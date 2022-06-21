@@ -72,7 +72,6 @@ public class FeedAdapter extends AAH_VideosAdapter {
         } else if (viewType == 1) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_feed_type_video, parent, false);
             viewHolder = new ViewHolderUserVideo(view);
-
         } else {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_feed_type_question, parent, false);
             viewHolder = new ViewHolderQuestion(view);

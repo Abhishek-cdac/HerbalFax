@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_5sdp"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:layout_marginVertical="@dimen/_10sdp"
+
     android:background="@color/white"
     app:cardCornerRadius="@dimen/_5sdp">
 
@@ -15,11 +16,16 @@
         android:layout_gravity="center"
         android:background="@color/white"
         android:padding="@dimen/_10sdp">
-
-        <FrameLayout
+        <!--
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">-->
+        <androidx.cardview.widget.CardView
             android:id="@+id/dealItemImg"
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_8sdp">
 
             <ImageView
                 android:id="@+id/productImg"
@@ -30,11 +36,8 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/product"
                 android:visibility="visible" />
-
-
-        </FrameLayout>
-
-
+        </androidx.cardview.widget.CardView>
+        <!--        </FrameLayout>-->
         <LinearLayout
             android:id="@+id/nameLL"
             android:layout_width="match_parent"
@@ -44,11 +47,10 @@
 
             <TextView
                 android:id="@+id/productNameText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
                 android:layout_marginTop="@dimen/_8sdp"
-                android:layout_weight=".9"
+                android:layout_weight=".8"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Gorgeous"
                 android:textColor="@color/black"
@@ -56,29 +58,32 @@
 
             <ImageView
                 android:id="@+id/dealFav"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/herbalfax_choice"
-                android:layout_gravity="top|end"
+                android:layout_gravity="end"
+                android:layout_weight=".2"
+                android:gravity="right"
                 android:src="@drawable/heart_active" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/location"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nameLL"
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_marginEnd="@dimen/_2sdp"
+            android:gravity="center_vertical"
             android:layout_marginBottom="@dimen/_2sdp"
-            android:drawableLeft="@drawable/ic_icon_menu_map_pin"
             android:drawablePadding="@dimen/_5sdp"
             android:fontFamily="@font/roboto_regular"
+            android:maxLines="2"
             android:text="752 Jacinto Dale"
             android:textColor="@color/text_grey"
-            android:textSize="@dimen/_10sdp" />
+            android:textSize="@dimen/_10sdp"
+            app:drawableStartCompat="@drawable/ic_icon_menu_map_pin" />
 
         <LinearLayout
             android:id="@+id/bought_ll"
@@ -95,13 +100,13 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight=".8"
-                android:drawablePadding="@dimen/_3sdp"
+                android:drawablePadding="2dp"
                 android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
                 android:text="@string/_0_bought"
-                android:paddingBottom="@dimen/_5sdp"
                 android:textColor="@color/text_grey"
                 android:textSize="@dimen/_10sdp"
                 app:drawableStartCompat="@drawable/rating" />
@@ -109,16 +114,15 @@
 
             <TextView
                 android:id="@+id/priceTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
                 android:fontFamily="@font/roboto_medium"
-
+                android:gravity="right|center_vertical"
                 android:text="$273"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
-
 
         </LinearLayout>
 
@@ -131,11 +135,11 @@
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_marginEnd="@dimen/_2sdp"
-
             android:layout_marginBottom="@dimen/_2sdp"
             android:drawableLeft="@drawable/ic_calendar"
             android:drawablePadding="@dimen/_5sdp"
             android:fontFamily="@font/roboto_regular"
+            android:gravity="center_vertical"
             android:text="Validity Till: 08/26/21"
             android:textColor="@color/text_grey"
             android:textSize="@dimen/_10sdp" />
@@ -157,11 +161,13 @@
                 android:layout_gravity="center"
                 android:background="@null"
                 android:drawableLeft="@drawable/ic_cart_toolbar"
+                android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:text="  Buy"
+                android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_12sdp" />
         </FrameLayout>
@@ -169,15 +175,15 @@
         <TextView
             android:id="@+id/expiredTxt"
             android:layout_width="match_parent"
-            android:text="Expired"
-            android:layout_marginTop="10dp"
+            android:layout_height="30dp"
             android:layout_below="@+id/validity_txt"
-            android:gravity="center"
-            android:visibility="gone"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rect_button_gray"
-            android:textColor="@color/white"
             android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
+            android:text="Expired"
+            android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
-            android:layout_height="30dp"/>
+            android:visibility="gone" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

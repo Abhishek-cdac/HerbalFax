@@ -94,23 +94,32 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
     private RecyclerView recycleView;
     Bitmap bitmap = null;
     private ArrayList<ProductCategory> lst_store_category;
-    ImageView product_image;
+    ImageView product_image, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addProductViewModel = new AddProductViewModel();
-        ActivityAddProductBinding binding = DataBindingUtil.setContentView(AddProductActivity.this, R.layout.activity_add_product);
+        ActivityAddProductBinding binding = DataBindingUtil.setContentView(AddProductActivity.this,
+                R.layout.activity_add_product);
         binding.setLifecycleOwner(this);
         binding.setAddProductViewModel(addProductViewModel);
         clsCommon = CommonClass.getInstance();
         product_image = findViewById(R.id.product_image);
         recycleView=findViewById(R.id.recycleView);
         categorySpinner = findViewById(R.id.categorySpinner);
+        back = findViewById(R.id.back);
         storeSpinner = findViewById(R.id.spinner);
         msgTxt=findViewById(R.id.msgTxt);
         callStoreListAPI();
         callStorePreDataAPI();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         addProductViewModel.onGalleryClick().observe(this, click -> {
             String[] PERMISSIONS = {

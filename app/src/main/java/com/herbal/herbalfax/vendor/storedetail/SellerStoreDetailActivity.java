@@ -55,6 +55,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
     TextView headerTxt, title, ratingTxt, storeLocation, storeFav, storeView, desc, placeholder, workingdays;
     ImageView storeLogoImg, edit, delete;
     ImageView ratingOne, ratingTwo, ratingThree, ratingFour, ratingFive;
+ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         clsCommon = CommonClass.getInstance();
         StoreDetailrecyclerview = findViewById(R.id.StoreDetailrecyclerview);
         Checkinrecyclerview = findViewById(R.id.Checkinrecyclerview);
+        backBtn = findViewById(R.id.backBtn);
         reviewll = findViewById(R.id.reviewll);
         checkinll = findViewById(R.id.checkinll);
         /*edit = findViewById(R.id.edit);*/
@@ -82,6 +84,12 @@ public class SellerStoreDetailActivity extends AppCompatActivity {
         storeFav = findViewById(R.id.storeFav);
         storeView = findViewById(R.id.storeView);
         desc = findViewById(R.id.desc);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         reviewll.setOnClickListener(view -> {
             StoreDetailrecyclerview.setVisibility(View.VISIBLE);

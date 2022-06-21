@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#EFEFEF"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:background="#EFEFEF"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -38,11 +40,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dealsheadertxtrecycler"
         android:layout_width="match_parent"
+        android:background="#EFEFEF"
+android:paddingHorizontal="@dimen/_10sdp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/_20sdp"
-        android:paddingRight="@dimen/_20sdp" />
+  />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,11 +63,10 @@
 
         android:id="@+id/storeDealsRecycler"
         android:layout_width="match_parent"
+        android:paddingHorizontal="@dimen/_10sdp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/_20sdp"
-        android:paddingRight="@dimen/_20sdp" />
+        android:layout_centerVertical="true"/>
 
 
 </LinearLayout>

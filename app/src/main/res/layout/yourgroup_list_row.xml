@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginVertical="@dimen/_5sdp"
     android:id="@+id/cardView"
     android:background="@color/white"
     android:elevation="4dp"
+    app:cardCornerRadius="@dimen/_8sdp"
     android:padding="5dp">
 
 
@@ -27,25 +29,57 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/icon"
             android:layout_width="60dp"
-            android:layout_weight=".2"
+            android:layout_gravity="center"
             android:elevation="@dimen/_8sdp"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_60sdp"
             android:src="@drawable/profileimg" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginRight="80dp"
+        <LinearLayout
             android:layout_weight=".8"
-            android:gravity="center_vertical"
-            android:text=""
-            android:fontFamily="@font/raleway_semibold"
-            android:textColor="@color/black"
-            android:textSize="14dp" />
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:text="Hands Hold"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/followerTxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:paddingVertical="@dimen/_2sdp"
+                android:text="63.1k follower . 24 post Today"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/text_grey"
+                android:textSize="10dp" />
+
+            <TextView
+                android:paddingVertical="@dimen/_4sdp"
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:maxLines="2"
+                android:gravity="center_vertical"
+                android:text="If you are beginner and don't know weather you should start"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

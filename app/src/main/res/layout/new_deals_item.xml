@@ -13,12 +13,10 @@
         android:id="@+id/categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_regular"
+        android:fontFamily="@font/raleway_medium"
         android:textSize="14dp"
         android:text="All New"
         android:padding="5dp"
         android:gravity="center"
-        android:layout_marginRight="@dimen/_15sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
         />
 </LinearLayout>

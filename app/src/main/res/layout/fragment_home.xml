@@ -102,12 +102,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:weightSum="3"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
             android:orientation="horizontal">
 
             <TextView
+                android:layout_weight="1"
                 android:id="@+id/trendingText"
                 android:background="@drawable/rect_button_green"
-                android:layout_width="@dimen/_100sdp"
+                android:layout_width="0dp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/_5sdp"
@@ -120,8 +124,10 @@
 
             <TextView
                 android:id="@+id/recentText"
-                android:layout_width="@dimen/_100sdp"
+                android:layout_width="0dp"
                 android:layout_height="35dp"
+                android:layout_weight="1"
+
                 android:background="@drawable/rect_button_light_green"
                 android:layout_gravity="center"
                 android:paddingBottom="@dimen/_2sdp"
@@ -134,7 +140,8 @@
                 android:textSize="@dimen/_14sdp" />
             <TextView
                 android:id="@+id/popularText"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="35dp"
                 android:paddingBottom="@dimen/_2sdp"
                 android:background="@drawable/rect_button_light_green"

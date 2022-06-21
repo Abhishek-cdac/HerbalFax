@@ -34,6 +34,7 @@ import com.herbal.herbalfax.customer.homescreen.deals.DealsFragment;
 import com.herbal.herbalfax.customer.homescreen.feed.FeedFragment;
 import com.herbal.herbalfax.customer.homescreen.getusermodel.GetUserResponse;
 import com.herbal.herbalfax.customer.homescreen.group.GroupsFragment;
+import com.herbal.herbalfax.customer.homescreen.group.creategroup.CreateGroupActivity;
 import com.herbal.herbalfax.customer.homescreen.nearbystores.NearByActivity;
 import com.herbal.herbalfax.customer.interfaces.OnInnerFragmentClicks;
 import com.herbal.herbalfax.customer.post.AddPostActivity;
@@ -167,13 +168,19 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
+        createGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LandingPageActivity.this, CreateGroupActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initFab() {
 
         fab= findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
-
             Intent intent = new Intent(getApplicationContext(), AddPostActivity.class);
             intent.putExtra("PostGroupId", "0");
             startActivity(intent);
@@ -258,7 +265,7 @@ public class LandingPageActivity extends AppCompatActivity implements OnInnerFra
                     fab.setVisibility(View.GONE);
                     headerTxt.setText(getResources().getString(R.string.groups));
                     headerIcon.setVisibility(View.GONE);
-                    createGroup.setVisibility(View.VISIBLE);
+                    createGroup.setVisibility(View.GONE);
                     ReplaceFrag(new GroupsFragment());
                     searchIcon.setVisibility(View.GONE);
                     addQuestionTxt.setVisibility(View.GONE);

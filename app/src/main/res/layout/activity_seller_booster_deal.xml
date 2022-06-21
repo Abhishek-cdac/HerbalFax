@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,19 +38,18 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:layout_margin="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:layout_margin="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
 
         <LinearLayout
-            android:padding="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            >
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +59,6 @@
                 <ImageView
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_112sdp"
-                    android:layout_margin="@dimen/_5sdp"
                     android:scaleType="fitXY"
                     android:src="@drawable/bootdeal" />
 
@@ -74,18 +72,18 @@
                         android:id="@+id/productNameText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_medium"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_15sdp"
                         android:capitalize="words"
-                        android:text="Wooden Table"/>
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Wooden Table"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp" />
 
                     <TextView
-                        android:layout_marginTop="@dimen/_3sdp"
                         android:id="@+id/location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/nameLL"
+                        android:layout_marginTop="@dimen/_3sdp"
                         android:drawableLeft="@drawable/ic_icon_menu_map_pin"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
@@ -116,26 +114,27 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/bought_ll"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_3sdp"
                         android:drawableLeft="@drawable/ic_calendar"
                         android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center"
                         android:text="Validity Till: "
-                        android:layout_marginTop="@dimen/_3sdp"
                         android:textColor="@color/text_grey"
                         android:textSize="@dimen/_12sdp" />
 
                     <LinearLayout
-                        android:layout_below="@+id/bought_ll"
-
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bought_ll">
+
                         <TextView
-                            android:layout_marginTop="@dimen/_3sdp"
                             android:id="@+id/priceTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_3sdp"
                             android:drawableLeft="@drawable/ic_baseline_money"
                             android:drawablePadding="@dimen/_5sdp"
                             android:fontFamily="@font/roboto_regular"
@@ -143,12 +142,13 @@
                             android:text="Price  "
                             android:textColor="@color/text_grey"
                             android:textSize="@dimen/_12sdp" />
+
                         <TextView
-                            android:layout_marginTop="@dimen/_3sdp"
                             android:id="@+id/price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_3sdp"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center"
                             android:text="$100"
@@ -159,7 +159,6 @@
                     </LinearLayout>
 
 
-
                 </LinearLayout>
 
 
@@ -168,8 +167,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
                 android:fontFamily="@font/roboto_medium"
-                android:padding="@dimen/_5sdp"
                 android:text="Choose your plan"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp" />
@@ -177,8 +176,7 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
-              >
+               >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -202,9 +200,9 @@
                         android:layout_toRightOf="@+id/twoDaysRb"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="end|center_vertical"
-android:textSize="@dimen/_12sdp"
                         android:text="$20"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp">
 
                     </TextView>
                 </RelativeLayout>
@@ -219,11 +217,9 @@ android:textSize="@dimen/_12sdp"
                         android:id="@+id/fourDaysRb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:fontFamily="@font/roboto_regular"
                         android:text="@string/_4_days"
                         android:textColor="@color/text_grey"
-
                         android:textSize="@dimen/_14sdp" />
 
                     <TextView
@@ -233,10 +229,10 @@ android:textSize="@dimen/_12sdp"
                         android:layout_toRightOf="@+id/fourDaysRb"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="end|center_vertical"
-                        android:textSize="@dimen/_12sdp"
-
                         android:text="$20"
-                        android:textColor="@color/black">
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp">
 
                     </TextView>
                 </RelativeLayout>
@@ -266,8 +262,8 @@ android:textSize="@dimen/_12sdp"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="end|center_vertical"
                         android:text="$20"
-                        android:textSize="@dimen/_12sdp"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp">
 
                     </TextView>
                 </RelativeLayout>
@@ -279,45 +275,45 @@ android:textSize="@dimen/_12sdp"
                 android:id="@+id/endDateTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginLeft="@dimen/_10sdp"
-android:visibility="gone"
                 android:fontFamily="@font/roboto_regular"
                 android:padding="@dimen/_5sdp"
-                android:layout_gravity="end"
                 android:textColor="@color/text_grey"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_13sdp"
+                android:visibility="gone" />
 
             <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:layout_gravity="left"
-                    android:textColor="#656569"
-                    android:text="End Date:"
-                    android:textSize="@dimen/_12sdp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:orientation="vertical">
 
-                    android:fontFamily="@font/roboto_medium"
-                    android:layout_gravity="left"
-                    android:textColor="#656569"
-                    android:text="22/02/2021"
-                    android:textSize="@dimen/_12sdp" />
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="End Date:"
+                        android:textColor="#656569"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="22/02/2021"
+                        android:textColor="#656569"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/buyBtn"
